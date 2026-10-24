@@ -36,6 +36,7 @@ Consumer
 
 Government
 
+- 311 data source: data.boston.gov “311 Service Requests - NEW SYSTEM” (resource 254adca6-64ab-4c5c-9fc0-a6da622be185). It has case_id, lat/long, case_status, assigned_department, assigned_team, closure_reason, closure_comments, close_date, and target_close_date. It supports SQL queries, so it can do radius searches for duplicates. It updates through the day; median time to close is about 4.6 hours. submitted_photo and closed_photo are always empty, so duplicates are matched on location + category, not photos. A saved snapshot and notes are in boston-311/.  
 - Use 311 API to actively pull issues that are already reported/resolved to update user map   
 - Use 311 API to submit new issues \+ see what has already been reported so we don’t double report.   
 - Email reports to officials that are listed on government agendas before the deadline based on the user input.   
@@ -52,15 +53,27 @@ Scope and platform
 
 Reports
 
-* The user types the description before taking the photo.  
+* Photo first (updated 2026-10-24). The flow is:  
+  1. Tap Report → the in-app camera opens (no camera roll, so no old or downloaded photos).  
+  2. Location is taken from the device at the moment the photo is taken.  
+  3. The AI looks at the photo and suggests one of 311’s categories plus a draft description. If it isn’t a real 311/city issue, it is rejected here and never submitted.  
+  4. Duplicate check: look for open 311 cases within ~50 m with the same category (live query against the 311 dataset’s lat/long).  
+     * Match → show the existing case (category, status, team, how long ago) with a “Me too” button. The user follows that case instead of filing a new one and still earns points.  
+     * No match → continue.  
+  5. The user confirms or edits the description, then submits. It shows up as a red pin.  
 * The AI validates the report. If the AI rejects it, it isn’t submitted to 311\.  
-* Location comes from the device at the moment of reporting.  
-* “Approved” means accepted by 311, and points are awarded then.  
+* “Approved” means accepted by 311 (status In progress), and points are awarded then.  
 * Duplicate reports are merged on the backend into one 311 ticket. Duplicates still earn points.  
-* The same user can’t report the same issue repeatedly.  
-* The map shows only the user’s own reports.  
-* Map colors: red means not yet reviewed by 311, yellow means in review, green means in progress, and gray means rejected by 311\.  
-* Resolved issues leave the map and show up in notifications.  
+* The same user can’t report the same issue repeatedly (“Me too” on a case they already follow is blocked).  
+* The map shows only the user’s own reports (including ones they followed with “Me too”).  
+* Map colors, mapped from 311 statuses:  
+  * Red: submitted by us, not yet in the 311 dataset, or status Create.  
+  * Yellow: Needs Reallocation (311 is routing it to the right team).  
+  * Green: In progress (assigned to a team).  
+  * Gray: Closed with closure reason Noted (e.g. “No issue found at location”), i.e. rejected.  
+  * Closed with reason Resolved: leaves the map and becomes a notification.  
+* Resolved issues leave the map and show up in notifications, naming the responsible team (e.g. “Resolved by PWD Street Lighting in 6 hours: ‘Light repaired.’”).  
+* For the demo, submission to 311 is mocked (no real tickets in the city queue). Status changes are played back from a real case’s timeline.  
 * Penalties apply only to AI-rejected reports. The 3rd invalid report costs 1 point.  
 * Reports don’t count toward the streak.
 

@@ -1,12 +1,16 @@
 import * as Location from 'expo-location';
-import { useEffect, useRef } from 'react';
-import { Alert, Linking, Pressable, StyleSheet, View } from 'react-native';
+import { router, useFocusEffect } from 'expo-router';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { Linking, Pressable, StyleSheet, View } from 'react-native';
 import MapView, { Marker, type Region } from 'react-native-maps';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { BottomTabInset, Spacing } from '@/constants/theme';
+import { useBoston311 } from '@/hooks/use-boston-311';
+import type { Case311 } from '@/lib/boston-311';
+import { getMyReports, type MyReport, type ReportStatus } from '@/lib/my-reports';
 
 const BOSTON: Region = {
   latitude: 42.3601,
@@ -15,39 +19,42 @@ const BOSTON: Region = {
   longitudeDelta: 0.08,
 };
 
-const STATUS_COLORS = {
+const STATUS_COLORS: Record<ReportStatus, string> = {
   submitted: '#E5484D',
   inReview: '#F5C518',
   inProgress: '#30A46C',
   rejected: '#8B8D98',
-} as const;
+};
 
-type Status = keyof typeof STATUS_COLORS;
-
-const LEGEND: { status: Status; label: string }[] = [
+const LEGEND: { status: ReportStatus; label: string }[] = [
   { status: 'submitted', label: 'Not reviewed' },
   { status: 'inReview', label: 'In review' },
   { status: 'inProgress', label: 'In progress' },
   { status: 'rejected', label: 'Rejected' },
 ];
 
-const MOCK_REPORTS: {
-  id: string;
-  title: string;
-  place: string;
-  status: Status;
-  latitude: number;
-  longitude: number;
-}[] = [
-  { id: '1', title: 'Pothole', place: 'Mass Ave & Columbus Ave', status: 'inProgress', latitude: 42.3396, longitude: -71.0812 },
-  { id: '2', title: 'Graffiti', place: 'Dudley St', status: 'inReview', latitude: 42.3296, longitude: -71.0837 },
-  { id: '3', title: 'Broken streetlight', place: 'Tremont St', status: 'submitted', latitude: 42.3555, longitude: -71.0626 },
-];
+function summarize(cases: Case311[]) {
+  const counts = new Map<string, number>();
+  for (const c of cases) counts.set(c.case_topic, (counts.get(c.case_topic) ?? 0) + 1);
+  const [topTopic] = [...counts].sort((a, b) => b[1] - a[1])[0] ?? [];
+  const inProgress = cases.filter((c) => c.case_status === 'In progress').length;
+  return `Boston 311 today: ${inProgress} of ${cases.length} latest cases in progress · most common: ${topTopic}`;
+}
 
 export default function ReportScreen() {
+  const { data: city } = useBoston311();
+  const cityStat = city && city.cases.length > 0 ? summarize(city.cases) : null;
   const mapRef = useRef<MapView>(null);
   const [permission, requestPermission] = Location.useForegroundPermissions();
   const granted = permission?.granted ?? false;
+  const [reports, setReports] = useState<MyReport[]>([]);
+
+  // Reload when coming back from the new-report flow.
+  useFocusEffect(
+    useCallback(() => {
+      getMyReports().then(setReports);
+    }, []),
+  );
 
   // Ask once on first visit; after that the user can retry from the banner.
   useEffect(() => {
@@ -85,12 +92,12 @@ export default function ReportScreen() {
         initialRegion={BOSTON}
         showsUserLocation={granted}
         showsMyLocationButton={false}>
-        {MOCK_REPORTS.map((report) => (
+        {reports.map((report) => (
           <Marker
             key={report.id}
             coordinate={{ latitude: report.latitude, longitude: report.longitude }}
-            title={report.title}
-            description={report.place}
+            title={report.topic}
+            description={report.description}
             pinColor={STATUS_COLORS[report.status]}
           />
         ))}
@@ -98,12 +105,19 @@ export default function ReportScreen() {
 
       <SafeAreaView style={styles.overlay} edges={['top']} pointerEvents="box-none">
         <ThemedView type="backgroundElement" style={styles.legend}>
-          {LEGEND.map(({ status, label }) => (
-            <View key={status} style={styles.legendItem}>
-              <View style={[styles.dot, { backgroundColor: STATUS_COLORS[status] }]} />
-              <ThemedText type="small">{label}</ThemedText>
-            </View>
-          ))}
+          <View style={styles.legendRow}>
+            {LEGEND.map(({ status, label }) => (
+              <View key={status} style={styles.legendItem}>
+                <View style={[styles.dot, { backgroundColor: STATUS_COLORS[status] }]} />
+                <ThemedText type="small">{label}</ThemedText>
+              </View>
+            ))}
+          </View>
+          {cityStat && (
+            <ThemedText type="small" themeColor="textSecondary" style={styles.cityStat}>
+              {cityStat}
+            </ThemedText>
+          )}
         </ThemedView>
 
         {permission && !granted && (
@@ -129,7 +143,7 @@ export default function ReportScreen() {
 
       <Pressable
         style={({ pressed }) => [styles.fab, pressed && styles.pressed]}
-        onPress={() => Alert.alert('Coming soon', 'Describe, snap a photo, submit.')}>
+        onPress={() => router.push('/new-report')}>
         <ThemedText type="smallBold" style={styles.fabText}>
           + Report
         </ThemedText>
@@ -148,13 +162,19 @@ const styles = StyleSheet.create({
     gap: Spacing.two,
   },
   legend: {
+    gap: Spacing.one,
+    paddingVertical: Spacing.two,
+    paddingHorizontal: Spacing.three,
+    borderRadius: Spacing.three,
+  },
+  legendRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'center',
     gap: Spacing.three,
-    paddingVertical: Spacing.two,
-    paddingHorizontal: Spacing.three,
-    borderRadius: Spacing.three,
+  },
+  cityStat: {
+    textAlign: 'center',
   },
   legendItem: {
     flexDirection: 'row',

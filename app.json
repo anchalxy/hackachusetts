@@ -38,6 +38,14 @@
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 76
         }
+      ],
+      "expo-sqlite",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow $(PRODUCT_NAME) to use your camera so you can photograph issues to report to 311.",
+          "recordAudioAndroid": false
+        }
       ]
     ],
     "experiments": {
