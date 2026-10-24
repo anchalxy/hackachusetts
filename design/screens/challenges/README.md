@@ -24,13 +24,13 @@ assets/trail/
   icons/                      flow icons: rat, walk, stroller, wheelchair, livestream, ticket, signpost, burrow, droppings, trash-open, bus, pin
 ```
 
-> **Re-rasterize the map tiles.** `freedom-trail-map.svg` changed: this week's scenery moved up to make room for the labels. Regenerate `assets/images/trail/map-*.webp` from it.
+> **Re-rasterize the map tiles.** `freedom-trail-map.svg` changed again: the side labels are gone, so this week's scenery is back in its original spots. Regenerate `assets/images/trail/map-*.webp` from it.
 
 ## layout.json, key by key
 | Key | What it is |
 |---|---|
 | `weeks[].stops[]` | `file`, `name`, `state` (cur/done/missed), `x`, `y` (middle of the piece's top face) |
-| `labels[]` | this week's label cards: `left/top/w/h` + `title`, `due`, `reward`, `challenge`. Styling in `labelsAbout` |
+| `labels[]` | this week's nameplates: `left/top/w/h` (centered under each piece) + `title`, `due`, `reward`, `challenge`. Styling in `labelsAbout` |
 | `cards[]` | past-week cards ("Week 5 · 4 of 5 done") |
 | `rivers[]` | `boats[]` (svg, size, anchor, polyline `path`, `dur`, `delay`), `bridge` (svg group + center/angle/length), `ripples` |
 | `props[]`, `falls[]` | animated scenery and falling-leaf sources; animation recipes in `motion.props` / `motion.falls` |
@@ -42,11 +42,11 @@ assets/trail/
 ## Trail rules
 - Each Monday 4–5 new stops appear at the top, under the forest. The trail runs bottom → top; the soonest deadline is lowest.
 - Doing 1 challenge a week keeps the streak. A river and an angled bridge separate weeks; past weeks get a week card.
-- Stop states: **current** (floating piece + icon chip + label card, all tappable), **done** (full color, warm glow, teal check with a gold ring, two slow twinkles; label turns to "Done · +70"), **missed** (grayed piece, no badge, no label).
+- Stop states: **current** (piece gently expanding in place + nameplate, both tappable), **done** (full color, warm glow, teal check with a gold ring, two slow twinkles; nameplate turns to "Done · +70 earned"), **missed** (grayed piece, no badge, no nameplate).
 - This week: Copp's Hill → urban wild, Old North → $2M ballot, Paul Revere House → Cummins walk audit, Faneuil Hall → rat patrol, Boston Massacre Site → Council meeting.
 
-## Labels (why they exist)
-On their own the floating landmarks didn't read as challenges. Each current stop gets a small white card on the open side of the curve: title (DM Sans 13.5/700), then a small leaf, **+70** in leaf green and the due date in gray, with a teal chevron. Same tap target as the stop.
+## Nameplates (why they exist)
+On their own the landmarks didn't read as challenges, and side labels looked detached. Each current stop now has a nameplate centered under it that overlaps the front of its tile, so piece and name read as one object. It holds the challenge icon (the floating chip on the piece is gone), the title, and a small leaf with **+70** and the due date. The teal border and bottom lip mark it as tappable; it opens the same sheet as the stop. The nameplate stays still while the piece pulses.
 
 ## Tea leaves
 Doc points ×10 so a vote can be small. Time (under 15 min 10 · 15–30 20 · 30–45 30 · 45–60 40 · 60+ 50) + in person 20 + city asked 10 + proof checked 10. Votes +2, max 10 a week.
@@ -55,7 +55,7 @@ This week: Council 80 (60 livestream) · Cummins 80 · urban wild 70 · $2M 40 �
 ## Motion (calmer pass; everything off with Reduce Motion)
 | Element | Motion |
 |---|---|
-| Current stop | piece + chip float together: translateY 0 → −14 → 0, 3.4 s ease-in-out, stagger 0.9 s; a soft ground shadow shrinks to 0.78 as it rises. No more breathing scale |
+| Current stop | expands and contracts in place: scale 1 → 1.07 → 1, 2.8 s ease-in-out, origin at the front of the tile (50% 88%), stagger 0.7 s. No up-and-down float |
 | Done stop | pop 0.6 → 1.12 → 1 (0.5 s); twinkles 4 s |
 | Wind gusts | fixed to the screen. 4 paths, a 150-long dash sweeps along each in 3.2 s; every 16, 22, 27, 34 s (uneven on purpose). 3 leaves ride each gust. Data: `layout.wind` |
 | Drifting leaves | 2 leaves, 21 s and 26 s across |
