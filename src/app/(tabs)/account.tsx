@@ -103,7 +103,6 @@ export default function ProfileScreen() {
     <SafeAreaView style={styles.screen} edges={['top']}>
       <ScrollView contentContainerStyle={styles.content}>
         <View style={styles.topBar}>
-          <Icon name="teacup" size={36} />
           <Txt variant="rowLead" style={styles.username}>
             {profile.username}
           </Txt>
@@ -283,7 +282,7 @@ const styles = StyleSheet.create({
   topBar: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-end',
     paddingVertical: 12,
   },
   username: {

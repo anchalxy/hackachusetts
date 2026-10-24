@@ -1,7 +1,7 @@
 import * as Haptics from 'expo-haptics';
 import { router, Stack } from 'expo-router';
 import { SymbolView } from 'expo-symbols';
-import { useState, type ReactNode } from 'react';
+import { useEffect, type ReactNode } from 'react';
 import { KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -12,6 +12,7 @@ import {
   getChallengeProgress,
   leafBalance,
   streak,
+  useChallengeProgress,
 } from '@/lib/challenge-progress';
 import { Button, StatusGlyph } from '@/ui/components';
 import { Icon, type IconName } from '@/ui/icon';
@@ -374,16 +375,18 @@ export function SentScreen({
   const stop = TRAIL_STOPS[challengeId];
   const earned = leaves ?? stop?.leaves ?? 0;
 
-  // Credit once per mount, and never twice for the same stop.
-  const [summary] = useState(() => {
-    const before = getChallengeProgress();
-    if (!(challengeId in before.stops) || before.stops[challengeId].pendingCheckIn) {
-      completeStop(challengeId, earned, { pendingCheckIn, data });
-      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success).catch(() => {});
-    }
-    const after = getChallengeProgress();
-    return { balance: leafBalance(after), weeks: streak(after).weeks };
-  });
+  // Credit after render (writing the store mid-render would update the trail screen while this one
+  // renders), and only if the stop isn't recorded yet, so remounts and StrictMode don't double-pay.
+  useEffect(() => {
+    if (challengeId in getChallengeProgress().stops) return;
+    completeStop(challengeId, earned, { pendingCheckIn, data });
+    Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success).catch(() => {});
+    // Runs once per Sent screen; later prop changes shouldn't credit again.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const progress = useChallengeProgress();
+  const summary = { balance: leafBalance(progress), weeks: streak(progress).weeks };
 
   return (
     <FlowScreen action={{ label: 'Back to the trail', onPress: backToTrail }}>

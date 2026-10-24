@@ -99,6 +99,9 @@ export default function ChallengesScreen() {
             contentContainerStyle={{ paddingBottom: BottomTabInset + insets.bottom + 24 }}
             onScroll={onScroll}
             scrollEventThrottle={100}
+            // The map starts at the forest; nothing is drawn above it, so don't rubber-band past it.
+            bounces={false}
+            overScrollMode="never"
             showsVerticalScrollIndicator={false}>
             <TrailMap k={k} challenges={challenges} progress={progress} focused={focused} />
           </ScrollView>
