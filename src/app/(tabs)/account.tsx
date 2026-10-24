@@ -6,6 +6,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import Svg, { Path } from 'react-native-svg';
 
 import { BottomTabInset } from '@/constants/theme';
+import { leafBalance, useChallengeProgress } from '@/lib/challenge-progress';
 import { areaLabel, getProfile, SEED_PROFILE, type Profile } from '@/lib/profile';
 import { Badge, Button, Card, IconTile, Timeline } from '@/ui/components';
 import { Icon, type IconName } from '@/ui/icon';
@@ -92,6 +93,7 @@ const EARLIER: Notification[] = [
 export default function ProfileScreen() {
   const [profile, setProfile] = useState<Profile>(SEED_PROFILE);
   const [thanked, setThanked] = useState(false);
+  const progress = useChallengeProgress();
 
   useEffect(() => {
     getProfile().then(setProfile);
@@ -108,7 +110,7 @@ export default function ProfileScreen() {
           <Pressable onPress={() => router.navigate('/rewards')} style={styles.leafPill}>
             <Icon name="leafy" size={22} />
             <Txt variant="rowLead" style={styles.leafAmount}>
-              {profile.leaves.toLocaleString()}
+              {leafBalance(progress, profile.leaves).toLocaleString()}
             </Txt>
           </Pressable>
         </View>

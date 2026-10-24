@@ -1,173 +1,189 @@
-import { Stack, useLocalSearchParams } from 'expo-router';
+import { router, useLocalSearchParams } from 'expo-router';
+import { SymbolView } from 'expo-symbols';
 import * as WebBrowser from 'expo-web-browser';
-import { type ReactNode } from 'react';
-import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
+import { Pressable, StyleSheet, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
+import { CloseButton } from '@/components/challenge-flow/flow';
+import { landmarkName, trailStop, type StopChip } from '@/constants/trail';
 import { getChallenge, shortDate } from '@/lib/challenge-week';
+import { useChallengeProgress } from '@/lib/challenge-progress';
+import { Badge, Button, IconTile } from '@/ui/components';
+import { Icon } from '@/ui/icon';
+import { Txt } from '@/ui/text';
+import { color, font, radius, space } from '@/ui/theme';
 
-export default function ChallengeScreen() {
+const CHIP_COLORS: Record<StopChip['tone'], { bg: string; fg: string }> = {
+  leaf: color.badge.reward,
+  due: color.badge.inReview,
+  urgent: color.badge.urgent,
+  plain: { bg: color.tile, fg: color.slate },
+};
+
+/** The detail sheet after tapping a stop (design/screens/challenges/<flow>/0-sheet.png). */
+export default function ChallengeSheet() {
   const { id } = useLocalSearchParams<{ id: string }>();
+  const insets = useSafeAreaInsets();
+  const progress = useChallengeProgress();
   const challenge = getChallenge(id);
+  const stop = trailStop(id);
 
   if (!challenge) {
     return (
-      <ThemedView style={styles.container}>
-        <Stack.Screen options={{ title: 'Challenge' }} />
-        <ThemedText style={styles.missing}>This challenge isn’t in this week’s set.</ThemedText>
-      </ThemedView>
+      <View style={[styles.sheet, { paddingBottom: insets.bottom + 16 }]}>
+        <Txt variant="secondary">This challenge isn’t in this week’s set.</Txt>
+      </View>
     );
   }
 
+  // Generated weeks don't have hand-made stops yet, so build a plain version from the data.
+  const title = stop?.title ?? challenge.title;
+  const body = stop?.body ?? challenge.summary;
+  const chips: StopChip[] = stop?.chips ?? [
+    { label: `+${challenge.points * 10} tea leaves`, tone: 'leaf' },
+    { label: `Due ${shortDate(challenge.deadlineDate)}`, tone: 'due' },
+  ];
+  const contact = challenge.contacts[0];
+  const askedBy = stop?.askedBy ?? { name: contact?.name ?? contact?.office ?? '', office: contact?.name ? contact.office : '' };
+  const sourceLabel = stop?.sourceLabel ?? new URL(challenge.sourceUrl).hostname.replace(/^www\./, '');
+  const done = progress.stops[id];
+
+  const start = () => {
+    if (!stop) return WebBrowser.openBrowserAsync(challenge.sourceUrl);
+    // Swap the sheet for the flow, so closing the flow lands on the trail.
+    router.replace(done?.pendingCheckIn ? '/flow/rat-patrol/check-in' : stop.flow);
+  };
+
   return (
-    <ThemedView style={styles.container}>
-      <Stack.Screen options={{ title: `Challenge ${challenge.number}` }} />
-      <ScrollView contentInsetAdjustmentBehavior="automatic" contentContainerStyle={styles.content}>
-        <View style={styles.header}>
-          <ThemedText type="subtitle" style={styles.title}>
-            {challenge.title}
-          </ThemedText>
-          <ThemedView type="backgroundElement" style={styles.pointsPill}>
-            <ThemedText type="smallBold">{challenge.pointsLabel ?? `${challenge.points} points`}</ThemedText>
-          </ThemedView>
-          <ThemedText>{challenge.summary}</ThemedText>
+    <View style={[styles.sheet, { paddingBottom: insets.bottom + 12 }]}>
+      <View style={styles.head}>
+        <IconTile icon={stop?.icon ?? 'doc'} size={64} />
+        <View style={styles.headText}>
+          {stop ? <Txt variant="meta">{landmarkName(stop.landmark)}</Txt> : null}
+          <Txt variant="hero">{title}</Txt>
         </View>
+        <CloseButton onPress={() => router.back()} />
+      </View>
 
-        <Section heading="The task">
-          {challenge.task.intro && <ThemedText>{challenge.task.intro}</ThemedText>}
-          {challenge.task.steps.map((step, i) => (
-            <ThemedText key={i}>
-              {i + 1}. {step}
-            </ThemedText>
-          ))}
-        </Section>
+      <Txt variant="body" style={styles.body}>
+        {body}
+      </Txt>
 
-        {challenge.extras?.map((extra) => (
-          <Section key={extra.heading} heading={extra.heading}>
-            {extra.intro && <ThemedText themeColor="textSecondary">{extra.intro}</ThemedText>}
-            {extra.items.map((item, i) => (
-              <ThemedText key={i}>• {item}</ThemedText>
-            ))}
-          </Section>
-        ))}
-
-        <Section heading="Agenda item">
-          <ThemedText>{challenge.agendaItem}</ThemedText>
-        </Section>
-        <Section heading="Why now">
-          <ThemedText>{challenge.whyNow}</ThemedText>
-        </Section>
-        <Section heading="Submission deadline">
-          <ThemedText>{challenge.deadline}</ThemedText>
-          <ThemedText type="small" themeColor="textSecondary">
-            Due {shortDate(challenge.deadlineDate)}
-          </ThemedText>
-        </Section>
-        <Section heading="Points">
-          <ThemedText>{challenge.pointsBreakdown}</ThemedText>
-        </Section>
-        {challenge.voting && (
-          <Section heading="Voting">
-            <ThemedText>{challenge.voting}</ThemedText>
-          </Section>
+      <View style={styles.chips}>
+        {chips.map((chip) =>
+          chip.tone === 'leaf' ? (
+            <View key={chip.label} style={[styles.leafChip, { backgroundColor: CHIP_COLORS.leaf.bg }]}>
+              <Icon name="leafySmall" size={14} />
+              <Txt variant="badge" style={{ color: CHIP_COLORS.leaf.fg }}>
+                {chip.label}
+              </Txt>
+            </View>
+          ) : (
+            <Badge key={chip.label} label={chip.label} {...CHIP_COLORS[chip.tone]} />
+          ),
         )}
-        {challenge.verification && (
-          <Section heading="Verification">
-            <ThemedText>{challenge.verification}</ThemedText>
-          </Section>
-        )}
-        <Section heading="Government POC">
-          <ThemedText>{challenge.poc}</ThemedText>
-        </Section>
-        <Section heading="What the POC receives">
-          <ThemedText>{challenge.pocReceives}</ThemedText>
-        </Section>
+      </View>
 
-        <Pressable
-          onPress={() => WebBrowser.openBrowserAsync(challenge.sourceUrl)}
-          style={({ pressed }) => [styles.sourceButton, pressed && styles.pressed]}>
-          <ThemedText type="smallBold">View the source on {hostname(challenge.sourceUrl)} ↗</ThemedText>
-        </Pressable>
+      <View style={styles.divider} />
 
-        <Pressable disabled style={[styles.startButton, styles.pressed]}>
-          <ThemedText type="smallBold" style={styles.startText}>
-            Start challenge (coming soon)
-          </ThemedText>
-        </Pressable>
-      </ScrollView>
-    </ThemedView>
-  );
-}
+      <View style={styles.asked}>
+        <IconTile icon="cityhall" />
+        <View style={styles.headText}>
+          <Txt variant="meta">Asked by</Txt>
+          <Txt variant="rowLead" style={styles.askedName}>
+            {askedBy.name}
+          </Txt>
+          {askedBy.office ? <Txt variant="secondary">{askedBy.office}</Txt> : null}
+        </View>
+      </View>
 
-/** "https://www.boston.gov/…" → "boston.gov". */
-function hostname(url: string) {
-  return url.replace(/^https?:\/\/(www\.)?/, '').split('/')[0];
-}
+      <Pressable
+        onPress={() => WebBrowser.openBrowserAsync(challenge.sourceUrl)}
+        accessibilityRole="link"
+        style={({ pressed }) => [styles.source, pressed && styles.pressed]}>
+        <Txt variant="secondary" style={styles.sourceLabel}>
+          Source
+        </Txt>
+        <Txt variant="rowLead" numberOfLines={1} style={styles.sourceLink}>
+          {sourceLabel}
+        </Txt>
+        <SymbolView name="chevron.right" size={12} weight="semibold" tintColor={color.primary} />
+      </Pressable>
 
-function Section({ heading, children }: { heading: string; children: ReactNode }) {
-  return (
-    <ThemedView type="backgroundElement" style={styles.section}>
-      <ThemedText type="smallBold" themeColor="textSecondary" style={styles.sectionHeading}>
-        {heading}
-      </ThemedText>
-      {children}
-    </ThemedView>
+      {done && !done.pendingCheckIn ? (
+        <View style={styles.doneRow}>
+          <Badge label={`Done · +${done.leaves} tea leaves`} {...color.badge.reward} />
+        </View>
+      ) : (
+        <Button label={done?.pendingCheckIn ? 'Do the day-7 check-in' : 'Start challenge'} onPress={start} />
+      )}
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  sheet: {
+    paddingHorizontal: space.gutter,
+    paddingTop: 28,
+    gap: 14,
+    backgroundColor: color.surface,
+  },
+  head: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 14,
+  },
+  headText: {
     flex: 1,
+    gap: 1,
   },
-  content: {
-    padding: Spacing.four,
-    paddingBottom: BottomTabInset + Spacing.six,
-    gap: Spacing.three,
-    maxWidth: MaxContentWidth,
-    width: '100%',
-    alignSelf: 'center',
+  body: {
+    color: color.slate,
   },
-  missing: {
-    padding: Spacing.four,
+  chips: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
   },
-  header: {
-    gap: Spacing.two,
-  },
-  title: {
-    fontSize: 28,
-    lineHeight: 34,
-  },
-  pointsPill: {
-    alignSelf: 'flex-start',
-    paddingVertical: Spacing.one,
-    paddingHorizontal: Spacing.three,
-    borderRadius: Spacing.three,
-  },
-  section: {
-    padding: Spacing.three,
-    borderRadius: Spacing.three,
-    gap: Spacing.one,
-  },
-  sectionHeading: {
-    textTransform: 'uppercase',
-    letterSpacing: 0.5,
-  },
-  sourceButton: {
+  leafChip: {
+    flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: Spacing.three,
+    gap: 4,
+    height: 26,
+    paddingHorizontal: 8,
+    borderRadius: radius.badge,
   },
-  startButton: {
+  divider: {
+    height: 1,
+    backgroundColor: color.border,
+  },
+  asked: {
+    flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: Spacing.three,
-    borderRadius: Spacing.five,
-    backgroundColor: '#208AEF',
+    gap: 12,
   },
-  startText: {
-    color: '#ffffff',
+  askedName: {
+    fontSize: 14,
+  },
+  source: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    paddingVertical: 4,
+  },
+  sourceLabel: {
+    fontFamily: font.bodyMedium,
+  },
+  sourceLink: {
+    flex: 1,
+    fontSize: 13.5,
+    color: color.primary,
   },
   pressed: {
-    opacity: 0.6,
+    opacity: 0.7,
+  },
+  doneRow: {
+    alignItems: 'center',
+    paddingVertical: 14,
   },
 });

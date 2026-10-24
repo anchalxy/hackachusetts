@@ -28,7 +28,7 @@
       [
         "expo-location",
         {
-          "locationWhenInUsePermission": "Allow $(PRODUCT_NAME) to use your location so you can report issues in your neighborhood."
+          "locationWhenInUsePermission": "Allow $(PRODUCT_NAME) to use your location so you can report issues and check in on challenges in your neighborhood."
         }
       ],
       [
@@ -43,8 +43,16 @@
       [
         "expo-camera",
         {
-          "cameraPermission": "Allow $(PRODUCT_NAME) to use your camera so you can photograph issues to report to 311.",
+          "cameraPermission": "Allow $(PRODUCT_NAME) to use your camera so you can photograph issues for 311 and spots on your challenges.",
           "recordAudioAndroid": false
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow $(PRODUCT_NAME) to use your photos so you can add pictures to reports and challenges.",
+          "cameraPermission": "Allow $(PRODUCT_NAME) to use your camera so you can photograph issues for 311 and spots on your challenges.",
+          "microphonePermission": false
         }
       ]
     ],

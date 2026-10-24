@@ -9,6 +9,8 @@ import { color, fontFiles } from '@/ui/theme';
 
 SplashScreen.preventAutoHideAsync();
 
+const FLOWS = ['urban-wild', 'spend-2-million', 'cummins-walk-audit', 'rat-patrol', 'council-meeting'];
+
 export default function RootLayout() {
   const colorScheme = useColorScheme();
   // Bricolage Grotesque + DM Sans (design/assets/fonts). Hold the splash until they're in.
@@ -27,7 +29,21 @@ export default function RootLayout() {
             options={{ presentation: 'transparentModal', animation: 'slide_from_bottom' }}
           />
           <Stack.Screen name="report/[id]" options={{ contentStyle: { backgroundColor: color.bg } }} />
-          <Stack.Screen name="challenge/[id]" options={{ headerShown: true, headerBackTitle: 'This Week' }} />
+          {/* Tapping a trail stop: native form sheet sized to its content. */}
+          <Stack.Screen
+            name="challenge/[id]"
+            options={{
+              presentation: 'formSheet',
+              sheetAllowedDetents: 'fitToContents',
+              sheetGrabberVisible: true,
+              sheetCornerRadius: 28,
+              contentStyle: { backgroundColor: color.surface },
+            }}
+          />
+          {/* Each challenge flow is its own native stack, presented as a page sheet. */}
+          {FLOWS.map((flow) => (
+            <Stack.Screen key={flow} name={`flow/${flow}`} options={{ presentation: 'modal' }} />
+          ))}
         </Stack>
       </ThemeProvider>
     </GestureHandlerRootView>

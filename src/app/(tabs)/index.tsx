@@ -1,138 +1,124 @@
-import { router } from 'expo-router';
-import { useEffect, useState } from 'react';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { useIsFocused } from 'expo-router';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import {
+  ScrollView,
+  StyleSheet,
+  useWindowDimensions,
+  View,
+  type LayoutChangeEvent,
+  type NativeScrollEvent,
+  type NativeSyntheticEvent,
+} from 'react-native';
+import { useReducedMotion } from 'react-native-reanimated';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { Card, Screen } from '@/components/screen';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { Spacing } from '@/constants/theme';
-import { getCurrentWeek, loadCurrentWeek, shortDate, trailOrder } from '@/lib/challenge-week';
-import { areaSlug, getProfile } from '@/lib/profile';
+import { DriftingLeaves } from '@/components/trail/ambient';
+import { BAND_COUNT, BAND_H, MAP_W } from '@/components/trail/layout';
+import { TrailMotionContext, type TrailMotion } from '@/components/trail/motion';
+import { TrailHeader } from '@/components/trail/trail-header';
+import { TrailMap } from '@/components/trail/trail-map';
+import { BottomTabInset } from '@/constants/theme';
+import { leafBalance, streak, useChallengeProgress } from '@/lib/challenge-progress';
+import { getCurrentWeek, loadCurrentWeek, trailOrder } from '@/lib/challenge-week';
+import { areaSlug, getProfile, SEED_PROFILE } from '@/lib/profile';
 
-// Freedom Trail stops, in trail order. A week has 4–5 challenges, so 5 stops is enough.
-const MONUMENTS = [
-  'Boston Common',
-  'Massachusetts State House',
-  'Old South Meeting House',
-  'Faneuil Hall',
-  'Paul Revere House',
-];
-
-const IN_PERSON_LABEL = { yes: 'In person', no: 'From home', optional: 'In person or online' } as const;
+/** Ground color of the map, so overscroll and the tab-bar padding blend in. */
+const GROUND = '#F2F0E2';
+/** Keep motion running a little beyond the viewport (map units) so it's already moving on arrival. */
+const MOTION_MARGIN = 300;
 
 export default function ChallengesScreen() {
   const [week, setWeek] = useState(getCurrentWeek);
+  const [baseLeaves, setBaseLeaves] = useState(SEED_PROFILE.leaves);
+  const progress = useChallengeProgress();
+  const insets = useSafeAreaInsets();
+  const { width } = useWindowDimensions();
+  const focused = useIsFocused();
+  const reduced = useReducedMotion();
 
   // Live mode swaps in the latest generated week for the user's area; demo mode keeps the seed.
   useEffect(() => {
     let active = true;
     getProfile()
-      .then((profile) => loadCurrentWeek(areaSlug(profile)))
+      .then((profile) => {
+        if (active) setBaseLeaves(profile.leaves);
+        return loadCurrentWeek(areaSlug(profile));
+      })
       .then((loaded) => active && setWeek(loaded))
       .catch(() => {}); // keep showing what we have
     return () => {
       active = false;
     };
   }, []);
-  const challenges = trailOrder(week);
-  const totalPoints = challenges.reduce((sum, c) => sum + c.points, 0);
+
+  const challenges = useMemo(() => trailOrder(week), [week]);
+  const k = width / MAP_W;
+
+  // Only animate the bands of the map near the viewport, and nothing while another tab is up.
+  const [viewportHeight, setViewportHeight] = useState(0);
+  const bandsKey = useRef('');
+  const [activeBands, setActiveBands] = useState<boolean[]>(() => Array.from({ length: BAND_COUNT }, (_, i) => i === 0));
+
+  const updateBands = useCallback(
+    (scrollY: number, height: number) => {
+      const top = scrollY / k - MOTION_MARGIN;
+      const bottom = (scrollY + height) / k + MOTION_MARGIN;
+      const next = Array.from({ length: BAND_COUNT }, (_, i) => i * BAND_H < bottom && (i + 1) * BAND_H > top);
+      const key = next.join();
+      if (key !== bandsKey.current) {
+        bandsKey.current = key;
+        setActiveBands(next);
+      }
+    },
+    [k],
+  );
+
+  const onScroll = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
+    const { contentOffset, layoutMeasurement } = e.nativeEvent;
+    updateBands(contentOffset.y, layoutMeasurement.height);
+  };
+
+  const onLayout = (e: LayoutChangeEvent) => {
+    const { height } = e.nativeEvent.layout;
+    setViewportHeight(height);
+    updateBands(0, height);
+  };
+
+  const motion = useMemo<TrailMotion>(
+    () => ({ reduced, activeBands: focused ? activeBands : activeBands.map(() => false) }),
+    [reduced, focused, activeBands],
+  );
 
   return (
-    <Screen title="This Week" subtitle={`Week of ${shortDate(week.weekOf)} · ${week.area}`}>
-      <Card style={styles.streakCard}>
-        <View style={styles.streakText}>
-          <ThemedText type="smallBold">🔥 3-week streak</ThemedText>
-          <ThemedText type="small" themeColor="textSecondary">
-            Finish 1 challenge this week to keep it
-          </ThemedText>
+    <View style={styles.screen}>
+      <TrailHeader balance={leafBalance(progress, baseLeaves)} streak={streak(progress)} />
+      <TrailMotionContext.Provider value={motion}>
+        <View style={styles.body} onLayout={onLayout}>
+          <ScrollView
+            style={styles.scroll}
+            contentContainerStyle={{ paddingBottom: BottomTabInset + insets.bottom + 24 }}
+            onScroll={onScroll}
+            scrollEventThrottle={100}
+            showsVerticalScrollIndicator={false}>
+            <TrailMap k={k} challenges={challenges} progress={progress} focused={focused} />
+          </ScrollView>
+          <DriftingLeaves width={width} height={viewportHeight} reduced={reduced} />
         </View>
-        <ThemedText type="smallBold">{totalPoints} pts up for grabs</ThemedText>
-      </Card>
-
-      <View>
-        {challenges.map((challenge, index) => (
-          <View key={challenge.id} style={styles.stop}>
-            <View style={styles.trail}>
-              <ThemedView type="backgroundSelected" style={styles.marker}>
-                <ThemedText type="smallBold">{index + 1}</ThemedText>
-              </ThemedView>
-              {index < challenges.length - 1 && <ThemedView type="backgroundSelected" style={styles.line} />}
-            </View>
-            <Pressable
-              style={({ pressed }) => [styles.stopPressable, pressed && styles.pressed]}
-              onPress={() => router.push({ pathname: '/challenge/[id]', params: { id: challenge.id } })}>
-              <Card style={styles.stopCard}>
-                <ThemedText type="small" themeColor="textSecondary">
-                  {MONUMENTS[index % MONUMENTS.length]}
-                </ThemedText>
-                <ThemedText type="smallBold" style={styles.title}>
-                  {challenge.title}
-                </ThemedText>
-                <ThemedText type="small" themeColor="textSecondary" numberOfLines={2}>
-                  {challenge.summary}
-                </ThemedText>
-                <View style={styles.meta}>
-                  <ThemedText type="smallBold">+{challenge.points} pts</ThemedText>
-                  <ThemedText type="small" themeColor="textSecondary">
-                    Due {shortDate(challenge.deadlineDate)} · {IN_PERSON_LABEL[challenge.inPerson]}
-                  </ThemedText>
-                </View>
-              </Card>
-            </Pressable>
-          </View>
-        ))}
-      </View>
-    </Screen>
+      </TrailMotionContext.Provider>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  streakCard: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    gap: Spacing.three,
+  screen: {
+    flex: 1,
+    backgroundColor: GROUND,
   },
-  streakText: {
+  body: {
     flex: 1,
   },
-  stop: {
-    flexDirection: 'row',
-    gap: Spacing.three,
-  },
-  trail: {
-    alignItems: 'center',
-    width: 28,
-  },
-  marker: {
-    width: 28,
-    height: 28,
-    borderRadius: 14,
-    marginTop: Spacing.three,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  line: {
+  scroll: {
     flex: 1,
-    width: 3,
-  },
-  stopPressable: {
-    flex: 1,
-    marginBottom: Spacing.three,
-  },
-  stopCard: {
-    gap: Spacing.one,
-  },
-  title: {
-    fontSize: 16,
-  },
-  meta: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginTop: Spacing.one,
-  },
-  pressed: {
-    opacity: 0.7,
+    backgroundColor: GROUND,
   },
 });
