@@ -272,7 +272,10 @@ export function SwanBoat({ k }: { k: number }) {
 
 export const RiverBridge = memo(function RiverBridge({ bridge, k }: { bridge: Bridge; k: number }) {
   const size = 200 * k;
-  const xml = `<svg viewBox="-100 -100 200 200" fill="none"><g transform="rotate(${bridge.a})">${bridge.g}</g></svg>`;
+  // layout.json's `a` has the opposite sign to SVG's clockwise rotate(). rotate(-a) puts the deck
+  // along the trail (123° and 54°, matching the trail's tangent at each crossing); rotate(a)
+  // mirrored both bridges onto the wrong diagonal.
+  const xml = `<svg viewBox="-100 -100 200 200" fill="none"><g transform="rotate(${-bridge.a})">${bridge.g}</g></svg>`;
   return (
     <View
       pointerEvents="none"

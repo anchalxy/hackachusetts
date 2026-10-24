@@ -1,15 +1,17 @@
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { StyleSheet, TextInput } from 'react-native';
+import { TextInput } from 'react-native';
 
 import { FlowHeader, FlowHeading, SectionLabel } from '@/components/challenge-flow/flow';
 import { fullMoney, getBallotDraft, PROJECT_BY_ID, setBallotDraft } from '@/components/challenge-flow/spend-2-million/ballot';
 import { BallotScreen } from '@/components/challenge-flow/spend-2-million/parts';
 import { RankList } from '@/components/challenge-flow/spend-2-million/rank-list';
-import { color, font, radius } from '@/ui/theme';
+import { font, makeStyles, radius, useColors } from '@/ui/theme';
 
 /** Step 2 of 2: rank the ballot by dragging, and say why the top pick matters. */
 export default function ReviewBallot() {
+  const styles = useStyles();
+  const color = useColors();
   const [draft] = useState(getBallotDraft);
   const [order, setOrder] = useState(draft.ids);
   const [reason, setReason] = useState('');
@@ -48,7 +50,7 @@ export default function ReviewBallot() {
   );
 }
 
-const styles = StyleSheet.create({
+const useStyles = makeStyles((color) => ({
   input: {
     minHeight: 84,
     paddingHorizontal: 16,
@@ -64,4 +66,4 @@ const styles = StyleSheet.create({
     color: color.ink,
     textAlignVertical: 'top',
   },
-});
+}));

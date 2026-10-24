@@ -1,9 +1,9 @@
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 
 import { Caption, Group, InfoRow, InnerPage, SectionLabel } from '@/components/menu/menu-ui';
 import { Icon, type IconName } from '@/ui/icon';
 import { Txt } from '@/ui/text';
-import { color, font } from '@/ui/theme';
+import { font, makeStyles } from '@/ui/theme';
 
 // design/screens/menu/reporting-guidelines.png. Also opened from the report flow's
 // "What can I report?" links, so it works as the first page in the sheet too.
@@ -19,6 +19,7 @@ const REPORTABLE: { icon: IconName; label: string }[] = [
 ];
 
 export default function ReportingGuidelinesPage() {
+  const styles = useStyles();
   return (
     <InnerPage
       icon="shield"
@@ -59,7 +60,7 @@ export default function ReportingGuidelinesPage() {
   );
 }
 
-const styles = StyleSheet.create({
+const useStyles = makeStyles((color) => ({
   grid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -90,4 +91,4 @@ const styles = StyleSheet.create({
   footnote: {
     marginTop: 14,
   },
-});
+}));

@@ -1,7 +1,7 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import QRCode from 'qrcode';
 import { useMemo } from 'react';
-import { Alert, Linking, Pressable, ScrollView, StyleSheet, View } from 'react-native';
+import { Alert, Linking, Pressable, ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Svg, { Path, Rect } from 'react-native-svg';
 
@@ -9,20 +9,31 @@ import { dealBadge, dealStatus, mapsUrl, markDealUsed, partner, useRewards } fro
 import { Badge } from '@/ui/components';
 import { Icon } from '@/ui/icon';
 import { Txt } from '@/ui/text';
-import { color, font, space } from '@/ui/theme';
+import { font, makeStyles, space, useColors, useScheme, type Palette } from '@/ui/theme';
 
 const QR_SIZE = 220;
-const BADGE = { ok: color.badge.approved, urgent: color.badge.urgent, done: { bg: '#EFEDE9', fg: color.mute } };
+/** QR modules stay dark navy on the white plate in both schemes so scanners read it. */
+const QR_INK = '#1E2A3A';
+function badgeColors(color: Palette, dark: boolean) {
+  return { ok: color.badge.approved, urgent: color.badge.urgent, done: { bg: dark ? color.tile : '#EFEDE9', fg: color.mute } };
+}
 
 /** Rewards step 7 (design/screens/rewards/7-deal-qr.png): the single-use QR for one deal. */
 export default function DealScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
+  const styles = useStyles();
+  const color = useColors();
   const { deals } = useRewards();
   const deal = deals.find((d) => d.id === id);
 
   return (
     <SafeAreaView style={styles.screen}>
-      <Pressable onPress={() => router.back()} hitSlop={10} accessibilityRole="button" style={styles.back}>
+      <Pressable
+        onPress={() => (router.canGoBack() ? router.back() : router.replace('/rewards'))}
+        hitSlop={10}
+        accessibilityRole="button"
+        accessibilityLabel="Back to Rewards"
+        style={styles.back}>
         <Svg width={22} height={22} viewBox="0 0 24 24">
           <Path d="M15 5l-7 7 7 7" fill="none" stroke={color.ink} strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round" />
         </Svg>
@@ -34,6 +45,9 @@ export default function DealScreen() {
 }
 
 function DealCard({ id }: { id: string }) {
+  const styles = useStyles();
+  const color = useColors();
+  const BADGE = badgeColors(color, useScheme() === 'dark');
   const deal = useRewards().deals.find((d) => d.id === id)!;
   const p = partner(deal.partnerId);
   const status = dealStatus(deal);
@@ -48,7 +62,7 @@ function DealCard({ id }: { id: string }) {
     ]);
 
   return (
-    <ScrollView contentContainerStyle={styles.content}>
+    <ScrollView alwaysBounceVertical={false} contentContainerStyle={styles.content}>
       <View style={styles.card}>
         <Txt style={styles.place}>{p.name}</Txt>
         <Txt variant="secondary" style={styles.center}>
@@ -57,7 +71,7 @@ function DealCard({ id }: { id: string }) {
         <Pressable onPress={() => Linking.openURL(mapsUrl(p))} hitSlop={8} style={({ pressed }) => [styles.maps, pressed && styles.pressed]}>
           <Svg width={16} height={16} viewBox="0 0 24 24">
             <Path d="M12 22s7-6.2 7-12a7 7 0 10-14 0c0 5.8 7 12 7 12z" fill={color.primary} />
-            <Path d="M12 12.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" fill="#FFFFFF" />
+            <Path d="M12 12.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" fill={color.onPrimary} />
           </Svg>
           <Txt style={styles.mapsText}>Open in Google Maps</Txt>
           <Svg width={12} height={12} viewBox="0 0 24 24">
@@ -73,12 +87,12 @@ function DealCard({ id }: { id: string }) {
           </View>
         </Pressable>
         <Txt style={styles.show}>{active ? 'Show this at the counter' : status.kind === 'used' ? 'Already used' : 'This code expired'}</Txt>
-        <Txt variant="secondary" style={styles.center}>
-          {active ? 'They’ll scan it. Works once.' : 'Fill another crate for a new deal.'}
-        </Txt>
-        <View style={styles.badge}>
-          <Badge label={badge.label} {...BADGE[badge.tone]} />
-        </View>
+        {!active && (
+          <Txt variant="secondary" style={styles.center}>
+            Fill another crate for a new deal.
+          </Txt>
+        )}
+        <Badge label={badge.label} {...BADGE[badge.tone]} style={styles.badge} />
       </View>
     </ScrollView>
   );
@@ -102,12 +116,12 @@ function Qr({ value }: { value: string }) {
   return (
     <Svg width={QR_SIZE} height={QR_SIZE} viewBox={`-1 -1 ${n + 2} ${n + 2}`}>
       <Rect x={-1} y={-1} width={n + 2} height={n + 2} fill="#FFFFFF" />
-      <Path d={d} fill={color.ink} />
+      <Path d={d} fill={QR_INK} />
     </Svg>
   );
 }
 
-const styles = StyleSheet.create({
+const useStyles = makeStyles((color) => ({
   screen: {
     flex: 1,
     backgroundColor: color.bg,
@@ -212,6 +226,9 @@ const styles = StyleSheet.create({
     marginBottom: 2,
   },
   badge: {
+    alignSelf: 'center',
+    minWidth: 112,
+    height: 28,
     marginTop: 14,
   },
-});
+}));

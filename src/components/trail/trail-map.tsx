@@ -1,17 +1,19 @@
 import { Image } from 'expo-image';
 import { router } from 'expo-router';
-import { memo, useMemo } from 'react';
+import { memo, useMemo, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import { landmarkName, trailStop, type LandmarkFile } from '@/constants/trail';
 import { isStopDone, type ChallengeProgress } from '@/lib/challenge-progress';
-import type { Challenge } from '@/lib/challenges';
+import { shortDate } from '@/lib/challenge-week';
+import { scorePoints, type Challenge } from '@/lib/challenges';
 import { Icon, type IconName } from '@/ui/icon';
 import { Txt } from '@/ui/text';
-import { color, font } from '@/ui/theme';
+import { font, makeStyles } from '@/ui/theme';
 
 import { AmbientProp, FallingLeaf, RiverBoat, RiverBridge, SwanBoat, WaterMark } from './ambient';
-import { BAND_H, LAYOUT, MAP_H, MAP_W, type LayoutStop, type WeekCard } from './layout';
+import { BAND_H, FOREST_BOTTOM, LAYOUT, MAP_H, MAP_W, TRAIL_H, type LayoutStop, type WeekCard } from './layout';
+import { Nameplate } from './nameplate';
 import { TrailStop } from './trail-stop';
 
 // The static scene (design/assets/trail/freedom-trail-map.svg, 371 KB, ~2,000 nodes) rasterized
@@ -22,6 +24,7 @@ const TILES = [
   require('@/assets/images/trail/map-1.webp'),
   require('@/assets/images/trail/map-2.webp'),
 ];
+const FOREST = require('@/assets/images/trail/forest-bottom.webp');
 
 type PlacedStop = { challenge: Challenge; slot: LayoutStop; file: LandmarkFile; icon: IconName };
 
@@ -52,9 +55,12 @@ type Props = {
 export function TrailMap({ k, challenges, progress, focused }: Props) {
   const placed = useMemo(() => placeThisWeek(challenges), [challenges]);
   const slots = LAYOUT.weeks[0].stops;
+  // The stop held down, so its piece settles whether the finger is on the piece or the nameplate.
+  const [pressedId, setPressedId] = useState<string | null>(null);
+  const styles = useStyles();
 
   return (
-    <View style={{ width: MAP_W * k, height: MAP_H * k }}>
+    <View style={{ width: MAP_W * k, height: TRAIL_H * k }}>
       {TILES.map((source, i) => (
         <Image
           key={i}
@@ -65,6 +71,14 @@ export function TrailMap({ k, challenges, progress, focused }: Props) {
           allowDownscaling={false}
         />
       ))}
+
+      <Image
+        source={FOREST}
+        style={[styles.abs, { left: 0, top: FOREST_BOTTOM.top * k, width: MAP_W * k, height: FOREST_BOTTOM.h * k }]}
+        contentFit="fill"
+        transition={0}
+        allowDownscaling={false}
+      />
 
       <Scenery k={k} />
 
@@ -83,23 +97,41 @@ export function TrailMap({ k, challenges, progress, focused }: Props) {
         )),
       )}
 
-      {/* This week. */}
+      {/* This week: pieces first, then their nameplates on top of the tile fronts. */}
+      {placed.map(({ challenge, slot, file }) => (
+        <TrailStop
+          key={challenge.id}
+          file={file}
+          state={isStopDone(progress, challenge.id) ? 'done' : 'current'}
+          x={slot.x}
+          y={slot.y}
+          k={k}
+          order={slots.length - 1 - slots.indexOf(slot)}
+          focused={focused}
+          accessibilityLabel={stopLabel(challenge, file, progress)}
+          onPress={() => openStop(challenge)}
+          pressed={pressedId === challenge.id}
+          onPressedChange={(down) => setPressedId(down ? challenge.id : null)}
+        />
+      ))}
       {placed.map(({ challenge, slot, file, icon }) => {
-        const done = isStopDone(progress, challenge.id);
-        const order = slots.length - 1 - slots.indexOf(slot);
+        const placement = LAYOUT.labels[slots.indexOf(slot)];
+        if (!placement) return null;
+        const stop = trailStop(challenge.id);
+        const earned = progress.stops[challenge.id]?.leaves;
         return (
-          <TrailStop
-            key={challenge.id}
-            file={file}
-            state={done ? 'done' : 'current'}
-            x={slot.x}
-            y={slot.y}
+          <Nameplate
+            key={`plate-${challenge.id}`}
+            placement={placement}
             k={k}
-            order={order}
             icon={icon}
-            focused={focused}
-            accessibilityLabel={`${landmarkName(file)}: ${trailStop(challenge.id)?.title ?? challenge.title}${done ? ', done' : ''}`}
-            onPress={() => router.push(`/challenge/${challenge.id}`)}
+            title={stop?.plate.title ?? challenge.title}
+            due={stop?.plate.due ?? `Due ${shortDate(challenge.deadlineDate)}`}
+            reward={earned ?? stop?.leaves ?? scorePoints(challenge.factors).points * 10}
+            done={earned !== undefined}
+            accessibilityLabel={stopLabel(challenge, file, progress)}
+            onPress={() => openStop(challenge)}
+            onPressedChange={(down) => setPressedId(down ? challenge.id : null)}
           />
         );
       })}
@@ -111,6 +143,16 @@ export function TrailMap({ k, challenges, progress, focused }: Props) {
       <FallingLeaves k={k} />
     </View>
   );
+}
+
+/** The piece and its nameplate open the same sheet. */
+function openStop(challenge: Challenge) {
+  router.push(`/challenge/${challenge.id}`);
+}
+
+function stopLabel(challenge: Challenge, file: LandmarkFile, progress: ChallengeProgress): string {
+  const done = isStopDone(progress, challenge.id);
+  return `${landmarkName(file)}: ${trailStop(challenge.id)?.title ?? challenge.title}${done ? ', done' : ''}`;
 }
 
 /** Water, boats, bridges and props. Memoized: none of it depends on progress. */
@@ -145,6 +187,7 @@ const FallingLeaves = memo(function FallingLeaves({ k }: { k: number }) {
 
 /** "Week 5 · 4 of 5 done · Oct 19–25" under each bridge. */
 function WeekCardView({ card, k }: { card: WeekCard; k: number }) {
+  const styles = useStyles();
   return (
     <View
       accessible
@@ -163,7 +206,7 @@ function WeekCardView({ card, k }: { card: WeekCard; k: number }) {
   );
 }
 
-const styles = StyleSheet.create({
+const useStyles = makeStyles((color, dark) => ({
   abs: { position: 'absolute' },
   card: {
     flexDirection: 'row',
@@ -173,7 +216,7 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
     borderRadius: 14,
     backgroundColor: color.surface,
-    boxShadow: [{ offsetX: 0, offsetY: 2, blurRadius: 8, color: 'rgba(30, 42, 58, 0.08)' }],
+    boxShadow: [{ offsetX: 0, offsetY: 2, blurRadius: 8, color: dark ? 'rgba(0, 0, 0, 0.3)' : 'rgba(30, 42, 58, 0.08)' }],
   },
   cardIcon: {
     width: 34,
@@ -198,4 +241,4 @@ const styles = StyleSheet.create({
     lineHeight: 16,
     color: color.slate,
   },
-});
+}));

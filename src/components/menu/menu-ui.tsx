@@ -1,29 +1,37 @@
-import { router, useNavigation } from 'expo-router';
+import { router, useLocalSearchParams, type Href } from 'expo-router';
 import { type ReactNode } from 'react';
-import { Pressable, ScrollView, StyleSheet, View, type StyleProp, type ViewStyle } from 'react-native';
+import { Platform, Pressable, ScrollView, View, type StyleProp, type ViewStyle } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Path } from 'react-native-svg';
 
 import { Icon, type IconName } from '@/ui/icon';
 import { Txt } from '@/ui/text';
-import { color, font, radius, space } from '@/ui/theme';
+import { font, makeStyles, radius, space, useColors } from '@/ui/theme';
 
 // Menu sheet + inner pages (DESIGN.md 6b, design/screens/menu). Measurements are from the SVGs.
 
 export const APP_VERSION = '0.1';
 
+/** iOS page sheets start below the status bar, but useSafeAreaInsets still reports the window's top. */
+export function useSheetTopInset() {
+  const insets = useSafeAreaInsets();
+  return Platform.OS === 'ios' ? 0 : insets.top;
+}
+
 const ROW_PRESSED = '#F7F4EE';
 
-export function Chevron({ size = 18, stroke = color.mute }: { size?: number; stroke?: string }) {
+export function Chevron({ size = 18, stroke }: { size?: number; stroke?: string }) {
+  const color = useColors();
   return (
     <Svg width={size} height={size} viewBox="0 0 24 24">
-      <Path d="M9 5l7 7-7 7" fill="none" stroke={stroke} strokeWidth={2.6} strokeLinecap="round" strokeLinejoin="round" />
+      <Path d="M9 5l7 7-7 7" fill="none" stroke={stroke ?? color.mute} strokeWidth={2.6} strokeLinecap="round" strokeLinejoin="round" />
     </Svg>
   );
 }
 
 /** Bricolage 16 section heading, 2px in from the cards. */
 export function SectionLabel({ children, first }: { children: string; first?: boolean }) {
+  const styles = useStyles();
   return (
     <Txt variant="section" style={[styles.sectionLabel, first && styles.sectionLabelFirst]}>
       {children}
@@ -33,11 +41,13 @@ export function SectionLabel({ children, first }: { children: string; first?: bo
 
 /** A grouped white card. `padBottom` adds the extra 8px the inner-page info cards have. */
 export function Group({ children, padBottom, style }: { children: ReactNode; padBottom?: boolean; style?: StyleProp<ViewStyle> }) {
+  const styles = useStyles();
   return <View style={[styles.group, padBottom && styles.groupPadBottom, style]}>{children}</View>;
 }
 
 /** Small mute text under a card ("Used to boost leaves…", footnotes). */
 export function Caption({ children }: { children: string }) {
+  const styles = useStyles();
   return (
     <Txt variant="meta" style={styles.caption}>
       {children}
@@ -67,6 +77,7 @@ export function MenuRow({
   last?: boolean;
   testID?: string;
 }) {
+  const styles = useStyles();
   const subtitle = problem ?? value;
   return (
     <Pressable
@@ -110,6 +121,7 @@ export function InfoRow({
   trailing?: ReactNode;
   last?: boolean;
 }) {
+  const styles = useStyles();
   return (
     <View style={styles.infoRow}>
       <View style={styles.tile}>
@@ -128,6 +140,7 @@ export function InfoRow({
 
 /** Centered single-action card (Log out, Delete account). Inert until accounts exist. */
 export function SoloCard({ label, testID }: { label: string; testID?: string }) {
+  const styles = useStyles();
   return (
     <View style={styles.solo} testID={testID}>
       <Txt style={styles.soloText}>{label}</Txt>
@@ -135,22 +148,21 @@ export function SoloCard({ label, testID }: { label: string; testID?: string }) 
   );
 }
 
-// What each menu route is called, for the back button on the page pushed after it.
-const BACK_LABEL: Record<string, string> = {
-  index: 'Settings',
-  help: 'Help',
-};
+/** Push an inner page, telling it what to call its back button ("‹ Settings"). */
+export function openPage(pathname: Href, from: string) {
+  router.push({ pathname, params: { from } } as never);
+}
 
 /**
  * Back chevron with no centered title. Pushed from Settings it reads "‹ Settings" and pops; opened
  * straight from somewhere else (e.g. the report flow's "What can I report?") it reads "‹ Back" and
- * closes the sheet.
+ * closes the sheet, since it's then the first page in the sheet's stack.
  */
 function BackButton() {
-  const navigation = useNavigation();
-  const state = navigation.getState();
-  const previous = state && state.index > 0 ? state.routes[state.index - 1] : undefined;
-  const label = previous ? (BACK_LABEL[previous.name] ?? 'Back') : 'Back';
+  const styles = useStyles();
+  const color = useColors();
+  const { from } = useLocalSearchParams<{ from?: string }>();
+  const label = from ?? 'Back';
 
   const goBack = () => {
     if (router.canGoBack()) router.back();
@@ -162,7 +174,7 @@ function BackButton() {
       onPress={goBack}
       hitSlop={12}
       accessibilityRole="button"
-      accessibilityLabel={`Back to ${label}`}
+      accessibilityLabel={from ? `Back to ${from}` : 'Back'}
       testID="menu-back"
       style={({ pressed }) => [styles.back, pressed && styles.pressedText]}>
       <Svg width={25} height={25} viewBox="0 0 24 24">
@@ -193,11 +205,14 @@ export function InnerPage({
   /** Pinned under the scroll view (input pages keep their main button at the bottom). */
   footer?: ReactNode;
 }) {
+  const styles = useStyles();
   const insets = useSafeAreaInsets();
+  const top = useSheetTopInset();
   return (
     <View style={styles.screen}>
-      <ScrollView
-        contentContainerStyle={[styles.innerContent, { paddingTop: insets.top + 12, paddingBottom: footer ? 24 : insets.bottom + 40 }]}
+      <ScrollView alwaysBounceVertical={false}
+        // Room above the back chevron: in the iOS page sheet `top` is 0, so this is all the gap there is.
+        contentContainerStyle={[styles.innerContent, { paddingTop: top + 22, paddingBottom: footer ? 24 : insets.bottom + 40 }]}
         keyboardShouldPersistTaps="handled"
         showsVerticalScrollIndicator={false}>
         <BackButton />
@@ -215,7 +230,7 @@ export function InnerPage({
   );
 }
 
-const styles = StyleSheet.create({
+const useStyles = makeStyles((color, dark) => ({
   screen: {
     flex: 1,
     backgroundColor: color.bg,
@@ -258,7 +273,7 @@ const styles = StyleSheet.create({
     paddingLeft: 14,
   },
   rowPressed: {
-    backgroundColor: ROW_PRESSED,
+    backgroundColor: dark ? color.tile : ROW_PRESSED,
   },
   tile: {
     width: 44,
@@ -391,4 +406,4 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: color.border,
   },
-});
+}));

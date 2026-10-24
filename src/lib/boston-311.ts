@@ -130,3 +130,35 @@ export async function getRecent311Cases(): Promise<Recent311> {
     throw error;
   }
 }
+
+export type FollowableCase = NearbyCase & {
+  latitude: string;
+  longitude: string;
+  assigned_department: string;
+};
+
+const STATUS_FILTER = {
+  fixed: `case_status = 'Closed' AND closure_reason LIKE 'Resolved%'`,
+  notApproved: `case_status = 'Closed' AND closure_reason = 'Noted'`,
+  approved: `case_status = 'In progress'`,
+  inReview: `case_status = 'Needs Reallocation'`,
+} as const;
+
+/**
+ * Real recent cases in one lifecycle state, for seeding reports the app then follows through 311.
+ * Newest first by when they last moved (closed cases by close date).
+ */
+export async function getRecentCasesIn(
+  state: keyof typeof STATUS_FILTER,
+  topics: string[],
+  limit: number,
+): Promise<FollowableCase[]> {
+  const order = state === 'fixed' || state === 'notApproved' ? 'close_date' : 'open_date';
+  return runSql(`SELECT case_id, case_topic, case_status, assigned_team, assigned_department, full_address, open_date, latitude, longitude
+    FROM "${RESOURCE_ID}"
+    WHERE ${STATUS_FILTER[state]}
+      AND case_topic IN (${topics.map(quote).join(', ')})
+      AND latitude IS NOT NULL AND longitude IS NOT NULL AND full_address IS NOT NULL
+    ORDER BY ${order} DESC NULLS LAST
+    LIMIT ${limit}`);
+}

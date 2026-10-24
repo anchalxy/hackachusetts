@@ -9,6 +9,7 @@ import {
   OptionRow,
   SectionLabel,
 } from '@/components/challenge-flow/flow';
+import { AddToCalendarButton, CIVIC_EVENTS } from '@/components/challenge-flow/calendar';
 import {
   DOCKETS,
   LIVESTREAM_URL,
@@ -16,7 +17,7 @@ import {
   SegmentedPicker,
   type CouncilMode,
 } from '@/components/challenge-flow/council-meeting';
-import { color } from '@/ui/theme';
+import { useColors } from '@/ui/theme';
 
 const MODES: { value: CouncilMode; label: string }[] = [
   { value: 'inPerson', label: `In person · +${MODE_LEAVES.inPerson}` },
@@ -24,6 +25,7 @@ const MODES: { value: CouncilMode; label: string }[] = [
 ];
 
 export default function PickDocket() {
+  const color = useColors();
   const [mode, setMode] = useState<CouncilMode>('inPerson');
   const [docketId, setDocketId] = useState(DOCKETS[0].id);
   const docket = DOCKETS.find((d) => d.id === docketId) ?? DOCKETS[0];
@@ -43,6 +45,7 @@ export default function PickDocket() {
         icon="cityhall"
         title="Wed, Oct 28 · 12 p.m."
         subtitle="Iannella Chamber, City Hall 5th floor"
+        trailing={<AddToCalendarButton event={CIVIC_EVENTS.councilMeeting} />}
       />
 
       <SegmentedPicker label="How you'll attend" options={MODES} selection={mode} onChange={setMode} />

@@ -1,5 +1,5 @@
 import { router } from 'expo-router';
-import { Pressable, StyleSheet, TextInput, View } from 'react-native';
+import { Pressable, TextInput, View } from 'react-native';
 
 import { FlowHeader, FlowScreen, SectionLabel, selectionHaptic } from '@/components/challenge-flow/flow';
 import { ParkMap } from '@/components/urban-wild/park-map';
@@ -14,10 +14,12 @@ import {
 } from '@/components/urban-wild/store';
 import { Icon } from '@/ui/icon';
 import { Txt } from '@/ui/text';
-import { color, font, radius } from '@/ui/theme';
+import { font, makeStyles, radius, useColors } from '@/ui/theme';
 
 /** Your design 3 of 3: place up to 5 changes on the park map and say why. */
 export default function Build() {
+  const styles = useStyles();
+  const color = useColors();
   const { wild: wildId, placements, why } = useUrbanWild();
   const wild = getWild(wildId);
   const full = placements.length >= MAX_CHANGES;
@@ -88,7 +90,7 @@ export default function Build() {
   );
 }
 
-const styles = StyleSheet.create({
+const useStyles = makeStyles((color) => ({
   count: {
     fontFamily: font.bodyBold,
     color: color.ink,
@@ -144,4 +146,4 @@ const styles = StyleSheet.create({
     color: color.ink,
     textAlignVertical: 'top',
   },
-});
+}));

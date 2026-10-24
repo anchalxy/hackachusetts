@@ -2,7 +2,8 @@ import { Image } from 'expo-image';
 import { router, useFocusEffect, useLocalSearchParams } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useCallback, useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
+import { Pressable, StyleSheet, View } from 'react-native';
+import Animated, { useAnimatedScrollHandler, useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Path } from 'react-native-svg';
 
@@ -14,17 +15,37 @@ import { photoSource } from '@/lib/report-photo';
 import { Badge, StatusGlyph, Timeline } from '@/ui/components';
 import { Icon } from '@/ui/icon';
 import { Txt } from '@/ui/text';
-import { color, font, LIFECYCLE, radius, space, STATUS_LABEL, type ReportStatus } from '@/ui/theme';
+import {
+  font,
+  LIFECYCLE,
+  makeStyles,
+  radius,
+  space,
+  STATUS_LABEL,
+  useColors,
+  useScheme,
+  type ReportStatus,
+  type Scheme,
+} from '@/ui/theme';
 
 const PHOTO_HEIGHT = 300;
 
 // The status card is the only tinted card on the page (DESIGN.md 6c).
-const STATUS_CARD: Record<ReportStatus, { bg: string; border: string }> = {
-  submitted: { bg: '#F4F5FB', border: '#DCE0F2' },
-  inReview: { bg: '#FBF5E6', border: '#F0E2BF' },
-  approved: { bg: '#EEF5F3', border: '#CFE3DE' },
-  fixed: { bg: '#EFF1F5', border: '#D6DBE4' },
-  notApproved: { bg: '#FBEEEA', border: '#F1CFC6' },
+const STATUS_CARD: Record<Scheme, Record<ReportStatus, { bg: string; border: string }>> = {
+  light: {
+    submitted: { bg: '#F4F5FB', border: '#DCE0F2' },
+    inReview: { bg: '#FBF5E6', border: '#F0E2BF' },
+    approved: { bg: '#EEF5F3', border: '#CFE3DE' },
+    fixed: { bg: '#EFF1F5', border: '#D6DBE4' },
+    notApproved: { bg: '#FBEEEA', border: '#F1CFC6' },
+  },
+  dark: {
+    submitted: { bg: '#1E2233', border: '#2E3552' },
+    inReview: { bg: '#2A2419', border: '#463A22' },
+    approved: { bg: '#182B2D', border: '#24474A' },
+    fixed: { bg: '#1F252E', border: '#323B48' },
+    notApproved: { bg: '#2D1E1B', border: '#4A2D27' },
+  },
 };
 
 function statusSentence(report: MyReport): string {
@@ -52,7 +73,21 @@ function leafNote(status: ReportStatus): string {
 export default function ReportPage() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const insets = useSafeAreaInsets();
+  const styles = useStyles();
+  const color = useColors();
+  const scheme = useScheme();
   const [report, setReport] = useState<MyReport | null>(null);
+  const [photoFailed, setPhotoFailed] = useState(false);
+
+  // Pulling past the top stretches the photo instead of showing a blank strip above it.
+  const scrollY = useSharedValue(0);
+  const onScroll = useAnimatedScrollHandler((e) => {
+    scrollY.value = e.contentOffset.y;
+  });
+  const photoStretch = useAnimatedStyle(() => {
+    const pull = Math.min(scrollY.value, 0);
+    return { transform: [{ translateY: pull / 2 }, { scale: 1 - pull / PHOTO_HEIGHT }] };
+  });
 
   useFocusEffect(
     useCallback(() => {
@@ -64,7 +99,7 @@ export default function ReportPage() {
 
   const info = topicInfo(report.topic);
   const photo = photoSource(report.photoUri);
-  const card = STATUS_CARD[report.status];
+  const card = STATUS_CARD[scheme][report.status];
   const final = report.status === 'fixed' || report.status === 'notApproved';
   const nextStep = final ? null : LIFECYCLE[LIFECYCLE.indexOf(report.status) + 1];
   const edited = report.aiDraft !== '' && report.description.trim() !== report.aiDraft.trim();
@@ -72,17 +107,26 @@ export default function ReportPage() {
   return (
     <View style={styles.container}>
       <StatusBar style="light" />
-      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: insets.bottom + 40 }}>
-        <View style={styles.photo}>
-          {photo ? (
-            <Image source={{ uri: photo }} style={StyleSheet.absoluteFill} contentFit="cover" />
+      <Animated.ScrollView
+        onScroll={onScroll}
+        scrollEventThrottle={16}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ paddingBottom: insets.bottom + 40 }}>
+        <Animated.View style={[styles.photo, photoStretch]}>
+          {photo && !photoFailed ? (
+            <Image
+              source={{ uri: photo }}
+              style={StyleSheet.absoluteFill}
+              contentFit="cover"
+              onError={() => setPhotoFailed(true)}
+            />
           ) : (
             <View style={styles.photoFallback}>
               <Icon name={info.icon} size={120} />
             </View>
           )}
           <View style={[styles.photoScrim, { height: insets.top + 60 }]} />
-        </View>
+        </Animated.View>
 
         <View style={styles.sheet}>
           <Txt variant="display">{report.title}</Txt>
@@ -142,7 +186,7 @@ export default function ReportPage() {
                     {/* Solid lines only between avatars; dashed into the "Next" placeholder. */}
                     {(!last || nextStep) && <View style={[styles.connector, last && styles.connectorDashed]} />}
                   </View>
-                  <View style={styles.updateBody}>
+                  <View style={[styles.updateBody, last && !nextStep && styles.lastBody]}>
                     <View style={styles.updateHead}>
                       <Txt variant="rowLead" style={styles.updateWho}>
                         {update.who}
@@ -161,7 +205,7 @@ export default function ReportPage() {
                 <View style={styles.updateRail}>
                   <View style={[styles.avatar, styles.nextAvatar]} />
                 </View>
-                <View style={styles.updateBody}>
+                <View style={[styles.updateBody, styles.lastBody]}>
                   <Txt variant="row" style={styles.nextTitle}>
                     Next: {STATUS_LABEL[nextStep]}
                   </Txt>
@@ -176,8 +220,8 @@ export default function ReportPage() {
             {report.aiDraft !== '' && (
               <Badge
                 label={edited ? 'Edited by you' : 'Written by AI'}
-                bg={color.status.submitted.bg}
-                fg={color.status.submitted.fg}
+                bg={color.badge.ai.bg}
+                fg={color.badge.ai.fg}
               />
             )}
           </View>
@@ -202,9 +246,15 @@ export default function ReportPage() {
             Report #{report.number} · Sent {stamp(report.createdAt)}
           </Txt>
         </View>
-      </ScrollView>
+      </Animated.ScrollView>
 
-      <Pressable onPress={() => router.back()} style={[styles.back, { top: insets.top + 8 }]} hitSlop={8}>
+      {/* Opened cold from a notification there's nothing to go back to, so land on the Report tab. */}
+      <Pressable
+        onPress={() => (router.canGoBack() ? router.back() : router.replace('/report'))}
+        style={[styles.back, { top: insets.top + 12 }]}
+        hitSlop={8}
+        accessibilityRole="button"
+        accessibilityLabel="Back">
         <Svg width={18} height={18} viewBox="0 0 24 24">
           <Path d="M15 5l-7 7 7 7" stroke={color.ink} strokeWidth={2.6} strokeLinecap="round" strokeLinejoin="round" fill="none" />
         </Svg>
@@ -213,7 +263,7 @@ export default function ReportPage() {
   );
 }
 
-const styles = StyleSheet.create({
+const useStyles = makeStyles((color, dark) => ({
   container: {
     flex: 1,
     backgroundColor: color.bg,
@@ -312,7 +362,7 @@ const styles = StyleSheet.create({
     borderRadius: 18,
     overflow: 'hidden',
     borderWidth: 1.2,
-    borderColor: '#E3DBCB',
+    borderColor: dark ? color.border : '#E3DBCB',
     backgroundColor: color.surface,
   },
   cityAvatar: {
@@ -324,7 +374,7 @@ const styles = StyleSheet.create({
   nextAvatar: {
     borderStyle: 'dashed',
     borderWidth: 1.5,
-    borderColor: '#D9CDB4',
+    borderColor: dark ? '#3A434F' : '#D9CDB4',
     backgroundColor: 'transparent',
   },
   connector: {
@@ -332,13 +382,16 @@ const styles = StyleSheet.create({
     width: 1.5,
     minHeight: 14,
     marginVertical: 4,
-    backgroundColor: '#E3DBCB',
+    backgroundColor: dark ? color.border : '#E3DBCB',
   },
   connectorDashed: {
     backgroundColor: 'transparent',
     borderLeftWidth: 1.5,
     borderStyle: 'dashed',
-    borderColor: '#D9CDB4',
+    borderColor: dark ? '#3A434F' : '#D9CDB4',
+  },
+  lastBody: {
+    paddingBottom: 0,
   },
   updateBody: {
     flex: 1,
@@ -394,9 +447,9 @@ const styles = StyleSheet.create({
     backgroundColor: color.surface,
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: color.ink,
-    shadowOpacity: 0.15,
+    shadowColor: dark ? '#000000' : color.ink,
+    shadowOpacity: dark ? 0.4 : 0.15,
     shadowRadius: 6,
     shadowOffset: { width: 0, height: 2 },
   },
-});
+}));

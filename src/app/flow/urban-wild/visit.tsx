@@ -13,7 +13,7 @@ import { getWild, setPhoto, useUrbanWild, type PhotoSlot } from '@/components/ur
 import { Badge, TextLink } from '@/ui/components';
 import { Icon } from '@/ui/icon';
 import { Txt } from '@/ui/text';
-import { color, font, radius } from '@/ui/theme';
+import { font, makeStyles, radius, useColors } from '@/ui/theme';
 
 const SLOTS: { slot: PhotoSlot; label: string }[] = [
   { slot: 'entrance', label: 'Entrance' },
@@ -49,6 +49,8 @@ async function pickPhoto(): Promise<string | null> {
 
 /** <wild> 2 of 3: check in at the entrance and take three photos. */
 export default function Visit() {
+  const styles = useStyles();
+  const color = useColors();
   const { wild: wildId, photos } = useUrbanWild();
   const wild = getWild(wildId);
   const [checkedInAt, setCheckedInAt] = useState(() => Date.now());
@@ -164,7 +166,7 @@ export default function Visit() {
   );
 }
 
-const styles = StyleSheet.create({
+const useStyles = makeStyles((color, dark) => ({
   flex: {
     flex: 1,
     gap: 2,
@@ -208,7 +210,7 @@ const styles = StyleSheet.create({
   },
   slotEmpty: {
     borderStyle: 'dashed',
-    borderColor: '#D9D1C1',
+    borderColor: dark ? '#3A434F' : '#D9D1C1',
     backgroundColor: color.panel,
   },
   pressed: {
@@ -237,4 +239,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingTop: 4,
   },
-});
+}));

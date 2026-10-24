@@ -1,30 +1,37 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import { SymbolView } from 'expo-symbols';
 import * as WebBrowser from 'expo-web-browser';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import { AddToCalendarButton, challengeEvent } from '@/components/challenge-flow/calendar';
 import { CloseButton } from '@/components/challenge-flow/flow';
 import { landmarkName, trailStop, type StopChip } from '@/constants/trail';
 import { getChallenge, shortDate } from '@/lib/challenge-week';
 import { useChallengeProgress } from '@/lib/challenge-progress';
+import { eventWhen, useAddedToCalendar } from '@/lib/google-calendar';
 import { Badge, Button, IconTile } from '@/ui/components';
 import { Icon } from '@/ui/icon';
 import { Txt } from '@/ui/text';
-import { color, font, radius, space } from '@/ui/theme';
+import { font, makeStyles, radius, space, useColors, type Palette } from '@/ui/theme';
 
-const CHIP_COLORS: Record<StopChip['tone'], { bg: string; fg: string }> = {
-  leaf: color.badge.reward,
-  due: color.badge.inReview,
-  urgent: color.badge.urgent,
-  plain: { bg: color.tile, fg: color.slate },
-};
+function chipColors(color: Palette): Record<StopChip['tone'], { bg: string; fg: string }> {
+  return {
+    leaf: color.badge.reward,
+    due: color.badge.inReview,
+    urgent: color.badge.urgent,
+    plain: { bg: color.tile, fg: color.slate },
+  };
+}
 
 /** The detail sheet after tapping a stop (design/screens/challenges/<flow>/0-sheet.png). */
 export default function ChallengeSheet() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const insets = useSafeAreaInsets();
   const progress = useChallengeProgress();
+  const styles = useStyles();
+  const color = useColors();
+  const CHIP_COLORS = chipColors(color);
   const challenge = getChallenge(id);
   const stop = trailStop(id);
 
@@ -62,7 +69,8 @@ export default function ChallengeSheet() {
           {stop ? <Txt variant="meta">{landmarkName(stop.landmark)}</Txt> : null}
           <Txt variant="hero">{title}</Txt>
         </View>
-        <CloseButton onPress={() => router.back()} />
+        {/* Opened from a Profile notification or a link, there's nothing behind it: go to the trail. */}
+        <CloseButton onPress={() => (router.canGoBack() ? router.back() : router.replace('/'))} />
       </View>
 
       <Txt variant="body" style={styles.body}>
@@ -97,6 +105,8 @@ export default function ChallengeSheet() {
         </View>
       </View>
 
+      {done && !done.pendingCheckIn ? null : <CalendarLine {...challengeEvent(challenge, title, done)} />}
+
       <Pressable
         onPress={() => WebBrowser.openBrowserAsync(challenge.sourceUrl)}
         accessibilityRole="link"
@@ -121,7 +131,26 @@ export default function ChallengeSheet() {
   );
 }
 
-const styles = StyleSheet.create({
+/** "Meeting · Wed, Oct 28 · 12–3 p.m." or "Due · Sun, Nov 8", with Google Calendar's Add button. */
+function CalendarLine({ label, event }: ReturnType<typeof challengeEvent>) {
+  const added = useAddedToCalendar(event.id);
+  const styles = useStyles();
+  return (
+    <View style={styles.asked}>
+      <IconTile icon="calendar" />
+      <View style={styles.headText}>
+        <Txt variant="meta">{label}</Txt>
+        <Txt variant="rowLead" style={styles.askedName}>
+          {eventWhen(event)}
+        </Txt>
+        <Txt variant="secondary">{added ? 'On your Google Calendar' : 'Add it to Google Calendar'}</Txt>
+      </View>
+      <AddToCalendarButton event={event} />
+    </View>
+  );
+}
+
+const useStyles = makeStyles((color) => ({
   sheet: {
     paddingHorizontal: space.gutter,
     paddingTop: 28,
@@ -186,4 +215,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 14,
   },
-});
+}));

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Image, StyleSheet, View } from 'react-native';
+import { Image, View } from 'react-native';
 import { Marker } from 'react-native-maps';
 
 import { topicInfo } from '@/constants/report-topics';
@@ -7,7 +7,7 @@ import type { MyReport } from '@/lib/my-reports';
 import { photoSource } from '@/lib/report-photo';
 import { StatusGlyph } from '@/ui/components';
 import { Icon } from '@/ui/icon';
-import { color } from '@/ui/theme';
+import { makeStyles, useColors, useScheme } from '@/ui/theme';
 
 const SIZE = 62;
 
@@ -29,13 +29,16 @@ export function ReportPin({
   dimmed: boolean;
   onPress: () => void;
 }) {
+  const styles = useStyles();
+  const color = useColors();
+  const scheme = useScheme();
   const ring = color.status[report.status].ring;
   const photo = photoSource(report.photoUri);
   const [photoFailed, setPhotoFailed] = useState(false);
   const showPhoto = Boolean(photo) && !photoFailed;
 
   // Custom marker views are snapshotted: keep tracking until this look (and its photo) has drawn.
-  const look = `${report.status}|${photo}|${selected}|${dimmed}|${photoFailed}`;
+  const look = `${report.status}|${photo}|${selected}|${dimmed}|${photoFailed}|${scheme}`;
   const [drawnLook, setDrawnLook] = useState<string | null>(null);
   const [loadedPhoto, setLoadedPhoto] = useState<string | null>(null);
   const ready = !showPhoto || loadedPhoto === photo;
@@ -86,7 +89,7 @@ export function ReportPin({
   );
 }
 
-const styles = StyleSheet.create({
+const useStyles = makeStyles((color, dark) => ({
   wrap: {
     width: SIZE + 12,
     height: SIZE + 22,
@@ -133,7 +136,7 @@ const styles = StyleSheet.create({
     height: 6,
     borderRadius: 3,
     marginTop: 2,
-    backgroundColor: 'rgba(30,42,58,0.16)',
+    backgroundColor: dark ? 'rgba(0,0,0,0.4)' : 'rgba(30,42,58,0.16)',
   },
   statusDot: {
     position: 'absolute',
@@ -147,4 +150,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-});
+}));

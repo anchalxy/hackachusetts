@@ -2,6 +2,7 @@ import Storage from 'expo-sqlite/kv-store';
 
 import { topicInfo } from '@/constants/report-topics';
 import { getCasesById, type CaseUpdate } from '@/lib/boston-311';
+import { onReportsSaved } from '@/lib/report-events';
 import type { ReportStatus } from '@/ui/theme';
 
 export type { ReportStatus } from '@/ui/theme';
@@ -104,8 +105,34 @@ export async function getMyReport(id: string): Promise<MyReport | undefined> {
   return (await getMyReports()).find((r) => r.id === id);
 }
 
-async function saveMyReports(reports: MyReport[]) {
-  await Storage.setItem(KEY, JSON.stringify(reports));
+const listeners = new Set<() => void>();
+
+/** Called after every save, from any screen. Returns an unsubscribe function. */
+export function onMyReportsChange(listener: () => void): () => void {
+  listeners.add(listener);
+  return () => {
+    listeners.delete(listener);
+  };
+}
+
+// Several screens write reports (the Report tab's 311 sync, Profile's sync and seed, sending a
+// new report). Each write reads the latest list and saves it inside this one queue, so two
+// writes can never interleave and silently drop each other's changes.
+let writes: Promise<unknown> = Promise.resolve();
+
+function updateMyReports(change: (reports: MyReport[]) => MyReport[]): Promise<MyReport[]> {
+  const run = writes.then(async () => {
+    const next = change(await getMyReports());
+    await Storage.setItem(KEY, JSON.stringify(next));
+    return next;
+  });
+  writes = run.catch(() => {});
+  return run.then(async (next) => {
+    listeners.forEach((listener) => listener());
+    // Pays leaves on approval and alerts the user to status changes, wherever the change came from.
+    await onReportsSaved(next).catch(() => {});
+    return next;
+  });
 }
 
 export type NewReport = Omit<MyReport, 'id' | 'number' | 'createdAt' | 'history' | 'updates'> & {
@@ -124,8 +151,16 @@ export async function addMyReport(report: NewReport): Promise<MyReport> {
     history: { submitted: createdAt, [report.status]: createdAt },
     updates: (report.updates ?? []).map((u) => ({ ...u, at: u.at ?? createdAt })),
   };
-  await saveMyReports([saved, ...(await getMyReports())]);
+  await updateMyReports((reports) => [saved, ...reports]);
   return saved;
+}
+
+/** Saves fully formed reports (dev seed), newest first. */
+export async function addSavedReports(reports: MyReport[]) {
+  const ids = new Set(reports.map((r) => r.id));
+  await updateMyReports((existing) =>
+    [...reports, ...existing.filter((r) => !ids.has(r.id))].sort((a, b) => b.createdAt - a.createdAt),
+  );
 }
 
 /** True if the user already filed or followed this 311 case. */
@@ -161,26 +196,26 @@ export async function refreshMyReportsFrom311(): Promise<MyReport[]> {
   const updates = new Map<string, CaseUpdate>();
   for (const update of await getCasesById([...new Set(openCaseIds)])) updates.set(update.case_id, update);
 
-  // Re-read in case a report was added while we were fetching.
-  const refreshed = (await getMyReports()).map((report) => {
-    const update = report.caseId ? updates.get(report.caseId) : undefined;
-    if (!update) return report;
-    const status = statusFrom311(update.case_status, update.closure_reason);
-    const team = update.assigned_team || report.team || report.department;
-    if (status === report.status) return { ...report, team };
+  // Applied to the latest list inside the write queue, so reports added meanwhile are kept.
+  return updateMyReports((latest) =>
+    latest.map((report) => {
+      const update = report.caseId ? updates.get(report.caseId) : undefined;
+      if (!update) return report;
+      const status = statusFrom311(update.case_status, update.closure_reason);
+      const team = update.assigned_team || report.team || report.department;
+      if (status === report.status) return { ...report, team };
 
-    const message = updateFor(status, update, team);
-    return {
-      ...report,
-      status,
-      team,
-      reason: status === 'notApproved' ? (update.closure_comments ?? undefined) : report.reason,
-      history: { ...report.history, [status]: message?.at ?? Date.now() },
-      updates: message ? [...report.updates, message] : report.updates,
-    };
-  });
-  await saveMyReports(refreshed);
-  return refreshed;
+      const message = updateFor(status, update, team);
+      return {
+        ...report,
+        status,
+        team,
+        reason: status === 'notApproved' ? (update.closure_comments ?? undefined) : report.reason,
+        history: { ...report.history, [status]: message?.at ?? Date.now() },
+        updates: message ? [...report.updates, message] : report.updates,
+      };
+    }),
+  );
 }
 
 /** Pins on the map: open reports, plus fixed ones for 7 days. Not approved never shows. */
@@ -194,3 +229,14 @@ export function isOnMap(report: MyReport, now = Date.now()): boolean {
 }
 
 export const isOpen = (r: MyReport) => r.status !== 'fixed' && r.status !== 'notApproved';
+
+/** When a report reached its current status (or was sent, for Submitted). */
+export const lastActivity = (r: MyReport) => r.history[r.status] ?? r.createdAt;
+
+/** List order: open reports newest first, then done ones by when they finished, newest first. */
+export function sortReports(reports: MyReport[]): { open: MyReport[]; done: MyReport[] } {
+  return {
+    open: reports.filter(isOpen).sort((a, b) => b.createdAt - a.createdAt),
+    done: reports.filter((r) => !isOpen(r)).sort((a, b) => lastActivity(b) - lastActivity(a)),
+  };
+}

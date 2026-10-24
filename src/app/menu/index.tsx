@@ -1,23 +1,28 @@
 import { Image } from 'expo-image';
 import { router, useFocusEffect } from 'expo-router';
 import { useCallback, useState } from 'react';
-import { Platform, Pressable, ScrollView, StyleSheet, View } from 'react-native';
+import { Platform, Pressable, ScrollView, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Path } from 'react-native-svg';
 
-import { APP_VERSION, Caption, Chevron, Group, MenuRow, SectionLabel, SoloCard } from '@/components/menu/menu-ui';
+import { APP_VERSION, Caption, Chevron, Group, MenuRow, openPage, SectionLabel, SoloCard, useSheetTopInset } from '@/components/menu/menu-ui';
 import { getProfile, neighborhoodLabel, SEED_PROFILE, type Profile } from '@/lib/profile';
+import { notificationsSupported, useNotificationPermission } from '@/lib/device-notifications';
 import { permissionProblem, useDevicePermissions } from '@/lib/settings';
 import { Txt } from '@/ui/text';
-import { color, font, radius, space } from '@/ui/theme';
+import { font, makeStyles, radius, space, useColors } from '@/ui/theme';
 
 const PHOTO = require('../../../design/assets/avatars/ishaan-photo.jpg');
 
 // Left out on purpose (DESIGN.md 6b): anything already on the Profile screen, and friends.
 export default function SettingsSheet() {
+  const styles = useStyles();
+  const color = useColors();
   const insets = useSafeAreaInsets();
+  const top = useSheetTopInset();
   const [profile, setProfile] = useState<Profile>(SEED_PROFILE);
   const { permissions } = useDevicePermissions();
+  const { permission: notifications } = useNotificationPermission();
 
   useFocusEffect(
     useCallback(() => {
@@ -26,12 +31,12 @@ export default function SettingsSheet() {
   );
 
   // Settings is the first screen in the sheet's stack, so going back closes the sheet.
-  const close = () => router.back();
+  const close = () => (router.canGoBack() ? router.back() : router.replace('/account'));
 
   return (
-    <ScrollView
+    <ScrollView alwaysBounceVertical={false}
       style={styles.screen}
-      contentContainerStyle={[styles.content, { paddingTop: insets.top, paddingBottom: insets.bottom + 24 }]}
+      contentContainerStyle={[styles.content, { paddingTop: top, paddingBottom: insets.bottom + 24 }]}
       showsVerticalScrollIndicator={false}>
       {/* The native page sheet has no grabber of its own; it's there to say "swipe me down". */}
       {Platform.OS === 'ios' ? <View style={styles.grabber} /> : <View style={styles.grabberSpace} />}
@@ -54,7 +59,7 @@ export default function SettingsSheet() {
       </View>
 
       <Pressable
-        onPress={() => router.push('/menu/edit-profile')}
+        onPress={() => openPage('/menu/edit-profile', 'Settings')}
         accessibilityRole="button"
         accessibilityLabel={`${profile.name}, @${profile.username}. Edit profile`}
         testID="menu-profile"
@@ -82,21 +87,27 @@ export default function SettingsSheet() {
           icon="house"
           title="Neighborhood"
           value={neighborhoodLabel(profile)}
-          onPress={() => router.push('/menu/neighborhood')}
+          onPress={() => openPage('/menu/neighborhood', 'Settings')}
           testID="menu-neighborhood"
         />
-        {/* Locked: set at sign-up from a birth date, so it has no chevron and isn't tappable. */}
-        <MenuRow icon="idcard" title="Age" value={String(profile.age)} last testID="menu-age" />
+        <MenuRow
+          icon="idcard"
+          title="Age"
+          value={String(profile.age)}
+          onPress={() => openPage('/menu/age', 'Settings')}
+          last
+          testID="menu-age"
+        />
       </Group>
       <Caption>{'Used to boost leaves when the city needs to\nhear from people like you.'}</Caption>
 
       <SectionLabel>How it works</SectionLabel>
       <Group>
-        <MenuRow icon="leafy" title="Tea leaves" onPress={() => router.push('/menu/tea-leaves')} testID="menu-tea-leaves" />
+        <MenuRow icon="leafy" title="Tea leaves" onPress={() => openPage('/menu/tea-leaves', 'Settings')} testID="menu-tea-leaves" />
         <MenuRow
           icon="shield"
           title="Reporting guidelines"
-          onPress={() => router.push('/menu/reporting-guidelines')}
+          onPress={() => openPage('/menu/reporting-guidelines', 'Settings')}
           last
           testID="menu-guidelines"
         />
@@ -104,21 +115,27 @@ export default function SettingsSheet() {
 
       <SectionLabel>Preferences</SectionLabel>
       <Group>
-        <MenuRow icon="bell" title="Notifications" onPress={() => router.push('/menu/notifications')} testID="menu-notifications" />
+        <MenuRow
+          icon="bell"
+          title="Notifications"
+          problem={notifications?.status === 'denied' && notificationsSupported ? 'Notifications are off' : undefined}
+          onPress={() => openPage('/menu/notifications', 'Settings')}
+          testID="menu-notifications"
+        />
         <MenuRow
           icon="camera"
           title="Location & camera"
           problem={permissionProblem(permissions)}
-          onPress={() => router.push('/menu/permissions')}
+          onPress={() => openPage('/menu/permissions', 'Settings')}
           testID="menu-permissions"
         />
-        <MenuRow icon="lock" title="Privacy" onPress={() => router.push('/menu/privacy')} last testID="menu-privacy" />
+        <MenuRow icon="lock" title="Privacy" onPress={() => openPage('/menu/privacy', 'Settings')} last testID="menu-privacy" />
       </Group>
 
       <Group style={styles.support}>
-        <MenuRow icon="help" title="Help" onPress={() => router.push('/menu/help')} testID="menu-help" />
-        <MenuRow icon="teacup" title="About Tea Party" onPress={() => router.push('/menu/about')} testID="menu-about" />
-        <MenuRow icon="doc" title="Terms" onPress={() => router.push('/menu/terms')} last testID="menu-terms" />
+        <MenuRow icon="help" title="Help" onPress={() => openPage('/menu/help', 'Settings')} testID="menu-help" />
+        <MenuRow icon="teacup" title="About Tea Party" onPress={() => openPage('/menu/about', 'Settings')} testID="menu-about" />
+        <MenuRow icon="doc" title="Terms" onPress={() => openPage('/menu/terms', 'Settings')} last testID="menu-terms" />
       </Group>
 
       {/* TODO(account): there's no sign-in, only the welcome page + seed user, so Log out is inert for now. */}
@@ -135,7 +152,7 @@ export default function SettingsSheet() {
 const AVATAR = 48;
 const FRAME = 54;
 
-const styles = StyleSheet.create({
+const useStyles = makeStyles((color, dark) => ({
   screen: {
     flex: 1,
     backgroundColor: color.bg,
@@ -148,7 +165,7 @@ const styles = StyleSheet.create({
     width: 36,
     height: 5,
     borderRadius: 2.5,
-    backgroundColor: '#D9D3C7',
+    backgroundColor: dark ? '#3D4652' : '#D9D3C7',
     marginTop: 7,
   },
   grabberSpace: {
@@ -167,7 +184,7 @@ const styles = StyleSheet.create({
     width: 32,
     height: 32,
     borderRadius: 16,
-    backgroundColor: '#F0ECE3',
+    backgroundColor: dark ? color.tile : '#F0ECE3',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -186,14 +203,14 @@ const styles = StyleSheet.create({
     backgroundColor: color.surface,
   },
   profilePressed: {
-    backgroundColor: '#F7F4EE',
+    backgroundColor: dark ? color.tile : '#F7F4EE',
   },
   avatarFrame: {
     width: FRAME,
     height: FRAME,
     borderRadius: FRAME / 2,
     borderWidth: 1.2,
-    borderColor: '#E3DBCB',
+    borderColor: dark ? color.border : '#E3DBCB',
     backgroundColor: color.surface,
     alignItems: 'center',
     justifyContent: 'center',
@@ -209,7 +226,7 @@ const styles = StyleSheet.create({
     height: AVATAR - 1,
     borderRadius: (AVATAR - 1) / 2,
     borderWidth: 1,
-    borderColor: 'rgba(30, 42, 58, 0.12)',
+    borderColor: dark ? 'rgba(255, 255, 255, 0.12)' : 'rgba(30, 42, 58, 0.12)',
   },
   profileText: {
     flex: 1,
@@ -242,4 +259,4 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 10,
   },
-});
+}));

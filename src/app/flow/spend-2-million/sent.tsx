@@ -1,6 +1,7 @@
 import { Stack } from 'expo-router';
 import { useState } from 'react';
 
+import { CalendarRow, CIVIC_EVENTS } from '@/components/challenge-flow/calendar';
 import { ResultRow, SentScreen } from '@/components/challenge-flow/flow';
 import { getBallotDraft, PROJECT_BY_ID } from '@/components/challenge-flow/spend-2-million/ballot';
 import { VOTE_LEAVES } from '@/lib/challenge-progress';
@@ -34,7 +35,10 @@ export default function BallotSent() {
         steps={STEPS}
         data={data}
         extraRows={
-          <ResultRow icon="ballot" title="Vote on neighbors’ ballots" subtitle={`+${VOTE_LEAVES} tea leaves a vote`} last />
+          <>
+            <ResultRow icon="ballot" title="Vote on neighbors’ ballots" subtitle={`+${VOTE_LEAVES} tea leaves a vote`} />
+            <CalendarRow title="Help draft the ballot" event={CIVIC_EVENTS.draftingForum} last />
+          </>
         }
       />
     </>

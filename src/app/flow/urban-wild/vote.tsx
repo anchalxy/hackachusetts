@@ -1,6 +1,6 @@
 import * as Haptics from 'expo-haptics';
 import { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 
 import { FlowHeader, FlowHeading, FlowScreen } from '@/components/challenge-flow/flow';
 import { ParkMap } from '@/components/urban-wild/park-map';
@@ -8,7 +8,7 @@ import { changeInfo, getWild, useUrbanWild, type Placement, type Wild } from '@/
 import { addVote, MAX_VOTES, useChallengeProgress, VOTE_LEAVES } from '@/lib/challenge-progress';
 import { Badge, TextLink } from '@/ui/components';
 import { Txt } from '@/ui/text';
-import { color } from '@/ui/theme';
+import { makeStyles, useColors } from '@/ui/theme';
 
 type Design = { quote: string; from: string; placements: Placement[] };
 
@@ -46,6 +46,8 @@ function neighborDesigns(wild: Wild): Design[] {
 
 /** Vote on other neighbors' designs for the same wild: +2 leaves a vote, 10 a week. */
 export default function Vote() {
+  const styles = useStyles();
+  const color = useColors();
   const wild = getWild(useUrbanWild().wild);
   const designs = neighborDesigns(wild);
   const { votes } = useChallengeProgress();
@@ -121,7 +123,7 @@ export default function Vote() {
   );
 }
 
-const styles = StyleSheet.create({
+const useStyles = makeStyles((color) => ({
   card: {
     padding: 12,
     gap: 12,
@@ -154,4 +156,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 6,
   },
-});
+}));

@@ -38,8 +38,10 @@ export type StopChip = { label: string; tone: 'leaf' | 'due' | 'urgent' | 'plain
  */
 export type TrailStop = {
   landmark: LandmarkFile;
-  /** Floating chip above the piece, and the sheet's icon tile. */
+  /** The nameplate's icon tile, and the sheet's. */
   icon: IconName;
+  /** Nameplate under the stop on the trail: a short title and due line (layout.json labels). */
+  plate: { title: string; due: string };
   /** Tea leaves = the doc's points ×10, with the design's scoring (tea-leaf-scale.png). */
   leaves: number;
   title: string;
@@ -55,6 +57,7 @@ export const TRAIL_STOPS: Record<string, TrailStop> = {
   'demo-urban-wild': {
     landmark: '14-copps-hill',
     icon: 'tree',
+    plate: { title: 'Redesign a wild', due: 'Due Nov 8' },
     leaves: 70,
     title: 'Redesign your urban wild',
     body: 'Visit one of Boston’s 31 urban wilds and design what it should become. Parks is writing its first Urban Wilds Strategic Plan, and the open house is Nov 10.',
@@ -71,6 +74,7 @@ export const TRAIL_STOPS: Record<string, TrailStop> = {
   'demo-pb-2-million': {
     landmark: '13-old-north-church',
     icon: 'ballot',
+    plate: { title: 'Spend $2 million', due: 'Due Nov 4' },
     leaves: 40,
     title: 'Spend Boston’s $2 million',
     body: 'Residents sent in over 1,300 ideas this summer. Build your own ballot from real projects before residents draft the official one on Nov 5.',
@@ -86,6 +90,7 @@ export const TRAIL_STOPS: Record<string, TrailStop> = {
   'demo-cummins-walk-audit': {
     landmark: '12-paul-revere-house',
     icon: 'crosswalk',
+    plate: { title: 'Walk Cummins Hwy', due: 'Due Sun' },
     leaves: 80,
     title: 'Walk-audit Cummins Highway',
     body: 'The rebuilt Cummins Highway in Mattapan is nearly done. Walk, roll or bike three crossings and score how it works, for everyone who missed the Oct 24 walkthrough.',
@@ -102,6 +107,7 @@ export const TRAIL_STOPS: Record<string, TrailStop> = {
   'demo-rat-patrol': {
     landmark: '11-faneuil-hall',
     icon: 'rat',
+    plate: { title: 'Rat patrol', due: 'Due Sun' },
     // 30 on the report, 10 at the day-7 check-in.
     leaves: 40,
     title: 'Rat patrol: time a 311 report',
@@ -118,6 +124,7 @@ export const TRAIL_STOPS: Record<string, TrailStop> = {
   'demo-council-oct-28': {
     landmark: '10-boston-massacre-site',
     icon: 'notes',
+    plate: { title: 'Cover City Council', due: 'Due Fri' },
     // 60 by livestream.
     leaves: 80,
     title: 'Cover the Oct 28 Council meeting',

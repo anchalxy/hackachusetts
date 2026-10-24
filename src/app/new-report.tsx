@@ -16,10 +16,12 @@ import {
   StyleSheet,
   TextInput,
   View,
+  type StyleProp,
+  type ViewStyle,
 } from 'react-native';
 import Animated, { Easing, useAnimatedStyle, useSharedValue, withRepeat, withTiming } from 'react-native-reanimated';
-import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
-import Svg, { Path } from 'react-native-svg';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import Svg, { Circle, Path } from 'react-native-svg';
 
 import { ago } from '@/components/report/format';
 import { CloseButton } from '@/components/report/quick-look';
@@ -32,7 +34,7 @@ import { photoSource, preparePhoto } from '@/lib/report-photo';
 import { Badge, Button, IconTile, StatusBadge, TextLink } from '@/ui/components';
 import { Icon } from '@/ui/icon';
 import { Txt } from '@/ui/text';
-import { color, font, radius, space, t } from '@/ui/theme';
+import { font, makeStyles, radius, space, t, useColors, useScheme } from '@/ui/theme';
 
 const INTRO_KEY = 'reportIntroSeen';
 const GUIDELINES = '/menu/reporting-guidelines' as Href;
@@ -67,6 +69,7 @@ export default function NewReportScreen() {
   const [step, setStep] = useState<Step>({ kind: 'loading' });
   // Bumped whenever a check is started or abandoned, so a late answer can't replace a newer screen.
   const checkId = useRef(0);
+  const styles = useStyles();
 
   // First time: the intro sheet. After that, straight to the camera (or "camera is off").
   const decided = useRef(false);
@@ -160,6 +163,7 @@ export default function NewReportScreen() {
 
 function Intro({ onAllow, onClose, onGuidelines }: { onAllow: () => void; onClose: () => void; onGuidelines: () => void }) {
   const insets = useSafeAreaInsets();
+  const styles = useStyles();
   const steps = [
     { icon: 'camera', title: 'Snap the problem', body: 'We check the photo in a few seconds.' },
     { icon: 'notes', title: 'Check what we wrote', body: 'AI drafts the report. Edit anything.' },
@@ -208,8 +212,9 @@ function Intro({ onAllow, onClose, onGuidelines }: { onAllow: () => void; onClos
 // ── 0b. Camera access is off ──────────────────────────────────────────────────────
 
 function CameraOff({ onClose }: { onClose: () => void }) {
+  const styles = useStyles();
   return (
-    <SafeAreaView style={styles.dark}>
+    <Safe style={styles.dark}>
       <StatusBar style="light" />
       <View style={styles.topLeft}>
         <CloseButton onPress={onClose} light />
@@ -226,7 +231,7 @@ function CameraOff({ onClose }: { onClose: () => void }) {
         </Txt>
         <Button label="Open Settings" onPress={() => Linking.openSettings()} style={styles.settingsButton} />
       </View>
-    </SafeAreaView>
+    </Safe>
   );
 }
 
@@ -272,6 +277,7 @@ function useHere(): Here {
 
 function Camera({ onClose, onCapture }: { onClose: () => void; onCapture: (photo: Photo) => void }) {
   const insets = useSafeAreaInsets();
+  const styles = useStyles();
   const cameraRef = useRef<CameraView>(null);
   const [ready, setReady] = useState(false);
   const [busy, setBusy] = useState(false);
@@ -339,7 +345,7 @@ function Camera({ onClose, onCapture }: { onClose: () => void; onCapture: (photo
               <Path
                 d="M8 1L2 9h4.5L5.5 15 12 6.5H7.5L8 1z"
                 fill="none"
-                stroke={torch ? color.ink : '#FFFFFF'}
+                stroke={torch ? '#1E2A3A' : '#FFFFFF'}
                 strokeWidth={1.6}
                 strokeLinejoin="round"
               />
@@ -369,6 +375,7 @@ function Camera({ onClose, onCapture }: { onClose: () => void; onCapture: (photo
 }
 
 function FrameCorners() {
+  const styles = useStyles();
   const corner = (rotate: string, pos: object) => (
     <Svg width={30} height={30} viewBox="0 0 30 30" style={[styles.corner, pos, { transform: [{ rotate }] }]}>
       <Path d="M2 28V2h26" stroke="#FFFFFF" strokeOpacity={0.9} strokeWidth={3} fill="none" strokeLinecap="round" />
@@ -388,6 +395,7 @@ function FrameCorners() {
 
 function Checking({ photo, onClose }: { photo: Photo; onClose: () => void }) {
   const insets = useSafeAreaInsets();
+  const styles = useStyles();
   const [slow, setSlow] = useState(false);
   const scan = useSharedValue(0);
   useEffect(() => {
@@ -422,17 +430,19 @@ function Checking({ photo, onClose }: { photo: Photo; onClose: () => void }) {
 // ── 2b / 2d / 2c: results that didn't go through ─────────────────────────────────
 
 function ResultScreen({ back, onBack, children }: { back: string; onBack: () => void; children: ReactNode }) {
+  const styles = useStyles();
   return (
-    <SafeAreaView style={styles.light} edges={['top', 'bottom']}>
-      <StatusBar style="dark" />
+    <Safe style={styles.light} edges={['top', 'bottom']}>
+      <StatusBar style="auto" />
       <BackLink label={back} onPress={onBack} />
       {/* Result screens: content and button as one group, no dead space between them. */}
-      <ScrollView contentContainerStyle={styles.resultGroup}>{children}</ScrollView>
-    </SafeAreaView>
+      <ScrollView alwaysBounceVertical={false} contentContainerStyle={styles.resultGroup}>{children}</ScrollView>
+    </Safe>
   );
 }
 
 function Unclear({ photo, reason, tip, onRetake, onBack }: { photo: Photo; reason: string; tip: string; onRetake: () => void; onBack: () => void }) {
+  const styles = useStyles();
   return (
     <ResultScreen back="Map" onBack={onBack}>
       <View>
@@ -442,7 +452,6 @@ function Unclear({ photo, reason, tip, onRetake, onBack }: { photo: Photo; reaso
       <NoticeCard
         tone="gold"
         title="Let’s try that again"
-        subtitle="Nothing was sent."
         body={[reason, tip].filter(Boolean).join(' ') || 'We couldn’t spot something the city can fix. Try getting a little closer, in good light.'}
       />
       <Txt variant="secondary" style={styles.mute}>
@@ -454,18 +463,15 @@ function Unclear({ photo, reason, tip, onRetake, onBack }: { photo: Photo; reaso
 }
 
 function NotCity({ photo, reason, onBack, onGuidelines }: { photo: Photo; reason: string; onBack: () => void; onGuidelines: () => void }) {
+  const styles = useStyles();
   return (
     <ResultScreen back="Map" onBack={onBack}>
       <Image source={{ uri: photo.uri }} style={styles.resultPhoto} contentFit="cover" />
       <NoticeCard
         tone="brick"
         title="We can’t send this one"
-        subtitle="Nothing was sent. No points lost."
         body={reason || '311 can only fix things on public streets, sidewalks and parks.'}
       />
-      <Txt variant="secondary" style={styles.mute}>
-        Think it’s public? Try a photo that shows the street.
-      </Txt>
       <Button label="Back to map" onPress={onBack} style={styles.resultButton} />
       <TextLink label="What can I report?" onPress={onGuidelines} />
     </ResultScreen>
@@ -473,9 +479,10 @@ function NotCity({ photo, reason, onBack, onGuidelines }: { photo: Photo; reason
 }
 
 function CheckError({ onRetake, onClose }: { onRetake: () => void; onClose: () => void }) {
+  const styles = useStyles();
   return (
-    <SafeAreaView style={styles.light}>
-      <StatusBar style="dark" />
+    <Safe style={styles.light}>
+      <StatusBar style="auto" />
       <View style={styles.topRight}>
         <CloseButton onPress={onClose} size={36} />
       </View>
@@ -489,27 +496,35 @@ function CheckError({ onRetake, onClose }: { onRetake: () => void; onClose: () =
         </Txt>
         <Button label="Retake photo" onPress={onRetake} style={styles.errorButton} />
       </View>
-    </SafeAreaView>
+    </Safe>
   );
 }
 
-function NoticeCard({ tone, title, subtitle, body }: { tone: 'gold' | 'brick'; title: string; subtitle: string; body: string }) {
+function NoticeCard({ tone, title, body }: { tone: 'gold' | 'brick'; title: string; body: string }) {
+  const styles = useStyles();
+  const color = useColors();
+  const dark = useScheme() === 'dark';
   const palette =
     tone === 'gold'
-      ? { bg: '#FBF5E6', border: '#F0E2BF', fg: color.status.inReview.fg, dot: color.status.inReview.ring }
-      : { bg: '#FBEEEA', border: '#F1CFC6', fg: color.status.notApproved.fg, dot: color.status.notApproved.ring };
+      ? {
+          bg: dark ? '#2A2419' : '#FBF5E6',
+          border: dark ? '#463A22' : '#F0E2BF',
+          fg: color.status.inReview.fg,
+          dot: color.status.inReview.ring,
+        }
+      : {
+          bg: dark ? '#2D1E1B' : '#FBEEEA',
+          border: dark ? '#4A2D27' : '#F1CFC6',
+          fg: color.status.notApproved.fg,
+          dot: color.status.notApproved.ring,
+        };
   return (
     <View style={[styles.notice, { backgroundColor: palette.bg, borderColor: palette.border }]}>
       <View style={styles.noticeHead}>
         <Bang background={palette.dot} />
-        <View style={styles.flex}>
-          <Txt variant="hero" style={{ color: palette.fg }}>
-            {title}
-          </Txt>
-          <Txt variant="body" style={{ color: palette.fg }}>
-            {subtitle}
-          </Txt>
-        </View>
+        <Txt variant="hero" style={[styles.flex, { color: palette.fg }]}>
+          {title}
+        </Txt>
       </View>
       <View style={[styles.noticeDivider, { backgroundColor: palette.border }]} />
       <Txt variant="body">{body}</Txt>
@@ -517,12 +532,16 @@ function NoticeCard({ tone, title, subtitle, body }: { tone: 'gold' | 'brick'; t
   );
 }
 
+/** "!" in a status-colored circle. Drawn, not typed, so it sits dead center at any size. */
 function Bang({ background, small }: { background: string; small?: boolean }) {
+  const styles = useStyles();
+  const glyph = small ? 12 : 14;
   return (
     <View style={[styles.bang, small && styles.bangSmall, { backgroundColor: background }]}>
-      <Txt variant="badge" style={[styles.white, styles.bangText]}>
-        !
-      </Txt>
+      <Svg width={glyph} height={glyph} viewBox="0 0 14 14">
+        <Path d="M7 2.6v5.2" stroke="#FFFFFF" strokeWidth={2.4} strokeLinecap="round" />
+        <Circle cx={7} cy={11.4} r={1.3} fill="#FFFFFF" />
+      </Svg>
     </View>
   );
 }
@@ -548,6 +567,7 @@ function Duplicate({
   onDifferent: () => void;
   onFollowed: (id: string) => void;
 }) {
+  const styles = useStyles();
   const [saving, setSaving] = useState(false);
   const opened = Date.parse(match.open_date.replace(' ', 'T').replace('+00', 'Z'));
   const street = match.full_address.split(',')[0];
@@ -631,6 +651,8 @@ function Review({
   onSent: (report: MyReport) => void;
 }) {
   const insets = useSafeAreaInsets();
+  const styles = useStyles();
+  const color = useColors();
   const [text, setText] = useState(draft.description);
   const [focused, setFocused] = useState(false);
   const [mismatch, setMismatch] = useState(false);
@@ -669,11 +691,11 @@ function Review({
   }
 
   return (
-    <SafeAreaView style={styles.light} edges={['top']}>
-      <StatusBar style="dark" />
+    <Safe style={styles.light} edges={['top']}>
+      <StatusBar style="auto" />
       <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined} style={styles.flex}>
         <BackLink label="Retake" onPress={onRetake} />
-        <ScrollView contentContainerStyle={styles.reviewContent} keyboardShouldPersistTaps="handled">
+        <ScrollView alwaysBounceVertical={false} contentContainerStyle={styles.reviewContent} keyboardShouldPersistTaps="handled">
           <View style={styles.heading}>
             <Txt variant="display">Here’s what we’ll send</Txt>
             <Txt variant="body" style={styles.slate}>
@@ -686,7 +708,7 @@ function Review({
               <Chip>
                 <Svg width={11} height={14} viewBox="0 0 12 14">
                   <Path d="M6 13.5S1 9 1 5.2a5 5 0 0110 0C11 9 6 13.5 6 13.5z" fill={color.primary} />
-                  <Path d="M6 7a1.8 1.8 0 100-3.6A1.8 1.8 0 006 7z" fill="#FFFFFF" />
+                  <Path d="M6 7a1.8 1.8 0 100-3.6A1.8 1.8 0 006 7z" fill={color.onPrimary} />
                 </Svg>
                 <Txt variant="badge" style={styles.chipLabel} numberOfLines={1}>
                   {photo.address}
@@ -705,7 +727,7 @@ function Review({
               <Txt variant="hero" style={styles.shrink} numberOfLines={2}>
                 {draft.title}
               </Txt>
-              <Badge label="AI draft" bg={color.status.submitted.bg} fg={color.status.submitted.fg} />
+              <Badge label="AI draft" bg={color.badge.ai.bg} fg={color.badge.ai.fg} />
               {mismatch && (
                 <View style={styles.resetLink}>
                   <TextLink
@@ -764,23 +786,25 @@ function Review({
             label={sending ? 'Sending…' : 'Send to 311'}
             onPress={send}
             disabled={sending || text.trim().length === 0}
-            leading={sending ? <ActivityIndicator color="#FFFFFF" /> : undefined}
+            leading={sending ? <ActivityIndicator color={color.onPrimary} /> : undefined}
           />
         </View>
       </KeyboardAvoidingView>
-    </SafeAreaView>
+    </Safe>
   );
 }
 
 // ── 4. On its way to 311! ─────────────────────────────────────────────────────────
 
 function Sent({ report, onView, onBack }: { report: MyReport; onView: () => void; onBack: () => void }) {
+  const styles = useStyles();
+  const color = useColors();
   const photo = photoSource(report.photoUri);
   return (
-    <SafeAreaView style={styles.light} edges={['top', 'bottom']}>
-      <StatusBar style="dark" />
-      <ScrollView contentContainerStyle={styles.sentContent}>
-        <PaulDelivers height={190} />
+    <Safe style={styles.light} edges={['top', 'bottom']}>
+      <StatusBar style="auto" />
+      <ScrollView alwaysBounceVertical={false} contentContainerStyle={styles.sentContent}>
+        <PaulDelivers gutter={space.gutter} />
         <View style={styles.sentHead}>
           <Txt variant="display" style={[styles.center, styles.sentTitle]}>
             On its way to 311!
@@ -819,13 +843,42 @@ function Sent({ report, onView, onBack }: { report: MyReport; onView: () => void
         <Button label="View report" onPress={onView} style={styles.sentButton} />
         <TextLink label="Back to map" onPress={onBack} />
       </ScrollView>
-    </SafeAreaView>
+    </Safe>
   );
 }
 
 // ── Small pieces ──────────────────────────────────────────────────────────────────
 
+/**
+ * Pads for the notch and home bar using the window's insets. Not SafeAreaView: this flow is a
+ * modal that slides up from the bottom, and SafeAreaView can measure itself mid-slide (off
+ * screen, so no top inset) and then sit under the status bar.
+ */
+function Safe({
+  style,
+  edges = ['top', 'bottom'],
+  children,
+}: {
+  style: StyleProp<ViewStyle>;
+  edges?: ('top' | 'bottom')[];
+  children: ReactNode;
+}) {
+  const insets = useSafeAreaInsets();
+  return (
+    <View
+      style={[
+        style,
+        edges.includes('top') && { paddingTop: insets.top },
+        edges.includes('bottom') && { paddingBottom: insets.bottom },
+      ]}>
+      {children}
+    </View>
+  );
+}
+
 function BackLink({ label, onPress }: { label: string; onPress: () => void }) {
+  const styles = useStyles();
+  const color = useColors();
   return (
     <Pressable onPress={onPress} style={styles.backLink} hitSlop={10}>
       <Svg width={11} height={18} viewBox="0 0 10 16">
@@ -839,10 +892,11 @@ function BackLink({ label, onPress }: { label: string; onPress: () => void }) {
 }
 
 function Chip({ children }: { children: ReactNode }) {
+  const styles = useStyles();
   return <View style={styles.chip}>{children}</View>;
 }
 
-const styles = StyleSheet.create({
+const useStyles = makeStyles((color, dark) => ({
   flex: {
     flex: 1,
   },
@@ -888,7 +942,7 @@ const styles = StyleSheet.create({
   backdrop: {
     flex: 1,
     justifyContent: 'flex-end',
-    backgroundColor: 'rgba(30,42,58,0.35)',
+    backgroundColor: dark ? 'rgba(0,0,0,0.55)' : 'rgba(30,42,58,0.35)',
   },
   sheet: {
     backgroundColor: color.surface,
@@ -902,7 +956,7 @@ const styles = StyleSheet.create({
     width: 36,
     height: 5,
     borderRadius: 3,
-    backgroundColor: '#DCD3C2',
+    backgroundColor: dark ? '#3A434F' : '#DCD3C2',
   },
   sheetClose: {
     alignItems: 'flex-end',
@@ -928,7 +982,7 @@ const styles = StyleSheet.create({
     marginVertical: 4,
     borderLeftWidth: 1.5,
     borderStyle: 'dashed',
-    borderColor: '#E3D8C3',
+    borderColor: dark ? '#3A434F' : '#E3D8C3',
   },
   caption: {
     marginTop: 14,
@@ -1092,7 +1146,7 @@ const styles = StyleSheet.create({
     backgroundColor: color.surface,
     borderTopLeftRadius: 28,
     borderTopRightRadius: 28,
-    paddingTop: 4,
+    paddingTop: 32,
     paddingHorizontal: space.gutter,
     alignItems: 'center',
     gap: 4,
@@ -1132,7 +1186,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     top: 0,
-    backgroundColor: 'rgba(252,251,248,0.35)',
+    backgroundColor: dark ? 'rgba(19,23,29,0.35)' : 'rgba(252,251,248,0.35)',
   },
   resultButton: {
     marginTop: 12,
@@ -1144,6 +1198,7 @@ const styles = StyleSheet.create({
   },
   noticeHead: {
     flexDirection: 'row',
+    alignItems: 'center',
     gap: 12,
   },
   bang: {
@@ -1151,21 +1206,15 @@ const styles = StyleSheet.create({
     height: 32,
     borderRadius: 16,
     borderWidth: 3,
-    borderColor: '#FFFFFF',
+    borderColor: dark ? color.surface : '#FFFFFF',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 1,
   },
   bangSmall: {
     width: 24,
     height: 24,
     borderRadius: 12,
     borderWidth: 0,
-    marginTop: 0,
-  },
-  bangText: {
-    fontFamily: font.bodyBold,
-    fontSize: 14,
   },
   noticeDivider: {
     height: 1,
@@ -1205,7 +1254,7 @@ const styles = StyleSheet.create({
     height: 30,
     paddingHorizontal: 12,
     borderRadius: 15,
-    backgroundColor: 'rgba(255,255,255,0.95)',
+    backgroundColor: dark ? 'rgba(27,33,41,0.92)' : 'rgba(255,255,255,0.95)',
   },
   chipLabel: {
     fontSize: 13.5,
@@ -1309,4 +1358,4 @@ const styles = StyleSheet.create({
     marginTop: 40,
     marginBottom: 14,
   },
-});
+}));

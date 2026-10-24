@@ -1,7 +1,8 @@
 import Storage from 'expo-sqlite/kv-store';
 import { useSyncExternalStore } from 'react';
 
-import { SEED_PROFILE } from '@/constants/seed-profile';
+import { creditLeaves } from '@/lib/rewards';
+import { t } from '@/ui/theme';
 
 /** One finished (or half-finished, for rat patrol) stop on this week's trail. */
 export type StopProgress = {
@@ -10,6 +11,8 @@ export type StopProgress = {
   at: number;
   /** Rat patrol: reported, waiting on the day-7 check-in. */
   pendingCheckIn?: boolean;
+  /** Streak bonus paid with this stop (only the week's first stop pays it). */
+  streakBonus?: number;
   /** Whatever the flow wants to remember (ballot, ticket number, picked wild…). */
   data?: Record<string, unknown>;
 };
@@ -62,7 +65,8 @@ export function useChallengeProgress(): ChallengeProgress {
 
 /**
  * Records a stop and credits its leaves. Calling it again for the same stop adds `leaves`
- * on top (rat patrol pays 30 on the report and 10 at the check-in).
+ * on top (rat patrol pays 30 on the report and 10 at the check-in). The week's first stop also
+ * pays the streak bonus: 10 × the streak week it keeps alive (DESIGN.md 6e).
  */
 export function completeStop(
   challengeId: string,
@@ -70,6 +74,8 @@ export function completeStop(
   options: { pendingCheckIn?: boolean; data?: Record<string, unknown> } = {},
 ) {
   const prev = state.stops[challengeId];
+  const firstThisWeek = Object.keys(state.stops).length === 0;
+  const streakBonus = firstThisWeek ? t.points.leavesPerPoint * (STREAK_BEFORE_THIS_WEEK + 1) : 0;
   set({
     ...state,
     stops: {
@@ -78,31 +84,29 @@ export function completeStop(
         leaves: (prev?.leaves ?? 0) + leaves,
         at: Date.now(),
         pendingCheckIn: options.pendingCheckIn,
+        streakBonus: prev?.streakBonus ?? (streakBonus || undefined),
         data: { ...prev?.data, ...options.data },
       },
     },
   });
+  creditLeaves(leaves + streakBonus);
 }
 
 /** Returns false once the weekly cap is hit. */
 export function addVote(): boolean {
   if (state.votes >= MAX_VOTES) return false;
   set({ ...state, votes: state.votes + 1 });
+  creditLeaves(VOTE_LEAVES);
   return true;
 }
 
+/** Starts the week over. Leaves already earned stay in the ledger (lib/rewards). */
 export function resetChallengeProgress() {
   set(EMPTY);
 }
 
 export function isStopDone(progress: ChallengeProgress, challengeId: string): boolean {
   return challengeId in progress.stops;
-}
-
-/** Profile balance plus everything earned on the trail this week. */
-export function leafBalance(progress: ChallengeProgress, base = SEED_PROFILE.leaves): number {
-  const earned = Object.values(progress.stops).reduce((sum, s) => sum + s.leaves, 0);
-  return base + earned + progress.votes * VOTE_LEAVES;
 }
 
 /** One stop a week keeps the streak: 5 weeks until the first stop, then 6. */

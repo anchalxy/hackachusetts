@@ -16,6 +16,15 @@ export type River = { y: number; bridge: Bridge; ripples: [number, number][]; bo
 export type PropAnim = 'sway' | 'tree' | 'hop' | 'rustle' | 'bob';
 export type MapProp = { name: string; x: number; y: number; s: number; flip: boolean; anim: PropAnim; svg: string };
 export type LeafKind = 'leaf-maple' | 'leaf-oak' | 'leaf-ginkgo';
+/** Nameplate under one of this week's stops (labels[i] sits under weeks[0].stops[i]). */
+export type Nameplate = { left: number; top: number; w: number; h: number; title: string; due: string; reward: number };
+type Placed = { left: number; top: number };
+export type DoneStop = {
+  glow: Placed & { w: number; h: number };
+  badge: Placed & { size: number };
+  sparkles: (Placed & { size: number; delay: number })[];
+  sparkleSeconds: number;
+};
 export type Fall = { x: number; y: number; kind: LeafKind; forest?: boolean };
 
 type Layout = {
@@ -23,6 +32,8 @@ type Layout = {
   H: number;
   weeks: LayoutWeek[];
   cards: WeekCard[];
+  labels: Nameplate[];
+  doneStop: DoneStop;
   rivers: River[];
   pond: { cx: number; cy: number; rx: number; ry: number };
   props: MapProp[];
@@ -36,15 +47,31 @@ export const MAP_W = LAYOUT.W;
 export const MAP_H = LAYOUT.H;
 
 /**
+ * The trail runs into woods at the bottom too, like the forest at the top, so the end of the
+ * scroll reads as an edge. It's the top forest's trees moved below the map
+ * (assets/images/trail/forest-bottom.webp), overlapping the map's last 70 units where the trail
+ * fades, and it ends at the front row of trees: the scroll stops there, with no ground past it.
+ */
+export const FOREST_BOTTOM = { top: 2960, h: 222 };
+/** Full scroll height of the trail, map plus the bottom woods. Nothing is padded below it. */
+export const TRAIL_H = FOREST_BOTTOM.top + FOREST_BOTTOM.h;
+
+/**
  * Pieces (160×220 artboards) are drawn 150 wide. A stop's (x, y) is the middle of the piece's
  * top face, which sits 145 below the artboard top at this size (measured against trail-full-map.png).
  */
 export const PIECE_W = 150;
 export const PIECE_H = (PIECE_W * 220) / 160;
 export const PIECE_TOP = 145;
-/** Floating icon chip / done badge, centered up and to the right of the stop. */
-export const CHIP_DX = 55;
-export const CHIP_DY = -18;
+/**
+ * Current stops expand and contract in place (layout.json motion.currentStop): scale 1 → 1.07,
+ * 2.8 s, origin at the front of the tile, staggered 0.7 s along the trail. 0.97 while pressed.
+ */
+export const GROW_SCALE = 1.07;
+export const GROW_SECONDS = 2.8;
+export const GROW_STAGGER_SECONDS = 0.7;
+export const GROW_ORIGIN = '50% 88%';
+export const PRESSED_SCALE = 0.97;
 
 /**
  * The map is drawn and animated in three horizontal bands, matching the rasterized tiles in

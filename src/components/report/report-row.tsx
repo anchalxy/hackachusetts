@@ -1,17 +1,18 @@
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 
 import { ago } from '@/components/report/format';
 import { topicInfo } from '@/constants/report-topics';
 import type { MyReport } from '@/lib/my-reports';
 import { IconTile, StatusBadge } from '@/ui/components';
 import { Txt } from '@/ui/text';
-import { color, space } from '@/ui/theme';
+import { makeStyles, space } from '@/ui/theme';
 
 /**
  * Standard list row (DESIGN.md §5): 44px icon tile, bold title, "Street · 2h" under it
  * (or the reason, when not approved), status badge on the right, divider inset to the text.
  */
 export function ReportRow({ report, onPress, divider }: { report: MyReport; onPress: () => void; divider: boolean }) {
+  const styles = useStyles();
   const reason = report.status === 'notApproved' ? report.reason : undefined;
   return (
     <Pressable onPress={onPress} style={({ pressed }) => [styles.row, pressed && styles.pressed]}>
@@ -40,7 +41,7 @@ export function ReportRow({ report, onPress, divider }: { report: MyReport; onPr
   );
 }
 
-const styles = StyleSheet.create({
+const useStyles = makeStyles((color) => ({
   row: {
     height: space.rowHeight,
     flexDirection: 'row',
@@ -68,4 +69,4 @@ const styles = StyleSheet.create({
     height: 1,
     backgroundColor: color.border,
   },
-});
+}));

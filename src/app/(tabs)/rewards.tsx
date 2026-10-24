@@ -1,17 +1,16 @@
 import { router, useFocusEffect } from 'expo-router';
 import { useCallback, useState } from 'react';
-import { Alert, Pressable, ScrollView, StyleSheet, useWindowDimensions, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { Pressable, ScrollView, useWindowDimensions, View } from 'react-native';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Path } from 'react-native-svg';
 
 import { HarborHero } from '@/components/rewards/harbor-hero';
+import { openLeafDevMenu } from '@/components/rewards/leaf-dev-menu';
 import { BottomTabInset } from '@/constants/theme';
 import {
-  addBonusLeaves,
   dealBadge,
   dealStatus,
   partner,
-  resetRewards,
   sortedDeals,
   useCrate,
   useRewards,
@@ -20,27 +19,21 @@ import {
 import { Badge, Button } from '@/ui/components';
 import { Icon } from '@/ui/icon';
 import { Txt } from '@/ui/text';
-import { color, font, radius, space } from '@/ui/theme';
+import { font, makeStyles, radius, space, useColors, useScheme, type Palette } from '@/ui/theme';
 
-const BADGE = {
-  ok: color.badge.approved,
-  urgent: color.badge.urgent,
-  done: { bg: '#EFEDE9', fg: color.mute },
-};
-
-/** Hidden dev menu: long-press the leaf pill to demo the toss without finishing challenges. */
-function openDevMenu() {
-  Alert.alert('Demo tools', undefined, [
-    { text: '+50 tea leaves', onPress: () => addBonusLeaves(50) },
-    { text: '+200 tea leaves', onPress: () => addBonusLeaves(200) },
-    { text: 'Reset rewards', style: 'destructive', onPress: resetRewards },
-    { text: 'Cancel', style: 'cancel' },
-  ]);
+function badgeColors(color: Palette, dark: boolean) {
+  return {
+    ok: color.badge.approved,
+    urgent: color.badge.urgent,
+    done: { bg: dark ? color.tile : '#EFEDE9', fg: color.mute },
+  };
 }
 
 /** Rewards tab v2 (DESIGN.md 6e, design/screens/rewards/1, 2, 2b). */
 export default function RewardsScreen() {
   const { width } = useWindowDimensions();
+  const insets = useSafeAreaInsets();
+  const styles = useStyles();
   const crate = useCrate();
   const { deals } = useRewards();
   // Badges count days left, so re-read the clock whenever the tab comes back into view.
@@ -51,13 +44,15 @@ export default function RewardsScreen() {
 
   return (
     <SafeAreaView style={styles.screen} edges={['top']}>
-      <ScrollView contentContainerStyle={styles.content}>
+      <ScrollView
+        alwaysBounceVertical={false}
+        contentContainerStyle={[styles.content, { paddingBottom: BottomTabInset + insets.bottom + 24 }]}>
         <View style={styles.header}>
-          <Txt style={styles.title} accessibilityRole="header">
+          <Txt style={styles.title} accessibilityRole="header" onLongPress={openLeafDevMenu}>
             Rewards
           </Txt>
           <Pressable
-            onLongPress={openDevMenu}
+            onLongPress={openLeafDevMenu}
             delayLongPress={600}
             accessibilityLabel={`${crate.balance.toLocaleString()} tea leaves`}
             style={styles.leafPill}>
@@ -116,6 +111,9 @@ export default function RewardsScreen() {
 }
 
 function DealRow({ deal, now, last }: { deal: Deal; now: number; last: boolean }) {
+  const styles = useStyles();
+  const color = useColors();
+  const BADGE = badgeColors(color, useScheme() === 'dark');
   const p = partner(deal.partnerId);
   const status = dealStatus(deal, now);
   const badge = dealBadge(status);
@@ -141,7 +139,7 @@ function DealRow({ deal, now, last }: { deal: Deal; now: number; last: boolean }
             {p.offer}
           </Txt>
         </View>
-        <Badge label={badge.label} {...BADGE[badge.tone]} />
+        <Badge label={badge.label} {...BADGE[badge.tone]} style={styles.badge} />
         <Svg width={18} height={18} viewBox="0 0 24 24">
           <Path d="M9 5l7 7-7 7" fill="none" stroke={color.mute} strokeWidth={2.6} strokeLinecap="round" strokeLinejoin="round" />
         </Svg>
@@ -150,7 +148,7 @@ function DealRow({ deal, now, last }: { deal: Deal; now: number; last: boolean }
   );
 }
 
-const styles = StyleSheet.create({
+const useStyles = makeStyles((color, dark) => ({
   screen: {
     flex: 1,
     backgroundColor: color.bg,
@@ -225,7 +223,7 @@ const styles = StyleSheet.create({
   track: {
     height: 12,
     borderRadius: 6,
-    backgroundColor: '#E7EFE8',
+    backgroundColor: dark ? color.leaf.tint : '#E7EFE8',
     marginTop: 10,
     overflow: 'hidden',
   },
@@ -308,4 +306,8 @@ const styles = StyleSheet.create({
   mutedText: {
     color: color.mute,
   },
-});
+  badge: {
+    alignSelf: 'center',
+    minWidth: 86,
+  },
+}));

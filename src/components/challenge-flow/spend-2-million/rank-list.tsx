@@ -1,6 +1,6 @@
 import * as Haptics from 'expo-haptics';
 import { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import { GestureDetector, usePanGesture } from 'react-native-gesture-handler';
 import Animated, {
   useAnimatedReaction,
@@ -13,7 +13,7 @@ import { scheduleOnRN } from 'react-native-worklets';
 
 import { Badge } from '@/ui/components';
 import { Txt } from '@/ui/text';
-import { color, font } from '@/ui/theme';
+import { font, makeStyles, useColors, useScheme } from '@/ui/theme';
 
 import { fullMoney, PROJECT_BY_ID, shortMoney } from './ballot';
 
@@ -47,6 +47,7 @@ export function RankList({
   /** True while a row is lifted (the screen turns scrolling off). */
   onDragChange: (dragging: boolean) => void;
 }) {
+  const styles = useStyles();
   // Rows are mounted in a stable order and positioned absolutely, so React never reorders
   // native views under a moving finger. Positions are the source of truth on the UI thread.
   const [ids] = useState(order);
@@ -123,6 +124,10 @@ function RankRow({
   onDragChange: (dragging: boolean) => void;
   onMoveTo: (id: string, to: number) => void;
 }) {
+  const styles = useStyles();
+  const color = useColors();
+  // The lifted row's shadow: navy-ink in light, a stronger black in dark.
+  const shadowMax = useScheme() === 'dark' ? 0.4 : 0.14;
   const project = PROJECT_BY_ID[id];
   const count = ids.length;
   const top = useSharedValue((rank - 1) * ROW_H);
@@ -175,7 +180,7 @@ function RankRow({
     top: top.get(),
     zIndex: active.get() ? 10 : 0,
     transform: [{ scale: 1 + lift.get() * 0.03 }],
-    shadowOpacity: lift.get() * 0.14,
+    shadowOpacity: lift.get() * shadowMax,
     borderRadius: lift.get() * 12,
   }));
   const dividerStyle = useAnimatedStyle(() => ({ opacity: 1 - lift.get() }));
@@ -212,7 +217,7 @@ function RankRow({
   );
 }
 
-const styles = StyleSheet.create({
+const useStyles = makeStyles((color, dark) => ({
   card: {
     backgroundColor: color.surface,
     borderRadius: 20,
@@ -231,7 +236,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 10,
     backgroundColor: color.surface,
-    shadowColor: color.ink,
+    shadowColor: dark ? '#000000' : color.ink,
     shadowOffset: { width: 0, height: 6 },
     shadowRadius: 14,
   },
@@ -266,4 +271,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
   },
-});
+}));

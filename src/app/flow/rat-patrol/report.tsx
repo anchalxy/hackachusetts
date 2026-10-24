@@ -1,17 +1,19 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import * as WebBrowser from 'expo-web-browser';
 import { useState } from 'react';
-import { StyleSheet, TextInput, View } from 'react-native';
+import { TextInput, View } from 'react-native';
 
 import { FlowHeader, FlowHeading, FlowScreen, InfoPanel } from '@/components/challenge-flow/flow';
 import { FALLBACK_TICKET, isBoston311Ticket } from '@/components/challenge-flow/rat-patrol';
 import { Badge, Button } from '@/ui/components';
 import { Txt } from '@/ui/text';
-import { color, font } from '@/ui/theme';
+import { font, makeStyles, useColors } from '@/ui/theme';
 
 const BOS_311_URL = 'https://www.boston.gov/departments/boston-311';
 
 export default function ReportTo311() {
+  const styles = useStyles();
+  const color = useColors();
   const params = useLocalSearchParams<{ type: string; photo: string; street: string; neighborhood: string }>();
   const [ticket, setTicket] = useState('');
   const found = isBoston311Ticket(ticket);
@@ -81,6 +83,7 @@ export default function ReportTo311() {
 }
 
 function StepNumber({ n }: { n: number }) {
+  const styles = useStyles();
   return (
     <View style={styles.stepNumber}>
       <Txt variant="badge">{n}</Txt>
@@ -88,7 +91,7 @@ function StepNumber({ n }: { n: number }) {
   );
 }
 
-const styles = StyleSheet.create({
+const useStyles = makeStyles((color) => ({
   card: {
     padding: 14,
     gap: 14,
@@ -136,4 +139,4 @@ const styles = StyleSheet.create({
     color: color.ink,
     fontVariant: ['tabular-nums'],
   },
-});
+}));

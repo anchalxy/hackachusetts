@@ -41,3 +41,15 @@ export function neighborhoodLockedUntil(profile: Pick<Profile, 'neighborhoodChan
   const until = profile.neighborhoodChangedAt + NEIGHBORHOOD_LOCK_DAYS * 24 * 60 * 60 * 1000;
   return until > now ? new Date(until) : null;
 }
+
+export const MIN_AGE = 13;
+export const MAX_AGE = 100;
+
+/** What's wrong with an age entry, or null when it can be saved. */
+export function validateAge(text: string): string | null {
+  if (!/^\d{1,3}$/.test(text.trim())) return 'Enter your age in years.';
+  const age = Number(text);
+  if (age < MIN_AGE) return `You need to be ${MIN_AGE} or older to use Tea Party.`;
+  if (age > MAX_AGE) return 'Check that number.';
+  return null;
+}
