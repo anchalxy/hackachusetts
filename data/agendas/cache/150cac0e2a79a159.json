@@ -1,0 +1,53 @@
+{
+  "items": [
+    {
+      "title": "Reparations Task Force public comment",
+      "summary": "Join the virtual Reparations Task Force meeting to hear updates on the Tufts research report and researcher presentations, then give up to two minutes of public comment or ask questions.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-29",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Khalid Mustafa",
+          "office": "Boston Reparations Task Force",
+          "email": "khalid.mustafa@boston.gov",
+          "phone": "617-821-6022"
+        },
+        {
+          "name": "Antonia Edwards",
+          "office": "RTF Community Engagement Sub-Committee Chair",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "City updates on Tufts research report and researcher presentations",
+      "summary": "City staff and researchers present updates on reparations research; the public can listen but there is no separate input opportunity for this item.",
+      "docket": "",
+      "action": "other",
+      "deadline": "2026-10-29",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Informational presentation; public input happens during the Q&A public comment item."
+    },
+    {
+      "title": "RTF discussion and votes",
+      "summary": "Task Force members discuss and vote on matters.",
+      "docket": "",
+      "action": "other",
+      "deadline": "2026-10-29",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Not open to public input."
+    }
+  ]
+}

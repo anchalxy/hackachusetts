@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Pressable, StyleSheet, TextInput, View } from 'react-native';
 
 import { Card, Screen, SectionTitle } from '@/components/screen';
@@ -6,8 +6,7 @@ import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
-
-const MOCK_USER = { name: 'Alex Rivera', username: '@alexr', neighborhood: 'Jamaica Plain' };
+import { areaLabel, getProfile, SEED_PROFILE, type Profile } from '@/lib/profile';
 
 const STATS = [
   { label: 'Friends', value: '12' },
@@ -23,6 +22,11 @@ const MOCK_NOTIFICATIONS = [
 
 export default function AccountScreen() {
   const theme = useTheme();
+  const [profile, setProfile] = useState<Profile>(SEED_PROFILE);
+
+  useEffect(() => {
+    getProfile().then(setProfile);
+  }, []);
   const [friend, setFriend] = useState('');
 
   return (
@@ -30,9 +34,9 @@ export default function AccountScreen() {
       <Card style={styles.profile}>
         <ThemedView type="backgroundSelected" style={styles.avatar} />
         <View>
-          <ThemedText type="smallBold">{MOCK_USER.name}</ThemedText>
+          <ThemedText type="smallBold">{profile.name}</ThemedText>
           <ThemedText type="small" themeColor="textSecondary">
-            {MOCK_USER.username} · {MOCK_USER.neighborhood}
+            {profile.username} · {areaLabel(profile)} · {profile.age}
           </ThemedText>
         </View>
       </Card>

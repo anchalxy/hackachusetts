@@ -1,0 +1,23 @@
+{
+  "items": [
+    {
+      "title": "Design review of proposed 1280-1330 Boylston Street development in Chestnut Hill",
+      "summary": "City Realty will present plans for three new buildings along Route 9 and Heath Street, including two 12-story mixed-use buildings with retail, hotel, condos, medical offices and apartments, plus a 7-story apartment building. Residents can ask questions and comment on the design at this virtual Zoom meeting.",
+      "docket": "",
+      "action": "design_input",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [
+        {
+          "name": "",
+          "office": "Brookline Planning Board Design Advisory Team",
+          "email": "",
+          "phone": "646-828-7666"
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    }
+  ]
+}

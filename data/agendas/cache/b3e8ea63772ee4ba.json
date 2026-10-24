@@ -1,0 +1,35 @@
+{
+  "items": [
+    {
+      "title": "Hearing on in-custody deaths at Suffolk County House of Correction",
+      "summary": "City Council hearing examining deaths in custody at the Suffolk County House of Correction and the systemic factors behind them. The public can testify in person or virtually, or send written comments.",
+      "docket": "#0870",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-26",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Miniard Culpepper",
+          "office": "Boston City Council",
+          "email": "",
+          "phone": ""
+        },
+        {
+          "name": "Julia Mejia",
+          "office": "Boston City Council",
+          "email": "",
+          "phone": ""
+        },
+        {
+          "name": "Brian J. Worrell",
+          "office": "Boston City Council",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "include": false,
+      "skip_reason": "Deaths in custody are too heavy a topic for a points-based civic app."
+    }
+  ]
+}

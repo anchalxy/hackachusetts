@@ -1,0 +1,85 @@
+{
+  "items": [
+    {
+      "title": "Enforcement of the vacant properties ordinance",
+      "summary": "The Director of Inspectional Services will update the committee on how the city enforces its vacant properties ordinance. Residents can watch the virtual meeting.",
+      "docket": "26-0645",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-26",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Councilor McLaughlin",
+          "office": "Somerville City Council",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Public comments on utility double poles",
+      "summary": "The committee will discuss a resident's written comments about utility double poles.",
+      "docket": "26-0633",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-26",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "An individual resident's communication; covered by the double poles discussion items"
+    },
+    {
+      "title": "City process for tracking double poles and abandoned wires",
+      "summary": "Public Works and Infrastructure staff will explain how the city tracks progress on removing double utility poles and abandoned wires, which cause hazards and damage trees.",
+      "docket": "26-0628",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-26",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Councilor Hardt",
+          "office": "Somerville City Council",
+          "email": "",
+          "phone": ""
+        },
+        {
+          "name": "Councilor Scott",
+          "office": "Somerville City Council",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Utility companies' plans for double poles and abandoned wires",
+      "summary": "Representatives from Eversource, National Grid, Comcast, Xfinity, Astound and Verizon are asked to present their plans for removing double poles and abandoned wires around the city.",
+      "docket": "26-0627",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-26",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Councilor Hardt",
+          "office": "Somerville City Council",
+          "email": "",
+          "phone": ""
+        },
+        {
+          "name": "Councilor Scott",
+          "office": "Somerville City Council",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "items": [
+    {
+      "title": "Violation hearing: Estella, 49 Temple Pl",
+      "summary": "Licensing Board hearing on an alleged assault and battery at Estella restaurant.",
+      "docket": "LB-99190 / Violation 054979",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [
+        "Downtown"
+      ],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Individual license violation hearing involving a criminal incident."
+    },
+    {
+      "title": "Violation hearings: McDonald's, 1316-1342 Hyde Park Ave",
+      "summary": "Licensing Board hearings on alleged armed robbery, assault, and supervision failures at a Hyde Park McDonald's.",
+      "docket": "LB-100082 / Violations 055202, 055203, 071265",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [
+        "Hyde Park"
+      ],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Individual license violation hearing involving criminal incidents."
+    },
+    {
+      "title": "Violation hearing: Diamond at Fenway, 72 Brookline Ave",
+      "summary": "Licensing Board hearing on an alleged violation at Diamond at Fenway; details are cut off in the notice.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [
+        "Fenway"
+      ],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Individual license violation hearing."
+    }
+  ]
+}

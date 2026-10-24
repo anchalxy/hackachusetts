@@ -1,0 +1,23 @@
+{
+  "items": [
+    {
+      "title": "Joint Statement of Intent between CPA Committee and Housing Advisory Board",
+      "summary": "The subcommittee will discuss a draft joint statement on how Community Preservation Act funds and the Affordable Housing Trust work together on affordable housing. This meeting takes no public comment, but residents can email questions or comments ahead of time.",
+      "docket": "",
+      "action": "public_comment",
+      "deadline": "2026-10-26",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "",
+          "office": "Community Preservation Act Committee",
+          "email": "cpa@brooklinema.gov",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    }
+  ]
+}

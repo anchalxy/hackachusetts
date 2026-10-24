@@ -1,0 +1,41 @@
+{
+  "items": [
+    {
+      "title": "Hearing on fulfillment of community benefits from development projects",
+      "summary": "The City Council committee will discuss whether community benefits promised and funded by development projects are being delivered. Residents can testify in person or virtually, or send written comments.",
+      "docket": "#1337",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-29",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Enrique J. Pepén",
+          "office": "Boston City Council",
+          "email": "",
+          "phone": ""
+        },
+        {
+          "name": "Benjamin J. Weber",
+          "office": "Boston City Council",
+          "email": "",
+          "phone": ""
+        },
+        {
+          "name": "Ruthzee Louijeune",
+          "office": "Boston City Council",
+          "email": "",
+          "phone": ""
+        },
+        {
+          "name": "",
+          "office": "Committee on Planning, Development, and Transportation",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    }
+  ]
+}

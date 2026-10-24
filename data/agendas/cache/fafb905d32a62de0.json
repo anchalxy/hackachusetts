@@ -1,0 +1,47 @@
+{
+  "items": [
+    {
+      "title": "Election of New UASI Chair",
+      "summary": "The regional homeland security group will elect a new chair.",
+      "docket": "",
+      "action": "other",
+      "deadline": "",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Internal procedural/personnel matter, not open to public input."
+    },
+    {
+      "title": "FY 24/25 Budget Updates",
+      "summary": "Regional officials will give updates on the homeland security grant budget.",
+      "docket": "",
+      "action": "other",
+      "deadline": "",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Alicia Woodberry",
+          "office": "UASI Project Director, Office of Emergency Management",
+          "email": "Alicia.woodberry@boston.gov",
+          "phone": "617-635-1400"
+        }
+      ],
+      "include": false,
+      "skip_reason": "Informational update for regional partners; no public comment opportunity listed."
+    },
+    {
+      "title": "Stakeholder Preparedness Review (SPR) Reminder",
+      "summary": "A reminder to regional partners about the Stakeholder Preparedness Review.",
+      "docket": "",
+      "action": "other",
+      "deadline": "",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Internal reminder for agency stakeholders, not open to public input."
+    }
+  ]
+}

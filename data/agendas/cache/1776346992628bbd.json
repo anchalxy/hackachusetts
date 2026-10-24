@@ -1,0 +1,35 @@
+{
+  "items": [
+    {
+      "title": "Review trustee selection process",
+      "summary": "The Library Trustees Executive Committee will review how library trustees are selected.",
+      "docket": "",
+      "action": "other",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Library Administration",
+          "office": "Public Library of Brookline",
+          "email": "brkadmin@minlib.net",
+          "phone": "617-730-2360"
+        }
+      ],
+      "include": false,
+      "skip_reason": "Internal committee discussion; no public comment period listed."
+    },
+    {
+      "title": "Discuss BOLT meeting agenda for Nov. 10",
+      "summary": "The committee will plan the agenda for the November 10 Board of Library Trustees meeting.",
+      "docket": "",
+      "action": "other",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Procedural agenda planning; not open to public input."
+    }
+  ]
+}

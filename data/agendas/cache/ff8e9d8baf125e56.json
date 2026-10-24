@@ -1,0 +1,64 @@
+{
+  "items": [
+    {
+      "title": "Boynton Yards zoning text amendment (Section 8.4.12.e.ii)",
+      "summary": "Public hearing on a zoning text change requested by Boynton Yards LandCo LLC and Windsor Place Owner LLC. Residents can attend the virtual joint Land Use Committee and Planning Board hearing to testify.",
+      "docket": "26-1480",
+      "action": "attend_and_testify",
+      "deadline": "2026-11-05",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Zoning amendment on affordable dwelling units (Section 12.1.2)",
+      "summary": "Public hearing on a resident-petitioned zoning change to the city's affordable housing unit rules. Residents can attend the virtual hearing to testify.",
+      "docket": "26-1512",
+      "action": "attend_and_testify",
+      "deadline": "2026-11-05",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Zoning amendment on Zoning Board of Appeals rules (Section 15.7.2.d)",
+      "summary": "Public hearing on a resident-petitioned zoning change to the Zoning Board of Appeals board rules. Residents can attend the virtual hearing to testify.",
+      "docket": "26-1511",
+      "action": "attend_and_testify",
+      "deadline": "2026-11-05",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Zoning amendment on backyard cottages (Section 3.1.12)",
+      "summary": "Public hearing on a resident-petitioned zoning change to the rules for backyard cottages. Residents can attend the virtual hearing to testify.",
+      "docket": "26-1510",
+      "action": "attend_and_testify",
+      "deadline": "2026-11-05",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Second zoning amendment on backyard cottages (Section 3.1.12)",
+      "summary": "Public hearing on a second resident-petitioned zoning change to the backyard cottage rules. Residents can attend the virtual hearing to testify.",
+      "docket": "26-1509",
+      "action": "attend_and_testify",
+      "deadline": "2026-11-05",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": true,
+      "skip_reason": ""
+    }
+  ]
+}

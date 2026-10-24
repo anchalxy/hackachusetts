@@ -1,0 +1,54 @@
+{
+  "items": [
+    {
+      "title": "Public Advisory Consultation: 280 Green Street",
+      "summary": "Review of a proposal to replace a 2-story building with a 5-story, 9-unit residential building in the Central Square Overlay District. The public can give non-binding recommendations.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-11-04",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [
+        {
+          "name": "Mason Wells",
+          "office": "Cambridge Community Development Department, Zoning & Development Division",
+          "email": "mwells@cambridgema.gov",
+          "phone": "617-349-9794"
+        }
+      ],
+      "include": false,
+      "skip_reason": "Single-address development review."
+    },
+    {
+      "title": "Update on Central Square Rezoning",
+      "summary": "City planners return to the Central Square Advisory Committee to discuss feedback on updating zoning for Central Square. Residents can attend in person or on Zoom, or send written comments before the meeting.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-11-04",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [
+        {
+          "name": "Mason Wells",
+          "office": "Cambridge Community Development Department, Zoning & Development Division",
+          "email": "mwells@cambridgema.gov",
+          "phone": "617-349-9794"
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Committee Member Updates",
+      "summary": "Committee members share updates on events in Central Square.",
+      "docket": "",
+      "action": "other",
+      "deadline": "",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Not open to public input."
+    }
+  ]
+}

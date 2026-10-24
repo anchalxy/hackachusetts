@@ -1,0 +1,23 @@
+{
+  "items": [
+    {
+      "title": "Hearing on resources for the Boston Police Crime Lab",
+      "summary": "The City Council's Public Safety Committee is holding a hearing on funding and resources for the Boston Police Crime Lab. Residents can testify in person or virtually, or send written comments.",
+      "docket": "#0180",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-26",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Ron Cobb",
+          "office": "Boston City Council Committee on Public Safety and Criminal Justice",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    }
+  ]
+}

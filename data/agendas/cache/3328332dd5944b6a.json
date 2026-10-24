@@ -1,0 +1,29 @@
+{
+  "items": [
+    {
+      "title": "Article 9: Transportation Board changes and higher parking fines",
+      "summary": "The committee will discuss and may vote on a Select Board petition to change how the Transportation Board operates and let the Town raise parking fines above $50. Residents can join the Zoom meeting to listen and weigh in.",
+      "docket": "Article 9",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "",
+          "office": "Select Board",
+          "email": "",
+          "phone": ""
+        },
+        {
+          "name": "Jean Berg",
+          "office": "Committee on Town Organization & Structure (Chair)",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    }
+  ]
+}

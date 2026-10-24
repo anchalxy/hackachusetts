@@ -1,0 +1,25 @@
+{
+  "items": [
+    {
+      "title": "290 North Beacon arts and community space public meeting",
+      "summary": "The Boston Housing Authority and the Mayor's Office of Arts and Culture will share progress on turning 290 North Beacon in Brighton into a music, arts and community space, including a pilot opportunity, and take questions. Attend either session (Oct 29 at 6 p.m. or Oct 30 at 12 p.m.); both cover the same information.",
+      "docket": "",
+      "action": "design_input",
+      "deadline": "2026-10-30",
+      "neighborhoods": [
+        "Brighton"
+      ],
+      "citywide": false,
+      "contacts": [
+        {
+          "name": "Rahul Ramesh",
+          "office": "Boston Housing Authority / Mayor's Office of Arts and Culture",
+          "email": "",
+          "phone": "857-891-3454"
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "items": [
+    {
+      "title": "Public comment at BPL Trustees McKim Renovation Oversight Committee",
+      "summary": "The Boston Public Library trustees' new committee overseeing the McKim Building renovation at the Central Library meets to discuss its charge, the Bridge to McKim program, and research collections. Residents can speak in person or send written comments to the Clerk at least 24 hours before the meeting.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-29",
+      "neighborhoods": [
+        "Back Bay"
+      ],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Pamela Carver",
+          "office": "Clerk of the Board, Trustees of the Public Library of the City of Boston",
+          "email": "pcarver@bpl.org",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    }
+  ]
+}

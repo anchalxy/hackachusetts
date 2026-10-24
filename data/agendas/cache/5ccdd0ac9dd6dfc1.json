@@ -1,0 +1,25 @@
+{
+  "items": [
+    {
+      "title": "Monument Square Landmark District study report: review and edits",
+      "summary": "The study committee will discuss feedback from the community engagement event and edit its working study report on a proposed Monument Square Landmark District in Charlestown. Residents can comment during the virtual meeting or email written comments at any time.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-28",
+      "neighborhoods": [
+        "Charlestown"
+      ],
+      "citywide": false,
+      "contacts": [
+        {
+          "name": "Jennifer Gaugler",
+          "office": "Boston Landmarks Commission",
+          "email": "BLC@boston.gov",
+          "phone": "617-635-1935"
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    }
+  ]
+}

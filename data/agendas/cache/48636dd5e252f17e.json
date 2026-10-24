@@ -1,0 +1,25 @@
+{
+  "items": [
+    {
+      "title": "Proposed Curaleaf medical marijuana establishment at 21 Milk Street",
+      "summary": "Curaleaf Massachusetts will present plans for a proposed medical marijuana establishment at 21 Milk Street, covering security, diversion prevention and operations, with time for public questions.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-29",
+      "neighborhoods": [
+        "Downtown"
+      ],
+      "citywide": false,
+      "contacts": [
+        {
+          "name": "Alex Chavez",
+          "office": "Curaleaf Massachusetts, Inc.",
+          "email": "",
+          "phone": "857-995-3035"
+        }
+      ],
+      "include": false,
+      "skip_reason": "Too narrow: single-address licensing community meeting for one business."
+    }
+  ]
+}

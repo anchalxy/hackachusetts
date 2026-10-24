@@ -1,0 +1,119 @@
+{
+  "items": [
+    {
+      "title": "General public comment at Select Board",
+      "summary": "Residents can speak to the Select Board about any Town issue. Sign up in advance starting the Friday before, or in person at the meeting.",
+      "docket": "2",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "",
+          "office": "Select Board's Office",
+          "email": "kmacgillivray@brooklinema.gov",
+          "phone": "617-730-2202"
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Public hearing: 26 Pleasant Street Zoning (Article 15)",
+      "summary": "Continued hearing on a Special Town Meeting warrant article to change zoning for 26 Pleasant Street. Each speaker gets three minutes.",
+      "docket": "Article 15",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Single-address zoning item"
+    },
+    {
+      "title": "Public hearing: Legal Fees Budget Amendment (Article 4)",
+      "summary": "Hearing on a warrant article to amend the legal fees budget; petitioners say they won't move it at Town Meeting.",
+      "docket": "Article 4",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Petitioners do not intend to move the article"
+    },
+    {
+      "title": "Public hearing: Resolution to Settle Claim (Article 5)",
+      "summary": "Hearing on a warrant article resolution about settling a claim.",
+      "docket": "Article 5",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Legal claim matter, too narrow"
+    },
+    {
+      "title": "Public hearing: Residential Parking Minimums (Article 10)",
+      "summary": "Hearing on a warrant article about parking minimums for housing; petitioners say they won't move it at Town Meeting.",
+      "docket": "Article 10",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Petitioners do not intend to move the article"
+    },
+    {
+      "title": "Public hearing: Inclusionary Zoning (Article 14)",
+      "summary": "Speak at the Select Board hearing on a November Special Town Meeting article about inclusionary zoning, which requires affordable units in new housing. Each speaker gets three minutes.",
+      "docket": "Article 14",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Appeal of Chestnut Hill Avenue Transportation Board decision",
+      "summary": "Public hearing on an appeal of the Transportation Board's decision about rehabilitating and changing uses on Chestnut Hill Avenue. Residents can comment for three minutes after the appeal is presented.",
+      "docket": "9a",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Liquor, entertainment and food licenses",
+      "summary": "Individual business license approvals and transfers.",
+      "docket": "3g-3n",
+      "action": "other",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Individual licenses"
+    },
+    {
+      "title": "Eversource conduit petitions on Stearns Road and Kent Street",
+      "summary": "Approval of underground conduit locations to individual properties.",
+      "docket": "3e-3f",
+      "action": "other",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Single-address utility items"
+    }
+  ]
+}

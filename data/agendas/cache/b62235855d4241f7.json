@@ -1,0 +1,35 @@
+{
+  "items": [
+    {
+      "title": "Paid Parental Leave for City of Boston Employees (Docket #1599) - hearing canceled",
+      "summary": "The Government Operations hearing on an ordinance changing paid parental leave for City of Boston employees has been canceled. Written comments can still be emailed to the committee and will be part of the record.",
+      "docket": "#1599",
+      "action": "public_comment",
+      "deadline": "",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Meghan Kavanagh",
+          "office": "City Council Committee on Government Operations",
+          "email": "meghan.kavanagh@boston.gov",
+          "phone": "617-635-3040"
+        },
+        {
+          "name": "",
+          "office": "City Council Committee on Government Operations",
+          "email": "ccc.go@boston.gov",
+          "phone": ""
+        },
+        {
+          "name": "Gabriela Coletta Zapata",
+          "office": "Boston City Council (sponsor)",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "include": false,
+      "skip_reason": "Hearing canceled; also concerns a city employee personnel benefit rather than broad resident input."
+    }
+  ]
+}

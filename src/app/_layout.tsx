@@ -14,6 +14,7 @@ export default function RootLayout() {
       <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="(tabs)" />
         <Stack.Screen name="new-report" options={{ presentation: 'fullScreenModal' }} />
+        <Stack.Screen name="challenge/[id]" options={{ headerShown: true, headerBackTitle: 'This Week' }} />
       </Stack>
     </ThemeProvider>
   );

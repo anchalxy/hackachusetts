@@ -1,0 +1,60 @@
+{
+  "items": [
+    {
+      "title": "Common Victualler License: Dunkin / Jimmy John's, 2 Sutherland Rd",
+      "summary": "BB Donuts, LLC applied for a food service license for a Dunkin' and Jimmy John's restaurant at 1962 Beacon Street, open 4:30 AM to 10:00 PM.",
+      "docket": "LB-638105",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-28",
+      "neighborhoods": [
+        "Brighton"
+      ],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Individual business license"
+    },
+    {
+      "title": "Common Victualler License: Tradesman Bridge, 470 Atlantic Ave",
+      "summary": "BW Cafe, LLC applied for a food service license for a lobby coffee kiosk.",
+      "docket": "LB-638106",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-28",
+      "neighborhoods": [
+        "Downtown"
+      ],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Individual business license"
+    },
+    {
+      "title": "Closing hours change: Subway, 981 Tremont St",
+      "summary": "Subway asks to extend its closing time from 11:00 PM to 1:00 AM.",
+      "docket": "LB-137672",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-28",
+      "neighborhoods": [
+        "Mission Hill"
+      ],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Individual business license"
+    },
+    {
+      "title": "Manager change: Pennyweight Hotel, 155 Portland St",
+      "summary": "The Pennyweight Hotel asks to change the manager on its alcohol license.",
+      "docket": "LB-101657",
+      "action": "other",
+      "deadline": "2026-10-28",
+      "neighborhoods": [
+        "West End"
+      ],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Individual liquor license"
+    }
+  ]
+}

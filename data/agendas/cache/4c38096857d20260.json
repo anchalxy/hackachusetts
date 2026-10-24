@@ -1,0 +1,29 @@
+{
+  "items": [
+    {
+      "title": "Public hearing on Police Review & Advisory Board Quarterly Report (Fall 2025 – Q1 2026)",
+      "summary": "The Public Safety Committee will hold a public hearing on the Police Review and Advisory Board's quarterly report on police complaints and oversight from Fall 2025 through early 2026. Residents can attend and share their views on police oversight in Cambridge.",
+      "docket": "CMA 2026-85",
+      "action": "attend_and_testify",
+      "deadline": "2026-11-10",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Yi-An Huang",
+          "office": "City Manager",
+          "email": "",
+          "phone": ""
+        },
+        {
+          "name": "",
+          "office": "Public Safety Committee",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    }
+  ]
+}

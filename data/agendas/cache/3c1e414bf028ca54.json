@@ -1,0 +1,35 @@
+{
+  "items": [
+    {
+      "title": "Public comment and Q&A on the future work of the Reparations Task Force",
+      "summary": "Residents can speak for up to two minutes at the virtual Reparations Task Force meeting about the Task Force's future work, including additional research on the period from 1620-1940. The public comment portion lasts 30 minutes.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-29",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Khalid Mustafa",
+          "office": "Reparations Task Force",
+          "email": "",
+          "phone": "617-821-6022"
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Update on Phase 1 research and vote on additional research",
+      "summary": "The Task Force will hear an update on Phase 1 research and vote on additional research covering 1620-1940.",
+      "docket": "",
+      "action": "other",
+      "deadline": "2026-10-29",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Task Force discussion and vote, not open to public input; public input happens in the comment period."
+    }
+  ]
+}

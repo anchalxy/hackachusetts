@@ -1,0 +1,47 @@
+{
+  "items": [
+    {
+      "title": "Impacts of BPS personnel cuts on students with disabilities (hearing canceled, to be rescheduled)",
+      "summary": "The Council's Education Committee will hold a hearing on how recent Boston Public Schools staff cuts affect students with disabilities. The October 29 hearing was canceled and will be rescheduled, but written comments can be sent to the committee for the record.",
+      "docket": "1333",
+      "action": "public_comment",
+      "deadline": "",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Ryan Pratt",
+          "office": "City Council Committee on Education",
+          "email": "ryan.pratt@boston.gov",
+          "phone": "617-635-5635"
+        },
+        {
+          "name": "",
+          "office": "City Council Committee on Education",
+          "email": "ccc.education@boston.gov",
+          "phone": ""
+        },
+        {
+          "name": "Edward M. Flynn",
+          "office": "Boston City Council",
+          "email": "",
+          "phone": ""
+        },
+        {
+          "name": "Julia M. Mejia",
+          "office": "Boston City Council",
+          "email": "",
+          "phone": ""
+        },
+        {
+          "name": "Erin J. Murphy",
+          "office": "Boston City Council",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    }
+  ]
+}

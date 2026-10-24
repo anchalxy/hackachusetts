@@ -1,0 +1,260 @@
+{
+  "weekOf": "2026-10-26",
+  "area": "Allston, Boston",
+  "generatedAt": "2026-10-24T19:05:35.767Z",
+  "origin": "generated",
+  "overview": "This week's set is 5 challenges worth 7–8 points each (37 max). This week's set is tilted toward Allston-Brighton and the run-up to the November 3 State Election. Each challenge is tied to a Boston agenda item live between October 26 and November 3, 2026, and names the office or staff person who will receive the digest. One challenge is a short walk from Allston (290 North Beacon in Brighton). Two are a Green Line ride downtown or to Copley (the McKim Building and early ballot processing at City Hall). One can be done on any block with a big new building. One is fully virtual.",
+  "sources": "Where they came from: Boston.gov public notices for Oct 26–Nov 3, including the City Council's Planning, Development, and Transportation Committee hearing on Docket #1337, the BPL Trustees' new McKim Renovation Oversight Committee, the Reparations Task Force, and the Election Department's notices of advance ballot processing. Duplicate notices were merged: 290 North Beacon was posted twice, the Reparations Task Force twice, and ballot processing six times. Several items were skipped. The Public Safety Committee's crime lab hearing is too heavy for a points app. Both BERDO Review Board items close for comment at 3 p.m. Monday, too soon for a digest. Single-property Landmarks reviews, the Monument Square study and a charter school board meeting are too narrow or too far from Allston. The BPS students-with-disabilities hearing was canceled with no new date. It is worth adding once it's rescheduled.",
+  "challenges": [
+    {
+      "id": "2026-10-26-program-290-north-beacon",
+      "number": 1,
+      "type": "design",
+      "title": "Program 290 North Beacon",
+      "points": 7,
+      "pointsBreakdown": "7 = 30–45 min (3) + in person (2) + city asked (1) + proof required (1)",
+      "factors": {
+        "minutes": 45,
+        "inPerson": true,
+        "cityAsked": true,
+        "proofRequired": true
+      },
+      "summary": "Users walk by 290 North Beacon in Brighton and design a week of programming for the music, arts and community space the city is building there. The designs feed the Boston Housing Authority and Mayor's Office of Arts and Culture meetings on Oct 29 and 30.",
+      "agendaItem": "290 North Beacon music, arts and community space public meetings (remote), Thu, Oct 29, 2026, 6 p.m., and Fri, Oct 30, 12 p.m.; both sessions cover the same information",
+      "whyNow": "BHA and the Mayor's Office of Arts and Culture are sharing progress on the space, including a pilot opportunity, and taking residents' questions. Programming ideas are most useful before the pilot is set.",
+      "poc": "Rahul Ramesh, Boston Housing Authority (Rahul.Ramesh@bostonhousing.org, 857-891-3454), working with the Mayor's Office of Arts and Culture",
+      "contacts": [
+        {
+          "name": "Rahul Ramesh",
+          "office": "Boston Housing Authority",
+          "email": "Rahul.Ramesh@bostonhousing.org",
+          "phone": "857-891-3454"
+        }
+      ],
+      "deadline": "Wednesday, Oct 28, so the digest arrives before the first session",
+      "deadlineDate": "2026-10-28",
+      "inPerson": "yes",
+      "digestTo": "Rahul Ramesh, Boston Housing Authority / Mayor's Office of Arts and Culture",
+      "task": {
+        "intro": "Users visit the outside of 290 North Beacon, a short trip from Allston, and plan what a week inside it should look like.",
+        "steps": [
+          "Walk or bike to 290 North Beacon in Brighton.",
+          "Take 2 photos: the front entrance and the street around it.",
+          "In the builder, fill a weekly calendar with uses such as live music, rehearsal space, recording, gallery, classes, open studio, community meetings or youth programs.",
+          "Mark which slot should be the pilot: the one thing to try first.",
+          "Write one sentence on who the space is for."
+        ]
+      },
+      "extras": [
+        {
+          "heading": "Constraints (set by the app, not the city)",
+          "items": [
+            "Fill at least 5 time slots across the week.",
+            "Include at least one free or low-cost slot.",
+            "Include at least one evening or weekend slot.",
+            "Pick exactly one pilot."
+          ]
+        }
+      ],
+      "voting": "Other users vote on calendars (1 vote each). The top-voted calendar and most-picked pilot go in the digest.",
+      "verification": "The app checks that the photo locations are at 290 North Beacon.",
+      "pocReceives": "The most-requested uses ranked, the most popular pilot idea, the top-voted weekly calendar and preferred times of day, broken down by neighborhood and age. The digest flags submissions from Allston-Brighton residents.",
+      "sourceUrl": "https://www.boston.gov/public-notices/16634016"
+    },
+    {
+      "id": "2026-10-26-test-drive-the-mckim-building",
+      "number": 2,
+      "type": "service-test",
+      "title": "Test-Drive the McKim Building",
+      "points": 8,
+      "pointsBreakdown": "8 = 45–60 min (4) + in person (2) + city asked (1) + proof required (1)",
+      "factors": {
+        "minutes": 60,
+        "inPerson": true,
+        "cityAsked": true,
+        "proofRequired": true
+      },
+      "summary": "Users visit the Central Library's McKim Building and test how easy it is to find, use and study in. Their reports go to the BPL Trustees' new committee overseeing its renovation before its first meeting on Oct 28.",
+      "agendaItem": "BPL Trustees McKim Renovation Oversight Committee meeting, Wed, Oct 28, 2026, 4 p.m., Central Library, Commonwealth Salon; agenda includes the committee's charge, the Bridge to McKim program and research collections",
+      "whyNow": "The committee is just forming and setting its charge. Written comments must reach the Clerk at least 24 hours before the meeting. It's worth the Green Line trip from Allston because this is the earliest point to shape the renovation.",
+      "poc": "Pamela Carver, Clerk of the Board, Trustees of the Public Library of the City of Boston (pcarver@bpl.org)",
+      "contacts": [
+        {
+          "name": "Pamela Carver",
+          "office": "Clerk of the Board, Trustees of the Public Library of the City of Boston",
+          "email": "pcarver@bpl.org"
+        }
+      ],
+      "deadline": "Monday, Oct 26, so the digest reaches the Clerk before the 24-hour cutoff",
+      "deadlineDate": "2026-10-26",
+      "inPerson": "yes",
+      "digestTo": "BPL Trustees: Pamela Carver, Clerk of the Board",
+      "task": {
+        "intro": "Users visit the McKim Building at the Central Library and score it as a first-time visitor would.",
+        "steps": [
+          "Enter the Central Library and use the in-app timer to see how long it takes to reach the McKim Building.",
+          "Find three things: the Commonwealth Salon, a place to sit and study, and a desk or staff member who can explain how to use the research collections.",
+          "Rate four things from 1 to 5: wayfinding, accessibility, study space, and building condition.",
+          "Take at least 2 photos (one of the best spot, one of the worst).",
+          "Answer one question: before today, had you heard of the Bridge to McKim program?",
+          "Write one sentence on what the renovation should fix first."
+        ]
+      },
+      "verification": "The app checks that photo locations fall inside the Central Library and that the timings are plausible.",
+      "pocReceives": "Average scores on the four measures, typical time to find the McKim Building, a photo set of problem spots, the share of visitors who knew about Bridge to McKim, and the most common fix-first requests, broken down by neighborhood and age.",
+      "sourceUrl": "https://www.boston.gov/public-notices/16634086"
+    },
+    {
+      "id": "2026-10-26-did-the-development-deliver",
+      "number": 3,
+      "type": "service-test",
+      "title": "Did the Development Deliver?",
+      "points": 7,
+      "pointsBreakdown": "7 = 30–45 min (3) + in person (2) + city asked (1) + proof required (1)",
+      "factors": {
+        "minutes": 45,
+        "inPerson": true,
+        "cityAsked": true,
+        "proofRequired": true
+      },
+      "summary": "Users check whether the public-facing benefits of a big new building near them are actually there and open. The results go to the City Council committee asking whether community benefits are being delivered.",
+      "agendaItem": "City Council Committee on Planning, Development, and Transportation hearing on Docket #1337, fulfillment of community benefits from development projects, Thu, Oct 29, 2026, 10:30 a.m., Iannella Chamber, 5th floor, City Hall; testimony in person, virtually or in writing",
+      "whyNow": "The committee is asking whether benefits that developments promised and funded are being delivered. Street-level checks from residents are the kind of evidence a weekday-morning hearing rarely gets.",
+      "poc": "Committee on Planning, Development, and Transportation; sponsors Councilors Enrique J. Pepén, Benjamin J. Weber and Ruthzee Louijeune",
+      "contacts": [
+        {
+          "name": "Enrique J. Pepén",
+          "office": "Boston City Council"
+        },
+        {
+          "name": "Benjamin J. Weber",
+          "office": "Boston City Council"
+        },
+        {
+          "name": "Ruthzee Louijeune",
+          "office": "Boston City Council"
+        },
+        {
+          "office": "Committee on Planning, Development, and Transportation"
+        }
+      ],
+      "deadline": "Tuesday, Oct 27, so the digest arrives before the hearing",
+      "deadlineDate": "2026-10-27",
+      "inPerson": "yes",
+      "digestTo": "Committee on Planning, Development, and Transportation + sponsors Pepén, Weber and Louijeune",
+      "task": {
+        "intro": "Users pick a large recent development near them; the app suggests nearby projects. Then they check what a passerby can actually see and use.",
+        "steps": [
+          "Choose a recent large development in your neighborhood.",
+          "Look for public benefits a passerby can check: open space or a plaza, public seating, ground-floor community space, bike parking, sidewalk improvements, or signs saying a space is open to the public.",
+          "Mark each one as present and open, present but closed or locked, or missing or can't tell.",
+          "Take at least 2 photos of what you found.",
+          "Write one sentence: did the neighborhood get something from this building?"
+        ]
+      },
+      "extras": [
+        {
+          "heading": "Limits to state in the digest",
+          "items": [
+            "This only covers benefits visible from the street, not off-site payments or funds.",
+            "'Missing' means a resident couldn't find it, not that it was never promised."
+          ]
+        }
+      ],
+      "verification": "The app checks that photo locations match the chosen project. The AI checks that the photos match each rating.",
+      "pocReceives": "A list of buildings checked, with the share of visible benefits found open, closed or missing. It includes a photo map of locked or missing amenities, broken down by neighborhood and age.",
+      "sourceUrl": "https://www.boston.gov/public-notices/16627506"
+    },
+    {
+      "id": "2026-10-26-watch-early-ballots-get-counted",
+      "number": 4,
+      "type": "meeting",
+      "title": "Watch Early Ballots Get Counted",
+      "points": 8,
+      "pointsBreakdown": "8 = over 60 min (5) + in person (2) + proof required (1)",
+      "factors": {
+        "minutes": 75,
+        "inPerson": true,
+        "cityAsked": false,
+        "proofRequired": true
+      },
+      "summary": "Users go to City Hall and watch the Election Department open and tabulate early voted ballots for the Nov 3 State Election, then file notes on how transparent the process felt.",
+      "agendaItem": "Advance processing of early voted ballots for the Nov 3, 2026 State Election, City Hall, Room 801, Oct 26 through Nov 3, mostly 8:30 a.m.–5:30 p.m.; Election Day from 8 a.m. until complete",
+      "whyNow": "Processing only runs on scheduled days through Election Day, and the public is allowed to watch. This is the one window to see it before results come in.",
+      "poc": "Sabino Piemonte, Boston Election Department (617-635-4054)",
+      "contacts": [
+        {
+          "name": "Sabino Piemonte",
+          "office": "Election Department",
+          "phone": "617-635-4054"
+        }
+      ],
+      "deadline": "Monday, Nov 2, so the digest arrives before Election Day",
+      "deadlineDate": "2026-11-02",
+      "inPerson": "yes",
+      "digestTo": "Boston Election Department: Sabino Piemonte",
+      "task": {
+        "intro": "Users observe ballot processing in person and report what they saw.",
+        "steps": [
+          "Check the processing schedule in the app; days and times vary.",
+          "Go to City Hall, Room 801, and observe for at least 30 minutes. Don't photograph ballots.",
+          "Record the steps you saw, such as envelope checks, ballot removal, and tabulation, and where observers were placed.",
+          "Answer two questions: could you see clearly, and did anyone explain what was happening?",
+          "Write 2–3 sentences on how confident the process made you feel."
+        ]
+      },
+      "verification": "The app confirms check-in at City Hall. The AI checks that the notes describe steps consistent with the posted process.",
+      "pocReceives": "A summary of how observers described the process, how many could see clearly, how many got an explanation, and common suggestions for observer access, broken down by neighborhood and age.",
+      "sourceUrl": "https://www.boston.gov/public-notices/16634306"
+    },
+    {
+      "id": "2026-10-26-cover-the-reparations-task-force-meeting",
+      "number": 5,
+      "type": "meeting",
+      "title": "Cover the Reparations Task Force Meeting",
+      "points": 7,
+      "pointsBreakdown": "7 = over 60 min (5) + city asked (1) + proof required (1)",
+      "factors": {
+        "minutes": 100,
+        "inPerson": false,
+        "cityAsked": true,
+        "proofRequired": true
+      },
+      "summary": "Users send in a question ahead of the virtual Reparations Task Force meeting. They then attend online, follow the Tufts research update, and file notes that go to the Task Force.",
+      "agendaItem": "Reparations Task Force virtual public meeting, Thu, Oct 29, 2026, 5:30 p.m.: updates on the Tufts research report, researcher presentations, then public comment of up to two minutes per person",
+      "whyNow": "The Task Force is presenting research updates and opening the floor for comment and questions. Residents' questions are most useful before the meeting.",
+      "poc": "Khalid Mustafa, Boston Reparations Task Force (khalid.mustafa@boston.gov, 617-821-6022); Antonia Edwards, Community Engagement Sub-Committee Chair",
+      "contacts": [
+        {
+          "name": "Khalid Mustafa",
+          "office": "Boston Reparations Task Force",
+          "email": "khalid.mustafa@boston.gov",
+          "phone": "617-821-6022"
+        },
+        {
+          "name": "Antonia Edwards",
+          "office": "RTF Community Engagement Sub-Committee Chair"
+        }
+      ],
+      "deadline": "Question by Wednesday, Oct 28 (sent ahead of the meeting); notes by Saturday, Oct 31",
+      "deadlineDate": "2026-10-31",
+      "inPerson": "no",
+      "digestTo": "Khalid Mustafa + Antonia Edwards, Reparations Task Force",
+      "task": {
+        "intro": "Users prepare a question, join the meeting online, and report back.",
+        "steps": [
+          "By Wed, Oct 28, submit one question you want the Task Force or researchers to answer.",
+          "Register for and join the virtual meeting on Oct 29 at 5:30 p.m.",
+          "Note the main points from the Tufts research update and researcher presentations.",
+          "Record the questions raised during public comment and how they were answered.",
+          "Optional: give up to two minutes of public comment yourself and log what you said.",
+          "Add your own take in 2–3 sentences."
+        ]
+      },
+      "voting": "Users vote on each other's pre-meeting questions (1 vote each). The top questions go in the advance digest.",
+      "verification": "The AI checks notes against the meeting recording once posted.",
+      "pocReceives": "Before the meeting, the top-voted resident questions. Afterward, a summary of what attendees took away from the research update and which questions they felt went unanswered, broken down by neighborhood and age.",
+      "sourceUrl": "https://www.boston.gov/public-notices/16629971"
+    }
+  ]
+}

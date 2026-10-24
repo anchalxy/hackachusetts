@@ -1,0 +1,23 @@
+{
+  "items": [
+    {
+      "title": "Appeal of Mid Cambridge NCD Decision for 106 Ellery St.",
+      "summary": "The Historical Commission will hear an appeal by registered voters of the Mid Cambridge Neighborhood Conservation District Commission's decision on 106 Ellery St. (Case MC-7613).",
+      "docket": "MC-7613",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [
+        {
+          "name": "",
+          "office": "Cambridge Historical Commission",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "include": false,
+      "skip_reason": "Too narrow: appeal concerning a single address."
+    }
+  ]
+}

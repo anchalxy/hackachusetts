@@ -1,0 +1,197 @@
+{
+  "weekOf": "2026-10-26",
+  "area": "Allston, Boston",
+  "generatedAt": "2026-10-24T00:00:00.000Z",
+  "origin": "demo",
+  "overview": "This week's set is five challenges worth 4–8 points each (30 max), all tied to Boston agenda items live between October 26 and November 10, 2026. Each one names the city office or staff contact that asked for public input, so the app's digest has a real destination.",
+  "sources": "Where they came from: Boston.gov public notices and civic engagement events for Oct 26–Nov 10, the City Council's Oct 21 agenda, and the Office of Participatory Budgeting's current cycle. Items that were too narrow (single-address abutters meetings, liquor license hearings) or too heavy for a points app (in-custody deaths, the crime lab) were skipped.",
+  "challenges": [
+    {
+      "id": "demo-urban-wild",
+      "number": 1,
+      "type": "design",
+      "title": "Redesign Your Urban Wild",
+      "points": 6,
+      "pointsBreakdown": "6 = 45–60 min (3) + in person (2) + city asked (1)",
+      "factors": { "minutes": 60, "inPerson": true, "cityAsked": true, "proofRequired": false },
+      "summary": "Users visit one of Boston's urban wilds and design what it should become, feeding the Parks Department's new Urban Wilds Strategic Plan before its first public open house on November 10.",
+      "agendaItem": "Urban Wilds Strategic Plan Open House, Nov 10, 2026, 6–8 p.m., Devine Golf Course Clubhouse, Franklin Park",
+      "whyNow": "The city is starting engagement on the plan and asking residents for input; Parks maintains 31 urban wilds",
+      "poc": "Katherine Oetheimer, Boston Parks and Recreation (katherine.oetheimer@boston.gov)",
+      "contacts": [
+        { "name": "Katherine Oetheimer", "office": "Boston Parks and Recreation", "email": "katherine.oetheimer@boston.gov" }
+      ],
+      "deadline": "Sunday, Nov 8, so the digest arrives before the open house",
+      "deadlineDate": "2026-11-08",
+      "inPerson": "yes",
+      "digestTo": "Parks: Katherine Oetheimer",
+      "task": {
+        "steps": [
+          "Pick an urban wild near you (the app shows the closest three).",
+          "Visit it and take 3 photos: the entrance, the best spot, the worst spot.",
+          "In the builder, place up to 5 changes on a simple map: trail, signage, seating, lighting, cleanup, accessible entrance, or leave it wild.",
+          "Write one sentence on who the space is for."
+        ]
+      },
+      "voting": "Other users vote on designs for the same site (1 point per vote). The top design per site goes in the digest.",
+      "pocReceives": "For each site, the number of visits, the most-requested changes ranked, the top-voted design, and photos of problem spots, with participation broken down by neighborhood and age.",
+      "sourceUrl": "https://www.boston.gov/departments/parks-and-recreation/urban-wilds-strategic-plan"
+    },
+    {
+      "id": "demo-pb-2-million",
+      "number": 2,
+      "type": "budget",
+      "title": "Spend Boston's $2 Million",
+      "points": 5,
+      "pointsBreakdown": "5 = 30–45 min in the app (4) + city asked (1)",
+      "factors": { "minutes": 45, "inPerson": false, "cityAsked": true, "proofRequired": false },
+      "summary": "Users build their own ballot for the city's participatory budget, spending exactly $2 million on real priority areas, ahead of the November 5 forum where residents draft the official ballot.",
+      "agendaItem": "Ideas in Action cycle 3: residents submitted over 1,300 ideas this summer; the final Proposal Drafting Forum is Thu, Nov 5, 5:30–7:30 p.m., 26 Court Street",
+      "whyNow": "October forums prioritized the ideas; the ballot is drafted Nov 5 and voting runs Jan–Feb 2027",
+      "poc": "Office of Participatory Budgeting (pb@boston.gov, 617-635-2381, City Hall Room 813)",
+      "contacts": [
+        { "office": "Office of Participatory Budgeting", "email": "pb@boston.gov", "phone": "617-635-2381" }
+      ],
+      "deadline": "Wednesday, Nov 4, so the digest arrives before the forum",
+      "deadlineDate": "2026-11-04",
+      "inPerson": "no",
+      "digestTo": "Office of Participatory Budgeting",
+      "task": {
+        "intro": "Pick projects from the nine topic areas the city's forums used: Arts and Culture; Health and Wellbeing; Environment, Sustainability and Food Access; Education, Youth and Families; Public Safety; Facilities, Parks and Recreation; Community Resources; Local Economy and Worker Empowerment; Streets and Sidewalks. Then write one sentence on why your top pick matters.",
+        "steps": []
+      },
+      "extras": [
+        {
+          "heading": "Constraints (set by the app, not the city)",
+          "items": [
+            "Spend no more than $2,000,000.",
+            "Fund at least 4 projects.",
+            "No single project over $500,000.",
+            "Include at least one Streets and Sidewalks or Parks project."
+          ]
+        },
+        {
+          "heading": "Price tags for seed data",
+          "items": [
+            "Use last cycle's ballot as realistic costs: Neighborhood Fresh Food Access $500K, Immigrant Legal Defense Fund $400K, Workforce Training in the Trades $300K, Youth Financial Literacy $250K, Small Business Development $250K, Community Litter Reduction $200K, Green My Block $100K."
+          ]
+        }
+      ],
+      "voting": "Users vote on other users' ballots (1 point per vote).",
+      "pocReceives": "Topic areas ranked by dollars allocated, the most common trade-offs (what users cut first when over budget), and top-voted ballots, by neighborhood and age.",
+      "sourceUrl": "https://www.boston.gov/departments/participatory-budgeting/proposal-development"
+    },
+    {
+      "id": "demo-cummins-walk-audit",
+      "number": 3,
+      "type": "service-test",
+      "title": "Cummins Highway Walk Audit",
+      "points": 7,
+      "pointsBreakdown": "7 = 45–60 min (3) + in person (2) + city asked (1) + timings and photos required (1)",
+      "factors": { "minutes": 60, "inPerson": true, "cityAsked": true, "proofRequired": true },
+      "summary": "Users test the newly redesigned Cummins Highway in Mattapan on foot, with a stroller, by wheelchair or by bike, and score how it works. This extends the city's own walkthrough to people who couldn't attend.",
+      "agendaItem": "Cummins Highway Community Walkthrough, Sat, Oct 24, 2026, 11 a.m.–12:30 p.m., starting at Cummins Highway and Fairway Street",
+      "whyNow": "Public Works says the project is nearly complete and is asking residents how the new design is working",
+      "poc": "Boston Public Works, Cummins Highway project team (cummins@boston.gov)",
+      "contacts": [
+        { "office": "Boston Public Works, Cummins Highway project team", "email": "cummins@boston.gov" }
+      ],
+      "deadline": "Sunday, Nov 1",
+      "deadlineDate": "2026-11-01",
+      "inPerson": "yes",
+      "digestTo": "Public Works (cummins@boston.gov)",
+      "task": {
+        "steps": [
+          "Choose a mode: walking, stroller, wheelchair or mobility aid, or bike.",
+          "Start at Fairway Street and cover at least 3 intersections of the redesigned stretch.",
+          "At each crossing, time the walk signal with the in-app timer and note anything blocking the path.",
+          "Rate four things from 1 to 5: sidewalk condition, crossing safety, bus stop access, and lighting.",
+          "Take at least 2 photos (one of the best spot, one of the worst)."
+        ]
+      },
+      "verification": "The app checks that the photo locations fall on Cummins Highway and that the timings are plausible.",
+      "pocReceives": "A usability report with average scores by mode, crossing times by intersection, and a photo map of problem spots. Results from stroller and wheelchair users are shown separately, since those are the hardest to collect at a single walkthrough.",
+      "sourceUrl": "https://www.boston.gov/calendar/cummins-highway-community-walkthrough"
+    },
+    {
+      "id": "demo-council-oct-28",
+      "number": 4,
+      "type": "meeting",
+      "title": "Cover the Oct 28 City Council Meeting",
+      "points": 8,
+      "pointsLabel": "8 points in person, 6 via livestream",
+      "pointsBreakdown": "8 in person = over 60 min (5) + in person (2) + notes checked (1); 6 via livestream",
+      "factors": { "minutes": 120, "inPerson": true, "cityAsked": false, "proofRequired": true },
+      "summary": "Users attend Wednesday's City Council meeting, follow one docket from start to finish, and file notes that go to that docket's sponsor and to the user's district councilor.",
+      "agendaItem": "Regular City Council meeting, Wed, Oct 28, 2026, 12 p.m., Iannella Chamber, 5th floor, City Hall; livestream",
+      "whyNow": "Only a handful of regular meetings remain in 2026, so pending dockets are being pushed or dropped (Boston Policy Notes)",
+      "poc": "The sponsor of the docket the user tracked, plus the user's district councilor; Council central line 617-635-3040",
+      "contacts": [
+        { "office": "Boston City Council (docket sponsor and district councilor)", "phone": "617-635-3040" }
+      ],
+      "deadline": "Friday, Oct 30",
+      "deadlineDate": "2026-10-30",
+      "inPerson": "optional",
+      "digestTo": "Docket sponsor + district councilor",
+      "task": {
+        "steps": [
+          "Before the meeting, pick one docket from the agenda packet. The app pulls the packet once it's posted.",
+          "Record what happened to it: passed, referred to committee, amended, or tabled.",
+          "Note who spoke and the main argument on each side.",
+          "Add your own take in 2–3 sentences."
+        ]
+      },
+      "extras": [
+        {
+          "heading": "Dockets worth featuring (filed Oct 21, may come back up)",
+          "items": [
+            "#1958, Council President Liz Breadon's ordinance to create an official \"Bad Landlords List\" and extend enforcement against chronic code violators. Renters are a natural audience.",
+            "#1968, Councilor Miniard Culpepper's summons for MBTA General Manager Phil Eng to testify on the Blue Hill Avenue bus lane redesign."
+          ]
+        }
+      ],
+      "verification": "The AI checks the notes against the agenda packet and the meeting recording.",
+      "pocReceives": "A short summary per docket of how residents understood the discussion and where they land, by neighborhood and age.",
+      "sourceUrl": "https://www.boston.gov/departments/city-council"
+    },
+    {
+      "id": "demo-rat-patrol",
+      "number": 5,
+      "type": "311-test",
+      "title": "Rat Patrol 311 Response Test",
+      "points": 4,
+      "pointsBreakdown": "4 = 15–30 min total (2) + city asked (1) + 311 ticket and photo required (1)",
+      "factors": { "minutes": 30, "inPerson": false, "cityAsked": true, "proofRequired": true },
+      "summary": "Users report rodent activity through 311 and time how long the city takes to respond. The results become evidence for the City Council committee that just reviewed Boston's Rodent Action Plan.",
+      "agendaItem": "City Services Committee hearing on Docket #1804, the status of the Boston Rodent Action Plan, held Fri, Oct 23, 2026",
+      "whyNow": "The hearing just happened; written comments become part of the record and go to all councilors",
+      "poc": "Meagan Corugedo Martin, committee staff (meagan.corugedomartin@boston.gov, 617-635-1711; committee email ccc.csit@boston.gov). Chair and sponsor: Councilor Ed Flynn; co-sponsor: Council President Liz Breadon",
+      "contacts": [
+        { "name": "Meagan Corugedo Martin", "office": "City Council Committee on City Services, committee staff", "email": "meagan.corugedomartin@boston.gov", "phone": "617-635-1711" },
+        { "office": "City Council Committee on City Services", "email": "ccc.csit@boston.gov" }
+      ],
+      "deadline": "Report by Sunday, Nov 1; follow-up check-in 7 days after reporting",
+      "deadlineDate": "2026-11-01",
+      "inPerson": "yes",
+      "digestTo": "City Services Committee staff",
+      "task": {
+        "steps": [
+          "Find a sign of rodents in public space, such as burrows, droppings, or overflowing or open trash.",
+          "Report it through BOS:311 and enter the ticket number in the app.",
+          "Take one photo.",
+          "After 7 days, record what happened: no change, inspected, baited, or closed."
+        ]
+      },
+      "verification": "The AI checks the photo, and the app confirms the ticket number exists.",
+      "pocReceives": "Response times by neighborhood, the share of tickets closed without visible action, and a map of reported hotspots. This is the kind of data a committee can cite in a follow-up hearing.",
+      "sourceUrl": "https://www.boston.gov/public-notices/16632881"
+    }
+  ],
+  "notes": [
+    "Seed these five as the pre-scraped week, and show the source link on each challenge card. Linking straight to boston.gov is what proves it's current.",
+    "Mock the digests; don't email real staff during the hackathon. Show one generated digest, ideally Cummins Highway, which has the clearest output.",
+    "Re-check the Oct 28 agenda packet once it's posted and swap in a docket that's actually on it.",
+    "If you demo after Nov 1, move challenges 3–5 to \"last week\" and re-run the scrape for new items.",
+    "Several of the agency's own contacts are generic inboxes (pb@, cummins@). That's fine for the digest, but name the department in the app so the \"government is people\" idea still comes through."
+  ]
+}

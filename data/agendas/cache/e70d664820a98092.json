@@ -1,0 +1,29 @@
+{
+  "items": [
+    {
+      "title": "Public hearing on proposed outdoor lighting bylaws (Warrant Articles 12 and 13)",
+      "summary": "The Conservation Commission is holding a virtual public hearing on two Town Meeting proposals that would set new rules and zoning standards for outdoor and exterior lighting in Brookline. Residents can attend on Zoom and share their views before the Commission discusses and possibly votes on the articles.",
+      "docket": "Warrant Articles 12 and 13",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-26",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Moderator's Committee for Exterior Lighting",
+          "office": "Moderator's Committee for Exterior Lighting",
+          "email": "",
+          "phone": ""
+        },
+        {
+          "name": "Samuel Burrington",
+          "office": "Conservation Commission (Chair)",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    }
+  ]
+}

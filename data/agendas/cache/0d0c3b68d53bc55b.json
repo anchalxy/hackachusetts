@@ -1,0 +1,109 @@
+{
+  "items": [
+    {
+      "title": "Public comment at Police Commissioners Advisory Committee",
+      "summary": "Residents can speak for up to 3 minutes at the hybrid PCAC meeting on police matters, including BRIC membership, ICE in Brookline, traffic enforcement and police work-hour caps. Email ahead of the meeting to sign up.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-26",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "",
+          "office": "Office of Diversity, Equity, Inclusion and Community Relations",
+          "email": "odeicr@brooklinema.gov",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Review of Brookline's membership in the Boston Regional Intelligence Center",
+      "summary": "Subcommittees report on their investigation, ordered by Town Meeting, into whether Brookline should stay in the Boston Regional Intelligence Center (BRIC). Residents can weigh in during public comment.",
+      "docket": "Article 25",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-26",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "",
+          "office": "Police Commissioners Advisory Committee",
+          "email": "odeicr@brooklinema.gov",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Warrant Article 20: resolution on increased traffic enforcement",
+      "summary": "The committee discusses a Town Meeting resolution calling for more traffic enforcement. Residents can share views during public comment.",
+      "docket": "Warrant Article 20",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-26",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Scott Ananian",
+          "office": "Police Commissioners Advisory Committee",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "ICE in Brookline update",
+      "summary": "The committee gets an update on immigration enforcement activity in Brookline.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-26",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "18-hour daily work cap for police officers",
+      "summary": "The committee discusses limiting police officers to 18 hours of work per day.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-26",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Civilian complaint reports",
+      "summary": "The committee reviews reports on civilian complaints about police.",
+      "docket": "",
+      "action": "other",
+      "deadline": "",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Report on individual complaints; not open to public input"
+    },
+    {
+      "title": "PCAC website changes update",
+      "summary": "Update on proposed changes to the committee's website.",
+      "docket": "",
+      "action": "other",
+      "deadline": "",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Internal administrative update"
+    }
+  ]
+}

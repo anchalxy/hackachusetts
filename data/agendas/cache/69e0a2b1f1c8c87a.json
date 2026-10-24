@@ -1,0 +1,160 @@
+{
+  "items": [
+    {
+      "title": "Amendment to Chapter 2, Article VIII, Division 1 of the Code of Ordinances",
+      "summary": "Councilors propose amending a section of the city's administrative ordinances; the committee will discuss and make a recommendation. Details are in the ordinance text.",
+      "docket": "26-1023",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Councilor Ewen-Campen",
+          "office": "Somerville City Council",
+          "email": "",
+          "phone": ""
+        },
+        {
+          "name": "Councilor Wheeler",
+          "office": "Somerville City Council",
+          "email": "",
+          "phone": ""
+        },
+        {
+          "name": "Councilor Mbah",
+          "office": "Somerville City Council",
+          "email": "",
+          "phone": ""
+        },
+        {
+          "name": "Councilor Link",
+          "office": "Somerville City Council",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Mayor's proposed amendment to Chapter 15, Article III of the Code of Ordinances",
+      "summary": "The Mayor is asking the Council to adopt a change to Chapter 15, Article III of the city ordinances; the committee will review it and make a recommendation.",
+      "docket": "26-1408",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "",
+          "office": "Mayor's Office",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Protecting private significant trees during construction",
+      "summary": "A proposed ordinance change would add protections for significant trees on private property during construction. The committee will review it and make a recommendation.",
+      "docket": "26-1476",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Councilor Sait",
+          "office": "Somerville City Council",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Short-Term Rental Ordinance amendments",
+      "summary": "Councilors propose changes to Somerville's rules for short-term rentals like Airbnb. The committee will discuss and make a recommendation.",
+      "docket": "26-1501",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Councilor Link",
+          "office": "Somerville City Council",
+          "email": "",
+          "phone": ""
+        },
+        {
+          "name": "Councilor Hardt",
+          "office": "Somerville City Council",
+          "email": "",
+          "phone": ""
+        },
+        {
+          "name": "Councilor Ewen-Campen",
+          "office": "Somerville City Council",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Condominium conversion ordinance amendment",
+      "summary": "A proposed change to Section 7.64 of the city ordinances, which governs converting rental units into condominiums. The committee will take it up at this meeting.",
+      "docket": "26-1551",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Councilor McLaughlin",
+          "office": "Somerville City Council",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Proposed Artificial Intelligence Ordinance",
+      "summary": "Councilors propose that Somerville adopt a new ordinance on artificial intelligence. The committee will take it up at this virtual meeting.",
+      "docket": "26-1557",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Councilor Link",
+          "office": "Somerville City Council",
+          "email": "",
+          "phone": ""
+        },
+        {
+          "name": "Councilor Mbah",
+          "office": "Somerville City Council",
+          "email": "",
+          "phone": ""
+        },
+        {
+          "name": "Councilor Wheeler",
+          "office": "Somerville City Council",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    }
+  ]
+}

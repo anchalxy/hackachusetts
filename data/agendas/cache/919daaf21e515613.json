@@ -1,0 +1,23 @@
+{
+  "items": [
+    {
+      "title": "Public comment at Opportunity and Achievement Gaps Task Force meeting",
+      "summary": "The School Committee's Opportunity and Achievement Gaps Task Force will review achievement data, strategic plan targets, and choose its focus areas for the year. Residents can attend and give public testimony.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-28",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Lena Parvex",
+          "office": "Executive Secretary, Boston School Committee",
+          "email": "",
+          "phone": "617-635-9014"
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    }
+  ]
+}

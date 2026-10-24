@@ -1,0 +1,23 @@
+{
+  "items": [
+    {
+      "title": "Public observation of early voted ballot processing for the November 3, 2026 State Election",
+      "summary": "Boston's Election Department will remove early voted ballots from their envelopes and run them through a tabulator at City Hall, Room 801, and the public may watch. Processing runs on scheduled days from October 26 through Election Day, November 3.",
+      "docket": "",
+      "action": "other",
+      "deadline": "2026-11-03",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Sabino Piemonte",
+          "office": "Election Department",
+          "email": "",
+          "phone": "617-635-4054"
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    }
+  ]
+}

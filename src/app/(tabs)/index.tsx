@@ -1,63 +1,84 @@
-import { StyleSheet, View } from 'react-native';
+import { router } from 'expo-router';
+import { useEffect, useState } from 'react';
+import { Pressable, StyleSheet, View } from 'react-native';
 
 import { Card, Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Spacing } from '@/constants/theme';
+import { getCurrentWeek, loadCurrentWeek, shortDate, trailOrder } from '@/lib/challenge-week';
+import { areaSlug, getProfile } from '@/lib/profile';
 
-type Challenge = {
-  id: string;
-  monument: string;
-  title: string;
-  points: number;
-  done: boolean;
-};
-
-// Mocked until agenda scraping is seeded.
-const MOCK_CHALLENGES: Challenge[] = [
-  { id: '1', monument: 'Boston Common', title: 'Redesign Peters Park', points: 8, done: true },
-  { id: '2', monument: 'State House', title: 'Cut 5% without closing a library', points: 10, done: false },
-  { id: '3', monument: 'Old South Meeting House', title: 'Attend the Council hearing on bike lanes', points: 12, done: false },
-  { id: '4', monument: 'Faneuil Hall', title: 'Time a 311 pothole response', points: 6, done: false },
-  { id: '5', monument: 'Paul Revere House', title: 'Navigate Downtown with a stroller', points: 7, done: false },
+// Freedom Trail stops, in trail order. A week has 4–5 challenges, so 5 stops is enough.
+const MONUMENTS = [
+  'Boston Common',
+  'Massachusetts State House',
+  'Old South Meeting House',
+  'Faneuil Hall',
+  'Paul Revere House',
 ];
 
+const IN_PERSON_LABEL = { yes: 'In person', no: 'From home', optional: 'In person or online' } as const;
+
 export default function ChallengesScreen() {
-  const completed = MOCK_CHALLENGES.filter((c) => c.done).length;
+  const [week, setWeek] = useState(getCurrentWeek);
+
+  // Live mode swaps in the latest generated week for the user's area; demo mode keeps the seed.
+  useEffect(() => {
+    let active = true;
+    getProfile()
+      .then((profile) => loadCurrentWeek(areaSlug(profile)))
+      .then((loaded) => active && setWeek(loaded))
+      .catch(() => {}); // keep showing what we have
+    return () => {
+      active = false;
+    };
+  }, []);
+  const challenges = trailOrder(week);
+  const totalPoints = challenges.reduce((sum, c) => sum + c.points, 0);
 
   return (
-    <Screen title="This Week" subtitle="Walk the Freedom Trail, one challenge at a time">
+    <Screen title="This Week" subtitle={`Week of ${shortDate(week.weekOf)} · ${week.area}`}>
       <Card style={styles.streakCard}>
-        <View>
+        <View style={styles.streakText}>
           <ThemedText type="smallBold">🔥 3-week streak</ThemedText>
           <ThemedText type="small" themeColor="textSecondary">
             Finish 1 challenge this week to keep it
           </ThemedText>
         </View>
-        <ThemedText type="smallBold">
-          {completed}/{MOCK_CHALLENGES.length}
-        </ThemedText>
+        <ThemedText type="smallBold">{totalPoints} pts up for grabs</ThemedText>
       </Card>
 
       <View>
-        {MOCK_CHALLENGES.map((challenge, index) => (
+        {challenges.map((challenge, index) => (
           <View key={challenge.id} style={styles.stop}>
             <View style={styles.trail}>
-              <ThemedView
-                type={challenge.done ? 'text' : 'backgroundSelected'}
-                style={styles.marker}
-              />
-              {index < MOCK_CHALLENGES.length - 1 && (
-                <ThemedView type="backgroundSelected" style={styles.line} />
-              )}
+              <ThemedView type="backgroundSelected" style={styles.marker}>
+                <ThemedText type="smallBold">{index + 1}</ThemedText>
+              </ThemedView>
+              {index < challenges.length - 1 && <ThemedView type="backgroundSelected" style={styles.line} />}
             </View>
-            <Card style={styles.stopCard}>
-              <ThemedText type="small" themeColor="textSecondary">
-                {challenge.monument}
-              </ThemedText>
-              <ThemedText style={challenge.done && styles.doneText}>{challenge.title}</ThemedText>
-              <ThemedText type="smallBold">+{challenge.points} pts</ThemedText>
-            </Card>
+            <Pressable
+              style={({ pressed }) => [styles.stopPressable, pressed && styles.pressed]}
+              onPress={() => router.push({ pathname: '/challenge/[id]', params: { id: challenge.id } })}>
+              <Card style={styles.stopCard}>
+                <ThemedText type="small" themeColor="textSecondary">
+                  {MONUMENTS[index % MONUMENTS.length]}
+                </ThemedText>
+                <ThemedText type="smallBold" style={styles.title}>
+                  {challenge.title}
+                </ThemedText>
+                <ThemedText type="small" themeColor="textSecondary" numberOfLines={2}>
+                  {challenge.summary}
+                </ThemedText>
+                <View style={styles.meta}>
+                  <ThemedText type="smallBold">+{challenge.points} pts</ThemedText>
+                  <ThemedText type="small" themeColor="textSecondary">
+                    Due {shortDate(challenge.deadlineDate)} · {IN_PERSON_LABEL[challenge.inPerson]}
+                  </ThemedText>
+                </View>
+              </Card>
+            </Pressable>
           </View>
         ))}
       </View>
@@ -70,6 +91,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    gap: Spacing.three,
+  },
+  streakText: {
+    flex: 1,
   },
   stop: {
     flexDirection: 'row',
@@ -77,25 +102,37 @@ const styles = StyleSheet.create({
   },
   trail: {
     alignItems: 'center',
-    width: 20,
+    width: 28,
   },
   marker: {
-    width: 20,
-    height: 20,
-    borderRadius: 10,
+    width: 28,
+    height: 28,
+    borderRadius: 14,
     marginTop: Spacing.three,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   line: {
     flex: 1,
     width: 3,
   },
-  stopCard: {
+  stopPressable: {
     flex: 1,
-    gap: Spacing.half,
     marginBottom: Spacing.three,
   },
-  doneText: {
-    textDecorationLine: 'line-through',
-    opacity: 0.6,
+  stopCard: {
+    gap: Spacing.one,
+  },
+  title: {
+    fontSize: 16,
+  },
+  meta: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: Spacing.one,
+  },
+  pressed: {
+    opacity: 0.7,
   },
 });

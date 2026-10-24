@@ -1,0 +1,23 @@
+{
+  "items": [
+    {
+      "title": "Draft Updated Combined Sewer Overflow (CSO) Control Plan",
+      "summary": "Cambridge's Combined Sewer Overflow and Stormwater Management Advisory Committee will review the draft updated plan for reducing sewer overflows into local waterways. Residents can attend the meeting to learn about the plan and share their views.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-28",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "",
+          "office": "Combined Sewer Overflow and Stormwater Management Advisory Committee",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    }
+  ]
+}

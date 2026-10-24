@@ -1,0 +1,92 @@
+{
+  "items": [
+    {
+      "title": "Public comment at Brookline School Committee meeting",
+      "summary": "Speak for up to 3 minutes in person or remotely at the School Committee meeting, or send written comments. Topics on the agenda include enrollment and class sizes, the new 9th grade World History course, and school improvement plans.",
+      "docket": "4a",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-28",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "",
+          "office": "Brookline School Committee",
+          "email": "school_committee@psbma.org",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Enrollment update and class size report",
+      "summary": "The School Committee will review the preliminary October 1 enrollment report and an update on class sizes. Residents can share views during public comment or in writing.",
+      "docket": "5c",
+      "action": "public_comment",
+      "deadline": "2026-10-28",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "",
+          "office": "Brookline School Committee",
+          "email": "school_committee@psbma.org",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Brookline High 9th grade World History course (WHISP)",
+      "summary": "Presentation and discussion of the 9th grade social studies course World History I: Identity, Status, and Power. Residents can comment at the meeting or by email.",
+      "docket": "5b",
+      "action": "public_comment",
+      "deadline": "2026-10-28",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "",
+          "office": "Brookline School Committee",
+          "email": "school_committee@psbma.org",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Removal of adult education policy (first reading)",
+      "summary": "First reading of removing the Miscellaneous Adult Education Policies section from the school policy manual.",
+      "docket": "6b",
+      "action": "public_comment",
+      "deadline": "2026-10-28",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "",
+          "office": "Brookline School Committee",
+          "email": "school_committee@psbma.org",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Executive session on collective bargaining",
+      "summary": "Closed session on union bargaining strategy and executive session minutes.",
+      "docket": "9a",
+      "action": "other",
+      "deadline": "",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Not open to public input."
+    }
+  ]
+}

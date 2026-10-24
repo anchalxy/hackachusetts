@@ -1,0 +1,47 @@
+# Every Monday: pull Greater Boston meeting agendas, extract what residents can act on,
+# generate the week's challenges for the seed user, and commit the results to data/.
+# Needs the ANTHROPIC_API_KEY repository secret. Run it by hand from the Actions tab too.
+name: Weekly challenges
+
+on:
+  schedule:
+    - cron: '0 10 * * 1' # Mondays 10:00 UTC = 6 a.m. Boston (EDT), 5 a.m. (EST)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: weekly-challenges
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Fetch meetings, extract agenda items, generate challenges
+        run: npm run challenges:weekly
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+
+      - name: Commit new data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "Weekly challenges for week of $(date -u +%F)"
+          git push

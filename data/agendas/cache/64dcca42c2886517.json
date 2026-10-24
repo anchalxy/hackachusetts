@@ -1,0 +1,66 @@
+{
+  "items": [
+    {
+      "title": "Vote on building portfolio flexibility application from Retals LLC",
+      "summary": "The BERDO Review Board will vote on letting Retals LLC treat five office and apartment buildings as one portfolio for building emissions limits. Residents can submit written comments or attend the online meeting.",
+      "docket": "",
+      "action": "public_comment",
+      "deadline": "2026-10-26",
+      "neighborhoods": [
+        "Brighton",
+        "Downtown",
+        "South Boston Waterfront",
+        "Fenway"
+      ],
+      "citywide": false,
+      "contacts": [
+        {
+          "name": "BERDO Review Board",
+          "office": "BERDO Review Board",
+          "email": "BerdoReviewBoard@boston.gov",
+          "phone": "617-635-1732"
+        }
+      ],
+      "include": false,
+      "skip_reason": "Single private applicant's compliance request; too narrow."
+    },
+    {
+      "title": "Update on 2026 BERDO annual building emissions reporting",
+      "summary": "The board will give an update and discuss this year's building emissions disclosure and reporting. Residents can register to attend online and send comments by 3 p.m. on October 26.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-26",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "BERDO Review Board",
+          "office": "BERDO Review Board",
+          "email": "BerdoReviewBoard@boston.gov",
+          "phone": "617-635-1732"
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Vote on extending deadline for BERDO flexibility measure applications for 2027",
+      "summary": "The board will discuss and vote on giving building owners more time to apply for certain emissions compliance flexibility measures for reporting year 2027. Residents can submit written comments by 3 p.m. on October 26 or attend online.",
+      "docket": "",
+      "action": "public_comment",
+      "deadline": "2026-10-26",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "BERDO Review Board",
+          "office": "BERDO Review Board",
+          "email": "BerdoReviewBoard@boston.gov",
+          "phone": "617-635-1732"
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "items": [
+    {
+      "title": "Harvard Square Kiosk Operating and Stewardship Model",
+      "summary": "The City Council is continuing discussion of a request that the City Manager review and reconsider how the Harvard Square Kiosk is operated and managed. There is no public comment at this meeting, but residents can send written comments to the City Clerk's Office.",
+      "docket": "POR 2026-189",
+      "action": "public_comment",
+      "deadline": "2026-10-28",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [
+        {
+          "name": "",
+          "office": "City Clerk's Office",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "City Council divestment from companies tied to Israel's occupation of Palestine",
+      "summary": "The Council is continuing discussion of a proposal to divest from companies linked to the occupation of Palestinians. Written comments can be sent to the City Clerk's Office.",
+      "docket": "POR 2026-195",
+      "action": "public_comment",
+      "deadline": "2026-10-28",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "",
+          "office": "City Clerk's Office",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "include": false,
+      "skip_reason": "Too heavy for a points-based civic app (genocide/occupation topic)"
+    },
+    {
+      "title": "City Solicitor opinion on proposed boycott ordinance",
+      "summary": "The Council is discussing a request for a legal opinion on a proposed ordinance to boycott companies linked to the occupation of Palestine.",
+      "docket": "POR 2026-196",
+      "action": "public_comment",
+      "deadline": "2026-10-28",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "",
+          "office": "City Clerk's Office",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "include": false,
+      "skip_reason": "Request for a legal opinion; too heavy for a points-based civic app"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "items": [
+    {
+      "title": "Public comment at UP Academy Charter School of Dorchester Board of Trustees meeting",
+      "summary": "The charter school's Board of Trustees is holding a virtual meeting with a public comment period and a school year update. Residents can join online and offer testimony.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-28",
+      "neighborhoods": [
+        "Dorchester"
+      ],
+      "citywide": false,
+      "contacts": [
+        {
+          "name": "Nathan Walsh",
+          "office": "Director of School Operations and Data, UP Academy Charter School of Dorchester",
+          "email": "",
+          "phone": "617-635-8810"
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    }
+  ]
+}

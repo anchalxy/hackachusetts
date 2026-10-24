@@ -1,0 +1,129 @@
+{
+  "items": [
+    {
+      "title": "Reconsideration of FY27 budget amendment for legal fee reimbursement (WA 4)",
+      "summary": "The Advisory Committee may reconsider its vote on a budget amendment that would cut the reserve fund and add money to the Claims and Settlements Fund to reimburse legal fees. Residents can comment during public comment or send written comments by noon on the meeting day.",
+      "docket": "WA 4",
+      "action": "budget_input",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "",
+          "office": "Advisory Committee",
+          "email": "lportscher@brooklinema.gov",
+          "phone": ""
+        },
+        {
+          "name": "Gordon",
+          "office": "Town Meeting Member, Precinct 1",
+          "email": "",
+          "phone": ""
+        },
+        {
+          "name": "Friedman",
+          "office": "Town Meeting Member, Precinct 12",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Reconsideration of by-law banning public meetings on election day (WA 8)",
+      "summary": "The committee may revisit its vote on a proposed by-law that would ban public meetings on election day. Share your views at the meeting or in writing beforehand.",
+      "docket": "WA 8",
+      "action": "public_comment",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "",
+          "office": "Advisory Committee",
+          "email": "lportscher@brooklinema.gov",
+          "phone": ""
+        },
+        {
+          "name": "Kahn",
+          "office": "Town Meeting Member, Precinct 15",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Pleasant Street Multifamily Overlay District zoning (WA 15)",
+      "summary": "A proposed zoning change would create a new multifamily overlay district on Pleasant Street. The committee will hear a presentation and may vote on its recommendation.",
+      "docket": "WA 15",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [
+        {
+          "name": "",
+          "office": "Advisory Committee",
+          "email": "lportscher@brooklinema.gov",
+          "phone": ""
+        },
+        {
+          "name": "Allen",
+          "office": "Petitioner",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Agreement for development of 26 Pleasant Street (WA 16)",
+      "summary": "The Select Board seeks authority to sign an agreement related to the development of 26 Pleasant Street.",
+      "docket": "WA 16",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [
+        {
+          "name": "",
+          "office": "Select Board",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "include": false,
+      "skip_reason": "Single-address development agreement; too narrow."
+    },
+    {
+      "title": "Resolution on CPA funding and the Affordable Housing Trust (WA 17)",
+      "summary": "A resolution about how Community Preservation Act money is used with the Affordable Housing Trust. Residents can weigh in at the meeting or by written comment by noon that day.",
+      "docket": "WA 17",
+      "action": "budget_input",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "",
+          "office": "Advisory Committee",
+          "email": "lportscher@brooklinema.gov",
+          "phone": ""
+        },
+        {
+          "name": "Blood",
+          "office": "Petitioner",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    }
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "items": [
+    {
+      "title": "Support for Alcoholics Anonymous meeting spaces",
+      "summary": "Councilors are discussing a resolution supporting meeting spaces for Alcoholics Anonymous in Somerville.",
+      "docket": "26-1500",
+      "action": "attend_and_testify",
+      "deadline": "2026-11-10",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Councilor Link",
+          "office": "Somerville City Council",
+          "email": "",
+          "phone": ""
+        },
+        {
+          "name": "Councilor McLaughlin",
+          "office": "Somerville City Council",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Resident comments on the Warming Center",
+      "summary": "The committee will discuss a resident's written comments about the city's Warming Center.",
+      "docket": "26-1478",
+      "action": "attend_and_testify",
+      "deadline": "2026-11-10",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Rats and dumpster licensing enforcement update",
+      "summary": "The Director of Public Health will update the council on dumpster licensing, inspections and efforts to keep rats out of dumpsters citywide.",
+      "docket": "26-1421",
+      "action": "attend_and_testify",
+      "deadline": "2026-11-10",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Councilor Wheeler",
+          "office": "Somerville City Council",
+          "email": "",
+          "phone": ""
+        },
+        {
+          "name": "Councilor Hardt",
+          "office": "Somerville City Council",
+          "email": "",
+          "phone": ""
+        },
+        {
+          "name": "Councilor Sait",
+          "office": "Somerville City Council",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Winter Warming Center after-action report",
+      "summary": "The Director of Emergency Management presents the review and improvement plan for last winter's Cummings School Warming Center.",
+      "docket": "26-1339",
+      "action": "attend_and_testify",
+      "deadline": "2026-11-10",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "",
+          "office": "Director of Emergency Management",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Street harassment near Prescott Street, School Street and Warming Center",
+      "summary": "Health and Human Services will discuss reported street harassment near Prescott Street, School Street and the Warming Center and steps to address it.",
+      "docket": "26-1305",
+      "action": "attend_and_testify",
+      "deadline": "2026-11-10",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [
+        {
+          "name": "Councilor Strezo",
+          "office": "Somerville City Council",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Gilman Square Neighborhood Council comments on McGrath Boulevard",
+      "summary": "The committee will consider neighborhood comments about the McGrath Boulevard project.",
+      "docket": "26-0493",
+      "action": "attend_and_testify",
+      "deadline": "2026-11-10",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Monthly updates on addressing homelessness",
+      "summary": "The administration will update the committee on progress toward addressing homelessness in Somerville.",
+      "docket": "26-0106",
+      "action": "attend_and_testify",
+      "deadline": "2026-11-10",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Councilor McLaughlin",
+          "office": "Somerville City Council",
+          "email": "",
+          "phone": ""
+        },
+        {
+          "name": "Councilor Davis",
+          "office": "Somerville City Council",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    }
+  ]
+}

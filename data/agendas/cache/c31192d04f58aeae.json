@@ -1,0 +1,85 @@
+{
+  "items": [
+    {
+      "title": "Public comment at Commission on Immigrant Rights and Citizenship meeting",
+      "summary": "Residents can speak for up to three minutes during public comment at the hybrid meeting, in person or by raising a hand on Zoom after registering. Topics include ShotSpotter, family preparedness, FY27 planning, and SNAP and MassHealth support.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "",
+          "office": "Commission on Immigrant Rights and Citizenship",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Family Preparedness event",
+      "summary": "The Commission is tentatively planning a family preparedness event for immigrant families on November 12 from 5:30 to 7:30 p.m. at Cambridge Street Upper School.",
+      "docket": "",
+      "action": "other",
+      "deadline": "2026-11-12",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "",
+          "office": "Commission on Immigrant Rights and Citizenship",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "FY27 Commission planning",
+      "summary": "The Commission will discuss what it wants to accomplish in fiscal year 2027, and residents can share priorities during public comment.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "",
+          "office": "Commission on Immigrant Rights and Citizenship",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Welcome new commissioner and farewell",
+      "summary": "Welcome for new commissioner Seth Minkoff and send-off for Karin Lin.",
+      "docket": "",
+      "action": "other",
+      "deadline": "",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Personnel matter"
+    },
+    {
+      "title": "Rescheduled meeting dates",
+      "summary": "Upcoming meetings moved to November 17 and December 15.",
+      "docket": "",
+      "action": "other",
+      "deadline": "",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Procedural scheduling item"
+    }
+  ]
+}

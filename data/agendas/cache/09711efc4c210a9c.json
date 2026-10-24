@@ -1,0 +1,28 @@
+{
+  "items": [
+    {
+      "title": "Public comment on matters not on the agenda",
+      "summary": "Residents can speak to the Brookline Planning Board about any planning topic not on the agenda during this virtual Zoom meeting. Register in advance to get the joining link.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-28",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Draft Comprehensive Plan zoning chapter",
+      "summary": "The Planning Board will discuss and give feedback on the draft zoning chapter of Brookline's Comprehensive Plan, which shapes future land use across town. Residents can attend the virtual meeting to follow and weigh in.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-28",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": true,
+      "skip_reason": ""
+    }
+  ]
+}

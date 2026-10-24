@@ -1,0 +1,35 @@
+{
+  "items": [
+    {
+      "title": "Public comment at Boston Prep Charter School Governance Committee",
+      "summary": "Boston Preparatory Charter Public School's governance committee meets on Zoom and has a short public comment period at the start of the meeting.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-26",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [
+        {
+          "name": "Lucie Torrey",
+          "office": "Boston Preparatory Charter Public School",
+          "email": "",
+          "phone": "617-910-5644"
+        }
+      ],
+      "include": false,
+      "skip_reason": "Internal governance meeting of a single charter school with a 1-minute comment slot; too narrow."
+    },
+    {
+      "title": "Executive session on nonunion personnel negotiations",
+      "summary": "The board will meet privately to discuss negotiations with nonunion personnel.",
+      "docket": "",
+      "action": "other",
+      "deadline": "",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Closed personnel session; not open to public input."
+    }
+  ]
+}

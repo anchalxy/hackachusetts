@@ -1,0 +1,59 @@
+{
+  "items": [
+    {
+      "title": "Zoning petition public hearing",
+      "summary": "The Planning Board will hold a remote public hearing on a zoning petition, where residents can attend and give testimony. Details of the petition are not listed in the agenda.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-11-10",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "",
+          "office": "Cambridge Planning Board",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Special permit public hearing",
+      "summary": "A public hearing on a special permit application.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-11-10",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Single-project special permit; too narrow and details not given."
+    },
+    {
+      "title": "Board of Zoning Appeal case",
+      "summary": "Planning Board review of a BZA case.",
+      "docket": "",
+      "action": "other",
+      "deadline": "2026-11-10",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Single-address zoning case; too narrow."
+    },
+    {
+      "title": "General business: special permit and AHO review",
+      "summary": "Board deliberation on a special permit and an Affordable Housing Overlay review.",
+      "docket": "",
+      "action": "other",
+      "deadline": "",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "General business items are not open to public testimony."
+    }
+  ]
+}

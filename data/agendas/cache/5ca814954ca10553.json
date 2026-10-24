@@ -1,0 +1,35 @@
+{
+  "items": [
+    {
+      "title": "Public comment at Library Trustee Development Committee",
+      "summary": "Residents can speak for up to 3 minutes at this hybrid meeting of the Library Trustees' development committee, which will discuss a November board presentation on intellectual freedom and new trustee onboarding.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Library Administration",
+          "office": "Public Library of Brookline",
+          "email": "brkadmin@minlib.net",
+          "phone": "617-730-2360"
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "New Trustee onboarding",
+      "summary": "Committee discussion of how new library trustees are onboarded.",
+      "docket": "",
+      "action": "other",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Internal board administration, not open to public input."
+    }
+  ]
+}

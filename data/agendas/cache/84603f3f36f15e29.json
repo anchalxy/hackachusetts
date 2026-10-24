@@ -1,0 +1,42 @@
+{
+  "items": [
+    {
+      "title": "Fair Housing Commission hearings and hearing order votes",
+      "summary": "The Commission will discuss upcoming hearings and vote on hearing orders in individual fair housing cases.",
+      "docket": "",
+      "action": "other",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Dwayne S. Watts",
+          "office": "Boston Fair Housing Commission, Clerk of the Commission",
+          "email": "",
+          "phone": "617-635-3554"
+        }
+      ],
+      "include": false,
+      "skip_reason": "Individual case hearings and decisions; not open to public input."
+    },
+    {
+      "title": "Fair Housing Commission executive report",
+      "summary": "Staff will give operational and investigations updates on fair housing work in Boston.",
+      "docket": "",
+      "action": "other",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Dwayne S. Watts",
+          "office": "Boston Fair Housing Commission, Clerk of the Commission",
+          "email": "",
+          "phone": "617-635-3554"
+        }
+      ],
+      "include": false,
+      "skip_reason": "Informational staff report with no public comment opportunity listed."
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "items": [
+    {
+      "title": "Amend contract for new tidegates in Charlestown, East Boston and South Boston",
+      "summary": "The Commission will vote on amending a contract to install new tidegates in Charlestown, East Boston and South Boston.",
+      "docket": "Contract 19-309-001",
+      "action": "other",
+      "deadline": "",
+      "neighborhoods": [
+        "Charlestown",
+        "East Boston",
+        "South Boston"
+      ],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Contract vote with no stated public input opportunity"
+    },
+    {
+      "title": "Amend design contract for Dorchester Interceptor Relief Sewer",
+      "summary": "The Commission will vote on amending a professional services contract for designing the Dorchester Interceptor Relief Sewer.",
+      "docket": "Contract 22-206-005",
+      "action": "other",
+      "deadline": "",
+      "neighborhoods": [
+        "Dorchester"
+      ],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Contract vote with no stated public input opportunity"
+    },
+    {
+      "title": "Advertise bids for citywide sewer, drain and water main replacement",
+      "summary": "The Commission will vote on advertising bids for sewer, drain and water main replacement and rehabilitation across the city.",
+      "docket": "Contract No. 23-309-003",
+      "action": "other",
+      "deadline": "",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Contract vote with no stated public input opportunity"
+    },
+    {
+      "title": "Award contract for water main, storm drain and sewer work in Hyde Park",
+      "summary": "The Commission will vote on awarding a contract to replace and rehabilitate water mains, storm drains and sewers in Hyde Park.",
+      "docket": "Contract No. 25-308-003",
+      "action": "other",
+      "deadline": "",
+      "neighborhoods": [
+        "Hyde Park"
+      ],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Contract vote with no stated public input opportunity"
+    }
+  ]
+}

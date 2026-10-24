@@ -1,0 +1,35 @@
+{
+  "items": [
+    {
+      "title": "Transit Advisory Committee site walk of Central Square",
+      "summary": "The committee is touring Central Square bus stops, the bus terminal, the River Street reconstruction and MBTA Red Line station accessibility improvements. The walk starts in front of the Central Square post office at 770 Massachusetts Avenue; there is no formal meeting and no remote participation.",
+      "docket": "",
+      "action": "other",
+      "deadline": "2026-10-29",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [
+        {
+          "name": "",
+          "office": "Cambridge Transit Advisory Committee",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "City and State project updates (November 2026)",
+      "summary": "The committee chair will share announcements and updates on city and state transit projects.",
+      "docket": "",
+      "action": "other",
+      "deadline": "2026-10-29",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Informational announcements, not open to public input."
+    }
+  ]
+}

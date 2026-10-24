@@ -44,7 +44,11 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "agendas:fetch": "node scripts/agendas/fetch-meetings.ts",
+    "agendas:extract": "node scripts/agendas/extract-items.ts",
+    "challenges:generate": "node scripts/agendas/generate-challenges.ts",
+    "challenges:weekly": "npm run agendas:fetch && npm run agendas:extract && npm run challenges:generate"
   },
   "private": true
 }

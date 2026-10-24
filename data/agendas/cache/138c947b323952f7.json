@@ -1,0 +1,42 @@
+{
+  "items": [
+    {
+      "title": "Zoning amendment for protected accessory dwelling units (ADUs)",
+      "summary": "The Land Use Committee will review the Mayor's proposed changes to the Somerville Zoning Ordinance so local rules on accessory dwelling units match state law. Residents can watch the virtual meeting and follow or weigh in on the proposal.",
+      "docket": "26-1336",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-29",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "",
+          "office": "Mayor's Office",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Amendment to Zoning Ordinance Section 3.1.7.c",
+      "summary": "Councilor Link's proposed amendment to Section 3.1.7.c of the Zoning Ordinance is listed as to be withdrawn.",
+      "docket": "26-1373",
+      "action": "other",
+      "deadline": "2026-10-29",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Councilor Link",
+          "office": "Somerville City Council",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "include": false,
+      "skip_reason": "Item is marked to be withdrawn."
+    }
+  ]
+}

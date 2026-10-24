@@ -45,7 +45,8 @@ Government
 **Conflicts that have been resolved:**  
 Scope and platform
 
-* Boston only.  
+* Greater Boston: Boston (by neighborhood), Cambridge, Somerville, and Brookline (updated 2026-10-24).  
+* Seeded demo user: Allston (Boston), age 25.  
 * Native app: React Native with Expo. Use Expo Go on a real iPhone for camera testing and the demo, and the iOS Simulator (Mac) for UI work.  
 * No social sharing.  
 * Challenge types are mocked.  
@@ -105,3 +106,12 @@ Dynamic rewards
 * Triggered when a group is under 10% of responses and is the focus of the agenda item.  
 * The AI decides the size of the boost.
 
+
+Weekly challenges pipeline (built 2026-10-24)
+
+* Runs every Monday at 6 a.m. Boston time via GitHub Actions (.github/workflows/weekly-challenges.yml), or by hand with `npm run challenges:weekly`. Needs the ANTHROPIC_API_KEY repo secret.  
+* 1\. `agendas:fetch` pulls the next 4 weeks of meetings: Boston and Somerville (Legistar API), boston.gov public notices, Cambridge (PrimeGov API), and Brookline (CivicClerk API). Output: data/agendas/meetings.json.  
+* 2\. `agendas:extract` has Claude read each agenda and keep items residents can act on, tagged by neighborhood, with the named contact. It is cached per agenda, so weekly runs only pay for new agendas. Output: data/agendas/items.json.  
+* 3\. `challenges:generate` has Claude pick and write 4–5 challenges for the seed user (Allston, 25), calibrated on exampleChallenges.md. Source links and contacts must come from the agenda item. Points are computed by code from four factors: time (under 15 min = 1, 15–30 = 2, 30–45 = 3, 45–60 = 4, over 60 = 5), +2 in person, +1 city asked, +1 proof required. Output: data/challenges/<week>/<area>.json and .md.  
+* The app shows exampleChallenges.md word for word (data/challenges/demo-week.json) unless EXPO_PUBLIC_CHALLENGES_MODE=live in .env.  
+* Cost: about $1.50 for a first full extraction, then about $0.25 per weekly run plus any new agendas.  

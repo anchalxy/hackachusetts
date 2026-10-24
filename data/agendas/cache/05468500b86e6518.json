@@ -1,0 +1,123 @@
+{
+  "items": [
+    {
+      "title": "Public comment on park and recreation topics not on the agenda",
+      "summary": "Residents can speak for up to two minutes on any park or recreation topic not on the agenda, or email comments to the Commission.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "",
+          "office": "Park and Recreation Commission",
+          "email": "parkandreccommission@brooklinema.gov",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Outdoor pickleball court usage complaints",
+      "summary": "The Commission will discuss complaints about outdoor pickleball court use, with public comment.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "",
+          "office": "Park and Recreation Commission",
+          "email": "parkandreccommission@brooklinema.gov",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Evelyn Kirrane Aquatics Center private rental rates",
+      "summary": "Presentation and discussion of proposed private rental fees for the town pool, including public comment.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "",
+          "office": "Park and Recreation Commission",
+          "email": "parkandreccommission@brooklinema.gov",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Public hearing on proposed outdoor lighting bylaw (Article 12)",
+      "summary": "A public hearing on the proposed outdoor lighting bylaw heading to Town Meeting; the Commission will vote on a letter to Town Meeting.",
+      "docket": "Article 12",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "",
+          "office": "Park and Recreation Commission",
+          "email": "parkandreccommission@brooklinema.gov",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Beaver Country Day School argument",
+      "summary": "Commission review and vote to support a position related to Beaver Country Day School.",
+      "docket": "",
+      "action": "other",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Single-site matter with no public comment listed."
+    },
+    {
+      "title": "654-678 Brookline Avenue development (Emerald Isle)",
+      "summary": "Commission discussion and vote on a letter about a development project.",
+      "docket": "",
+      "action": "other",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Single-address development; commission vote only."
+    },
+    {
+      "title": "Parks and Open Space FY27 CPA projects",
+      "summary": "The Commission will vote on a letter supporting parks and open space projects for Community Preservation Act funding.",
+      "docket": "",
+      "action": "budget_input",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "",
+          "office": "Park and Recreation Commission",
+          "email": "parkandreccommission@brooklinema.gov",
+          "phone": ""
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    }
+  ]
+}

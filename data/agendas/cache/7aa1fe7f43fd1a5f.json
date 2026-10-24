@@ -1,0 +1,67 @@
+{
+  "items": [
+    {
+      "title": "Dunkin Donuts signage at 1962 Beacon Street",
+      "summary": "Design review of new store signage for a Dunkin Donuts at 1962 Beacon Street in Brighton.",
+      "docket": "APP # 27.0109",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [
+        "Brighton"
+      ],
+      "citywide": false,
+      "contacts": [
+        {
+          "name": "",
+          "office": "Boston Landmarks Commission",
+          "email": "blc@boston.gov",
+          "phone": ""
+        }
+      ],
+      "include": false,
+      "skip_reason": "Too narrow: single-address signage review."
+    },
+    {
+      "title": "Loring-Greenough House garden and path renovation",
+      "summary": "The Landmarks Commission will review plans to replant the perennial borders and replace the lawn path with bluestone pavers at the historic Loring-Greenough House in Jamaica Plain. You can testify at the virtual hearing or email written comments.",
+      "docket": "APP # 27.0189",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [
+        "Jamaica Plain"
+      ],
+      "citywide": false,
+      "contacts": [
+        {
+          "name": "",
+          "office": "Boston Landmarks Commission",
+          "email": "blc@boston.gov",
+          "phone": "1-646-828-7666"
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    },
+    {
+      "title": "Blue Cross Blue Shield Building residential conversion",
+      "summary": "The Landmarks Commission will review plans to rehabilitate the Brutalist Blue Cross Blue Shield Building at 133 Federal Street, with housing on the upper floors and retail on the ground floor. You can testify at the virtual hearing or email written comments.",
+      "docket": "APP # 27.0301",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [
+        "Downtown"
+      ],
+      "citywide": false,
+      "contacts": [
+        {
+          "name": "",
+          "office": "Boston Landmarks Commission",
+          "email": "blc@boston.gov",
+          "phone": "1-646-828-7666"
+        }
+      ],
+      "include": true,
+      "skip_reason": ""
+    }
+  ]
+}

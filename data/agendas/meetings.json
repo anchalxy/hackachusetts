@@ -1,0 +1,1559 @@
+{
+  "fetchedAt": "2026-10-24T19:03:53.959Z",
+  "window": {
+    "from": "2026-10-24T04:00:00.000Z",
+    "to": "2026-11-21T04:00:00.000Z"
+  },
+  "meetings": [
+    {
+      "id": "primegov:cambridgema:2929",
+      "city": "Cambridge",
+      "source": "primegov",
+      "body": "Civic Assembly - Session #1",
+      "title": "Civic Assembly - Session #1",
+      "start": "2026-10-24T09:00",
+      "location": null,
+      "pageUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=22063",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "html",
+          "url": "https://cambridgema.primegov.com/Portal/Meeting?compiledMeetingDocumentFileId=22063"
+        },
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://cambridgema.primegov.com/Public/CompiledDocument?meetingTemplateId=14363&compileOutputType=1"
+        }
+      ],
+      "summary": null
+    },
+    {
+      "id": "civicclerk:brooklinema:16961",
+      "city": "Brookline",
+      "source": "civicclerk",
+      "body": "Roland Hayes School Site Council",
+      "title": "Roland Hayes Site Council Meeting",
+      "start": "2026-10-26T08:15",
+      "location": "100 Eliot Street, Brookline",
+      "pageUrl": "https://brooklinema.portal.civicclerk.com/event/16961/overview",
+      "docs": [],
+      "summary": null
+    },
+    {
+      "id": "boston-notices:16634266",
+      "city": "Boston",
+      "source": "boston-notices",
+      "body": "Public notice",
+      "title": "Emergency Notice of Advance Processing and Removal of Early Voted Ballots for the November 3, 2026 State Election",
+      "start": "2026-10-26T08:30",
+      "location": "Boston City Hall, Boston",
+      "pageUrl": "https://www.boston.gov/public-notices/16634266",
+      "docs": [
+        {
+          "kind": "notice",
+          "format": "html",
+          "url": "https://www.boston.gov/public-notices/16634266"
+        }
+      ],
+      "summary": "Emergency Notice of Advance Processing and Removal of Early Voted Ballots for the November 3, 2026 State Election\n Please take notice that the City of Boston will be removing State Primary ballots from their envelopes and depositing these ballots into a tabulator at Boston City Hall, One City Hall Square, Boston, MA 02201. The city will process ballots to the extent feasible during the dates and times listed below. The processing facility shall remain open until the close of the polls on Tuesday, November 3, 2026.\n Advance processing and removal will take place on:\n Date \n Location \n Monday & Tuesday, October 26 and 27 from 8:30 am - 5:30 pm \n City Hall, Room 801 \n Wednesday, October 28, 2026 from 11:30 pm - 6:30 pm \n City Hall, Room 801 \n Thursday through Monday, October 29 - November 2 from 8:30 am - 5:30 pm \n City Hall, Room 801 \n Tuesday, November 3, 2026, from 8 am - until complete \n City Hall, Room 801 \n Ballots not deposited during this period will be sent to their respective precincts to be processed. \nThis process will be open for public observation.\n Discussion Topics\n The Election Department reserves the right to make adjustments, as necessary, to the list of precincts to be processed at the Central Tabulation Facility.\n Wards \n Precincts \n 1-22 \n All precincts \n October 26, 2026 \n 08:30AM - 05:30PM\n Boston City Hall \n One City Hall Square, Room 801 \n Boston, MA \n 02201 \n send an email \n 617-635-4054 \n Contact:\n Sabino Piemonte\n Neighborhoods:\n Citywide\n Posted:\n 1"
+    },
+    {
+      "id": "boston-notices:16633661",
+      "city": "Boston",
+      "source": "boston-notices",
+      "body": "City Council",
+      "title": "City Council Committee on Public Safety and Criminal Justice Hearing on Docket #0180",
+      "start": "2026-10-26T10:00",
+      "location": "Iannella Chamber, 5th Floor, Boston",
+      "pageUrl": "https://www.boston.gov/public-notices/16633661",
+      "docs": [
+        {
+          "kind": "notice",
+          "format": "html",
+          "url": "https://www.boston.gov/public-notices/16633661"
+        }
+      ],
+      "summary": "City Council Committee on Public Safety and Criminal Justice Hearing on Docket #0180\n A hearing to discuss resources for the Boston Police Crime Lab.\n The public can offer testimony.\n Discussion Topics\n Docket #0180\n Order for a hearing to discuss resources to the Boston Police Crime Lab. \n This matter was referred to the Committee on January 28, 2026. \n NOTICE: The Boston City Council may have a quorum in attendance due to standing committees of the City Council consisting of both voting and non-voting members. However, members attending this duly posted meeting are participating and deliberating only in conjunction with the business of the standing committee. \n Public Testimony \n Members of the public are cordially invited to attend and testify in person or virtually. Those wishing to testify in person should arrive five (5) minutes before the call of the hearing to sign up. Please bring fifteen (15) copies of any written documentation you wish to present at the hearing. Those wishing to testify virtually via videoconference should email the staff contact for a link and instructions to do so. Written comments may be sent to the Committee or staff email (below) and will be made a part of the record and available to all Councilors. The public may watch this hearing via live stream at boston.gov/city-council-tv and on Xfinity 8/RCN 82/Fios 964. This hearing will be recorded. \n Staff Contact: Ron Cobb \n Mail Address: Docket #0180 City Council, City Hall, 5th Floor, Boston, MA 0"
+    },
+    {
+      "id": "boston-notices:16633236",
+      "city": "Boston",
+      "source": "boston-notices",
+      "body": "City Council",
+      "title": "City Council Committee on Public Safety and Criminal Justice Hearing on Docket #0870",
+      "start": "2026-10-26T14:00",
+      "location": "Iannella Chamber, 5th Floor, Boston",
+      "pageUrl": "https://www.boston.gov/public-notices/16633236",
+      "docs": [
+        {
+          "kind": "notice",
+          "format": "html",
+          "url": "https://www.boston.gov/public-notices/16633236"
+        }
+      ],
+      "summary": "City Council Committee on Public Safety and Criminal Justice Hearing on Docket #0870\n A hearing to examine the circumstances surrounding in-custody deaths at the Suffolk County House of Corrections and systemic factors contributing to mortality in custody.\n The public can offer testimony.\n Discussion Topics\n Docket #0870\n Order for a hearing to examine the circumstances surrounding in-custody deaths at the Suffolk County House of Correction and systemic factors contributing to mortality in custody. \n This matter was sponsored by Councilors Miniard Culpepper, Julia Mejia, and Brian J. Worrell, and was referred to the Committee on April 29, 2026. \n NOTICE: The Boston City Council may have a quorum in attendance due to standing committees of the City Council consisting of both voting and non-voting members. However, members attending this duly posted meeting are participating and deliberating only in conjunction with the business of the standing committee. \n Public Testimony \n Members of the public are cordially invited to attend and testify in person or virtually. Those wishing to testify in person should arrive five (5) minutes before the call of the hearing to sign up. Please bring fifteen (15) copies of any written documentation you wish to present at the hearing. Those wishing to testify virtually via videoconference should email the staff contact for a link and instructions to do so. Written comments may be sent to the Committee or staff email (below) and will be made a pa"
+    },
+    {
+      "id": "boston-notices:16634036",
+      "city": "Boston",
+      "source": "boston-notices",
+      "body": "Public notice",
+      "title": "Boston Preparatory Charter Public School",
+      "start": "2026-10-26T15:00",
+      "location": "Virtual, Boston",
+      "pageUrl": "https://www.boston.gov/public-notices/16634036",
+      "docs": [
+        {
+          "kind": "notice",
+          "format": "html",
+          "url": "https://www.boston.gov/public-notices/16634036"
+        }
+      ],
+      "summary": "Boston Preparatory Charter Public School\n The Boston Preparatory Charter Public School Governance Committee meeting will be held virtually on Monday, October 26, at 3 p.m. \n Join the Zoom meeting \n Discussion Topics\n Agenda\n I. Opening Items, 3 p.m.\n A. Record Attendance, 1 m\n B. Call the Meeting to Order\n C. Public Comment, Kim Borchert, 1 m\n D. Approve Minutes, 1 m\n Approve minutes for Boston Prep Governance Committee #1 on September 14, 2026\n II.Governance, 3:03 p.m.\n A. Debrief 10/16 Board Meeting, 10 m\n B. Review Vision for 12/11 Board Meeting, 15 m\n III.Other Business, 3:28 p.m.\n A. Executive Session, Vote, 1 m\n The Board of Trustees will enter Executive Session pursuant to M.G.L. c. 30A,§21(a)(1) to conduct strategy sessions in preparation for negotiations with nonunion personnel or to conduct collective bargaining sessions or contract negotiations with nonunion personnel. The committee will not return to open session.\n B.Executive Session, 26 m\n IV. Closing Items, 3:55 p.m.\n A. Adjourn Meeting, Vote\n October 26, 2026 \n 03:00PM\n Virtual \n Boston, MA \n 02201 \n send an email \n 617-910-5644 \n Contact:\n Lucie Torrey\n Neighborhoods:\n Citywide\n Posted:\n 10/21/2026 - 9:14AM\n Resources:\n Official Filed Agenda \n Accessibility Services\n Interpretation, translation, and disability accommodation services are available to you at no cost. If you need them, please reach out to the contact listed in this Public Notice."
+    },
+    {
+      "id": "primegov:cambridgema:2874",
+      "city": "Cambridge",
+      "source": "primegov",
+      "body": "City Council Joint Roundtable/Working Meeting with the Cambridge School Committee",
+      "title": "City Council Joint Roundtable/Working Meeting with the Cambridge School Committee",
+      "start": "2026-10-26T16:00",
+      "location": null,
+      "pageUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=21848",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "html",
+          "url": "https://cambridgema.primegov.com/Portal/Meeting?compiledMeetingDocumentFileId=21848"
+        },
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://cambridgema.primegov.com/Public/CompiledDocument?meetingTemplateId=14080&compileOutputType=1"
+        },
+        {
+          "kind": "packet",
+          "format": "pdf",
+          "url": "https://cambridgema.primegov.com/Public/CompiledDocument?meetingTemplateId=14082&compileOutputType=1"
+        }
+      ],
+      "summary": null
+    },
+    {
+      "id": "civicclerk:brooklinema:16960",
+      "city": "Brookline",
+      "source": "civicclerk",
+      "body": "Community Preservation Act Committee",
+      "title": "Community Preservation Act Committee – Housing Subcommittee Meeting",
+      "start": "2026-10-26T16:00",
+      "location": "Virtual Public Meeting (Zoom)",
+      "pageUrl": "https://brooklinema.portal.civicclerk.com/event/16960/overview",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://brooklinema.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=34088,plainText=false)"
+        },
+        {
+          "kind": "packet",
+          "format": "pdf",
+          "url": "https://brooklinema.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=34089,plainText=false)"
+        }
+      ],
+      "summary": null
+    },
+    {
+      "id": "boston-notices:16633381",
+      "city": "Boston",
+      "source": "boston-notices",
+      "body": "Public notice",
+      "title": "BERDO Review Board Public Meeting",
+      "start": "2026-10-26T16:30",
+      "location": "ONLINE, Boston",
+      "pageUrl": "https://www.boston.gov/public-notices/16633381",
+      "docs": [
+        {
+          "kind": "notice",
+          "format": "html",
+          "url": "https://www.boston.gov/public-notices/16633381"
+        }
+      ],
+      "summary": "BERDO Review Board Public Meeting\n The Building Emissions Reduction and Disclosure (BERDO) Review Board will hold a public meeting on October 26 at 4:30 p.m.\n Register for the meeting \n Please register for the Review Board meeting, and the information to join the meeting will be sent to your email.\n Notice of Accommodation : Interpretation, translation, and disability accommodation services are available to you at no cost. If you need them, please contact us at BerdoReviewBoard@boston.gov or at 617-635-1732 .\n Comments or questions may be submitted to BerdoReviewBoard@boston.gov . Written comments should be submitted by Monday, October 26, 2026, at 3 p.m. \n Discussion Topics\n Public Meeting\n Vote on Flexibility Measures Application(s) \n Application for Building Portfolio from Retals LLC for five (5) buildings in the neighborhoods of Brighton, Downtown, South Boston- Waterfront, and Fenway. Application was submitted via Pathway 1 and includes office and multifamily housing uses. Approval of this portfolio would enable a portfolio-level Blended Emissions Standard for emissions limits compliance. Link to Application Materials \n Update and Discussion on 2026 BERDO Annual Disclosure and Reporting. \n Vote and Discussion on Extending Application Deadline for Certain Flexibility Measures to be used in Reporting Year 2027. \n Approval of Meeting Minutes \n Administrative Updates \n Copies of materials may be requested via email from BerdoReviewBoard@boston.gov or viewed by appointment on"
+    },
+    {
+      "id": "civicclerk:brooklinema:16964",
+      "city": "Brookline",
+      "source": "civicclerk",
+      "body": "Conservation Commission",
+      "title": "Conservation Commission Outdoor Lighting Public Hearing",
+      "start": "2026-10-26T17:00",
+      "location": "Virtual (Zoom)",
+      "pageUrl": "https://brooklinema.portal.civicclerk.com/event/16964/overview",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://brooklinema.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=34114,plainText=false)"
+        },
+        {
+          "kind": "packet",
+          "format": "pdf",
+          "url": "https://brooklinema.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=34115,plainText=false)"
+        }
+      ],
+      "summary": null
+    },
+    {
+      "id": "legistar:somervillema:4081",
+      "city": "Somerville",
+      "source": "legistar",
+      "body": "Sustainability and Infrastructure Committee",
+      "title": "Sustainability and Infrastructure Committee",
+      "start": "2026-10-26T18:00",
+      "location": "Virtual",
+      "pageUrl": "https://somervillema.legistar.com/MeetingDetail.aspx?LEGID=4081&GID=910&G=2A86634D-1000-44A7-991A-A4C8C0762B41",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://somervillema.legistar1.com/somervillema/meetings/2026/10/4081_A_Sustainability_and_Infrastructure_Committee_26-10-26_Regular_Meeting_Agenda.pdf"
+        }
+      ],
+      "summary": "https://us02web.zoom.us/webinar/register/WN_6KkEPeaJT1iCPwh_LiRGzw"
+    },
+    {
+      "id": "civicclerk:brooklinema:16978",
+      "city": "Brookline",
+      "source": "civicclerk",
+      "body": "General",
+      "title": "Police Commissioners Advisory Committee",
+      "start": "2026-10-26T19:00",
+      "location": null,
+      "pageUrl": "https://brooklinema.portal.civicclerk.com/event/16978/overview",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://brooklinema.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=34156,plainText=false)"
+        },
+        {
+          "kind": "packet",
+          "format": "pdf",
+          "url": "https://brooklinema.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=34157,plainText=false)"
+        }
+      ],
+      "summary": null
+    },
+    {
+      "id": "boston-notices:16634271",
+      "city": "Boston",
+      "source": "boston-notices",
+      "body": "Public notice",
+      "title": "Notice of Advance Processing and Removal of Early Voted Ballots for the November 3, 2026 State Election",
+      "start": "2026-10-27T08:30",
+      "location": "Boston City Hall, Boston",
+      "pageUrl": "https://www.boston.gov/public-notices/16634271",
+      "docs": [
+        {
+          "kind": "notice",
+          "format": "html",
+          "url": "https://www.boston.gov/public-notices/16634271"
+        }
+      ],
+      "summary": "Notice of Advance Processing and Removal of Early Voted Ballots for the November 3, 2026 State Election\n Please take notice that the City of Boston will be removing State Primary ballots from their envelopes and depositing these ballots into a tabulator at Boston City Hall, One City Hall Square, Boston, MA 02201. The city will process ballots to the extent feasible during the dates and times listed below. The processing facility shall remain open until the close of the polls on Tuesday, November 3, 2026.\n Advance processing and removal will take place on:\n Date \n Location \n Monday & Tuesday, October 26 and 27 from 8:30 am - 5:30 pm \n City Hall, Room 801 \n Wednesday, October 28, 2026 from 11:30 pm - 6:30 pm \n City Hall, Room 801 \n Thursday through Monday, October 29 - November 2 from 8:30 am - 5:30 pm \n City Hall, Room 801 \n Tuesday, November 3, 2026, from 8 am - until complete \n City Hall, Room 801 \n Ballots not deposited during this period will be sent to their respective precincts to be processed. \nThis process will be open for public observation.\n Discussion Topics\n The Election Department reserves the right to make adjustments, as necessary, to the list of precincts to be processed at the Central Tabulation Facility.\n Wards \n Precincts \n 1-22 \n All precincts \n October 27, 2026 \n 08:30AM - 05:30PM\n Boston City Hall \n One City Hall Square, Room 801 \n Boston, MA \n 02201 \n send an email \n 617-635-4054 \n Contact:\n Sabino Piemonte\n Neighborhoods:\n Citywide\n Posted:\n 10/22/2026 "
+    },
+    {
+      "id": "primegov:cambridgema:2943",
+      "city": "Cambridge",
+      "source": "primegov",
+      "body": "Committee on Public Planting - Community Outreach and Engagement Subcommittee Meeting ",
+      "title": "Committee on Public Planting - Community Outreach and Engagement Subcommittee Meeting",
+      "start": "2026-10-27T08:30",
+      "location": null,
+      "pageUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=22044",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "html",
+          "url": "https://cambridgema.primegov.com/Portal/Meeting?compiledMeetingDocumentFileId=22044"
+        },
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://cambridgema.primegov.com/Public/CompiledDocument?meetingTemplateId=14432&compileOutputType=1"
+        }
+      ],
+      "summary": null
+    },
+    {
+      "id": "civicclerk:brooklinema:16948",
+      "city": "Brookline",
+      "source": "civicclerk",
+      "body": "Jack Kirrane Ice Skating Rink Design Review Committee",
+      "title": "Jack Kirrane Ice Skating Rink DRC: Rink Tour",
+      "start": "2026-10-27T08:30",
+      "location": "23 Newton Street, Brookline",
+      "pageUrl": "https://brooklinema.portal.civicclerk.com/event/16948/overview",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://brooklinema.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=34037,plainText=false)"
+        }
+      ],
+      "summary": null
+    },
+    {
+      "id": "civicclerk:brooklinema:16965",
+      "city": "Brookline",
+      "source": "civicclerk",
+      "body": "Library Trustees",
+      "title": "Library Trustees - Executive Committee",
+      "start": "2026-10-27T09:00",
+      "location": "Public Library of Brookline, 361 Washington Street, Brookline",
+      "pageUrl": "https://brooklinema.portal.civicclerk.com/event/16965/overview",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://brooklinema.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=34105,plainText=false)"
+        }
+      ],
+      "summary": null
+    },
+    {
+      "id": "legistar:boston:14031",
+      "city": "Boston",
+      "source": "legistar",
+      "body": "Zoning Board of Appeal",
+      "title": "Zoning Board of Appeal",
+      "start": "2026-10-27T09:30",
+      "location": "Room 801, City Hall",
+      "pageUrl": "https://boston.legistar.com/MeetingDetail.aspx?LEGID=14031&GID=847&G=AC4A50E2-9128-4EA8-8ACF-04F7A6E02E82",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://boston.legistar1.com/boston/meetings/2026/10/14031_A_Zoning_Board_of_Appeal_26-10-27_Meeting_Agenda.pdf"
+        }
+      ],
+      "summary": null
+    },
+    {
+      "id": "boston-notices:16629891",
+      "city": "Boston",
+      "source": "boston-notices",
+      "body": "Public notice",
+      "title": "VIRTUAL Licensed Premise VIolation Hearings",
+      "start": "2026-10-27T10:00",
+      "location": "1 City Hall Sq, Boston",
+      "pageUrl": "https://www.boston.gov/public-notices/16629891",
+      "docs": [
+        {
+          "kind": "notice",
+          "format": "html",
+          "url": "https://www.boston.gov/public-notices/16629891"
+        }
+      ],
+      "summary": "VIRTUAL Licensed Premise VIolation Hearings\n The Board will be holding VIRTUAL hearings on October 27 at 10 am.\n Zoom:\n https://www.zoomgov.com/meeting/register/IR8MHqPoTT6FHM4UJI1nOw#/registration \n Public testimony begins at 10:00am \n Discussion Topics\n K&K Restaurant Group, Inc.\n D/B/A: Estella, Location: 49 TEMPLE PL BOSTON, MA 02111,\n License#: LB-99190, Notice/Violation#: 054979, Category: CV7AL\nDate Notice\n04/19/2026 Assault and battery on premise in violation of M.G.L. ch. 138 s. 64, ch. 265 s. 13A.\n Selhi Associates, LLC ,\n D/B/A: McDonald's, Location: 1316 - 1342 HYDE PARK AV HYDE PARK, MA 02136,\n License#: LB-100082, Notice/Violation#: 055202, Category: CVICT\nDate Notice\n09/15/2026 Armed robbery on premise in violation of M.G.L. ch. 140 s. 9.\n Selhi Associates, LLC\n D/B/A: McDonald's, Location: 1316 - 1342 HYDE PARK AV HYDE PARK, MA 02136,\n License#: LB-100082, Notice/Violation#: 055203, 9/18/26, Category: CVICT\nDate Notice\n09/17/2026 Failure to supervise entrance/line in violation of M.G.L. ch. 140 s. 9.\nFailure to keep loiterers from front of the premise in violation of M.G.L. ch. 140 s. 9.\n Selhi Associates, LLC\n D/B/A: McDonald's, Location: 1316 - 1342 HYDE PARK AV HYDE PARK, MA 02136,\n License#: LB-100082, Notice/Violation#: 071265, Category: CVICT\nDate Notice\n09/23/2026 Assault and battery on premise patron on employee in violation of M.G.L. ch. 140 s. 9.\n PITCHER&#039;S MOUND, LLC \n D/B/A: DIAMOND AT FENWAY,\n Location: 72 BROOKLINE AV BOSTON, MA 02215,\n Lice"
+    },
+    {
+      "id": "boston-notices:16634351",
+      "city": "Boston",
+      "source": "boston-notices",
+      "body": "Public notice",
+      "title": "Boston Fair Housing Commissioners Meeting",
+      "start": "2026-10-27T10:30",
+      "location": "Virtual, Boston",
+      "pageUrl": "https://www.boston.gov/public-notices/16634351",
+      "docs": [
+        {
+          "kind": "notice",
+          "format": "html",
+          "url": "https://www.boston.gov/public-notices/16634351"
+        }
+      ],
+      "summary": "Boston Fair Housing Commissioners Meeting\n The Boston Fair Housing Commission (BFHC) will be meeting virtually via Zoom on Tuesday, October 27, 2026, at 10:30 a.m. for the monthly commissioners meeting.\n Join the online meeting \n Or dial : (US) +1-413-931-1755 \n PIN: 435 130 003#\n The meeting will discuss agenda items pertinent to fair housing matters within the City of Boston. The Boston Fair Housing Commission is physically located at One City Hall Square, Room 966, Boston, MA 02201.\n Discussion Topics\n Agenda\n 1. Meeting Called to Order / Opening Remarks\n 2. Ratify Previous Meeting Minutes\n July 2026 BFHC Commissioners Meeting\n September 2026, BFHC Commissioners Meeting\n 3. Upcoming Hearings - TBD\n 4. Commission Decision and Vote on Hearing Orders - TBD\n 5. Executive Report: Overview and Updates\n Operational Updates\n Investigations Updates\n 5. Upcoming BFHC meeting\n Tuesday, November 17, 2026\n 6. Closing Remarks and Meeting Adjournment\n October 27, 2026 \n 10:30AM - 11:30AM\n Virtual \n Boston, MA \n 02201 \n send an email \n 617-635-3554 \n Contact:\n Dwayne S. Watts, Clerk of the Commission\n Neighborhoods:\n Citywide\n Posted:\n 10/22/2026 - 11:55AM\n Resources:\n Official Filed Posting \n Official Filed Agenda \n Accessibility Services\n Interpretation, translation, and disability accommodation services are available to you at no cost. If you need them, please reach out to the contact listed in this Public Notice."
+    },
+    {
+      "id": "civicclerk:brooklinema:16977",
+      "city": "Brookline",
+      "source": "civicclerk",
+      "body": "Library Trustees",
+      "title": "Library Trustees - Trustee Development Committee",
+      "start": "2026-10-27T11:00",
+      "location": "Public Library of Brookline, 361 Washington Street, Brookline",
+      "pageUrl": "https://brooklinema.portal.civicclerk.com/event/16977/overview",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://brooklinema.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=34150,plainText=false)"
+        }
+      ],
+      "summary": null
+    },
+    {
+      "id": "boston-notices:16629286",
+      "city": "Boston",
+      "source": "boston-notices",
+      "body": "City Council",
+      "title": "City Council Committee on Government Operations Hearing on Docket #1599",
+      "start": "2026-10-27T14:00",
+      "location": "Iannella Chamber, 5th Floor, Boston",
+      "pageUrl": "https://www.boston.gov/public-notices/16629286",
+      "docs": [
+        {
+          "kind": "notice",
+          "format": "html",
+          "url": "https://www.boston.gov/public-notices/16629286"
+        }
+      ],
+      "summary": "Canceled: \n City Council Committee on Government Operations Hearing on Docket #1599\n Reason for cancellation: \n This hearing has been canceled.\n The public can offer testimony.\n Discussion Topics\n Docket #1599\n Docket #1599, Ordinance Amending the City of Boston Code, Section 5-5.20, Paid Parental Leave for City of Boston Employees. \n This matter was sponsored by Councilor Gabriela Coletta Zapata, and was referred to the Committee on August 26, 2026. \n Public Testimony \n Written comments may be sent to the Committee or staff email (below) and will be made a part of the record and available to all Councilors. \n Staff Contact: Meghan Kavanagh \n Mail Address: Docket #1599 City Council, City Hall, 5th Floor, Boston, MA 02201 \n Committee Email: ccc.go@boston.gov \n Staff Email: meghan.kavanagh@boston.gov | Staff Telephone: 617-635-3040 \n October 27, 2026 \n 02:00PM\n Iannella Chamber, 5th Floor \n Boston City Hall \n Boston, MA \n 02201 \n send an email \n 617-635-3040 \n Contact:\n Meghan Kavanagh\n Neighborhoods:\n Citywide\n Posted:\n 10/05/2026 - 1:18PM\n Resources:\n Docket #1599 \n Notice of Accommodations \n Official Filed Posting \n Canceled Official Filed Posting \n Accessibility Services\n Interpretation, translation, and disability accommodation services are available to you at no cost. If you need them, please reach out to the contact listed in this Public Notice.\n Chair and Sponsor"
+    },
+    {
+      "id": "boston-notices:16633346",
+      "city": "Boston",
+      "source": "boston-notices",
+      "body": "Public notice",
+      "title": "Boston Landmarks Commission",
+      "start": "2026-10-27T16:00",
+      "location": "VIRTUAL, Boston",
+      "pageUrl": "https://www.boston.gov/public-notices/16633346",
+      "docs": [
+        {
+          "kind": "notice",
+          "format": "html",
+          "url": "https://www.boston.gov/public-notices/16633346"
+        }
+      ],
+      "summary": "Boston Landmarks Commission\n The Boston Landmarks Commission will hold a public hearing on Tuesday, October 27, 2026. The design review hearing will begin at 4 p.m. and the business hearing starting at 6 p.m.\n Subject of the Public Hearing will be action on the agenda below, and such other business as may come before the Commission in accordance with Chapter 772 of the Acts of 1975, as amended. \n ATTENTION: This hearing will only be held virtually and NOT in person. You can participate in this hearing by going to our online meeting or calling 1-646-828-7666 and 165 610 9496. You can also submit written comments or questions to blc@boston.gov . \n Join the online meeting \n The public can offer testimony.\n Discussion Topics\n DESIGN REVIEW HEARING - 4:00 PM\n APP # 27.0109 AB 1962 BEACON STREET, BRIGHTON \n Applicant: Keith Dubois, Dunkin Donuts \n Proposed Work: New store signage Presentation \n APP # 27.0189 BLC LORING-GREENOUGH HOUSE \n 12 SOUTH STREET, JAMAICA PLAIN \n Applicant: Nancy Leask, Loring Greenough House \n Proposed Work: Renovate the existing perennial borders and lawn path, and replace the path with bluestone pavers. The borders will be replanted with new perennials and shrubs. Presentation \n APP # 27.0301 BLC BLUE CROSS BLUE SHIELD BUILDING \n 133 FEDERAL STREET, DOWNTOWN \n Applicant: Mai Luo, 133 Federal LLC \n Proposed Work: Rehabilitation of the existing Brutalist style property for residential use on upper floors, with continued first-floor retail uses. The exterior "
+    },
+    {
+      "id": "civicclerk:brooklinema:16775",
+      "city": "Brookline",
+      "source": "civicclerk",
+      "body": "School Committee",
+      "title": "School Negotiations Subcommittee Meeting",
+      "start": "2026-10-27T16:00",
+      "location": "Brookline Town Hall, ",
+      "pageUrl": "https://brooklinema.portal.civicclerk.com/event/16775/overview",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://brooklinema.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=34116,plainText=false)"
+        }
+      ],
+      "summary": null
+    },
+    {
+      "id": "civicclerk:brooklinema:16256",
+      "city": "Brookline",
+      "source": "civicclerk",
+      "body": "Select Board",
+      "title": "Select Board Regular Meeting",
+      "start": "2026-10-27T17:15",
+      "location": "Select Board Hearing Room 6th Floor",
+      "pageUrl": "https://brooklinema.portal.civicclerk.com/event/16256/overview",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://brooklinema.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=34172,plainText=false)"
+        },
+        {
+          "kind": "packet",
+          "format": "pdf",
+          "url": "https://brooklinema.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=34173,plainText=false)"
+        }
+      ],
+      "summary": null
+    },
+    {
+      "id": "civicclerk:brooklinema:16975",
+      "city": "Brookline",
+      "source": "civicclerk",
+      "body": "Committee on Town Organization & Structure",
+      "title": "Committee on Town Organization and Structure",
+      "start": "2026-10-27T17:30",
+      "location": "Remote meeting",
+      "pageUrl": "https://brooklinema.portal.civicclerk.com/event/16975/overview",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://brooklinema.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=34139,plainText=false)"
+        }
+      ],
+      "summary": null
+    },
+    {
+      "id": "legistar:somervillema:4089",
+      "city": "Somerville",
+      "source": "legistar",
+      "body": "Legislative Matters Committee",
+      "title": "Legislative Matters Committee",
+      "start": "2026-10-27T18:00",
+      "location": "Virtual",
+      "pageUrl": "https://somervillema.legistar.com/MeetingDetail.aspx?LEGID=4089&GID=910&G=2A86634D-1000-44A7-991A-A4C8C0762B41",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://somervillema.legistar1.com/somervillema/meetings/2026/10/4089_A_Legislative_Matters_Committee_26-10-27_Regular_Meeting_Agenda.pdf"
+        }
+      ],
+      "summary": "https://us02web.zoom.us/webinar/register/WN_VQ9CCNL7Qfe65ZFqFr4VcQ"
+    },
+    {
+      "id": "primegov:cambridgema:2941",
+      "city": "Cambridge",
+      "source": "primegov",
+      "body": "Meeting of the Cambridge Historical Commission",
+      "title": "Meeting of the Cambridge Historical Commission",
+      "start": "2026-10-27T18:00",
+      "location": null,
+      "pageUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=22011",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "html",
+          "url": "https://cambridgema.primegov.com/Portal/Meeting?compiledMeetingDocumentFileId=22011"
+        },
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://cambridgema.primegov.com/Public/CompiledDocument?meetingTemplateId=14422&compileOutputType=1"
+        }
+      ],
+      "summary": null
+    },
+    {
+      "id": "primegov:cambridgema:2945",
+      "city": "Cambridge",
+      "source": "primegov",
+      "body": "Commission on Immigrant Rights and Citizenship Monthly Meeting",
+      "title": "Commission on Immigrant Rights and Citizenship Monthly Meeting",
+      "start": "2026-10-27T18:00",
+      "location": null,
+      "pageUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=22053",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "html",
+          "url": "https://cambridgema.primegov.com/Portal/Meeting?compiledMeetingDocumentFileId=22053"
+        }
+      ],
+      "summary": null
+    },
+    {
+      "id": "civicclerk:brooklinema:16832",
+      "city": "Brookline",
+      "source": "civicclerk",
+      "body": "Park & Recreation Commission",
+      "title": "Park and Recreation Commission Meeting",
+      "start": "2026-10-27T18:00",
+      "location": "Virtual Zoom Meeting",
+      "pageUrl": "https://brooklinema.portal.civicclerk.com/event/16832/overview",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://brooklinema.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=34167,plainText=false)"
+        },
+        {
+          "kind": "packet",
+          "format": "pdf",
+          "url": "https://brooklinema.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=34153,plainText=false)"
+        }
+      ],
+      "summary": null
+    },
+    {
+      "id": "civicclerk:brooklinema:16909",
+      "city": "Brookline",
+      "source": "civicclerk",
+      "body": "Advisory Committee",
+      "title": "Advisory Committee Meeting",
+      "start": "2026-10-27T19:00",
+      "location": "Remote Via Zoom & Denny Room, Public Health Building, Brookline",
+      "pageUrl": "https://brooklinema.portal.civicclerk.com/event/16909/overview",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://brooklinema.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=34171,plainText=false)"
+        },
+        {
+          "kind": "packet",
+          "format": "pdf",
+          "url": "https://brooklinema.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=34174,plainText=false)"
+        }
+      ],
+      "summary": "Hybrid Meeting"
+    },
+    {
+      "id": "civicclerk:brooklinema:16963",
+      "city": "Brookline",
+      "source": "civicclerk",
+      "body": "Planning Board",
+      "title": "Design Advisory Team Meeting on (1280-1330 Boylston Street, Chestnut Hill)",
+      "start": "2026-10-27T19:30",
+      "location": "Virtual Public Meeting (Zoom)",
+      "pageUrl": "https://brooklinema.portal.civicclerk.com/event/16963/overview",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://brooklinema.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=34082,plainText=false)"
+        }
+      ],
+      "summary": null
+    },
+    {
+      "id": "civicclerk:brooklinema:16971",
+      "city": "Brookline",
+      "source": "civicclerk",
+      "body": "Planning Board",
+      "title": "Planning Board Meeting",
+      "start": "2026-10-28T08:30",
+      "location": "Virtual Public Meeting (Zoom)",
+      "pageUrl": "https://brooklinema.portal.civicclerk.com/event/16971/overview",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://brooklinema.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=34132,plainText=false)"
+        }
+      ],
+      "summary": null
+    },
+    {
+      "id": "boston-notices:16634161",
+      "city": "Boston",
+      "source": "boston-notices",
+      "body": "Public notice",
+      "title": "UP Academy Charter School of Dorchester Board of Trustees Public Meeting",
+      "start": "2026-10-28T09:30",
+      "location": "Virtual, Dorchester",
+      "pageUrl": "https://www.boston.gov/public-notices/16634161",
+      "docs": [
+        {
+          "kind": "notice",
+          "format": "html",
+          "url": "https://www.boston.gov/public-notices/16634161"
+        }
+      ],
+      "summary": "UP Academy Charter School of Dorchester Board of Trustees Public Meeting\n The Board of Trustees for UP Academy Charter School of Dorchester will hold a virtual public meeting on Wednesday, October 28, 2026, from 9:30 - 11 a.m.\n Join the online meeting \n The public can offer testimony.\n Discussion Topics\n Agenda for the Meeting\n Welcome and Introductions\n Public Comment\n School Year Update and Outlook\n Closing\n October 28, 2026 \n 09:30AM - 11:00AM\n Virtual \n Dorchester, MA \n 02122 \n send an email \n 617-635-8810 \n Contact:\n Nathan Walsh, Director of School Operations and Data\n Neighborhoods:\n Dorchester\n Posted:\n 10/22/2026 - 9:00AM\n Resources:\n Official Filed Posting \n Accessibility Services\n Interpretation, translation, and disability accommodation services are available to you at no cost. If you need them, please reach out to the contact listed in this Public Notice."
+    },
+    {
+      "id": "legistar:boston:14083",
+      "city": "Boston",
+      "source": "legistar",
+      "body": "Public Facilities",
+      "title": "Public Facilities",
+      "start": "2026-10-28T10:00",
+      "location": "Room 801, City Hall",
+      "pageUrl": "https://boston.legistar.com/MeetingDetail.aspx?LEGID=14083&GID=847&G=AC4A50E2-9128-4EA8-8ACF-04F7A6E02E82",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://boston.legistar1.com/boston/meetings/2026/10/14083_A_Public_Facilities_26-10-28_Meeting_Agenda.pdf"
+        }
+      ],
+      "summary": null
+    },
+    {
+      "id": "boston-notices:16633321",
+      "city": "Boston",
+      "source": "boston-notices",
+      "body": "Public notice",
+      "title": "Inspectional Services Committee on Licenses Hearing",
+      "start": "2026-10-28T10:00",
+      "location": "Virtual, Boston",
+      "pageUrl": "https://www.boston.gov/public-notices/16633321",
+      "docs": [
+        {
+          "kind": "notice",
+          "format": "html",
+          "url": "https://www.boston.gov/public-notices/16633321"
+        }
+      ],
+      "summary": "Inspectional Services Committee on Licenses Hearing\n The Committee on Licenses for the City of Boston Inspectional Services Department will hold a virtual public hearing regarding flammable storage and garages on October 28, 2026, at 10 a.m.\n Join with Google Meet \n Join by phone :\n (US) +1-423-657-0028 \n PIN : 905 556 531#\n Discussion Topics\n New Applications\n 22 High Street Dorchester, The Crown on High LLC, Ad- Boston Herald \n 15 vehicle parking garage 300 gallons of gas in the tanks of vehicles \n 7 Dana Ave, HHC One Arnold LLC, Ad- Boston Herald \n 16 vehicle parking garage, 240 gallons of gas in the tanks of vehicles \n 185 E Street, Garrison Equity LLC, Ad- Boston Herald \n 6 vehicle 120 gallons of gas in the tanks of vehicles \n 212 Old Colony Ave, 212 Old Colony LLC, Ad – Boston Herald \n 8 vehicle parking garage 160 gallons of gas in the tanks of vehicles \n 201 Brookline Ave, ARE-MA No 87 LLC, Ad – Boston Herald \n additional amount for new lab – 1- above ground diesel fuel oil tank on Level PI, and 60 gallons diesel fuel oil day tank on roof, 1032 gallons of Class I A flammable liquids, 4,608 gallons of Class IB & IC flammable Liquids, 4,173 Class II combustible liquids, 4,148 gallons of Cl ass III A combustible liquids, 4,128 gallons of Class III B combustible Liquids, 4,300 lbs of flammable solids, and 33,400 scf of flammable gases This in in addition to already licensed\n October 28, 2026 \n 10:00AM\n Virtual \n Boston, MA \n 02201 \n send an email \n 617-961-3270 \n Contact:\n"
+    },
+    {
+      "id": "boston-notices:16634066",
+      "city": "Boston",
+      "source": "boston-notices",
+      "body": "Public notice",
+      "title": "Boston Water and Sewer Commission",
+      "start": "2026-10-28T10:00",
+      "location": "Boston Water and Sewer Commission, Boston",
+      "pageUrl": "https://www.boston.gov/public-notices/16634066",
+      "docs": [
+        {
+          "kind": "notice",
+          "format": "html",
+          "url": "https://www.boston.gov/public-notices/16634066"
+        }
+      ],
+      "summary": "Boston Water and Sewer Commission\n The Boston Water and Sewer Commission will be held on October 28, 2026 at BWSC 980 Harrison Avenue Boston and via ZOOM. \n Zoom Webinar\n https://bwsc.zoom.us/webinar/register/WN_6qTpFjWZRx2slqPYz0ejQg#/regist… \nCommission Meeting-October 2026\n Date &amp; Time: October 28, 2026 10:00 AM Eastern Time (US and Canada)\nDial In\n1-646-931-3860\n1-301-715-8592\nWebinar ID: 833 0633 5342\n Discussion Topics\n Agenda\nCall to Order\n Minutes of Meeting\n1. Minutes of September 22, 2026 Meeting\nInformational Reports\n1. Disbursement Notification (Schedules A, B, C & D)\n2. Affirmative Action Plan Third Quarter Report for the period July 1, 2026 to September 30, 2026\n General Management Reports\n1. Capital Improvement Program Budget Variance Report \n2. Monthly Management Report\n3. September 2026 Revenue and Expense Report\n Proposals and Contracts \n Engineering\n 1. Commission Authorization to Amend Contract 19-309-001, Installation of New Tidegates in Central Charlestown, East Boston and South Boston \n 2. Commission Authorization to Amend Contract 22-206-005, Professional Services for Design of the Dorchester Interceptor Relief Sewer\n 3. Commission Authorization to Advertise for Bids for Contract No. 23-309-003,\nfor Sewer, Drain and Water Main Replacement/Rehabilitation Citywide.\n 4. Commission Authorization to Award Contract No. 25-308-003, Replacement and Rehabilitation of Water Mains, Storm Drains and Sewers in Hyde Park. \n 5. Commission Authorization to Award C"
+    },
+    {
+      "id": "boston-notices:16634121",
+      "city": "Boston",
+      "source": "boston-notices",
+      "body": "Public notice",
+      "title": "Licensing Board Virtual Transactional Hearing",
+      "start": "2026-10-28T10:00",
+      "location": "VIRTUAL MEETING PLEASE, Citywide",
+      "pageUrl": "https://www.boston.gov/public-notices/16634121",
+      "docs": [
+        {
+          "kind": "notice",
+          "format": "html",
+          "url": "https://www.boston.gov/public-notices/16634121"
+        }
+      ],
+      "summary": "Licensing Board Virtual Transactional Hearing\n The Licensing Board is holding a virtual hearing on October 28, 2026, at 10 a.m.\n Register for the meeting \n Discussion Topics\n BB Donuts, LLC\n D/B/A: Dunkin / Jimmy John's \n2 SUTHERLAND RD\nBRIGHTON, MA 02135\nLicense #: LB-638105\nHas applied for a Common Victualler License to be exercised on the above - A 1,633-square-foot, ground-floor Dunkin’ and Jimmy John’s combo restaurant featuring 30 customer seats, a rear kitchen and storage area, and two customer restrooms at the back of the building, also known as 1962 Beacon Street, Brighton, MA 02135.\nManager: Geo Barbosa\nHours of Operation: 4:30 AM to 10:00 PM\n BW CAFE, LLC\n D/B/A: Tradesman Bridge \n470 ATLANTIC AV\nBOSTON, MA 02210\nLicense #: LB-638106\nHas applied for a Common Victualler License to be exercised on the above - 480SF, Ground-floor lobby kiosk designed for a coffee café, consisting of one room for beverage preparation, service, and customer transactions.\nManager: Bridget Duval\nHours of Operation: 7:00 AM to 6:00 PM\n Jyoti and Rajnee Food, Corp.\n D/B/A: Subway \n981 TREMONT ST\nMISSION HILL, MA 02120\nLicense #: LB-137672\nHolder of a Common Victualler has petitioned to change the Closing Hours of the licensed business From : 7:00 AM - 11:00 PM To: 7:00 AM - 1:00 AM\n Back Street Boston Lessee, LLC\n D/B/A: Pennyweight Hotel \n155 PORTLAND ST \nBOSTON, MA 02114\nLicense #: LB-101657\nHolder of an Innholder All-Alcoholic Beverages License has petitioned to change the manager of the"
+    },
+    {
+      "id": "primegov:cambridgema:2925",
+      "city": "Cambridge",
+      "source": "primegov",
+      "body": "Board of Assessors Public Meeting",
+      "title": "Board of Assessors Public Meeting",
+      "start": "2026-10-28T10:00",
+      "location": null,
+      "pageUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=21740",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "html",
+          "url": "https://cambridgema.primegov.com/Portal/Meeting?compiledMeetingDocumentFileId=21740"
+        },
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://cambridgema.primegov.com/Public/CompiledDocument?meetingTemplateId=14343&compileOutputType=1"
+        },
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://cambridgema.primegov.com/Public/CompiledDocument?meetingTemplateId=14343&compileOutputType=1"
+        },
+        {
+          "kind": "packet",
+          "format": "html",
+          "url": "https://cambridgema.primegov.com/Portal/Meeting?compiledMeetingDocumentFileId=21746"
+        },
+        {
+          "kind": "packet",
+          "format": "pdf",
+          "url": "https://cambridgema.primegov.com/Public/CompiledDocument?meetingTemplateId=14345&compileOutputType=1"
+        },
+        {
+          "kind": "packet",
+          "format": "pdf",
+          "url": "https://cambridgema.primegov.com/Public/CompiledDocument?meetingTemplateId=14345&compileOutputType=1"
+        }
+      ],
+      "summary": null
+    },
+    {
+      "id": "boston-notices:16634071",
+      "city": "Boston",
+      "source": "boston-notices",
+      "body": "Public notice",
+      "title": "Metro Boston Homeland Security Region Meeting",
+      "start": "2026-10-28T11:30",
+      "location": "Virtual, Boston",
+      "pageUrl": "https://www.boston.gov/public-notices/16634071",
+      "docs": [
+        {
+          "kind": "notice",
+          "format": "html",
+          "url": "https://www.boston.gov/public-notices/16634071"
+        }
+      ],
+      "summary": "Metro Boston Homeland Security Region Meeting\n The Metro Boston Homeland Security Region JPOC meeting will be held remotely on Wednesday, October 28, 2026, at 11:30 a.m.\n Remote participation only via Google Meet: \n Join the online meeting \n (US) +1-601-861-4090 \n PIN: ‪813 121 637# \n Discussion Topics\n Agenda\n Welcome/Introductions \n Approval of 7.10.26 Meeting Minutes \n Election of New UASI Chair \n FY 24/25 Budget Updates \n Stakeholder Preparedness Review (SPR) Reminder \n Old/New Business \n Point of Contact for this Notice:\n Alicia Woodberry, UASI Project Director, Office of Emergency Management\n Alicia.woodberry@boston.gov , 617-635-1400 \nReference: October 28, 2026 JPOC Meeting\n Please notify Alicia Woodberry at least 48 hours in advance if interpretation or other accommodations are needed.\n October 28, 2026 \n 11:30AM\n Virtual \n Boston, MA \n 02201 \n send an email \n 617-635-1400 \n Contact:\n Alicia Woodberry\n Neighborhoods:\n Citywide\n Posted:\n 10/21/2026 - 11:50AM\n Resources:\n Official Filed Agenda \n Accessibility Services\n Interpretation, translation, and disability accommodation services are available to you at no cost. If you need them, please reach out to the contact listed in this Public Notice."
+    },
+    {
+      "id": "boston-notices:16634276",
+      "city": "Boston",
+      "source": "boston-notices",
+      "body": "Public notice",
+      "title": "Notice of Advance Processing and Removal of Early Voted Ballots for the November 3, 2026 State Election",
+      "start": "2026-10-28T11:30",
+      "location": "Boston City Hall, Boston",
+      "pageUrl": "https://www.boston.gov/public-notices/16634276",
+      "docs": [
+        {
+          "kind": "notice",
+          "format": "html",
+          "url": "https://www.boston.gov/public-notices/16634276"
+        }
+      ],
+      "summary": "Notice of Advance Processing and Removal of Early Voted Ballots for the November 3, 2026 State Election\n Please take notice that the City of Boston will be removing State Primary ballots from their envelopes and depositing these ballots into a tabulator at Boston City Hall, One City Hall Square, Boston, MA 02201. The city will process ballots to the extent feasible during the dates and times listed below. The processing facility shall remain open until the close of the polls on Tuesday, November 3, 2026.\n Advance processing and removal will take place on:\n Date \n Location \n Monday & Tuesday, October 26 and 27 from 8:30 am - 5:30 pm \n City Hall, Room 801 \n Wednesday, October 28, 2026 from 11:30 pm - 6:30 pm \n City Hall, Room 801 \n Thursday through Monday, October 29 - November 2 from 8:30 am - 5:30 pm \n City Hall, Room 801 \n Tuesday, November 3, 2026, from 8 am - until complete \n City Hall, Room 801 \n Ballots not deposited during this period will be sent to their respective precincts to be processed. \nThis process will be open for public observation.\n Discussion Topics\n The Election Department reserves the right to make adjustments, as necessary, to the list of precincts to be processed at the Central Tabulation Facility.\n Wards \n Precincts \n 1-22 \n All precincts \n October 28, 2026 \n 11:30AM - 06:30PM\n Boston City Hall \n One City Hall Square, Room 801 \n Boston, MA \n 02201 \n send an email \n 617-635-4054 \n Contact:\n Sabino Piemonte\n Neighborhoods:\n Citywide\n Posted:\n 10/22/2026 "
+    },
+    {
+      "id": "boston-notices:16552976",
+      "city": "Boston",
+      "source": "boston-notices",
+      "body": "City Council",
+      "title": "City Council Meeting",
+      "start": "2026-10-28T12:00",
+      "location": "Boston City Hall, Boston",
+      "pageUrl": "https://www.boston.gov/public-notices/16552976",
+      "docs": [
+        {
+          "kind": "notice",
+          "format": "html",
+          "url": "https://www.boston.gov/public-notices/16552976"
+        }
+      ],
+      "summary": "City Council Meeting \n All weekly City Council meetings are held at 12 p.m. (noon) in the Christopher A. Iannella Chamber on the fifth floor of Boston City Hall, unless otherwise noted.\n Discussion Topics\n Agenda to follow...\n October 28, 2026 \n 12:00PM\n Boston City Hall \n Iannella Chamber \n Boston, MA \n 02201 \n send an email \n 617-635-3040 \n Contact:\n Boston City Council\n Neighborhoods:\n Citywide\n Posted:\n 01/13/2026 - 11:56AM\n Accessibility Services\n Interpretation, translation, and disability accommodation services are available to you at no cost. If you need them, please reach out to the contact listed in this Public Notice."
+    },
+    {
+      "id": "primegov:cambridgema:2924",
+      "city": "Cambridge",
+      "source": "primegov",
+      "body": "Special City Council Meeting",
+      "title": "Special City Council Meeting",
+      "start": "2026-10-28T15:00",
+      "location": null,
+      "pageUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=21878",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "html",
+          "url": "https://cambridgema.primegov.com/Portal/Meeting?compiledMeetingDocumentFileId=21878"
+        },
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://cambridgema.primegov.com/Public/CompiledDocument?meetingTemplateId=14336&compileOutputType=1"
+        },
+        {
+          "kind": "packet",
+          "format": "pdf",
+          "url": "https://cambridgema.primegov.com/Public/CompiledDocument?meetingTemplateId=14338&compileOutputType=1"
+        }
+      ],
+      "summary": null
+    },
+    {
+      "id": "boston-notices:16634086",
+      "city": "Boston",
+      "source": "boston-notices",
+      "body": "Public notice",
+      "title": "Trustees of the Public Library of the City of Boston Meeting",
+      "start": "2026-10-28T16:00",
+      "location": "Central Library, Commonwealth Salon, Boston",
+      "pageUrl": "https://www.boston.gov/public-notices/16634086",
+      "docs": [
+        {
+          "kind": "notice",
+          "format": "html",
+          "url": "https://www.boston.gov/public-notices/16634086"
+        }
+      ],
+      "summary": "Trustees of the Public Library of the City of Boston Meeting\n The Trustees McKim Renovation Oversight Committee will be held on Thursday, October 29, 2026, at 4 p.m. in the Central Library, Commonwealth Salon, 700 Boylston Street, Boston, MA 02116. \n Discussion Topics\n Agenda\n Call to Order \n Jose C. Masso III, Chair \n Reading of EDI statement \n Roll Call of members \n Charge of the Committee \n David Leonard, President \n History of McKim Building \n David Leonard, President \n Bridge to McKim Program \n Jill Maneikis, Deputy Chief of Operations \n CLUES Overview \n Beth Prindle, Director of Research and Special Collections \n New Business \n John Hailer, Chair \n Public Comment \n Please sign up for public comment within the first 30 minutes of the meeting to support effective time management. On occasion, additional public comments on matters formally on the agenda may be allowed at the discretion of the Chair, and time permitting. Comments may alternatively be submitted in writing to the Clerk for distribution to the Trustees no later than 24 hours prior ( pcarver@bpl.org ). \n Adjournment \n * The committee members are invited to a tour of the McKim Building after the meeting ends. \n Trustees McKim Renovation Oversight Committee \n Jose C. Masso III, Chair \n Members: Navjeet Bal, Meredith DeWitt, Jonathan Lavine, Alex Leventhal, Leo Liu, Sen. Mike Rush \n David Leonard, President, and Marta Garcia ( Ex Officio ) \n Pamela Carver, Clerk of the Board \n This is an open meeting; the public i"
+    },
+    {
+      "id": "boston-notices:16634341",
+      "city": "Boston",
+      "source": "boston-notices",
+      "body": "Public notice",
+      "title": "School Committee of the City of Boston Opportunity and Achievement Gaps Task Force Meeting",
+      "start": "2026-10-28T16:00",
+      "location": "Bruce C. Bolling Municipal Building, Roxbury",
+      "pageUrl": "https://www.boston.gov/public-notices/16634341",
+      "docs": [
+        {
+          "kind": "notice",
+          "format": "html",
+          "url": "https://www.boston.gov/public-notices/16634341"
+        }
+      ],
+      "summary": "School Committee of the City of Boston Opportunity and Achievement Gaps Task Force Meeting\n The Opportunity and Achievement Gaps Task Force of the School Committee of the City of Boston will hold a public meeting on Wednesday, October 28, 2026, from 4:00 to 6:00 p.m. at the Bruce C. Bolling Municipal Building, 2300 Washington Street, Room 2-12, 2nd Floor, Roxbury, MA 02119.\n The public can offer testimony.\n Discussion Topics\n Agenda\n I. Welcome\n II. Roll Call\n III. Approval of Meeting Minutes: June 16, 2026\n IV. Updates from Dr. Colin Rose, Senior Advisor for Strategy and Opportunity Gaps\n V. Update on the OAG Data Request to the Office of Human Resources\n VI. Review of annual Achievement Data\n VII. Strategic Plan: Key Actions and Targets\n VIII. Task Force Discussion on Key Performance Indicators for the OAG Policy and recommendations on which areas the Task Force will focus on this year\n IX. Discuss Task Force Meeting Calendar organized by focus areas\n X. New Business\n XI. Public Comment\n XII. Adjourn\n October 28, 2026 \n 04:00PM - 06:00PM\n Bruce C. Bolling Municipal Building \n 2300 Washington Street \n Roxbury, MA \n 02119 \n send an email \n 617-635-9014 \n Contact:\n Lena Parvex, Executive Secretary, Boston School Committee\n Neighborhoods:\n Citywide\n Posted:\n 10/22/2026 - 11:34AM\n Resources:\n Official Filed Posting \n Accessibility Services\n Interpretation, translation, and disability accommodation services are available to you at no cost. If you need them, please reach out to th"
+    },
+    {
+      "id": "primegov:cambridgema:2513",
+      "city": "Cambridge",
+      "source": "primegov",
+      "body": "Combined Sewer Overflow (CSO) Control Plan - Draft Updated",
+      "title": "Combined Sewer Overflow (CSO) Control Plan - Draft Updated",
+      "start": "2026-10-28T18:00",
+      "location": null,
+      "pageUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=21854",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "html",
+          "url": "https://cambridgema.primegov.com/Portal/Meeting?compiledMeetingDocumentFileId=21854"
+        },
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://cambridgema.primegov.com/Public/CompiledDocument?meetingTemplateId=12228&compileOutputType=1"
+        }
+      ],
+      "summary": null
+    },
+    {
+      "id": "primegov:cambridgema:2946",
+      "city": "Cambridge",
+      "source": "primegov",
+      "body": "American Freedmen Commission Research Subcommittee Meeting",
+      "title": "American Freedmen Commission Research Subcommittee Meeting",
+      "start": "2026-10-28T18:00",
+      "location": null,
+      "pageUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=22060",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "html",
+          "url": "https://cambridgema.primegov.com/Portal/Meeting?compiledMeetingDocumentFileId=22060"
+        },
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://cambridgema.primegov.com/Public/CompiledDocument?meetingTemplateId=14447&compileOutputType=1"
+        },
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://cambridgema.primegov.com/Public/CompiledDocument?meetingTemplateId=14447&compileOutputType=1"
+        }
+      ],
+      "summary": null
+    },
+    {
+      "id": "civicclerk:brooklinema:16519",
+      "city": "Brookline",
+      "source": "civicclerk",
+      "body": "School Committee",
+      "title": "School Committee Regular Meeting",
+      "start": "2026-10-28T18:00",
+      "location": "Brookline Town Hall, 5th Floor ",
+      "pageUrl": "https://brooklinema.portal.civicclerk.com/event/16519/overview",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://brooklinema.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=34140,plainText=false)"
+        },
+        {
+          "kind": "packet",
+          "format": "pdf",
+          "url": "https://brooklinema.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=34141,plainText=false)"
+        }
+      ],
+      "summary": null
+    },
+    {
+      "id": "boston-notices:16607396",
+      "city": "Boston",
+      "source": "boston-notices",
+      "body": "Public notice",
+      "title": "Monument Square Landmark District Study Committee",
+      "start": "2026-10-28T18:30",
+      "location": "Zoom (virtual meeting), Boston",
+      "pageUrl": "https://www.boston.gov/public-notices/16607396",
+      "docs": [
+        {
+          "kind": "notice",
+          "format": "html",
+          "url": "https://www.boston.gov/public-notices/16607396"
+        }
+      ],
+      "summary": "Monument Square Landmark District Study Committee\n ATTENTION: This is a working meeting of a study committee. This meeting will only be held virtually and NOT in person. You can observe this meeting by joining through our online link or calling +1 646 828 7666 and entering meeting ID # 165 853 1487. Public comment will be taken during the public comment section of the agenda as time allows at the discretion of the chair on the topics discussed in the meeting. You can submit written comments or questions at any time to BLC@boston.gov . All written comments are shared with and discussed by the study committee. \n Discussion Topics\n [6:30*] REVIEW AND VOTE ON MEETING MINUTES\n [6:35*] PUBLIC FEEDBACK SINCE LAST MEETING\n BLC Staff to share any feedback received by BLC \n Study committee members to share any feedback received \n [6:40*] REVIEW PUBLIC ENGAGEMENT\n Discussion of feedback received at community engagement event \n [7:10*] EDIT WORKING STUDY REPORT\n Discussion of edits to working study report based on public feedback \n [8:10*] PUBLIC COMMENTS\n At the discretion of the chair as time allows \n [8:25*] STAFF UPDATES\n PROJECTED ADJOURNMENT: 8:30 PM\n * Projected times\n October 28, 2026 \n 06:30PM\n Zoom (virtual meeting) \n Boston, MA \n 02108 \n send an email \n 617-635-1935 \n Contact:\n Jennifer Gaugler\n Neighborhoods:\n Charlestown\n Posted:\n 08/27/2026 - 11:36AM\n Resources:\n Official Filed Posting \n Accessibility Services\n Interpretation, translation, and disability accommodation servi"
+    },
+    {
+      "id": "boston-notices:16634301",
+      "city": "Boston",
+      "source": "boston-notices",
+      "body": "Public notice",
+      "title": "Notice of Advance Processing and Removal of Early Voted Ballots for the November 3, 2026 State Election",
+      "start": "2026-10-29T08:30",
+      "location": "Boston City Hall, Boston",
+      "pageUrl": "https://www.boston.gov/public-notices/16634301",
+      "docs": [
+        {
+          "kind": "notice",
+          "format": "html",
+          "url": "https://www.boston.gov/public-notices/16634301"
+        }
+      ],
+      "summary": "Notice of Advance Processing and Removal of Early Voted Ballots for the November 3, 2026 State Election\n Please take notice that the City of Boston will be removing State Primary ballots from their envelopes and depositing these ballots into a tabulator at Boston City Hall, One City Hall Square, Boston, MA 02201. The city will process ballots to the extent feasible during the dates and times listed below. The processing facility shall remain open until the close of the polls on Tuesday, November 3, 2026.\n Advance processing and removal will take place on:\n Date \n Location \n Monday & Tuesday, October 26 and 27 from 8:30 am - 5:30 pm \n City Hall, Room 801 \n Wednesday, October 28, 2026 from 11:30 pm - 6:30 pm \n City Hall, Room 801 \n Thursday through Monday, October 29 - November 2 from 8:30 am - 5:30 pm \n City Hall, Room 801 \n Tuesday, November 3, 2026, from 8 am - until complete \n City Hall, Room 801 \n Ballots not deposited during this period will be sent to their respective precincts to be processed. \nThis process will be open for public observation.\n Discussion Topics\n The Election Department reserves the right to make adjustments, as necessary, to the list of precincts to be processed at the Central Tabulation Facility.\n Wards \n Precincts \n 1-22 \n All precincts \n October 29, 2026 \n 08:30AM - 05:30PM\n Boston City Hall \n One City Hall Square, Room 801 \n Boston, MA \n 02201 \n send an email \n 617-635-4054 \n Contact:\n Sabino Piemonte\n Neighborhoods:\n Citywide\n Posted:\n 10/22/2026 "
+    },
+    {
+      "id": "boston-notices:16627506",
+      "city": "Boston",
+      "source": "boston-notices",
+      "body": "City Council",
+      "title": "City Council Committee on Planning, Development, and Transportation Hearing on Dockets #1337",
+      "start": "2026-10-29T10:30",
+      "location": "Iannella Chamber, 5th Floor, Boston",
+      "pageUrl": "https://www.boston.gov/public-notices/16627506",
+      "docs": [
+        {
+          "kind": "notice",
+          "format": "html",
+          "url": "https://www.boston.gov/public-notices/16627506"
+        }
+      ],
+      "summary": "City Council Committee on Planning, Development, and Transportation Hearing on Dockets #1337\n A hearing to discuss fulfillment of community benefits funded by development projects.\n The public can offer testimony.\n Discussion Topics\n Docket #1337\n Order for a hearing to discuss fulfillment of community benefits funded by development projects. \n This matter was sponsored by Councilor Enrique J. Pepén, Benjamin J. Weber, and Ruthzee Louijeune, and was referred to the Committee on July 8, 2026. \n NOTICE: The Boston City Council may have a quorum in attendance due to standing committees of the City Council consisting of both voting and non-voting members. However, members attending this duly posted meeting are participating and deliberating only in conjunction with the business of the standing committee. \n Public Testimony \n Members of the public are cordially invited to attend and testify in person or virtually. Those wishing to testify in person should arrive five (5) minutes before the call of the hearing to sign up. Please bring fifteen (15) copies of any written documentation you wish to present at the hearing. Those wishing to testify virtually via videoconference should email the staff contact for a link and instructions to do so. Written comments may be sent to the Committee or staff email (below) and will be made a part of the record and available to all Councilors. The public may watch this hearing via live stream at boston.gov/city-council-tv and on Xfinity 8/RCN 82/Fi"
+    },
+    {
+      "id": "boston-notices:16609716",
+      "city": "Boston",
+      "source": "boston-notices",
+      "body": "City Council",
+      "title": "City Council Committee on Education Hearing on Docket #1333",
+      "start": "2026-10-29T14:00",
+      "location": "Iannella Chamber, 5th Floor, Boston",
+      "pageUrl": "https://www.boston.gov/public-notices/16609716",
+      "docs": [
+        {
+          "kind": "notice",
+          "format": "html",
+          "url": "https://www.boston.gov/public-notices/16609716"
+        }
+      ],
+      "summary": "Canceled: \n City Council Committee on Education Hearing on Docket #1333\n Reason for cancellation: \n This hearing will be rescheduled. \n The public can offer testimony.\n Discussion Topics\n Docket #1333\n Order for a hearing to discuss the impacts of recent Boston Public Schools (BPS) personnel cuts on students with disabilities. \n This matter was sponsored by Councilors Edward M. Flynn, Julia M. Mejia, and Erin J. Murphy, and was referred to the Committee on July 8, 2026. \n Public Testimony \n Written comments may be sent to the Committee or staff email (below) and will be made a part of the record and available to all Councilors. \n Staff Contact: Ryan Pratt \n Mail Address: Docket #1333 City Council, City Hall, 5th Floor, Boston, MA 02201 \n Committee Email: ccc.education@boston.gov \n Staff Email: ryan.pratt@boston.gov | Staff Telephone: 617-635-5635 \n October 29, 2026 \n 02:00PM\n Iannella Chamber, 5th Floor \n Boston City Hall \n Boston, MA \n 02201 \n send an email \n 617-635-5635 \n Contact:\n Ryan Pratt\n Neighborhoods:\n Citywide\n Posted:\n 09/11/2026 - 2:21PM\n Resources:\n Docket #1333 \n Notice of Accommodations \n Official Filed Posting \n Canceled Official Filed Posting \n Accessibility Services\n Interpretation, translation, and disability accommodation services are available to you at no cost. If you need them, please reach out to the contact listed in this Public Notice.\n Chair"
+    },
+    {
+      "id": "primegov:cambridgema:2926",
+      "city": "Cambridge",
+      "source": "primegov",
+      "body": "Transit Advisory Committee - Site Walk - October-November 2026",
+      "title": "Transit Advisory Committee - Site Walk - October-November 2026",
+      "start": "2026-10-29T17:00",
+      "location": null,
+      "pageUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=22008",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "html",
+          "url": "https://cambridgema.primegov.com/Portal/Meeting?compiledMeetingDocumentFileId=22008"
+        },
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://cambridgema.primegov.com/Public/CompiledDocument?meetingTemplateId=14348&compileOutputType=1"
+        }
+      ],
+      "summary": null
+    },
+    {
+      "id": "primegov:cambridgema:2504",
+      "city": "Cambridge",
+      "source": "primegov",
+      "body": "Family Policy Council Meeting",
+      "title": "Family Policy Council Meeting",
+      "start": "2026-10-29T17:15",
+      "location": null,
+      "pageUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=18373",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "html",
+          "url": "https://cambridgema.primegov.com/Portal/Meeting?compiledMeetingDocumentFileId=18373"
+        },
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://cambridgema.primegov.com/Public/CompiledDocument?meetingTemplateId=12182&compileOutputType=1"
+        }
+      ],
+      "summary": null
+    },
+    {
+      "id": "boston-notices:16629971",
+      "city": "Boston",
+      "source": "boston-notices",
+      "body": "Public notice",
+      "title": "Reparations Task Force Virtual Public Meeting",
+      "start": "2026-10-29T17:30",
+      "location": "VIRTUAL, BOSTON",
+      "pageUrl": "https://www.boston.gov/public-notices/16629971",
+      "docs": [
+        {
+          "kind": "notice",
+          "format": "html",
+          "url": "https://www.boston.gov/public-notices/16629971"
+        }
+      ],
+      "summary": "Reparations Task Force Virtual Public Meeting\n The Boston Reparations Task Force (RTF) Reparations Task Force Will Hold A Virtual Public Meeting On October 29, 2026, at 5:30 - 7 p.m.\n Register for the online meeting \n Contact: Khalid Mustafa | khalid.mustafa@boston.gov | 617-821-6022 \n Discussion Topics\n AGENDA \n English: IMPORTANT! This meeting contains important information on the Reparations Task Force and will focus on the harm brought upon slavery. We will provide the information in your preferred language or accessible format at no cost to you. If you need them, please contact khalid.mustafa@boston.gov or 617-821-6022 .\n 1. Reparations Task Force Opens Meeting - RTF Chair Joseph D. Feaster, Jr.\n 2. Moment of Silent Reflection - RTF Chair Joseph D. Feaster, Jr.\n 3. RTF Role Call - RTF Chair Joseph D. Feaster, Jr.\n 4. City of Boston Updates on Tufts Research Report - Chief Mariangely Solis Cervera\n 5. Researcher Presentations - RTF Research Sub-Committee Chair Mariama White-Hammond\n 6. RTF Discussion and Vote(s) - RTF Chair Joseph D. Feaster, Jr.\n 7. Q&A Public Comment (two minutes each) - RTF Community Engagement\n Sub-Committee Chair Antonia Edwards\n 8. Adjournment - RTF Chair Joseph D. Feaster, Jr.\n October 29, 2026 \n 05:30PM - 07:00PM\n VIRTUAL \n BOSTON , MA \n 02201 \n send an email \n 617-821-6022 \n Contact:\n Khalid Mustafa\n Neighborhoods:\n Citywide\n Posted:\n 10/09/2026 - 3:35PM\n Resources:\n OFFICIAL FILED POSTING \n Official Revised Filed Posting \n Accessibility Services"
+    },
+    {
+      "id": "boston-notices:16634576",
+      "city": "Boston",
+      "source": "boston-notices",
+      "body": "Public notice",
+      "title": "Reparations Task Force Public Meeting",
+      "start": "2026-10-29T17:30",
+      "location": "VIRTUAL, Boston",
+      "pageUrl": "https://www.boston.gov/public-notices/16634576",
+      "docs": [
+        {
+          "kind": "notice",
+          "format": "html",
+          "url": "https://www.boston.gov/public-notices/16634576"
+        }
+      ],
+      "summary": "Reparations Task Force Public Meeting\n The Office Reparations Task Force (RTF) will hold a virtual meeting on October 29, 2026, at 5:30 - 7 p.m.\n Join the online meeting \n Discussion Topics\n AGENDA \n Roll Call\n Moment of Silent Reflection\n Update from the Equity & Inclusion Cabinet regarding the status of Phase 1 research\n Symposium Presenters \n Discussion of additional Phase 1 research regarding the period from 1620-1940\n Vote on additional research\n Public Comment and Q&A on the future work of the Task Force\n Members of the public who wish to speak will be limited to two minutes each. This portion of the meeting will last for 30 minutes\n Administrative Updates\n Adjourn\n October 29, 2026 \n 05:30PM - 07:00PM\n VIRTUAL \n Boston, MA \n 02201 \n send an email \n 617-821-6022 \n Contact:\n Khalid Mustafa\n Neighborhoods:\n Citywide\n Posted:\n 10/23/2026 - 1:03PM\n Resources:\n OFFICIAL FILED POSTING \n Accessibility Services\n Interpretation, translation, and disability accommodation services are available to you at no cost. If you need them, please reach out to the contact listed in this Public Notice."
+    },
+    {
+      "id": "boston-notices:16634011",
+      "city": "Boston",
+      "source": "boston-notices",
+      "body": "Public notice",
+      "title": "Boston Housing Authority (BHA) and the Mayor’s Office of Arts and Culture (MOAC) Remote Meeting",
+      "start": "2026-10-29T18:00",
+      "location": "Remote Meeting, Boston",
+      "pageUrl": "https://www.boston.gov/public-notices/16634011",
+      "docs": [
+        {
+          "kind": "notice",
+          "format": "html",
+          "url": "https://www.boston.gov/public-notices/16634011"
+        }
+      ],
+      "summary": "Boston Housing Authority (BHA) and the Mayor’s Office of Arts and Culture (MOAC) Remote Meeting \n The Boston Housing Authority (BHA) and the Mayor’s Office of Arts and Culture (MOAC) are hosting two virtual public meetings to discuss progress on the 290 North Beacon development located in Brighton, MA, as a music, arts and community space on October 29 at 6 p.m. and October 30 at 12 p.m. \n Meeting Times and Registration Links \n Both meetings will discuss the same information, so please choose the time that works best for you: \n Register: Thursday, October 29, 6 – 8 p.m. \n Register: Friday, October 30, 12 – 2 p.m. \n Discussion Topics\n Agenda\n Where We Have Been \n Reintroduce 290 N Beacon \n What We Have Learned \n Review Priorities \n Where We Are Going \n 290 N Beacon Pilot Opportunity \n Next Steps and Ongoing Engagement \n Discussion Questions and Q+A \n October 29, 2026 \n 06:00PM\n Remote Meeting \n Boston, MA \n 02201 \n send an email \n 857-891-3454 \n Contact:\n Rahul Ramesh\n Neighborhoods:\n Citywide\n Posted:\n 10/20/2026 - 4:19PM\n Resources:\n Official Filed Posting \n Accessibility Services\n Interpretation, translation, and disability accommodation services are available to you at no cost. If you need them, please reach out to the contact listed in this Public Notice."
+    },
+    {
+      "id": "legistar:somervillema:4090",
+      "city": "Somerville",
+      "source": "legistar",
+      "body": "Land Use Committee",
+      "title": "Land Use Committee",
+      "start": "2026-10-29T18:30",
+      "location": "Virtual",
+      "pageUrl": "https://somervillema.legistar.com/MeetingDetail.aspx?LEGID=4090&GID=910&G=2A86634D-1000-44A7-991A-A4C8C0762B41",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://somervillema.legistar1.com/somervillema/meetings/2026/10/4090_A_Land_Use_Committee_26-10-29_Regular_Meeting_Agenda.pdf"
+        }
+      ],
+      "summary": "https://us02web.zoom.us/webinar/register/WN_OMqCkzsEToyuNcfnJZ20Yw"
+    },
+    {
+      "id": "boston-notices:16633066",
+      "city": "Boston",
+      "source": "boston-notices",
+      "body": "Public notice",
+      "title": "Proposed Medical Marijuana Establishment Community Meeting",
+      "start": "2026-10-29T19:00",
+      "location": "Lower Level, Boston",
+      "pageUrl": "https://www.boston.gov/public-notices/16633066",
+      "docs": [
+        {
+          "kind": "notice",
+          "format": "html",
+          "url": "https://www.boston.gov/public-notices/16633066"
+        }
+      ],
+      "summary": "Proposed Medical Marijuana Establishment Community Meeting\n Join Curaleaf Massachusetts, Inc. for a community outreach meeting as we share our plans for a proposed medical marijuana establishment. The proposed medical marijuana establishment is anticipated to be located at 21 Milk Street in Boston, Massachusetts 02109.\n The public can offer testimony.\n Discussion Topics\n Agenda\n In this meeting, we will discuss security, diversion prevention, community involvement and planning, and general operating information for the proposed facility. There will be an opportunity for the public to ask questions.\n October 29, 2026 \n 07:00PM\n Lower Level \n 21 Milk Street \n Boston, MA \n 02109 \n send an email \n 857-995-3035 \n Contact:\n Alex Chavez\n Neighborhoods:\n Downtown\n Posted:\n 10/14/2026 - 2:37PM\n Resources:\n Official Filed Posting \n Accessibility Services\n Interpretation, translation, and disability accommodation services are available to you at no cost. If you need them, please reach out to the contact listed in this Public Notice."
+    },
+    {
+      "id": "boston-notices:16634306",
+      "city": "Boston",
+      "source": "boston-notices",
+      "body": "Public notice",
+      "title": "Notice of Advance Processing and Removal of Early Voted Ballots for the November 3, 2026 State Election",
+      "start": "2026-10-30T08:30",
+      "location": "Boston City Hall, Boston",
+      "pageUrl": "https://www.boston.gov/public-notices/16634306",
+      "docs": [
+        {
+          "kind": "notice",
+          "format": "html",
+          "url": "https://www.boston.gov/public-notices/16634306"
+        }
+      ],
+      "summary": "Notice of Advance Processing and Removal of Early Voted Ballots for the November 3, 2026 State Election\n Please take notice that the City of Boston will be removing State Primary ballots from their envelopes and depositing these ballots into a tabulator at Boston City Hall, One City Hall Square, Boston, MA 02201. The city will process ballots to the extent feasible during the dates and times listed below. The processing facility shall remain open until the close of the polls on Tuesday, November 3, 2026.\n Advance processing and removal will take place on:\n Date \n Location \n Monday & Tuesday, October 26 and 27 from 8:30 am - 5:30 pm \n City Hall, Room 801 \n Wednesday, October 28, 2026 from 11:30 pm - 6:30 pm \n City Hall, Room 801 \n Thursday through Monday, October 29 - November 2 from 8:30 am - 5:30 pm \n City Hall, Room 801 \n Tuesday, November 3, 2026, from 8 am - until complete \n City Hall, Room 801 \n Ballots not deposited during this period will be sent to their respective precincts to be processed. \nThis process will be open for public observation.\n Discussion Topics\n The Election Department reserves the right to make adjustments, as necessary, to the list of precincts to be processed at the Central Tabulation Facility.\n Wards \n Precincts \n 1-22 \n All precincts \n October 30, 2026 \n 08:30AM - 05:30PM\n Boston City Hall \n One City Hall Square, Room 801 \n Boston, MA \n 02201 \n send an email \n 617-635-4054 \n Contact:\n Sabino Piemonte\n Neighborhoods:\n Citywide\n Posted:\n 10/22/2026 "
+    },
+    {
+      "id": "boston-notices:16634016",
+      "city": "Boston",
+      "source": "boston-notices",
+      "body": "Public notice",
+      "title": "Boston Housing Authority (BHA) and the Mayor’s Office of Arts and Culture (MOAC) Remote Meeting",
+      "start": "2026-10-30T12:00",
+      "location": "Remote Meeting, Boston",
+      "pageUrl": "https://www.boston.gov/public-notices/16634016",
+      "docs": [
+        {
+          "kind": "notice",
+          "format": "html",
+          "url": "https://www.boston.gov/public-notices/16634016"
+        }
+      ],
+      "summary": "Boston Housing Authority (BHA) and the Mayor’s Office of Arts and Culture (MOAC) Remote Meeting\n The Boston Housing Authority (BHA) and the Mayor’s Office of Arts and Culture (MOAC) are hosting two virtual public meetings to discuss progress on the 290 North Beacon development located in Brighton, MA, as a music, arts and community space on October 29 at 6 p.m. and October 30 at 12 p.m. \n Meeting Times and Registration Links \n Both meetings will discuss the same information, so please choose the time that works best for you: \n Register: Thursday, October 29, 6 – 8 p.m. \n Register: Friday, October 30, 12 – 2 p.m. \n Discussion Topics\n Agenda\n Where We Have Been \n Reintroduce 290 N Beacon \n What We Have Learned \n Review Priorities \n Where We Are Going \n 290 N Beacon Pilot Opportunity \n Next Steps and Ongoing Engagement \n Discussion Questions and Q+A \n October 30, 2026 \n 12:00PM\n Remote Meeting \n Boston, MA \n 02201 \n send an email \n 857-891-3454 \n Contact:\n Rahul.Ramesh@bostonhousing.org\n Neighborhoods:\n Citywide\n Posted:\n 10/20/2026 - 4:29PM\n Resources:\n Official Filed Posting \n Accessibility Services\n Interpretation, translation, and disability accommodation services are available to you at no cost. If you need them, please reach out to the contact listed in this Public Notice."
+    },
+    {
+      "id": "boston-notices:16634311",
+      "city": "Boston",
+      "source": "boston-notices",
+      "body": "Public notice",
+      "title": "Notice of Advance Processing and Removal of Early Voted Ballots for the November 3, 2026 State Election",
+      "start": "2026-10-31T08:30",
+      "location": "Boston City Hall, Boston",
+      "pageUrl": "https://www.boston.gov/public-notices/16634311",
+      "docs": [
+        {
+          "kind": "notice",
+          "format": "html",
+          "url": "https://www.boston.gov/public-notices/16634311"
+        }
+      ],
+      "summary": "Notice of Advance Processing and Removal of Early Voted Ballots for the November 3, 2026 State Election\n Please take notice that the City of Boston will be removing State Primary ballots from their envelopes and depositing these ballots into a tabulator at Boston City Hall, One City Hall Square, Boston, MA 02201. The city will process ballots to the extent feasible during the dates and times listed below. The processing facility shall remain open until the close of the polls on Tuesday, November 3, 2026.\n Advance processing and removal will take place on:\n Date \n Location \n Monday & Tuesday, October 26 and 27 from 8:30 am - 5:30 pm \n City Hall, Room 801 \n Wednesday, October 28, 2026 from 11:30 pm - 6:30 pm \n City Hall, Room 801 \n Thursday through Monday, October 29 - November 2 from 8:30 am - 5:30 pm \n City Hall, Room 801 \n Tuesday, November 3, 2026, from 8 am - until complete \n City Hall, Room 801 \n Ballots not deposited during this period will be sent to their respective precincts to be processed. \nThis process will be open for public observation.\n Discussion Topics\n The Election Department reserves the right to make adjustments, as necessary, to the list of precincts to be processed at the Central Tabulation Facility.\n Wards \n Precincts \n 1-22 \n All precincts \n October 31, 2026 \n 08:30AM - 05:30PM\n Boston City Hall \n One City Hall Square, Room 801 \n Boston, MA \n 02201 \n send an email \n 617-635-4054 \n Contact:\n Sabino Piemonte\n Neighborhoods:\n Citywide\n Posted:\n 10/22/2026 "
+    },
+    {
+      "id": "primegov:cambridgema:2841",
+      "city": "Cambridge",
+      "source": "primegov",
+      "body": "Regular City Council Meeting",
+      "title": "Regular City Council Meeting",
+      "start": "2026-11-02T17:30",
+      "location": null,
+      "pageUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=20645",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "html",
+          "url": "https://cambridgema.primegov.com/Portal/Meeting?compiledMeetingDocumentFileId=20645"
+        },
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://cambridgema.primegov.com/Public/CompiledDocument?meetingTemplateId=13885&compileOutputType=1"
+        },
+        {
+          "kind": "packet",
+          "format": "pdf",
+          "url": "https://cambridgema.primegov.com/Public/CompiledDocument?meetingTemplateId=13887&compileOutputType=1"
+        }
+      ],
+      "summary": null
+    },
+    {
+      "id": "legistar:boston:14059",
+      "city": "Boston",
+      "source": "legistar",
+      "body": "Boston School Committee",
+      "title": "Boston School Committee",
+      "start": "2026-11-04T17:30",
+      "location": "Bolling Building",
+      "pageUrl": "https://boston.legistar.com/MeetingDetail.aspx?LEGID=14059&GID=847&G=AC4A50E2-9128-4EA8-8ACF-04F7A6E02E82",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://boston.legistar1.com/boston/meetings/2026/11/14059_A_Boston_School_Committee_26-11-04_Meeting_Agenda.pdf"
+        }
+      ],
+      "summary": null
+    },
+    {
+      "id": "primegov:cambridgema:2923",
+      "city": "Cambridge",
+      "source": "primegov",
+      "body": "Central Square Advisory Committee (CSAC) Meeting - 11/4/2026",
+      "title": "Central Square Advisory Committee (CSAC) Meeting - 11/4/2026",
+      "start": "2026-11-04T18:00",
+      "location": null,
+      "pageUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=21692",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "html",
+          "url": "https://cambridgema.primegov.com/Portal/Meeting?compiledMeetingDocumentFileId=21692"
+        },
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://cambridgema.primegov.com/Public/CompiledDocument?meetingTemplateId=14331&compileOutputType=1"
+        }
+      ],
+      "summary": null
+    },
+    {
+      "id": "primegov:cambridgema:2942",
+      "city": "Cambridge",
+      "source": "primegov",
+      "body": "Regular Meeting of the Cambridge Historical Commission",
+      "title": "Regular Meeting of the Cambridge Historical Commission",
+      "start": "2026-11-05T18:00",
+      "location": null,
+      "pageUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=22017",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "html",
+          "url": "https://cambridgema.primegov.com/Portal/Meeting?compiledMeetingDocumentFileId=22017"
+        },
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://cambridgema.primegov.com/Public/CompiledDocument?meetingTemplateId=14427&compileOutputType=1"
+        }
+      ],
+      "summary": null
+    },
+    {
+      "id": "legistar:somervillema:4091",
+      "city": "Somerville",
+      "source": "legistar",
+      "body": "Land Use Committee",
+      "title": "Land Use Committee",
+      "start": "2026-11-05T18:30",
+      "location": "Virtual",
+      "pageUrl": "https://somervillema.legistar.com/MeetingDetail.aspx?LEGID=4091&GID=910&G=2A86634D-1000-44A7-991A-A4C8C0762B41",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://somervillema.legistar1.com/somervillema/meetings/2026/11/4091_A_Land_Use_Committee_26-11-05_Regular_Meeting_Agenda.pdf"
+        }
+      ],
+      "summary": "Joint Meeting with the Planning Board\r\n\r\nhttps://us02web.zoom.us/webinar/register/WN_OZ4FTDNZSeCPriLCH12_Vw"
+    },
+    {
+      "id": "primegov:cambridgema:2842",
+      "city": "Cambridge",
+      "source": "primegov",
+      "body": "Regular City Council Meeting",
+      "title": "Regular City Council Meeting",
+      "start": "2026-11-09T17:30",
+      "location": null,
+      "pageUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=20654",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "html",
+          "url": "https://cambridgema.primegov.com/Portal/Meeting?compiledMeetingDocumentFileId=20654"
+        },
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://cambridgema.primegov.com/Public/CompiledDocument?meetingTemplateId=13893&compileOutputType=1"
+        },
+        {
+          "kind": "packet",
+          "format": "pdf",
+          "url": "https://cambridgema.primegov.com/Public/CompiledDocument?meetingTemplateId=13895&compileOutputType=1"
+        }
+      ],
+      "summary": null
+    },
+    {
+      "id": "legistar:boston:14032",
+      "city": "Boston",
+      "source": "legistar",
+      "body": "Zoning Board of Appeal",
+      "title": "Zoning Board of Appeal",
+      "start": "2026-11-10T09:30",
+      "location": "Room 801, City Hall",
+      "pageUrl": "https://boston.legistar.com/MeetingDetail.aspx?LEGID=14032&GID=847&G=AC4A50E2-9128-4EA8-8ACF-04F7A6E02E82",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://boston.legistar1.com/boston/meetings/2026/11/14032_A_Zoning_Board_of_Appeal_26-11-10_Meeting_Agenda.pdf"
+        }
+      ],
+      "summary": null
+    },
+    {
+      "id": "primegov:cambridgema:2872",
+      "city": "Cambridge",
+      "source": "primegov",
+      "body": "The Public Safety Committee",
+      "title": "The Public Safety Committee",
+      "start": "2026-11-10T12:00",
+      "location": null,
+      "pageUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=20911",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "html",
+          "url": "https://cambridgema.primegov.com/Portal/Meeting?compiledMeetingDocumentFileId=20911"
+        },
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://cambridgema.primegov.com/Public/CompiledDocument?meetingTemplateId=14070&compileOutputType=1"
+        },
+        {
+          "kind": "packet",
+          "format": "pdf",
+          "url": "https://cambridgema.primegov.com/Public/CompiledDocument?meetingTemplateId=14072&compileOutputType=1"
+        }
+      ],
+      "summary": null
+    },
+    {
+      "id": "legistar:somervillema:4099",
+      "city": "Somerville",
+      "source": "legistar",
+      "body": "Public Health and Public Safety Committee",
+      "title": "Public Health and Public Safety Committee",
+      "start": "2026-11-10T18:30",
+      "location": "Virtual",
+      "pageUrl": "https://somervillema.legistar.com/MeetingDetail.aspx?LEGID=4099&GID=910&G=2A86634D-1000-44A7-991A-A4C8C0762B41",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://somervillema.legistar1.com/somervillema/meetings/2026/11/4099_A_Public_Health_and_Public_Safety_Committee_26-11-10_Regular_Meeting_Agenda.pdf"
+        }
+      ],
+      "summary": "https://us02web.zoom.us/webinar/register/WN_clRQUjFoQ7OUIY6iAf_bgQ"
+    },
+    {
+      "id": "primegov:cambridgema:2880",
+      "city": "Cambridge",
+      "source": "primegov",
+      "body": "Planning Board Meeting",
+      "title": "Planning Board Meeting",
+      "start": "2026-11-10T18:30",
+      "location": null,
+      "pageUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=21078",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "html",
+          "url": "https://cambridgema.primegov.com/Portal/Meeting?compiledMeetingDocumentFileId=21078"
+        }
+      ],
+      "summary": null
+    },
+    {
+      "id": "legistar:boston:13936",
+      "city": "Boston",
+      "source": "legistar",
+      "body": "BPDA Board of Directors",
+      "title": "BPDA Board of Directors",
+      "start": "2026-11-12T15:30",
+      "location": "Room 900, City Hall",
+      "pageUrl": "https://boston.legistar.com/MeetingDetail.aspx?LEGID=13936&GID=847&G=AC4A50E2-9128-4EA8-8ACF-04F7A6E02E82",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://boston.legistar1.com/boston/meetings/2026/11/13936_A_BPDA_Board_of_Directors_26-11-12_Meeting_Agenda.pdf"
+        }
+      ],
+      "summary": null
+    },
+    {
+      "id": "primegov:cambridgema:2432",
+      "city": "Cambridge",
+      "source": "primegov",
+      "body": "Cambridge Commission for Persons with Disabilities Meeting",
+      "title": "Cambridge Commission for Persons with Disabilities Meeting",
+      "start": "2026-11-12T17:30",
+      "location": null,
+      "pageUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=17573",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "html",
+          "url": "https://cambridgema.primegov.com/Portal/Meeting?compiledMeetingDocumentFileId=17573"
+        }
+      ],
+      "summary": null
+    },
+    {
+      "id": "primegov:cambridgema:2844",
+      "city": "Cambridge",
+      "source": "primegov",
+      "body": "Regular City Council Meeting",
+      "title": "Regular City Council Meeting",
+      "start": "2026-11-16T17:30",
+      "location": null,
+      "pageUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=20772",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "html",
+          "url": "https://cambridgema.primegov.com/Portal/Meeting?compiledMeetingDocumentFileId=20772"
+        },
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://cambridgema.primegov.com/Public/CompiledDocument?meetingTemplateId=13909&compileOutputType=1"
+        },
+        {
+          "kind": "packet",
+          "format": "pdf",
+          "url": "https://cambridgema.primegov.com/Public/CompiledDocument?meetingTemplateId=13911&compileOutputType=1"
+        }
+      ],
+      "summary": null
+    },
+    {
+      "id": "legistar:boston:14033",
+      "city": "Boston",
+      "source": "legistar",
+      "body": "Zoning Board of Appeal",
+      "title": "Zoning Board of Appeal",
+      "start": "2026-11-17T09:30",
+      "location": "Room 801, City Hall",
+      "pageUrl": "https://boston.legistar.com/MeetingDetail.aspx?LEGID=14033&GID=847&G=AC4A50E2-9128-4EA8-8ACF-04F7A6E02E82",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://boston.legistar1.com/boston/meetings/2026/11/14033_A_Zoning_Board_of_Appeal_26-11-17_Meeting_Agenda.pdf"
+        }
+      ],
+      "summary": null
+    },
+    {
+      "id": "legistar:boston:14084",
+      "city": "Boston",
+      "source": "legistar",
+      "body": "Public Facilities",
+      "title": "Public Facilities",
+      "start": "2026-11-18T10:00",
+      "location": "Room 801, City Hall",
+      "pageUrl": "https://boston.legistar.com/MeetingDetail.aspx?LEGID=14084&GID=847&G=AC4A50E2-9128-4EA8-8ACF-04F7A6E02E82",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://boston.legistar1.com/boston/meetings/2026/11/14084_A_Public_Facilities_26-11-18_Meeting_Agenda.pdf"
+        }
+      ],
+      "summary": null
+    },
+    {
+      "id": "legistar:boston:14060",
+      "city": "Boston",
+      "source": "legistar",
+      "body": "Boston School Committee",
+      "title": "Boston School Committee",
+      "start": "2026-11-18T17:30",
+      "location": "Bolling Building",
+      "pageUrl": "https://boston.legistar.com/MeetingDetail.aspx?LEGID=14060&GID=847&G=AC4A50E2-9128-4EA8-8ACF-04F7A6E02E82",
+      "docs": [
+        {
+          "kind": "agenda",
+          "format": "pdf",
+          "url": "https://boston.legistar1.com/boston/meetings/2026/11/14060_A_Boston_School_Committee_26-11-18_Meeting_Agenda.pdf"
+        }
+      ],
+      "summary": null
+    }
+  ]
+}

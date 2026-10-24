@@ -1,0 +1,3577 @@
+{
+  "generatedAt": "2026-10-24T19:03:58.807Z",
+  "items": [
+    {
+      "title": "Public observation of early ballot processing for the November 3, 2026 State Election",
+      "summary": "Boston's Election Department will remove early voted ballots from envelopes and run them through tabulators at City Hall, Room 801, and the public may come watch. Processing runs October 26 through Election Day, November 3.",
+      "docket": "",
+      "action": "other",
+      "deadline": "2026-11-03",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Sabino Piemonte",
+          "office": "Boston Election Department",
+          "phone": "617-635-4054"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "boston-notices:16634266#0",
+      "meetingId": "boston-notices:16634266",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "Emergency Notice of Advance Processing and Removal of Early Voted Ballots for the November 3, 2026 State Election",
+      "meetingStart": "2026-10-26T08:30",
+      "location": "Boston City Hall, Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16634266"
+    },
+    {
+      "title": "Hearing on resources for the Boston Police Crime Lab",
+      "summary": "The City Council's Public Safety Committee is holding a hearing on funding and resources for the Boston Police Crime Lab. Residents can testify in person or virtually, or send written comments.",
+      "docket": "#0180",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-26",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Ron Cobb",
+          "office": "Boston City Council Committee on Public Safety and Criminal Justice"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "boston-notices:16633661#0",
+      "meetingId": "boston-notices:16633661",
+      "city": "Boston",
+      "body": "City Council",
+      "meetingTitle": "City Council Committee on Public Safety and Criminal Justice Hearing on Docket #0180",
+      "meetingStart": "2026-10-26T10:00",
+      "location": "Iannella Chamber, 5th Floor, Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16633661"
+    },
+    {
+      "title": "Hearing on in-custody deaths at Suffolk County House of Correction",
+      "summary": "City Council hearing examining deaths in custody at the Suffolk County House of Correction and the systemic factors behind them. The public can testify in person or virtually, or send written comments.",
+      "docket": "#0870",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-26",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Miniard Culpepper",
+          "office": "Boston City Council"
+        },
+        {
+          "name": "Julia Mejia",
+          "office": "Boston City Council"
+        },
+        {
+          "name": "Brian J. Worrell",
+          "office": "Boston City Council"
+        }
+      ],
+      "include": false,
+      "skip_reason": "Deaths in custody are too heavy a topic for a points-based civic app.",
+      "id": "boston-notices:16633236#0",
+      "meetingId": "boston-notices:16633236",
+      "city": "Boston",
+      "body": "City Council",
+      "meetingTitle": "City Council Committee on Public Safety and Criminal Justice Hearing on Docket #0870",
+      "meetingStart": "2026-10-26T14:00",
+      "location": "Iannella Chamber, 5th Floor, Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16633236"
+    },
+    {
+      "title": "Public comment at Boston Prep Charter School Governance Committee",
+      "summary": "Boston Preparatory Charter Public School's governance committee meets on Zoom and has a short public comment period at the start of the meeting.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-26",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [
+        {
+          "name": "Lucie Torrey",
+          "office": "Boston Preparatory Charter Public School",
+          "phone": "617-910-5644"
+        }
+      ],
+      "include": false,
+      "skip_reason": "Internal governance meeting of a single charter school with a 1-minute comment slot; too narrow.",
+      "id": "boston-notices:16634036#0",
+      "meetingId": "boston-notices:16634036",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "Boston Preparatory Charter Public School",
+      "meetingStart": "2026-10-26T15:00",
+      "location": "Virtual, Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16634036"
+    },
+    {
+      "title": "Executive session on nonunion personnel negotiations",
+      "summary": "The board will meet privately to discuss negotiations with nonunion personnel.",
+      "docket": "",
+      "action": "other",
+      "deadline": "",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Closed personnel session; not open to public input.",
+      "id": "boston-notices:16634036#1",
+      "meetingId": "boston-notices:16634036",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "Boston Preparatory Charter Public School",
+      "meetingStart": "2026-10-26T15:00",
+      "location": "Virtual, Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16634036"
+    },
+    {
+      "title": "FY28 Budget Planning Under Continued Economic Pressures",
+      "summary": "The City Council and School Committee will hear a city presentation on economic trends and FY28 budget targets, then discuss it together.",
+      "docket": "COF 2026-132",
+      "action": "budget_input",
+      "deadline": "2026-10-26",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Leo Kamilius",
+          "office": "Strategy Manager, City of Cambridge"
+        }
+      ],
+      "include": false,
+      "skip_reason": "Roundtable/working meeting with no public comment period listed; not open to public input.",
+      "id": "primegov:cambridgema:2874#0",
+      "meetingId": "primegov:cambridgema:2874",
+      "city": "Cambridge",
+      "body": "City Council Joint Roundtable/Working Meeting with the Cambridge School Committee",
+      "meetingTitle": "City Council Joint Roundtable/Working Meeting with the Cambridge School Committee",
+      "meetingStart": "2026-10-26T16:00",
+      "location": null,
+      "sourceUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=21848"
+    },
+    {
+      "title": "Joint Statement of Intent between CPA Committee and Housing Advisory Board",
+      "summary": "The subcommittee will discuss a draft joint statement on how Community Preservation Act funds and the Affordable Housing Trust work together on affordable housing. This meeting takes no public comment, but residents can email questions or comments ahead of time.",
+      "docket": "",
+      "action": "public_comment",
+      "deadline": "2026-10-26",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "office": "Community Preservation Act Committee",
+          "email": "cpa@brooklinema.gov"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "civicclerk:brooklinema:16960#0",
+      "meetingId": "civicclerk:brooklinema:16960",
+      "city": "Brookline",
+      "body": "Community Preservation Act Committee",
+      "meetingTitle": "Community Preservation Act Committee – Housing Subcommittee Meeting",
+      "meetingStart": "2026-10-26T16:00",
+      "location": "Virtual Public Meeting (Zoom)",
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16960/overview"
+    },
+    {
+      "title": "Vote on building portfolio flexibility application from Retals LLC",
+      "summary": "The BERDO Review Board will vote on letting Retals LLC treat five office and apartment buildings as one portfolio for building emissions limits. Residents can submit written comments or attend the online meeting.",
+      "docket": "",
+      "action": "public_comment",
+      "deadline": "2026-10-26",
+      "neighborhoods": [
+        "Brighton",
+        "Downtown",
+        "South Boston Waterfront",
+        "Fenway"
+      ],
+      "citywide": false,
+      "contacts": [
+        {
+          "name": "BERDO Review Board",
+          "office": "BERDO Review Board",
+          "email": "BerdoReviewBoard@boston.gov",
+          "phone": "617-635-1732"
+        }
+      ],
+      "include": false,
+      "skip_reason": "Single private applicant's compliance request; too narrow.",
+      "id": "boston-notices:16633381#0",
+      "meetingId": "boston-notices:16633381",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "BERDO Review Board Public Meeting",
+      "meetingStart": "2026-10-26T16:30",
+      "location": "ONLINE, Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16633381"
+    },
+    {
+      "title": "Update on 2026 BERDO annual building emissions reporting",
+      "summary": "The board will give an update and discuss this year's building emissions disclosure and reporting. Residents can register to attend online and send comments by 3 p.m. on October 26.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-26",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "BERDO Review Board",
+          "office": "BERDO Review Board",
+          "email": "BerdoReviewBoard@boston.gov",
+          "phone": "617-635-1732"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "boston-notices:16633381#1",
+      "meetingId": "boston-notices:16633381",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "BERDO Review Board Public Meeting",
+      "meetingStart": "2026-10-26T16:30",
+      "location": "ONLINE, Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16633381"
+    },
+    {
+      "title": "Vote on extending deadline for BERDO flexibility measure applications for 2027",
+      "summary": "The board will discuss and vote on giving building owners more time to apply for certain emissions compliance flexibility measures for reporting year 2027. Residents can submit written comments by 3 p.m. on October 26 or attend online.",
+      "docket": "",
+      "action": "public_comment",
+      "deadline": "2026-10-26",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "BERDO Review Board",
+          "office": "BERDO Review Board",
+          "email": "BerdoReviewBoard@boston.gov",
+          "phone": "617-635-1732"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "boston-notices:16633381#2",
+      "meetingId": "boston-notices:16633381",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "BERDO Review Board Public Meeting",
+      "meetingStart": "2026-10-26T16:30",
+      "location": "ONLINE, Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16633381"
+    },
+    {
+      "title": "Public hearing on proposed outdoor lighting bylaws (Warrant Articles 12 and 13)",
+      "summary": "The Conservation Commission is holding a virtual public hearing on two Town Meeting proposals that would set new rules and zoning standards for outdoor and exterior lighting in Brookline. Residents can attend on Zoom and share their views before the Commission discusses and possibly votes on the articles.",
+      "docket": "Warrant Articles 12 and 13",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-26",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Moderator's Committee for Exterior Lighting",
+          "office": "Moderator's Committee for Exterior Lighting"
+        },
+        {
+          "name": "Samuel Burrington",
+          "office": "Conservation Commission (Chair)"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "civicclerk:brooklinema:16964#0",
+      "meetingId": "civicclerk:brooklinema:16964",
+      "city": "Brookline",
+      "body": "Conservation Commission",
+      "meetingTitle": "Conservation Commission Outdoor Lighting Public Hearing",
+      "meetingStart": "2026-10-26T17:00",
+      "location": "Virtual (Zoom)",
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16964/overview"
+    },
+    {
+      "title": "Enforcement of the vacant properties ordinance",
+      "summary": "The Director of Inspectional Services will update the committee on how the city enforces its vacant properties ordinance. Residents can watch the virtual meeting.",
+      "docket": "26-0645",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-26",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Councilor McLaughlin",
+          "office": "Somerville City Council"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "legistar:somervillema:4081#0",
+      "meetingId": "legistar:somervillema:4081",
+      "city": "Somerville",
+      "body": "Sustainability and Infrastructure Committee",
+      "meetingTitle": "Sustainability and Infrastructure Committee",
+      "meetingStart": "2026-10-26T18:00",
+      "location": "Virtual",
+      "sourceUrl": "https://somervillema.legistar.com/MeetingDetail.aspx?LEGID=4081&GID=910&G=2A86634D-1000-44A7-991A-A4C8C0762B41"
+    },
+    {
+      "title": "Public comments on utility double poles",
+      "summary": "The committee will discuss a resident's written comments about utility double poles.",
+      "docket": "26-0633",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-26",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "An individual resident's communication; covered by the double poles discussion items",
+      "id": "legistar:somervillema:4081#1",
+      "meetingId": "legistar:somervillema:4081",
+      "city": "Somerville",
+      "body": "Sustainability and Infrastructure Committee",
+      "meetingTitle": "Sustainability and Infrastructure Committee",
+      "meetingStart": "2026-10-26T18:00",
+      "location": "Virtual",
+      "sourceUrl": "https://somervillema.legistar.com/MeetingDetail.aspx?LEGID=4081&GID=910&G=2A86634D-1000-44A7-991A-A4C8C0762B41"
+    },
+    {
+      "title": "City process for tracking double poles and abandoned wires",
+      "summary": "Public Works and Infrastructure staff will explain how the city tracks progress on removing double utility poles and abandoned wires, which cause hazards and damage trees.",
+      "docket": "26-0628",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-26",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Councilor Hardt",
+          "office": "Somerville City Council"
+        },
+        {
+          "name": "Councilor Scott",
+          "office": "Somerville City Council"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "legistar:somervillema:4081#2",
+      "meetingId": "legistar:somervillema:4081",
+      "city": "Somerville",
+      "body": "Sustainability and Infrastructure Committee",
+      "meetingTitle": "Sustainability and Infrastructure Committee",
+      "meetingStart": "2026-10-26T18:00",
+      "location": "Virtual",
+      "sourceUrl": "https://somervillema.legistar.com/MeetingDetail.aspx?LEGID=4081&GID=910&G=2A86634D-1000-44A7-991A-A4C8C0762B41"
+    },
+    {
+      "title": "Utility companies' plans for double poles and abandoned wires",
+      "summary": "Representatives from Eversource, National Grid, Comcast, Xfinity, Astound and Verizon are asked to present their plans for removing double poles and abandoned wires around the city.",
+      "docket": "26-0627",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-26",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Councilor Hardt",
+          "office": "Somerville City Council"
+        },
+        {
+          "name": "Councilor Scott",
+          "office": "Somerville City Council"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "legistar:somervillema:4081#3",
+      "meetingId": "legistar:somervillema:4081",
+      "city": "Somerville",
+      "body": "Sustainability and Infrastructure Committee",
+      "meetingTitle": "Sustainability and Infrastructure Committee",
+      "meetingStart": "2026-10-26T18:00",
+      "location": "Virtual",
+      "sourceUrl": "https://somervillema.legistar.com/MeetingDetail.aspx?LEGID=4081&GID=910&G=2A86634D-1000-44A7-991A-A4C8C0762B41"
+    },
+    {
+      "title": "Public comment at Police Commissioners Advisory Committee",
+      "summary": "Residents can speak for up to 3 minutes at the hybrid PCAC meeting on police matters, including BRIC membership, ICE in Brookline, traffic enforcement and police work-hour caps. Email ahead of the meeting to sign up.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-26",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "office": "Office of Diversity, Equity, Inclusion and Community Relations",
+          "email": "odeicr@brooklinema.gov"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "civicclerk:brooklinema:16978#0",
+      "meetingId": "civicclerk:brooklinema:16978",
+      "city": "Brookline",
+      "body": "General",
+      "meetingTitle": "Police Commissioners Advisory Committee",
+      "meetingStart": "2026-10-26T19:00",
+      "location": null,
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16978/overview"
+    },
+    {
+      "title": "Review of Brookline's membership in the Boston Regional Intelligence Center",
+      "summary": "Subcommittees report on their investigation, ordered by Town Meeting, into whether Brookline should stay in the Boston Regional Intelligence Center (BRIC). Residents can weigh in during public comment.",
+      "docket": "Article 25",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-26",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "office": "Police Commissioners Advisory Committee",
+          "email": "odeicr@brooklinema.gov"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "civicclerk:brooklinema:16978#1",
+      "meetingId": "civicclerk:brooklinema:16978",
+      "city": "Brookline",
+      "body": "General",
+      "meetingTitle": "Police Commissioners Advisory Committee",
+      "meetingStart": "2026-10-26T19:00",
+      "location": null,
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16978/overview"
+    },
+    {
+      "title": "Warrant Article 20: resolution on increased traffic enforcement",
+      "summary": "The committee discusses a Town Meeting resolution calling for more traffic enforcement. Residents can share views during public comment.",
+      "docket": "Warrant Article 20",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-26",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Scott Ananian",
+          "office": "Police Commissioners Advisory Committee"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "civicclerk:brooklinema:16978#2",
+      "meetingId": "civicclerk:brooklinema:16978",
+      "city": "Brookline",
+      "body": "General",
+      "meetingTitle": "Police Commissioners Advisory Committee",
+      "meetingStart": "2026-10-26T19:00",
+      "location": null,
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16978/overview"
+    },
+    {
+      "title": "ICE in Brookline update",
+      "summary": "The committee gets an update on immigration enforcement activity in Brookline.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-26",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": true,
+      "skip_reason": "",
+      "id": "civicclerk:brooklinema:16978#3",
+      "meetingId": "civicclerk:brooklinema:16978",
+      "city": "Brookline",
+      "body": "General",
+      "meetingTitle": "Police Commissioners Advisory Committee",
+      "meetingStart": "2026-10-26T19:00",
+      "location": null,
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16978/overview"
+    },
+    {
+      "title": "18-hour daily work cap for police officers",
+      "summary": "The committee discusses limiting police officers to 18 hours of work per day.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-26",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": true,
+      "skip_reason": "",
+      "id": "civicclerk:brooklinema:16978#4",
+      "meetingId": "civicclerk:brooklinema:16978",
+      "city": "Brookline",
+      "body": "General",
+      "meetingTitle": "Police Commissioners Advisory Committee",
+      "meetingStart": "2026-10-26T19:00",
+      "location": null,
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16978/overview"
+    },
+    {
+      "title": "Civilian complaint reports",
+      "summary": "The committee reviews reports on civilian complaints about police.",
+      "docket": "",
+      "action": "other",
+      "deadline": "",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Report on individual complaints; not open to public input",
+      "id": "civicclerk:brooklinema:16978#5",
+      "meetingId": "civicclerk:brooklinema:16978",
+      "city": "Brookline",
+      "body": "General",
+      "meetingTitle": "Police Commissioners Advisory Committee",
+      "meetingStart": "2026-10-26T19:00",
+      "location": null,
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16978/overview"
+    },
+    {
+      "title": "PCAC website changes update",
+      "summary": "Update on proposed changes to the committee's website.",
+      "docket": "",
+      "action": "other",
+      "deadline": "",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Internal administrative update",
+      "id": "civicclerk:brooklinema:16978#6",
+      "meetingId": "civicclerk:brooklinema:16978",
+      "city": "Brookline",
+      "body": "General",
+      "meetingTitle": "Police Commissioners Advisory Committee",
+      "meetingStart": "2026-10-26T19:00",
+      "location": null,
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16978/overview"
+    },
+    {
+      "title": "Public observation of early voted ballot processing for the November 3, 2026 State Election",
+      "summary": "Boston's Election Department is opening and tabulating early voted ballots at City Hall, Room 801, and the public may come watch the process. Processing runs on scheduled days from October 26 through Election Day, November 3.",
+      "docket": "",
+      "action": "other",
+      "deadline": "2026-11-03",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Sabino Piemonte",
+          "office": "Boston Election Department",
+          "phone": "617-635-4054"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "boston-notices:16634271#0",
+      "meetingId": "boston-notices:16634271",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "Notice of Advance Processing and Removal of Early Voted Ballots for the November 3, 2026 State Election",
+      "meetingStart": "2026-10-27T08:30",
+      "location": "Boston City Hall, Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16634271"
+    },
+    {
+      "title": "Discuss top outreach ideas for public planting",
+      "summary": "The Public Planting Committee's outreach subcommittee will discuss its top 2-3 community outreach ideas and plan proposals for the full committee. The agenda does not provide for public comment.",
+      "docket": "",
+      "action": "other",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Internal subcommittee planning; no public input opportunity listed",
+      "id": "primegov:cambridgema:2943#0",
+      "meetingId": "primegov:cambridgema:2943",
+      "city": "Cambridge",
+      "body": "Committee on Public Planting - Community Outreach and Engagement Subcommittee Meeting ",
+      "meetingTitle": "Committee on Public Planting - Community Outreach and Engagement Subcommittee Meeting",
+      "meetingStart": "2026-10-27T08:30",
+      "location": null,
+      "sourceUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=22044"
+    },
+    {
+      "title": "Jack Kirrane Ice Skating Rink site tour",
+      "summary": "The design review committee will walk through the Jack Kirrane Ice Skating Rink at Larz Anderson Park to look at and discuss its historical, accessibility, and recreational features. It is for discussion and information only; no votes will be taken.",
+      "docket": "",
+      "action": "design_input",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": true,
+      "skip_reason": "",
+      "id": "civicclerk:brooklinema:16948#0",
+      "meetingId": "civicclerk:brooklinema:16948",
+      "city": "Brookline",
+      "body": "Jack Kirrane Ice Skating Rink Design Review Committee",
+      "meetingTitle": "Jack Kirrane Ice Skating Rink DRC: Rink Tour",
+      "meetingStart": "2026-10-27T08:30",
+      "location": "23 Newton Street, Brookline",
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16948/overview"
+    },
+    {
+      "title": "Review trustee selection process",
+      "summary": "The Library Trustees Executive Committee will review how library trustees are selected.",
+      "docket": "",
+      "action": "other",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Library Administration",
+          "office": "Public Library of Brookline",
+          "email": "brkadmin@minlib.net",
+          "phone": "617-730-2360"
+        }
+      ],
+      "include": false,
+      "skip_reason": "Internal committee discussion; no public comment period listed.",
+      "id": "civicclerk:brooklinema:16965#0",
+      "meetingId": "civicclerk:brooklinema:16965",
+      "city": "Brookline",
+      "body": "Library Trustees",
+      "meetingTitle": "Library Trustees - Executive Committee",
+      "meetingStart": "2026-10-27T09:00",
+      "location": "Public Library of Brookline, 361 Washington Street, Brookline",
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16965/overview"
+    },
+    {
+      "title": "Discuss BOLT meeting agenda for Nov. 10",
+      "summary": "The committee will plan the agenda for the November 10 Board of Library Trustees meeting.",
+      "docket": "",
+      "action": "other",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Procedural agenda planning; not open to public input.",
+      "id": "civicclerk:brooklinema:16965#1",
+      "meetingId": "civicclerk:brooklinema:16965",
+      "city": "Brookline",
+      "body": "Library Trustees",
+      "meetingTitle": "Library Trustees - Executive Committee",
+      "meetingStart": "2026-10-27T09:00",
+      "location": "Public Library of Brookline, 361 Washington Street, Brookline",
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16965/overview"
+    },
+    {
+      "title": "Violation hearing: Estella, 49 Temple Pl",
+      "summary": "Licensing Board hearing on an alleged assault and battery at Estella restaurant.",
+      "docket": "LB-99190 / Violation 054979",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [
+        "Downtown"
+      ],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Individual license violation hearing involving a criminal incident.",
+      "id": "boston-notices:16629891#0",
+      "meetingId": "boston-notices:16629891",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "VIRTUAL Licensed Premise VIolation Hearings",
+      "meetingStart": "2026-10-27T10:00",
+      "location": "1 City Hall Sq, Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16629891"
+    },
+    {
+      "title": "Violation hearings: McDonald's, 1316-1342 Hyde Park Ave",
+      "summary": "Licensing Board hearings on alleged armed robbery, assault, and supervision failures at a Hyde Park McDonald's.",
+      "docket": "LB-100082 / Violations 055202, 055203, 071265",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [
+        "Hyde Park"
+      ],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Individual license violation hearing involving criminal incidents.",
+      "id": "boston-notices:16629891#1",
+      "meetingId": "boston-notices:16629891",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "VIRTUAL Licensed Premise VIolation Hearings",
+      "meetingStart": "2026-10-27T10:00",
+      "location": "1 City Hall Sq, Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16629891"
+    },
+    {
+      "title": "Violation hearing: Diamond at Fenway, 72 Brookline Ave",
+      "summary": "Licensing Board hearing on an alleged violation at Diamond at Fenway; details are cut off in the notice.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [
+        "Fenway"
+      ],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Individual license violation hearing.",
+      "id": "boston-notices:16629891#2",
+      "meetingId": "boston-notices:16629891",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "VIRTUAL Licensed Premise VIolation Hearings",
+      "meetingStart": "2026-10-27T10:00",
+      "location": "1 City Hall Sq, Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16629891"
+    },
+    {
+      "title": "Fair Housing Commission hearings and hearing order votes",
+      "summary": "The Commission will discuss upcoming hearings and vote on hearing orders in individual fair housing cases.",
+      "docket": "",
+      "action": "other",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Dwayne S. Watts",
+          "office": "Boston Fair Housing Commission, Clerk of the Commission",
+          "phone": "617-635-3554"
+        }
+      ],
+      "include": false,
+      "skip_reason": "Individual case hearings and decisions; not open to public input.",
+      "id": "boston-notices:16634351#0",
+      "meetingId": "boston-notices:16634351",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "Boston Fair Housing Commissioners Meeting",
+      "meetingStart": "2026-10-27T10:30",
+      "location": "Virtual, Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16634351"
+    },
+    {
+      "title": "Fair Housing Commission executive report",
+      "summary": "Staff will give operational and investigations updates on fair housing work in Boston.",
+      "docket": "",
+      "action": "other",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Dwayne S. Watts",
+          "office": "Boston Fair Housing Commission, Clerk of the Commission",
+          "phone": "617-635-3554"
+        }
+      ],
+      "include": false,
+      "skip_reason": "Informational staff report with no public comment opportunity listed.",
+      "id": "boston-notices:16634351#1",
+      "meetingId": "boston-notices:16634351",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "Boston Fair Housing Commissioners Meeting",
+      "meetingStart": "2026-10-27T10:30",
+      "location": "Virtual, Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16634351"
+    },
+    {
+      "title": "Public comment at Library Trustee Development Committee",
+      "summary": "Residents can speak for up to 3 minutes at this hybrid meeting of the Library Trustees' development committee, which will discuss a November board presentation on intellectual freedom and new trustee onboarding.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Library Administration",
+          "office": "Public Library of Brookline",
+          "email": "brkadmin@minlib.net",
+          "phone": "617-730-2360"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "civicclerk:brooklinema:16977#0",
+      "meetingId": "civicclerk:brooklinema:16977",
+      "city": "Brookline",
+      "body": "Library Trustees",
+      "meetingTitle": "Library Trustees - Trustee Development Committee",
+      "meetingStart": "2026-10-27T11:00",
+      "location": "Public Library of Brookline, 361 Washington Street, Brookline",
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16977/overview"
+    },
+    {
+      "title": "New Trustee onboarding",
+      "summary": "Committee discussion of how new library trustees are onboarded.",
+      "docket": "",
+      "action": "other",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Internal board administration, not open to public input.",
+      "id": "civicclerk:brooklinema:16977#1",
+      "meetingId": "civicclerk:brooklinema:16977",
+      "city": "Brookline",
+      "body": "Library Trustees",
+      "meetingTitle": "Library Trustees - Trustee Development Committee",
+      "meetingStart": "2026-10-27T11:00",
+      "location": "Public Library of Brookline, 361 Washington Street, Brookline",
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16977/overview"
+    },
+    {
+      "title": "Paid Parental Leave for City of Boston Employees (Docket #1599) - hearing canceled",
+      "summary": "The Government Operations hearing on an ordinance changing paid parental leave for City of Boston employees has been canceled. Written comments can still be emailed to the committee and will be part of the record.",
+      "docket": "#1599",
+      "action": "public_comment",
+      "deadline": "",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Meghan Kavanagh",
+          "office": "City Council Committee on Government Operations",
+          "email": "meghan.kavanagh@boston.gov",
+          "phone": "617-635-3040"
+        },
+        {
+          "office": "City Council Committee on Government Operations",
+          "email": "ccc.go@boston.gov"
+        },
+        {
+          "name": "Gabriela Coletta Zapata",
+          "office": "Boston City Council (sponsor)"
+        }
+      ],
+      "include": false,
+      "skip_reason": "Hearing canceled; also concerns a city employee personnel benefit rather than broad resident input.",
+      "id": "boston-notices:16629286#0",
+      "meetingId": "boston-notices:16629286",
+      "city": "Boston",
+      "body": "City Council",
+      "meetingTitle": "City Council Committee on Government Operations Hearing on Docket #1599",
+      "meetingStart": "2026-10-27T14:00",
+      "location": "Iannella Chamber, 5th Floor, Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16629286"
+    },
+    {
+      "title": "Dunkin Donuts signage at 1962 Beacon Street",
+      "summary": "Design review of new store signage for a Dunkin Donuts at 1962 Beacon Street in Brighton.",
+      "docket": "APP # 27.0109",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [
+        "Brighton"
+      ],
+      "citywide": false,
+      "contacts": [
+        {
+          "office": "Boston Landmarks Commission",
+          "email": "blc@boston.gov"
+        }
+      ],
+      "include": false,
+      "skip_reason": "Too narrow: single-address signage review.",
+      "id": "boston-notices:16633346#0",
+      "meetingId": "boston-notices:16633346",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "Boston Landmarks Commission",
+      "meetingStart": "2026-10-27T16:00",
+      "location": "VIRTUAL, Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16633346"
+    },
+    {
+      "title": "Loring-Greenough House garden and path renovation",
+      "summary": "The Landmarks Commission will review plans to replant the perennial borders and replace the lawn path with bluestone pavers at the historic Loring-Greenough House in Jamaica Plain. You can testify at the virtual hearing or email written comments.",
+      "docket": "APP # 27.0189",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [
+        "Jamaica Plain"
+      ],
+      "citywide": false,
+      "contacts": [
+        {
+          "office": "Boston Landmarks Commission",
+          "email": "blc@boston.gov",
+          "phone": "1-646-828-7666"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "boston-notices:16633346#1",
+      "meetingId": "boston-notices:16633346",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "Boston Landmarks Commission",
+      "meetingStart": "2026-10-27T16:00",
+      "location": "VIRTUAL, Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16633346"
+    },
+    {
+      "title": "Blue Cross Blue Shield Building residential conversion",
+      "summary": "The Landmarks Commission will review plans to rehabilitate the Brutalist Blue Cross Blue Shield Building at 133 Federal Street, with housing on the upper floors and retail on the ground floor. You can testify at the virtual hearing or email written comments.",
+      "docket": "APP # 27.0301",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [
+        "Downtown"
+      ],
+      "citywide": false,
+      "contacts": [
+        {
+          "office": "Boston Landmarks Commission",
+          "email": "blc@boston.gov",
+          "phone": "1-646-828-7666"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "boston-notices:16633346#2",
+      "meetingId": "boston-notices:16633346",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "Boston Landmarks Commission",
+      "meetingStart": "2026-10-27T16:00",
+      "location": "VIRTUAL, Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16633346"
+    },
+    {
+      "title": "Executive session on collective bargaining with Brookline Educators Union",
+      "summary": "The subcommittee plans to go into closed executive session to discuss bargaining strategy and hold a bargaining session with the teachers' and paraprofessionals' unions.",
+      "docket": "",
+      "action": "other",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Closed executive session; not open to public input.",
+      "id": "civicclerk:brooklinema:16775#0",
+      "meetingId": "civicclerk:brooklinema:16775",
+      "city": "Brookline",
+      "body": "School Committee",
+      "meetingTitle": "School Negotiations Subcommittee Meeting",
+      "meetingStart": "2026-10-27T16:00",
+      "location": "Brookline Town Hall, ",
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16775/overview"
+    },
+    {
+      "title": "General public comment at Select Board",
+      "summary": "Residents can speak to the Select Board about any Town issue. Sign up in advance starting the Friday before, or in person at the meeting.",
+      "docket": "2",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "office": "Select Board's Office",
+          "email": "kmacgillivray@brooklinema.gov",
+          "phone": "617-730-2202"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "civicclerk:brooklinema:16256#0",
+      "meetingId": "civicclerk:brooklinema:16256",
+      "city": "Brookline",
+      "body": "Select Board",
+      "meetingTitle": "Select Board Regular Meeting",
+      "meetingStart": "2026-10-27T17:15",
+      "location": "Select Board Hearing Room 6th Floor",
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16256/overview"
+    },
+    {
+      "title": "Public hearing: 26 Pleasant Street Zoning (Article 15)",
+      "summary": "Continued hearing on a Special Town Meeting warrant article to change zoning for 26 Pleasant Street. Each speaker gets three minutes.",
+      "docket": "Article 15",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Single-address zoning item",
+      "id": "civicclerk:brooklinema:16256#1",
+      "meetingId": "civicclerk:brooklinema:16256",
+      "city": "Brookline",
+      "body": "Select Board",
+      "meetingTitle": "Select Board Regular Meeting",
+      "meetingStart": "2026-10-27T17:15",
+      "location": "Select Board Hearing Room 6th Floor",
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16256/overview"
+    },
+    {
+      "title": "Public hearing: Legal Fees Budget Amendment (Article 4)",
+      "summary": "Hearing on a warrant article to amend the legal fees budget; petitioners say they won't move it at Town Meeting.",
+      "docket": "Article 4",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Petitioners do not intend to move the article",
+      "id": "civicclerk:brooklinema:16256#2",
+      "meetingId": "civicclerk:brooklinema:16256",
+      "city": "Brookline",
+      "body": "Select Board",
+      "meetingTitle": "Select Board Regular Meeting",
+      "meetingStart": "2026-10-27T17:15",
+      "location": "Select Board Hearing Room 6th Floor",
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16256/overview"
+    },
+    {
+      "title": "Public hearing: Resolution to Settle Claim (Article 5)",
+      "summary": "Hearing on a warrant article resolution about settling a claim.",
+      "docket": "Article 5",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Legal claim matter, too narrow",
+      "id": "civicclerk:brooklinema:16256#3",
+      "meetingId": "civicclerk:brooklinema:16256",
+      "city": "Brookline",
+      "body": "Select Board",
+      "meetingTitle": "Select Board Regular Meeting",
+      "meetingStart": "2026-10-27T17:15",
+      "location": "Select Board Hearing Room 6th Floor",
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16256/overview"
+    },
+    {
+      "title": "Public hearing: Residential Parking Minimums (Article 10)",
+      "summary": "Hearing on a warrant article about parking minimums for housing; petitioners say they won't move it at Town Meeting.",
+      "docket": "Article 10",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Petitioners do not intend to move the article",
+      "id": "civicclerk:brooklinema:16256#4",
+      "meetingId": "civicclerk:brooklinema:16256",
+      "city": "Brookline",
+      "body": "Select Board",
+      "meetingTitle": "Select Board Regular Meeting",
+      "meetingStart": "2026-10-27T17:15",
+      "location": "Select Board Hearing Room 6th Floor",
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16256/overview"
+    },
+    {
+      "title": "Public hearing: Inclusionary Zoning (Article 14)",
+      "summary": "Speak at the Select Board hearing on a November Special Town Meeting article about inclusionary zoning, which requires affordable units in new housing. Each speaker gets three minutes.",
+      "docket": "Article 14",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": true,
+      "skip_reason": "",
+      "id": "civicclerk:brooklinema:16256#5",
+      "meetingId": "civicclerk:brooklinema:16256",
+      "city": "Brookline",
+      "body": "Select Board",
+      "meetingTitle": "Select Board Regular Meeting",
+      "meetingStart": "2026-10-27T17:15",
+      "location": "Select Board Hearing Room 6th Floor",
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16256/overview"
+    },
+    {
+      "title": "Appeal of Chestnut Hill Avenue Transportation Board decision",
+      "summary": "Public hearing on an appeal of the Transportation Board's decision about rehabilitating and changing uses on Chestnut Hill Avenue. Residents can comment for three minutes after the appeal is presented.",
+      "docket": "9a",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": true,
+      "skip_reason": "",
+      "id": "civicclerk:brooklinema:16256#6",
+      "meetingId": "civicclerk:brooklinema:16256",
+      "city": "Brookline",
+      "body": "Select Board",
+      "meetingTitle": "Select Board Regular Meeting",
+      "meetingStart": "2026-10-27T17:15",
+      "location": "Select Board Hearing Room 6th Floor",
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16256/overview"
+    },
+    {
+      "title": "Liquor, entertainment and food licenses",
+      "summary": "Individual business license approvals and transfers.",
+      "docket": "3g-3n",
+      "action": "other",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Individual licenses",
+      "id": "civicclerk:brooklinema:16256#7",
+      "meetingId": "civicclerk:brooklinema:16256",
+      "city": "Brookline",
+      "body": "Select Board",
+      "meetingTitle": "Select Board Regular Meeting",
+      "meetingStart": "2026-10-27T17:15",
+      "location": "Select Board Hearing Room 6th Floor",
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16256/overview"
+    },
+    {
+      "title": "Eversource conduit petitions on Stearns Road and Kent Street",
+      "summary": "Approval of underground conduit locations to individual properties.",
+      "docket": "3e-3f",
+      "action": "other",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Single-address utility items",
+      "id": "civicclerk:brooklinema:16256#8",
+      "meetingId": "civicclerk:brooklinema:16256",
+      "city": "Brookline",
+      "body": "Select Board",
+      "meetingTitle": "Select Board Regular Meeting",
+      "meetingStart": "2026-10-27T17:15",
+      "location": "Select Board Hearing Room 6th Floor",
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16256/overview"
+    },
+    {
+      "title": "Article 9: Transportation Board changes and higher parking fines",
+      "summary": "The committee will discuss and may vote on a Select Board petition to change how the Transportation Board operates and let the Town raise parking fines above $50. Residents can join the Zoom meeting to listen and weigh in.",
+      "docket": "Article 9",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "office": "Select Board"
+        },
+        {
+          "name": "Jean Berg",
+          "office": "Committee on Town Organization & Structure (Chair)"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "civicclerk:brooklinema:16975#0",
+      "meetingId": "civicclerk:brooklinema:16975",
+      "city": "Brookline",
+      "body": "Committee on Town Organization & Structure",
+      "meetingTitle": "Committee on Town Organization and Structure",
+      "meetingStart": "2026-10-27T17:30",
+      "location": "Remote meeting",
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16975/overview"
+    },
+    {
+      "title": "Amendment to Chapter 2, Article VIII, Division 1 of the Code of Ordinances",
+      "summary": "Councilors propose amending a section of the city's administrative ordinances; the committee will discuss and make a recommendation. Details are in the ordinance text.",
+      "docket": "26-1023",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Councilor Ewen-Campen",
+          "office": "Somerville City Council"
+        },
+        {
+          "name": "Councilor Wheeler",
+          "office": "Somerville City Council"
+        },
+        {
+          "name": "Councilor Mbah",
+          "office": "Somerville City Council"
+        },
+        {
+          "name": "Councilor Link",
+          "office": "Somerville City Council"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "legistar:somervillema:4089#0",
+      "meetingId": "legistar:somervillema:4089",
+      "city": "Somerville",
+      "body": "Legislative Matters Committee",
+      "meetingTitle": "Legislative Matters Committee",
+      "meetingStart": "2026-10-27T18:00",
+      "location": "Virtual",
+      "sourceUrl": "https://somervillema.legistar.com/MeetingDetail.aspx?LEGID=4089&GID=910&G=2A86634D-1000-44A7-991A-A4C8C0762B41"
+    },
+    {
+      "title": "Mayor's proposed amendment to Chapter 15, Article III of the Code of Ordinances",
+      "summary": "The Mayor is asking the Council to adopt a change to Chapter 15, Article III of the city ordinances; the committee will review it and make a recommendation.",
+      "docket": "26-1408",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "office": "Mayor's Office"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "legistar:somervillema:4089#1",
+      "meetingId": "legistar:somervillema:4089",
+      "city": "Somerville",
+      "body": "Legislative Matters Committee",
+      "meetingTitle": "Legislative Matters Committee",
+      "meetingStart": "2026-10-27T18:00",
+      "location": "Virtual",
+      "sourceUrl": "https://somervillema.legistar.com/MeetingDetail.aspx?LEGID=4089&GID=910&G=2A86634D-1000-44A7-991A-A4C8C0762B41"
+    },
+    {
+      "title": "Protecting private significant trees during construction",
+      "summary": "A proposed ordinance change would add protections for significant trees on private property during construction. The committee will review it and make a recommendation.",
+      "docket": "26-1476",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Councilor Sait",
+          "office": "Somerville City Council"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "legistar:somervillema:4089#2",
+      "meetingId": "legistar:somervillema:4089",
+      "city": "Somerville",
+      "body": "Legislative Matters Committee",
+      "meetingTitle": "Legislative Matters Committee",
+      "meetingStart": "2026-10-27T18:00",
+      "location": "Virtual",
+      "sourceUrl": "https://somervillema.legistar.com/MeetingDetail.aspx?LEGID=4089&GID=910&G=2A86634D-1000-44A7-991A-A4C8C0762B41"
+    },
+    {
+      "title": "Short-Term Rental Ordinance amendments",
+      "summary": "Councilors propose changes to Somerville's rules for short-term rentals like Airbnb. The committee will discuss and make a recommendation.",
+      "docket": "26-1501",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Councilor Link",
+          "office": "Somerville City Council"
+        },
+        {
+          "name": "Councilor Hardt",
+          "office": "Somerville City Council"
+        },
+        {
+          "name": "Councilor Ewen-Campen",
+          "office": "Somerville City Council"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "legistar:somervillema:4089#3",
+      "meetingId": "legistar:somervillema:4089",
+      "city": "Somerville",
+      "body": "Legislative Matters Committee",
+      "meetingTitle": "Legislative Matters Committee",
+      "meetingStart": "2026-10-27T18:00",
+      "location": "Virtual",
+      "sourceUrl": "https://somervillema.legistar.com/MeetingDetail.aspx?LEGID=4089&GID=910&G=2A86634D-1000-44A7-991A-A4C8C0762B41"
+    },
+    {
+      "title": "Condominium conversion ordinance amendment",
+      "summary": "A proposed change to Section 7.64 of the city ordinances, which governs converting rental units into condominiums. The committee will take it up at this meeting.",
+      "docket": "26-1551",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Councilor McLaughlin",
+          "office": "Somerville City Council"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "legistar:somervillema:4089#4",
+      "meetingId": "legistar:somervillema:4089",
+      "city": "Somerville",
+      "body": "Legislative Matters Committee",
+      "meetingTitle": "Legislative Matters Committee",
+      "meetingStart": "2026-10-27T18:00",
+      "location": "Virtual",
+      "sourceUrl": "https://somervillema.legistar.com/MeetingDetail.aspx?LEGID=4089&GID=910&G=2A86634D-1000-44A7-991A-A4C8C0762B41"
+    },
+    {
+      "title": "Proposed Artificial Intelligence Ordinance",
+      "summary": "Councilors propose that Somerville adopt a new ordinance on artificial intelligence. The committee will take it up at this virtual meeting.",
+      "docket": "26-1557",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Councilor Link",
+          "office": "Somerville City Council"
+        },
+        {
+          "name": "Councilor Mbah",
+          "office": "Somerville City Council"
+        },
+        {
+          "name": "Councilor Wheeler",
+          "office": "Somerville City Council"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "legistar:somervillema:4089#5",
+      "meetingId": "legistar:somervillema:4089",
+      "city": "Somerville",
+      "body": "Legislative Matters Committee",
+      "meetingTitle": "Legislative Matters Committee",
+      "meetingStart": "2026-10-27T18:00",
+      "location": "Virtual",
+      "sourceUrl": "https://somervillema.legistar.com/MeetingDetail.aspx?LEGID=4089&GID=910&G=2A86634D-1000-44A7-991A-A4C8C0762B41"
+    },
+    {
+      "title": "Appeal of Mid Cambridge NCD Decision for 106 Ellery St.",
+      "summary": "The Historical Commission will hear an appeal by registered voters of the Mid Cambridge Neighborhood Conservation District Commission's decision on 106 Ellery St. (Case MC-7613).",
+      "docket": "MC-7613",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [
+        {
+          "office": "Cambridge Historical Commission"
+        }
+      ],
+      "include": false,
+      "skip_reason": "Too narrow: appeal concerning a single address.",
+      "id": "primegov:cambridgema:2941#0",
+      "meetingId": "primegov:cambridgema:2941",
+      "city": "Cambridge",
+      "body": "Meeting of the Cambridge Historical Commission",
+      "meetingTitle": "Meeting of the Cambridge Historical Commission",
+      "meetingStart": "2026-10-27T18:00",
+      "location": null,
+      "sourceUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=22011"
+    },
+    {
+      "title": "Public comment at Commission on Immigrant Rights and Citizenship meeting",
+      "summary": "Residents can speak for up to three minutes during public comment at the hybrid meeting, in person or by raising a hand on Zoom after registering. Topics include ShotSpotter, family preparedness, FY27 planning, and SNAP and MassHealth support.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "office": "Commission on Immigrant Rights and Citizenship"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "primegov:cambridgema:2945#0",
+      "meetingId": "primegov:cambridgema:2945",
+      "city": "Cambridge",
+      "body": "Commission on Immigrant Rights and Citizenship Monthly Meeting",
+      "meetingTitle": "Commission on Immigrant Rights and Citizenship Monthly Meeting",
+      "meetingStart": "2026-10-27T18:00",
+      "location": null,
+      "sourceUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=22053"
+    },
+    {
+      "title": "Family Preparedness event",
+      "summary": "The Commission is tentatively planning a family preparedness event for immigrant families on November 12 from 5:30 to 7:30 p.m. at Cambridge Street Upper School.",
+      "docket": "",
+      "action": "other",
+      "deadline": "2026-11-12",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "office": "Commission on Immigrant Rights and Citizenship"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "primegov:cambridgema:2945#1",
+      "meetingId": "primegov:cambridgema:2945",
+      "city": "Cambridge",
+      "body": "Commission on Immigrant Rights and Citizenship Monthly Meeting",
+      "meetingTitle": "Commission on Immigrant Rights and Citizenship Monthly Meeting",
+      "meetingStart": "2026-10-27T18:00",
+      "location": null,
+      "sourceUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=22053"
+    },
+    {
+      "title": "FY27 Commission planning",
+      "summary": "The Commission will discuss what it wants to accomplish in fiscal year 2027, and residents can share priorities during public comment.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "office": "Commission on Immigrant Rights and Citizenship"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "primegov:cambridgema:2945#2",
+      "meetingId": "primegov:cambridgema:2945",
+      "city": "Cambridge",
+      "body": "Commission on Immigrant Rights and Citizenship Monthly Meeting",
+      "meetingTitle": "Commission on Immigrant Rights and Citizenship Monthly Meeting",
+      "meetingStart": "2026-10-27T18:00",
+      "location": null,
+      "sourceUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=22053"
+    },
+    {
+      "title": "Welcome new commissioner and farewell",
+      "summary": "Welcome for new commissioner Seth Minkoff and send-off for Karin Lin.",
+      "docket": "",
+      "action": "other",
+      "deadline": "",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Personnel matter",
+      "id": "primegov:cambridgema:2945#3",
+      "meetingId": "primegov:cambridgema:2945",
+      "city": "Cambridge",
+      "body": "Commission on Immigrant Rights and Citizenship Monthly Meeting",
+      "meetingTitle": "Commission on Immigrant Rights and Citizenship Monthly Meeting",
+      "meetingStart": "2026-10-27T18:00",
+      "location": null,
+      "sourceUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=22053"
+    },
+    {
+      "title": "Rescheduled meeting dates",
+      "summary": "Upcoming meetings moved to November 17 and December 15.",
+      "docket": "",
+      "action": "other",
+      "deadline": "",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Procedural scheduling item",
+      "id": "primegov:cambridgema:2945#4",
+      "meetingId": "primegov:cambridgema:2945",
+      "city": "Cambridge",
+      "body": "Commission on Immigrant Rights and Citizenship Monthly Meeting",
+      "meetingTitle": "Commission on Immigrant Rights and Citizenship Monthly Meeting",
+      "meetingStart": "2026-10-27T18:00",
+      "location": null,
+      "sourceUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=22053"
+    },
+    {
+      "title": "Public comment on park and recreation topics not on the agenda",
+      "summary": "Residents can speak for up to two minutes on any park or recreation topic not on the agenda, or email comments to the Commission.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "office": "Park and Recreation Commission",
+          "email": "parkandreccommission@brooklinema.gov"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "civicclerk:brooklinema:16832#0",
+      "meetingId": "civicclerk:brooklinema:16832",
+      "city": "Brookline",
+      "body": "Park & Recreation Commission",
+      "meetingTitle": "Park and Recreation Commission Meeting",
+      "meetingStart": "2026-10-27T18:00",
+      "location": "Virtual Zoom Meeting",
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16832/overview"
+    },
+    {
+      "title": "Outdoor pickleball court usage complaints",
+      "summary": "The Commission will discuss complaints about outdoor pickleball court use, with public comment.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "office": "Park and Recreation Commission",
+          "email": "parkandreccommission@brooklinema.gov"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "civicclerk:brooklinema:16832#1",
+      "meetingId": "civicclerk:brooklinema:16832",
+      "city": "Brookline",
+      "body": "Park & Recreation Commission",
+      "meetingTitle": "Park and Recreation Commission Meeting",
+      "meetingStart": "2026-10-27T18:00",
+      "location": "Virtual Zoom Meeting",
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16832/overview"
+    },
+    {
+      "title": "Evelyn Kirrane Aquatics Center private rental rates",
+      "summary": "Presentation and discussion of proposed private rental fees for the town pool, including public comment.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "office": "Park and Recreation Commission",
+          "email": "parkandreccommission@brooklinema.gov"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "civicclerk:brooklinema:16832#2",
+      "meetingId": "civicclerk:brooklinema:16832",
+      "city": "Brookline",
+      "body": "Park & Recreation Commission",
+      "meetingTitle": "Park and Recreation Commission Meeting",
+      "meetingStart": "2026-10-27T18:00",
+      "location": "Virtual Zoom Meeting",
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16832/overview"
+    },
+    {
+      "title": "Public hearing on proposed outdoor lighting bylaw (Article 12)",
+      "summary": "A public hearing on the proposed outdoor lighting bylaw heading to Town Meeting; the Commission will vote on a letter to Town Meeting.",
+      "docket": "Article 12",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "office": "Park and Recreation Commission",
+          "email": "parkandreccommission@brooklinema.gov"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "civicclerk:brooklinema:16832#3",
+      "meetingId": "civicclerk:brooklinema:16832",
+      "city": "Brookline",
+      "body": "Park & Recreation Commission",
+      "meetingTitle": "Park and Recreation Commission Meeting",
+      "meetingStart": "2026-10-27T18:00",
+      "location": "Virtual Zoom Meeting",
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16832/overview"
+    },
+    {
+      "title": "Beaver Country Day School argument",
+      "summary": "Commission review and vote to support a position related to Beaver Country Day School.",
+      "docket": "",
+      "action": "other",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Single-site matter with no public comment listed.",
+      "id": "civicclerk:brooklinema:16832#4",
+      "meetingId": "civicclerk:brooklinema:16832",
+      "city": "Brookline",
+      "body": "Park & Recreation Commission",
+      "meetingTitle": "Park and Recreation Commission Meeting",
+      "meetingStart": "2026-10-27T18:00",
+      "location": "Virtual Zoom Meeting",
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16832/overview"
+    },
+    {
+      "title": "654-678 Brookline Avenue development (Emerald Isle)",
+      "summary": "Commission discussion and vote on a letter about a development project.",
+      "docket": "",
+      "action": "other",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Single-address development; commission vote only.",
+      "id": "civicclerk:brooklinema:16832#5",
+      "meetingId": "civicclerk:brooklinema:16832",
+      "city": "Brookline",
+      "body": "Park & Recreation Commission",
+      "meetingTitle": "Park and Recreation Commission Meeting",
+      "meetingStart": "2026-10-27T18:00",
+      "location": "Virtual Zoom Meeting",
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16832/overview"
+    },
+    {
+      "title": "Parks and Open Space FY27 CPA projects",
+      "summary": "The Commission will vote on a letter supporting parks and open space projects for Community Preservation Act funding.",
+      "docket": "",
+      "action": "budget_input",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "office": "Park and Recreation Commission",
+          "email": "parkandreccommission@brooklinema.gov"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "civicclerk:brooklinema:16832#6",
+      "meetingId": "civicclerk:brooklinema:16832",
+      "city": "Brookline",
+      "body": "Park & Recreation Commission",
+      "meetingTitle": "Park and Recreation Commission Meeting",
+      "meetingStart": "2026-10-27T18:00",
+      "location": "Virtual Zoom Meeting",
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16832/overview"
+    },
+    {
+      "title": "Reconsideration of FY27 budget amendment for legal fee reimbursement (WA 4)",
+      "summary": "The Advisory Committee may reconsider its vote on a budget amendment that would cut the reserve fund and add money to the Claims and Settlements Fund to reimburse legal fees. Residents can comment during public comment or send written comments by noon on the meeting day.",
+      "docket": "WA 4",
+      "action": "budget_input",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "office": "Advisory Committee",
+          "email": "lportscher@brooklinema.gov"
+        },
+        {
+          "name": "Gordon",
+          "office": "Town Meeting Member, Precinct 1"
+        },
+        {
+          "name": "Friedman",
+          "office": "Town Meeting Member, Precinct 12"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "civicclerk:brooklinema:16909#0",
+      "meetingId": "civicclerk:brooklinema:16909",
+      "city": "Brookline",
+      "body": "Advisory Committee",
+      "meetingTitle": "Advisory Committee Meeting",
+      "meetingStart": "2026-10-27T19:00",
+      "location": "Remote Via Zoom & Denny Room, Public Health Building, Brookline",
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16909/overview"
+    },
+    {
+      "title": "Reconsideration of by-law banning public meetings on election day (WA 8)",
+      "summary": "The committee may revisit its vote on a proposed by-law that would ban public meetings on election day. Share your views at the meeting or in writing beforehand.",
+      "docket": "WA 8",
+      "action": "public_comment",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "office": "Advisory Committee",
+          "email": "lportscher@brooklinema.gov"
+        },
+        {
+          "name": "Kahn",
+          "office": "Town Meeting Member, Precinct 15"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "civicclerk:brooklinema:16909#1",
+      "meetingId": "civicclerk:brooklinema:16909",
+      "city": "Brookline",
+      "body": "Advisory Committee",
+      "meetingTitle": "Advisory Committee Meeting",
+      "meetingStart": "2026-10-27T19:00",
+      "location": "Remote Via Zoom & Denny Room, Public Health Building, Brookline",
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16909/overview"
+    },
+    {
+      "title": "Pleasant Street Multifamily Overlay District zoning (WA 15)",
+      "summary": "A proposed zoning change would create a new multifamily overlay district on Pleasant Street. The committee will hear a presentation and may vote on its recommendation.",
+      "docket": "WA 15",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [
+        {
+          "office": "Advisory Committee",
+          "email": "lportscher@brooklinema.gov"
+        },
+        {
+          "name": "Allen",
+          "office": "Petitioner"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "civicclerk:brooklinema:16909#2",
+      "meetingId": "civicclerk:brooklinema:16909",
+      "city": "Brookline",
+      "body": "Advisory Committee",
+      "meetingTitle": "Advisory Committee Meeting",
+      "meetingStart": "2026-10-27T19:00",
+      "location": "Remote Via Zoom & Denny Room, Public Health Building, Brookline",
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16909/overview"
+    },
+    {
+      "title": "Agreement for development of 26 Pleasant Street (WA 16)",
+      "summary": "The Select Board seeks authority to sign an agreement related to the development of 26 Pleasant Street.",
+      "docket": "WA 16",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [
+        {
+          "office": "Select Board"
+        }
+      ],
+      "include": false,
+      "skip_reason": "Single-address development agreement; too narrow.",
+      "id": "civicclerk:brooklinema:16909#3",
+      "meetingId": "civicclerk:brooklinema:16909",
+      "city": "Brookline",
+      "body": "Advisory Committee",
+      "meetingTitle": "Advisory Committee Meeting",
+      "meetingStart": "2026-10-27T19:00",
+      "location": "Remote Via Zoom & Denny Room, Public Health Building, Brookline",
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16909/overview"
+    },
+    {
+      "title": "Resolution on CPA funding and the Affordable Housing Trust (WA 17)",
+      "summary": "A resolution about how Community Preservation Act money is used with the Affordable Housing Trust. Residents can weigh in at the meeting or by written comment by noon that day.",
+      "docket": "WA 17",
+      "action": "budget_input",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "office": "Advisory Committee",
+          "email": "lportscher@brooklinema.gov"
+        },
+        {
+          "name": "Blood",
+          "office": "Petitioner"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "civicclerk:brooklinema:16909#4",
+      "meetingId": "civicclerk:brooklinema:16909",
+      "city": "Brookline",
+      "body": "Advisory Committee",
+      "meetingTitle": "Advisory Committee Meeting",
+      "meetingStart": "2026-10-27T19:00",
+      "location": "Remote Via Zoom & Denny Room, Public Health Building, Brookline",
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16909/overview"
+    },
+    {
+      "title": "Design review of proposed 1280-1330 Boylston Street development in Chestnut Hill",
+      "summary": "City Realty will present plans for three new buildings along Route 9 and Heath Street, including two 12-story mixed-use buildings with retail, hotel, condos, medical offices and apartments, plus a 7-story apartment building. Residents can ask questions and comment on the design at this virtual Zoom meeting.",
+      "docket": "",
+      "action": "design_input",
+      "deadline": "2026-10-27",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [
+        {
+          "office": "Brookline Planning Board Design Advisory Team",
+          "phone": "646-828-7666"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "civicclerk:brooklinema:16963#0",
+      "meetingId": "civicclerk:brooklinema:16963",
+      "city": "Brookline",
+      "body": "Planning Board",
+      "meetingTitle": "Design Advisory Team Meeting on (1280-1330 Boylston Street, Chestnut Hill)",
+      "meetingStart": "2026-10-27T19:30",
+      "location": "Virtual Public Meeting (Zoom)",
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16963/overview"
+    },
+    {
+      "title": "Public comment on matters not on the agenda",
+      "summary": "Residents can speak to the Brookline Planning Board about any planning topic not on the agenda during this virtual Zoom meeting. Register in advance to get the joining link.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-28",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": true,
+      "skip_reason": "",
+      "id": "civicclerk:brooklinema:16971#0",
+      "meetingId": "civicclerk:brooklinema:16971",
+      "city": "Brookline",
+      "body": "Planning Board",
+      "meetingTitle": "Planning Board Meeting",
+      "meetingStart": "2026-10-28T08:30",
+      "location": "Virtual Public Meeting (Zoom)",
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16971/overview"
+    },
+    {
+      "title": "Draft Comprehensive Plan zoning chapter",
+      "summary": "The Planning Board will discuss and give feedback on the draft zoning chapter of Brookline's Comprehensive Plan, which shapes future land use across town. Residents can attend the virtual meeting to follow and weigh in.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-28",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": true,
+      "skip_reason": "",
+      "id": "civicclerk:brooklinema:16971#1",
+      "meetingId": "civicclerk:brooklinema:16971",
+      "city": "Brookline",
+      "body": "Planning Board",
+      "meetingTitle": "Planning Board Meeting",
+      "meetingStart": "2026-10-28T08:30",
+      "location": "Virtual Public Meeting (Zoom)",
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16971/overview"
+    },
+    {
+      "title": "Public comment at UP Academy Charter School of Dorchester Board of Trustees meeting",
+      "summary": "The charter school's Board of Trustees is holding a virtual meeting with a public comment period and a school year update. Residents can join online and offer testimony.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-28",
+      "neighborhoods": [
+        "Dorchester"
+      ],
+      "citywide": false,
+      "contacts": [
+        {
+          "name": "Nathan Walsh",
+          "office": "Director of School Operations and Data, UP Academy Charter School of Dorchester",
+          "phone": "617-635-8810"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "boston-notices:16634161#0",
+      "meetingId": "boston-notices:16634161",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "UP Academy Charter School of Dorchester Board of Trustees Public Meeting",
+      "meetingStart": "2026-10-28T09:30",
+      "location": "Virtual, Dorchester",
+      "sourceUrl": "https://www.boston.gov/public-notices/16634161"
+    },
+    {
+      "title": "Garage permit: 22 High Street, Dorchester",
+      "summary": "The Crown on High LLC is applying for a 15-vehicle parking garage permit, with 300 gallons of gas held in vehicle tanks.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-28",
+      "neighborhoods": [
+        "Dorchester"
+      ],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Single-address license application",
+      "id": "boston-notices:16633321#0",
+      "meetingId": "boston-notices:16633321",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "Inspectional Services Committee on Licenses Hearing",
+      "meetingStart": "2026-10-28T10:00",
+      "location": "Virtual, Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16633321"
+    },
+    {
+      "title": "Garage permit: 7 Dana Ave",
+      "summary": "HHC One Arnold LLC is applying for a 16-vehicle parking garage permit, with 240 gallons of gas held in vehicle tanks.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-28",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Single-address license application",
+      "id": "boston-notices:16633321#1",
+      "meetingId": "boston-notices:16633321",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "Inspectional Services Committee on Licenses Hearing",
+      "meetingStart": "2026-10-28T10:00",
+      "location": "Virtual, Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16633321"
+    },
+    {
+      "title": "Garage permit: 185 E Street",
+      "summary": "Garrison Equity LLC is applying for a 6-vehicle garage permit, with 120 gallons of gas held in vehicle tanks.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-28",
+      "neighborhoods": [
+        "South Boston"
+      ],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Single-address license application",
+      "id": "boston-notices:16633321#2",
+      "meetingId": "boston-notices:16633321",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "Inspectional Services Committee on Licenses Hearing",
+      "meetingStart": "2026-10-28T10:00",
+      "location": "Virtual, Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16633321"
+    },
+    {
+      "title": "Garage permit: 212 Old Colony Ave",
+      "summary": "212 Old Colony LLC is applying for an 8-vehicle parking garage permit, with 160 gallons of gas held in vehicle tanks.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-28",
+      "neighborhoods": [
+        "South Boston"
+      ],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Single-address license application",
+      "id": "boston-notices:16633321#3",
+      "meetingId": "boston-notices:16633321",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "Inspectional Services Committee on Licenses Hearing",
+      "meetingStart": "2026-10-28T10:00",
+      "location": "Virtual, Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16633321"
+    },
+    {
+      "title": "Flammable storage license: 201 Brookline Ave lab",
+      "summary": "ARE-MA No 87 LLC is seeking added flammable and combustible storage for a new lab, including diesel tanks, flammable liquids, solids and gases.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-28",
+      "neighborhoods": [
+        "Longwood"
+      ],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Single-address license application",
+      "id": "boston-notices:16633321#4",
+      "meetingId": "boston-notices:16633321",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "Inspectional Services Committee on Licenses Hearing",
+      "meetingStart": "2026-10-28T10:00",
+      "location": "Virtual, Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16633321"
+    },
+    {
+      "title": "Amend contract for new tidegates in Charlestown, East Boston and South Boston",
+      "summary": "The Commission will vote on amending a contract to install new tidegates in Charlestown, East Boston and South Boston.",
+      "docket": "Contract 19-309-001",
+      "action": "other",
+      "deadline": "",
+      "neighborhoods": [
+        "Charlestown",
+        "East Boston",
+        "South Boston"
+      ],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Contract vote with no stated public input opportunity",
+      "id": "boston-notices:16634066#0",
+      "meetingId": "boston-notices:16634066",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "Boston Water and Sewer Commission",
+      "meetingStart": "2026-10-28T10:00",
+      "location": "Boston Water and Sewer Commission, Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16634066"
+    },
+    {
+      "title": "Amend design contract for Dorchester Interceptor Relief Sewer",
+      "summary": "The Commission will vote on amending a professional services contract for designing the Dorchester Interceptor Relief Sewer.",
+      "docket": "Contract 22-206-005",
+      "action": "other",
+      "deadline": "",
+      "neighborhoods": [
+        "Dorchester"
+      ],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Contract vote with no stated public input opportunity",
+      "id": "boston-notices:16634066#1",
+      "meetingId": "boston-notices:16634066",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "Boston Water and Sewer Commission",
+      "meetingStart": "2026-10-28T10:00",
+      "location": "Boston Water and Sewer Commission, Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16634066"
+    },
+    {
+      "title": "Advertise bids for citywide sewer, drain and water main replacement",
+      "summary": "The Commission will vote on advertising bids for sewer, drain and water main replacement and rehabilitation across the city.",
+      "docket": "Contract No. 23-309-003",
+      "action": "other",
+      "deadline": "",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Contract vote with no stated public input opportunity",
+      "id": "boston-notices:16634066#2",
+      "meetingId": "boston-notices:16634066",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "Boston Water and Sewer Commission",
+      "meetingStart": "2026-10-28T10:00",
+      "location": "Boston Water and Sewer Commission, Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16634066"
+    },
+    {
+      "title": "Award contract for water main, storm drain and sewer work in Hyde Park",
+      "summary": "The Commission will vote on awarding a contract to replace and rehabilitate water mains, storm drains and sewers in Hyde Park.",
+      "docket": "Contract No. 25-308-003",
+      "action": "other",
+      "deadline": "",
+      "neighborhoods": [
+        "Hyde Park"
+      ],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Contract vote with no stated public input opportunity",
+      "id": "boston-notices:16634066#3",
+      "meetingId": "boston-notices:16634066",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "Boston Water and Sewer Commission",
+      "meetingStart": "2026-10-28T10:00",
+      "location": "Boston Water and Sewer Commission, Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16634066"
+    },
+    {
+      "title": "Common Victualler License: Dunkin / Jimmy John's, 2 Sutherland Rd",
+      "summary": "BB Donuts, LLC applied for a food service license for a Dunkin' and Jimmy John's restaurant at 1962 Beacon Street, open 4:30 AM to 10:00 PM.",
+      "docket": "LB-638105",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-28",
+      "neighborhoods": [
+        "Brighton"
+      ],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Individual business license",
+      "id": "boston-notices:16634121#0",
+      "meetingId": "boston-notices:16634121",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "Licensing Board Virtual Transactional Hearing",
+      "meetingStart": "2026-10-28T10:00",
+      "location": "VIRTUAL MEETING PLEASE, Citywide",
+      "sourceUrl": "https://www.boston.gov/public-notices/16634121"
+    },
+    {
+      "title": "Common Victualler License: Tradesman Bridge, 470 Atlantic Ave",
+      "summary": "BW Cafe, LLC applied for a food service license for a lobby coffee kiosk.",
+      "docket": "LB-638106",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-28",
+      "neighborhoods": [
+        "Downtown"
+      ],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Individual business license",
+      "id": "boston-notices:16634121#1",
+      "meetingId": "boston-notices:16634121",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "Licensing Board Virtual Transactional Hearing",
+      "meetingStart": "2026-10-28T10:00",
+      "location": "VIRTUAL MEETING PLEASE, Citywide",
+      "sourceUrl": "https://www.boston.gov/public-notices/16634121"
+    },
+    {
+      "title": "Closing hours change: Subway, 981 Tremont St",
+      "summary": "Subway asks to extend its closing time from 11:00 PM to 1:00 AM.",
+      "docket": "LB-137672",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-28",
+      "neighborhoods": [
+        "Mission Hill"
+      ],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Individual business license",
+      "id": "boston-notices:16634121#2",
+      "meetingId": "boston-notices:16634121",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "Licensing Board Virtual Transactional Hearing",
+      "meetingStart": "2026-10-28T10:00",
+      "location": "VIRTUAL MEETING PLEASE, Citywide",
+      "sourceUrl": "https://www.boston.gov/public-notices/16634121"
+    },
+    {
+      "title": "Manager change: Pennyweight Hotel, 155 Portland St",
+      "summary": "The Pennyweight Hotel asks to change the manager on its alcohol license.",
+      "docket": "LB-101657",
+      "action": "other",
+      "deadline": "2026-10-28",
+      "neighborhoods": [
+        "West End"
+      ],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Individual liquor license",
+      "id": "boston-notices:16634121#3",
+      "meetingId": "boston-notices:16634121",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "Licensing Board Virtual Transactional Hearing",
+      "meetingStart": "2026-10-28T10:00",
+      "location": "VIRTUAL MEETING PLEASE, Citywide",
+      "sourceUrl": "https://www.boston.gov/public-notices/16634121"
+    },
+    {
+      "title": "Election of New UASI Chair",
+      "summary": "The regional homeland security group will elect a new chair.",
+      "docket": "",
+      "action": "other",
+      "deadline": "",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Internal procedural/personnel matter, not open to public input.",
+      "id": "boston-notices:16634071#0",
+      "meetingId": "boston-notices:16634071",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "Metro Boston Homeland Security Region Meeting",
+      "meetingStart": "2026-10-28T11:30",
+      "location": "Virtual, Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16634071"
+    },
+    {
+      "title": "FY 24/25 Budget Updates",
+      "summary": "Regional officials will give updates on the homeland security grant budget.",
+      "docket": "",
+      "action": "other",
+      "deadline": "",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Alicia Woodberry",
+          "office": "UASI Project Director, Office of Emergency Management",
+          "email": "Alicia.woodberry@boston.gov",
+          "phone": "617-635-1400"
+        }
+      ],
+      "include": false,
+      "skip_reason": "Informational update for regional partners; no public comment opportunity listed.",
+      "id": "boston-notices:16634071#1",
+      "meetingId": "boston-notices:16634071",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "Metro Boston Homeland Security Region Meeting",
+      "meetingStart": "2026-10-28T11:30",
+      "location": "Virtual, Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16634071"
+    },
+    {
+      "title": "Stakeholder Preparedness Review (SPR) Reminder",
+      "summary": "A reminder to regional partners about the Stakeholder Preparedness Review.",
+      "docket": "",
+      "action": "other",
+      "deadline": "",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Internal reminder for agency stakeholders, not open to public input.",
+      "id": "boston-notices:16634071#2",
+      "meetingId": "boston-notices:16634071",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "Metro Boston Homeland Security Region Meeting",
+      "meetingStart": "2026-10-28T11:30",
+      "location": "Virtual, Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16634071"
+    },
+    {
+      "title": "Observe advance processing of early voted ballots",
+      "summary": "The Election Department is removing early voted ballots from envelopes and running them through tabulators at City Hall, Room 801, and the public may watch. Processing runs October 26 through Election Day, November 3, 2026.",
+      "docket": "",
+      "action": "other",
+      "deadline": "2026-11-03",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Sabino Piemonte",
+          "office": "Election Department",
+          "phone": "617-635-4054"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "boston-notices:16634276#0",
+      "meetingId": "boston-notices:16634276",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "Notice of Advance Processing and Removal of Early Voted Ballots for the November 3, 2026 State Election",
+      "meetingStart": "2026-10-28T11:30",
+      "location": "Boston City Hall, Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16634276"
+    },
+    {
+      "title": "Harvard Square Kiosk Operating and Stewardship Model",
+      "summary": "The City Council is continuing discussion of a request that the City Manager review and reconsider how the Harvard Square Kiosk is operated and managed. There is no public comment at this meeting, but residents can send written comments to the City Clerk's Office.",
+      "docket": "POR 2026-189",
+      "action": "public_comment",
+      "deadline": "2026-10-28",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [
+        {
+          "office": "City Clerk's Office"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "primegov:cambridgema:2924#0",
+      "meetingId": "primegov:cambridgema:2924",
+      "city": "Cambridge",
+      "body": "Special City Council Meeting",
+      "meetingTitle": "Special City Council Meeting",
+      "meetingStart": "2026-10-28T15:00",
+      "location": null,
+      "sourceUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=21878"
+    },
+    {
+      "title": "City Council divestment from companies tied to Israel's occupation of Palestine",
+      "summary": "The Council is continuing discussion of a proposal to divest from companies linked to the occupation of Palestinians. Written comments can be sent to the City Clerk's Office.",
+      "docket": "POR 2026-195",
+      "action": "public_comment",
+      "deadline": "2026-10-28",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "office": "City Clerk's Office"
+        }
+      ],
+      "include": false,
+      "skip_reason": "Too heavy for a points-based civic app (genocide/occupation topic)",
+      "id": "primegov:cambridgema:2924#1",
+      "meetingId": "primegov:cambridgema:2924",
+      "city": "Cambridge",
+      "body": "Special City Council Meeting",
+      "meetingTitle": "Special City Council Meeting",
+      "meetingStart": "2026-10-28T15:00",
+      "location": null,
+      "sourceUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=21878"
+    },
+    {
+      "title": "City Solicitor opinion on proposed boycott ordinance",
+      "summary": "The Council is discussing a request for a legal opinion on a proposed ordinance to boycott companies linked to the occupation of Palestine.",
+      "docket": "POR 2026-196",
+      "action": "public_comment",
+      "deadline": "2026-10-28",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "office": "City Clerk's Office"
+        }
+      ],
+      "include": false,
+      "skip_reason": "Request for a legal opinion; too heavy for a points-based civic app",
+      "id": "primegov:cambridgema:2924#2",
+      "meetingId": "primegov:cambridgema:2924",
+      "city": "Cambridge",
+      "body": "Special City Council Meeting",
+      "meetingTitle": "Special City Council Meeting",
+      "meetingStart": "2026-10-28T15:00",
+      "location": null,
+      "sourceUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=21878"
+    },
+    {
+      "title": "Public comment at BPL Trustees McKim Renovation Oversight Committee",
+      "summary": "The Boston Public Library trustees' new committee overseeing the McKim Building renovation at the Central Library meets to discuss its charge, the Bridge to McKim program, and research collections. Residents can speak in person or send written comments to the Clerk at least 24 hours before the meeting.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-29",
+      "neighborhoods": [
+        "Back Bay"
+      ],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Pamela Carver",
+          "office": "Clerk of the Board, Trustees of the Public Library of the City of Boston",
+          "email": "pcarver@bpl.org"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "boston-notices:16634086#0",
+      "meetingId": "boston-notices:16634086",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "Trustees of the Public Library of the City of Boston Meeting",
+      "meetingStart": "2026-10-28T16:00",
+      "location": "Central Library, Commonwealth Salon, Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16634086"
+    },
+    {
+      "title": "Public comment at Opportunity and Achievement Gaps Task Force meeting",
+      "summary": "The School Committee's Opportunity and Achievement Gaps Task Force will review achievement data, strategic plan targets, and choose its focus areas for the year. Residents can attend and give public testimony.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-28",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Lena Parvex",
+          "office": "Executive Secretary, Boston School Committee",
+          "phone": "617-635-9014"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "boston-notices:16634341#0",
+      "meetingId": "boston-notices:16634341",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "School Committee of the City of Boston Opportunity and Achievement Gaps Task Force Meeting",
+      "meetingStart": "2026-10-28T16:00",
+      "location": "Bruce C. Bolling Municipal Building, Roxbury",
+      "sourceUrl": "https://www.boston.gov/public-notices/16634341"
+    },
+    {
+      "title": "Draft Updated Combined Sewer Overflow (CSO) Control Plan",
+      "summary": "Cambridge's Combined Sewer Overflow and Stormwater Management Advisory Committee will review the draft updated plan for reducing sewer overflows into local waterways. Residents can attend the meeting to learn about the plan and share their views.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-28",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "office": "Combined Sewer Overflow and Stormwater Management Advisory Committee"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "primegov:cambridgema:2513#0",
+      "meetingId": "primegov:cambridgema:2513",
+      "city": "Cambridge",
+      "body": "Combined Sewer Overflow (CSO) Control Plan - Draft Updated",
+      "meetingTitle": "Combined Sewer Overflow (CSO) Control Plan - Draft Updated",
+      "meetingStart": "2026-10-28T18:00",
+      "location": null,
+      "sourceUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=21854"
+    },
+    {
+      "title": "Public comment at Brookline School Committee meeting",
+      "summary": "Speak for up to 3 minutes in person or remotely at the School Committee meeting, or send written comments. Topics on the agenda include enrollment and class sizes, the new 9th grade World History course, and school improvement plans.",
+      "docket": "4a",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-28",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "office": "Brookline School Committee",
+          "email": "school_committee@psbma.org"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "civicclerk:brooklinema:16519#0",
+      "meetingId": "civicclerk:brooklinema:16519",
+      "city": "Brookline",
+      "body": "School Committee",
+      "meetingTitle": "School Committee Regular Meeting",
+      "meetingStart": "2026-10-28T18:00",
+      "location": "Brookline Town Hall, 5th Floor ",
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16519/overview"
+    },
+    {
+      "title": "Enrollment update and class size report",
+      "summary": "The School Committee will review the preliminary October 1 enrollment report and an update on class sizes. Residents can share views during public comment or in writing.",
+      "docket": "5c",
+      "action": "public_comment",
+      "deadline": "2026-10-28",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "office": "Brookline School Committee",
+          "email": "school_committee@psbma.org"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "civicclerk:brooklinema:16519#1",
+      "meetingId": "civicclerk:brooklinema:16519",
+      "city": "Brookline",
+      "body": "School Committee",
+      "meetingTitle": "School Committee Regular Meeting",
+      "meetingStart": "2026-10-28T18:00",
+      "location": "Brookline Town Hall, 5th Floor ",
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16519/overview"
+    },
+    {
+      "title": "Brookline High 9th grade World History course (WHISP)",
+      "summary": "Presentation and discussion of the 9th grade social studies course World History I: Identity, Status, and Power. Residents can comment at the meeting or by email.",
+      "docket": "5b",
+      "action": "public_comment",
+      "deadline": "2026-10-28",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "office": "Brookline School Committee",
+          "email": "school_committee@psbma.org"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "civicclerk:brooklinema:16519#2",
+      "meetingId": "civicclerk:brooklinema:16519",
+      "city": "Brookline",
+      "body": "School Committee",
+      "meetingTitle": "School Committee Regular Meeting",
+      "meetingStart": "2026-10-28T18:00",
+      "location": "Brookline Town Hall, 5th Floor ",
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16519/overview"
+    },
+    {
+      "title": "Removal of adult education policy (first reading)",
+      "summary": "First reading of removing the Miscellaneous Adult Education Policies section from the school policy manual.",
+      "docket": "6b",
+      "action": "public_comment",
+      "deadline": "2026-10-28",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "office": "Brookline School Committee",
+          "email": "school_committee@psbma.org"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "civicclerk:brooklinema:16519#3",
+      "meetingId": "civicclerk:brooklinema:16519",
+      "city": "Brookline",
+      "body": "School Committee",
+      "meetingTitle": "School Committee Regular Meeting",
+      "meetingStart": "2026-10-28T18:00",
+      "location": "Brookline Town Hall, 5th Floor ",
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16519/overview"
+    },
+    {
+      "title": "Executive session on collective bargaining",
+      "summary": "Closed session on union bargaining strategy and executive session minutes.",
+      "docket": "9a",
+      "action": "other",
+      "deadline": "",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Not open to public input.",
+      "id": "civicclerk:brooklinema:16519#4",
+      "meetingId": "civicclerk:brooklinema:16519",
+      "city": "Brookline",
+      "body": "School Committee",
+      "meetingTitle": "School Committee Regular Meeting",
+      "meetingStart": "2026-10-28T18:00",
+      "location": "Brookline Town Hall, 5th Floor ",
+      "sourceUrl": "https://brooklinema.portal.civicclerk.com/event/16519/overview"
+    },
+    {
+      "title": "Monument Square Landmark District study report: review and edits",
+      "summary": "The study committee will discuss feedback from the community engagement event and edit its working study report on a proposed Monument Square Landmark District in Charlestown. Residents can comment during the virtual meeting or email written comments at any time.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-28",
+      "neighborhoods": [
+        "Charlestown"
+      ],
+      "citywide": false,
+      "contacts": [
+        {
+          "name": "Jennifer Gaugler",
+          "office": "Boston Landmarks Commission",
+          "email": "BLC@boston.gov",
+          "phone": "617-635-1935"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "boston-notices:16607396#0",
+      "meetingId": "boston-notices:16607396",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "Monument Square Landmark District Study Committee",
+      "meetingStart": "2026-10-28T18:30",
+      "location": "Zoom (virtual meeting), Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16607396"
+    },
+    {
+      "title": "Public observation of early voted ballot processing for the November 3, 2026 State Election",
+      "summary": "Boston's Election Department will remove early voted ballots from their envelopes and run them through a tabulator at City Hall, Room 801, and the public may watch. Processing runs on scheduled days from October 26 through Election Day, November 3.",
+      "docket": "",
+      "action": "other",
+      "deadline": "2026-11-03",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Sabino Piemonte",
+          "office": "Election Department",
+          "phone": "617-635-4054"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "boston-notices:16634301#0",
+      "meetingId": "boston-notices:16634301",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "Notice of Advance Processing and Removal of Early Voted Ballots for the November 3, 2026 State Election",
+      "meetingStart": "2026-10-29T08:30",
+      "location": "Boston City Hall, Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16634301"
+    },
+    {
+      "title": "Hearing on fulfillment of community benefits from development projects",
+      "summary": "The City Council committee will discuss whether community benefits promised and funded by development projects are being delivered. Residents can testify in person or virtually, or send written comments.",
+      "docket": "#1337",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-29",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Enrique J. Pepén",
+          "office": "Boston City Council"
+        },
+        {
+          "name": "Benjamin J. Weber",
+          "office": "Boston City Council"
+        },
+        {
+          "name": "Ruthzee Louijeune",
+          "office": "Boston City Council"
+        },
+        {
+          "office": "Committee on Planning, Development, and Transportation"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "boston-notices:16627506#0",
+      "meetingId": "boston-notices:16627506",
+      "city": "Boston",
+      "body": "City Council",
+      "meetingTitle": "City Council Committee on Planning, Development, and Transportation Hearing on Dockets #1337",
+      "meetingStart": "2026-10-29T10:30",
+      "location": "Iannella Chamber, 5th Floor, Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16627506"
+    },
+    {
+      "title": "Impacts of BPS personnel cuts on students with disabilities (hearing canceled, to be rescheduled)",
+      "summary": "The Council's Education Committee will hold a hearing on how recent Boston Public Schools staff cuts affect students with disabilities. The October 29 hearing was canceled and will be rescheduled, but written comments can be sent to the committee for the record.",
+      "docket": "1333",
+      "action": "public_comment",
+      "deadline": "",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Ryan Pratt",
+          "office": "City Council Committee on Education",
+          "email": "ryan.pratt@boston.gov",
+          "phone": "617-635-5635"
+        },
+        {
+          "office": "City Council Committee on Education",
+          "email": "ccc.education@boston.gov"
+        },
+        {
+          "name": "Edward M. Flynn",
+          "office": "Boston City Council"
+        },
+        {
+          "name": "Julia M. Mejia",
+          "office": "Boston City Council"
+        },
+        {
+          "name": "Erin J. Murphy",
+          "office": "Boston City Council"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "boston-notices:16609716#0",
+      "meetingId": "boston-notices:16609716",
+      "city": "Boston",
+      "body": "City Council",
+      "meetingTitle": "City Council Committee on Education Hearing on Docket #1333",
+      "meetingStart": "2026-10-29T14:00",
+      "location": "Iannella Chamber, 5th Floor, Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16609716"
+    },
+    {
+      "title": "Transit Advisory Committee site walk of Central Square",
+      "summary": "The committee is touring Central Square bus stops, the bus terminal, the River Street reconstruction and MBTA Red Line station accessibility improvements. The walk starts in front of the Central Square post office at 770 Massachusetts Avenue; there is no formal meeting and no remote participation.",
+      "docket": "",
+      "action": "other",
+      "deadline": "2026-10-29",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [
+        {
+          "office": "Cambridge Transit Advisory Committee"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "primegov:cambridgema:2926#0",
+      "meetingId": "primegov:cambridgema:2926",
+      "city": "Cambridge",
+      "body": "Transit Advisory Committee - Site Walk - October-November 2026",
+      "meetingTitle": "Transit Advisory Committee - Site Walk - October-November 2026",
+      "meetingStart": "2026-10-29T17:00",
+      "location": null,
+      "sourceUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=22008"
+    },
+    {
+      "title": "City and State project updates (November 2026)",
+      "summary": "The committee chair will share announcements and updates on city and state transit projects.",
+      "docket": "",
+      "action": "other",
+      "deadline": "2026-10-29",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Informational announcements, not open to public input.",
+      "id": "primegov:cambridgema:2926#1",
+      "meetingId": "primegov:cambridgema:2926",
+      "city": "Cambridge",
+      "body": "Transit Advisory Committee - Site Walk - October-November 2026",
+      "meetingTitle": "Transit Advisory Committee - Site Walk - October-November 2026",
+      "meetingStart": "2026-10-29T17:00",
+      "location": null,
+      "sourceUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=22008"
+    },
+    {
+      "title": "Reparations Task Force public comment",
+      "summary": "Join the virtual Reparations Task Force meeting to hear updates on the Tufts research report and researcher presentations, then give up to two minutes of public comment or ask questions.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-29",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Khalid Mustafa",
+          "office": "Boston Reparations Task Force",
+          "email": "khalid.mustafa@boston.gov",
+          "phone": "617-821-6022"
+        },
+        {
+          "name": "Antonia Edwards",
+          "office": "RTF Community Engagement Sub-Committee Chair"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "boston-notices:16629971#0",
+      "meetingId": "boston-notices:16629971",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "Reparations Task Force Virtual Public Meeting",
+      "meetingStart": "2026-10-29T17:30",
+      "location": "VIRTUAL, BOSTON",
+      "sourceUrl": "https://www.boston.gov/public-notices/16629971"
+    },
+    {
+      "title": "City updates on Tufts research report and researcher presentations",
+      "summary": "City staff and researchers present updates on reparations research; the public can listen but there is no separate input opportunity for this item.",
+      "docket": "",
+      "action": "other",
+      "deadline": "2026-10-29",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Informational presentation; public input happens during the Q&A public comment item.",
+      "id": "boston-notices:16629971#1",
+      "meetingId": "boston-notices:16629971",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "Reparations Task Force Virtual Public Meeting",
+      "meetingStart": "2026-10-29T17:30",
+      "location": "VIRTUAL, BOSTON",
+      "sourceUrl": "https://www.boston.gov/public-notices/16629971"
+    },
+    {
+      "title": "RTF discussion and votes",
+      "summary": "Task Force members discuss and vote on matters.",
+      "docket": "",
+      "action": "other",
+      "deadline": "2026-10-29",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Not open to public input.",
+      "id": "boston-notices:16629971#2",
+      "meetingId": "boston-notices:16629971",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "Reparations Task Force Virtual Public Meeting",
+      "meetingStart": "2026-10-29T17:30",
+      "location": "VIRTUAL, BOSTON",
+      "sourceUrl": "https://www.boston.gov/public-notices/16629971"
+    },
+    {
+      "title": "Public comment and Q&A on the future work of the Reparations Task Force",
+      "summary": "Residents can speak for up to two minutes at the virtual Reparations Task Force meeting about the Task Force's future work, including additional research on the period from 1620-1940. The public comment portion lasts 30 minutes.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-29",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Khalid Mustafa",
+          "office": "Reparations Task Force",
+          "phone": "617-821-6022"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "boston-notices:16634576#0",
+      "meetingId": "boston-notices:16634576",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "Reparations Task Force Public Meeting",
+      "meetingStart": "2026-10-29T17:30",
+      "location": "VIRTUAL, Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16634576"
+    },
+    {
+      "title": "Update on Phase 1 research and vote on additional research",
+      "summary": "The Task Force will hear an update on Phase 1 research and vote on additional research covering 1620-1940.",
+      "docket": "",
+      "action": "other",
+      "deadline": "2026-10-29",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Task Force discussion and vote, not open to public input; public input happens in the comment period.",
+      "id": "boston-notices:16634576#1",
+      "meetingId": "boston-notices:16634576",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "Reparations Task Force Public Meeting",
+      "meetingStart": "2026-10-29T17:30",
+      "location": "VIRTUAL, Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16634576"
+    },
+    {
+      "title": "290 North Beacon arts and community space public meeting",
+      "summary": "The Boston Housing Authority and the Mayor's Office of Arts and Culture will share progress on turning 290 North Beacon in Brighton into a music, arts and community space, including a pilot opportunity, and take questions. Attend either session (Oct 29 at 6 p.m. or Oct 30 at 12 p.m.); both cover the same information.",
+      "docket": "",
+      "action": "design_input",
+      "deadline": "2026-10-30",
+      "neighborhoods": [
+        "Brighton"
+      ],
+      "citywide": false,
+      "contacts": [
+        {
+          "name": "Rahul Ramesh",
+          "office": "Boston Housing Authority / Mayor's Office of Arts and Culture",
+          "phone": "857-891-3454"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "boston-notices:16634011#0",
+      "meetingId": "boston-notices:16634011",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "Boston Housing Authority (BHA) and the Mayor’s Office of Arts and Culture (MOAC) Remote Meeting",
+      "meetingStart": "2026-10-29T18:00",
+      "location": "Remote Meeting, Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16634011"
+    },
+    {
+      "title": "Zoning amendment for protected accessory dwelling units (ADUs)",
+      "summary": "The Land Use Committee will review the Mayor's proposed changes to the Somerville Zoning Ordinance so local rules on accessory dwelling units match state law. Residents can watch the virtual meeting and follow or weigh in on the proposal.",
+      "docket": "26-1336",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-29",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "office": "Mayor's Office"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "legistar:somervillema:4090#0",
+      "meetingId": "legistar:somervillema:4090",
+      "city": "Somerville",
+      "body": "Land Use Committee",
+      "meetingTitle": "Land Use Committee",
+      "meetingStart": "2026-10-29T18:30",
+      "location": "Virtual",
+      "sourceUrl": "https://somervillema.legistar.com/MeetingDetail.aspx?LEGID=4090&GID=910&G=2A86634D-1000-44A7-991A-A4C8C0762B41"
+    },
+    {
+      "title": "Amendment to Zoning Ordinance Section 3.1.7.c",
+      "summary": "Councilor Link's proposed amendment to Section 3.1.7.c of the Zoning Ordinance is listed as to be withdrawn.",
+      "docket": "26-1373",
+      "action": "other",
+      "deadline": "2026-10-29",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Councilor Link",
+          "office": "Somerville City Council"
+        }
+      ],
+      "include": false,
+      "skip_reason": "Item is marked to be withdrawn.",
+      "id": "legistar:somervillema:4090#1",
+      "meetingId": "legistar:somervillema:4090",
+      "city": "Somerville",
+      "body": "Land Use Committee",
+      "meetingTitle": "Land Use Committee",
+      "meetingStart": "2026-10-29T18:30",
+      "location": "Virtual",
+      "sourceUrl": "https://somervillema.legistar.com/MeetingDetail.aspx?LEGID=4090&GID=910&G=2A86634D-1000-44A7-991A-A4C8C0762B41"
+    },
+    {
+      "title": "Proposed Curaleaf medical marijuana establishment at 21 Milk Street",
+      "summary": "Curaleaf Massachusetts will present plans for a proposed medical marijuana establishment at 21 Milk Street, covering security, diversion prevention and operations, with time for public questions.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-29",
+      "neighborhoods": [
+        "Downtown"
+      ],
+      "citywide": false,
+      "contacts": [
+        {
+          "name": "Alex Chavez",
+          "office": "Curaleaf Massachusetts, Inc.",
+          "phone": "857-995-3035"
+        }
+      ],
+      "include": false,
+      "skip_reason": "Too narrow: single-address licensing community meeting for one business.",
+      "id": "boston-notices:16633066#0",
+      "meetingId": "boston-notices:16633066",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "Proposed Medical Marijuana Establishment Community Meeting",
+      "meetingStart": "2026-10-29T19:00",
+      "location": "Lower Level, Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16633066"
+    },
+    {
+      "title": "Public observation of early voted ballot processing for the November 3, 2026 State Election",
+      "summary": "Boston's Election Department is removing early voted ballots from their envelopes and running them through a tabulator at City Hall, Room 801, and the public can watch. Processing runs October 26 through November 3, 2026, mostly 8:30 am to 5:30 pm, and continues on Election Day from 8 am until complete.",
+      "docket": "",
+      "action": "other",
+      "deadline": "2026-11-03",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Sabino Piemonte",
+          "office": "Election Department",
+          "phone": "617-635-4054"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "boston-notices:16634306#0",
+      "meetingId": "boston-notices:16634306",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "Notice of Advance Processing and Removal of Early Voted Ballots for the November 3, 2026 State Election",
+      "meetingStart": "2026-10-30T08:30",
+      "location": "Boston City Hall, Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16634306"
+    },
+    {
+      "title": "290 North Beacon music, arts and community space: virtual public meeting",
+      "summary": "The Boston Housing Authority and the Mayor's Office of Arts and Culture will share progress on turning 290 North Beacon in Brighton into a music, arts and community space, including a pilot opportunity. Residents can register, ask questions and join the discussion; the same information is presented at both sessions.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-30",
+      "neighborhoods": [
+        "Brighton"
+      ],
+      "citywide": false,
+      "contacts": [
+        {
+          "name": "Rahul Ramesh",
+          "office": "Boston Housing Authority",
+          "email": "Rahul.Ramesh@bostonhousing.org",
+          "phone": "857-891-3454"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "boston-notices:16634016#0",
+      "meetingId": "boston-notices:16634016",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "Boston Housing Authority (BHA) and the Mayor’s Office of Arts and Culture (MOAC) Remote Meeting",
+      "meetingStart": "2026-10-30T12:00",
+      "location": "Remote Meeting, Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16634016"
+    },
+    {
+      "title": "Public observation of early voted ballot processing for the November 3, 2026 State Election",
+      "summary": "Boston's Election Department will remove early voted ballots from their envelopes and run them through a tabulator at City Hall, Room 801. Residents can come and watch the process.",
+      "docket": "",
+      "action": "other",
+      "deadline": "2026-11-03",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Sabino Piemonte",
+          "office": "Boston Election Department",
+          "phone": "617-635-4054"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "boston-notices:16634311#0",
+      "meetingId": "boston-notices:16634311",
+      "city": "Boston",
+      "body": "Public notice",
+      "meetingTitle": "Notice of Advance Processing and Removal of Early Voted Ballots for the November 3, 2026 State Election",
+      "meetingStart": "2026-10-31T08:30",
+      "location": "Boston City Hall, Boston",
+      "sourceUrl": "https://www.boston.gov/public-notices/16634311"
+    },
+    {
+      "title": "Public Advisory Consultation: 280 Green Street",
+      "summary": "Review of a proposal to replace a 2-story building with a 5-story, 9-unit residential building in the Central Square Overlay District. The public can give non-binding recommendations.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-11-04",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [
+        {
+          "name": "Mason Wells",
+          "office": "Cambridge Community Development Department, Zoning & Development Division",
+          "email": "mwells@cambridgema.gov",
+          "phone": "617-349-9794"
+        }
+      ],
+      "include": false,
+      "skip_reason": "Single-address development review.",
+      "id": "primegov:cambridgema:2923#0",
+      "meetingId": "primegov:cambridgema:2923",
+      "city": "Cambridge",
+      "body": "Central Square Advisory Committee (CSAC) Meeting - 11/4/2026",
+      "meetingTitle": "Central Square Advisory Committee (CSAC) Meeting - 11/4/2026",
+      "meetingStart": "2026-11-04T18:00",
+      "location": null,
+      "sourceUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=21692"
+    },
+    {
+      "title": "Update on Central Square Rezoning",
+      "summary": "City planners return to the Central Square Advisory Committee to discuss feedback on updating zoning for Central Square. Residents can attend in person or on Zoom, or send written comments before the meeting.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-11-04",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [
+        {
+          "name": "Mason Wells",
+          "office": "Cambridge Community Development Department, Zoning & Development Division",
+          "email": "mwells@cambridgema.gov",
+          "phone": "617-349-9794"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "primegov:cambridgema:2923#1",
+      "meetingId": "primegov:cambridgema:2923",
+      "city": "Cambridge",
+      "body": "Central Square Advisory Committee (CSAC) Meeting - 11/4/2026",
+      "meetingTitle": "Central Square Advisory Committee (CSAC) Meeting - 11/4/2026",
+      "meetingStart": "2026-11-04T18:00",
+      "location": null,
+      "sourceUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=21692"
+    },
+    {
+      "title": "Committee Member Updates",
+      "summary": "Committee members share updates on events in Central Square.",
+      "docket": "",
+      "action": "other",
+      "deadline": "",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Not open to public input.",
+      "id": "primegov:cambridgema:2923#2",
+      "meetingId": "primegov:cambridgema:2923",
+      "city": "Cambridge",
+      "body": "Central Square Advisory Committee (CSAC) Meeting - 11/4/2026",
+      "meetingTitle": "Central Square Advisory Committee (CSAC) Meeting - 11/4/2026",
+      "meetingStart": "2026-11-04T18:00",
+      "location": null,
+      "sourceUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=21692"
+    },
+    {
+      "title": "Case 5468: 14 Elmwood Ave. roofing and gutters",
+      "summary": "Hearing on installing new cedar roof shingles and copper gutters at a designated historic property.",
+      "docket": "Case 5468",
+      "action": "attend_and_testify",
+      "deadline": "2026-11-05",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Single-address historic alteration case; too narrow.",
+      "id": "primegov:cambridgema:2942#0",
+      "meetingId": "primegov:cambridgema:2942",
+      "city": "Cambridge",
+      "body": "Regular Meeting of the Cambridge Historical Commission",
+      "meetingTitle": "Regular Meeting of the Cambridge Historical Commission",
+      "meetingStart": "2026-11-05T18:00",
+      "location": null,
+      "sourceUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=22017"
+    },
+    {
+      "title": "Case 5469: 17 South St. exterior renovation",
+      "summary": "Hearing on Harvard's plan to renovate the building exterior, including new and replacement windows and stair railings.",
+      "docket": "Case 5469",
+      "action": "attend_and_testify",
+      "deadline": "2026-11-05",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Single-address historic alteration case; too narrow.",
+      "id": "primegov:cambridgema:2942#1",
+      "meetingId": "primegov:cambridgema:2942",
+      "city": "Cambridge",
+      "body": "Regular Meeting of the Cambridge Historical Commission",
+      "meetingTitle": "Regular Meeting of the Cambridge Historical Commission",
+      "meetingStart": "2026-11-05T18:00",
+      "location": null,
+      "sourceUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=22017"
+    },
+    {
+      "title": "Case 5470: 26 Brattle St. new stairs and elevator",
+      "summary": "Hearing on building two new stairs and an elevator with rooftop headhouses at a designated property.",
+      "docket": "Case 5470",
+      "action": "attend_and_testify",
+      "deadline": "2026-11-05",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Single-address historic alteration case; too narrow.",
+      "id": "primegov:cambridgema:2942#2",
+      "meetingId": "primegov:cambridgema:2942",
+      "city": "Cambridge",
+      "body": "Regular Meeting of the Cambridge Historical Commission",
+      "meetingTitle": "Regular Meeting of the Cambridge Historical Commission",
+      "meetingStart": "2026-11-05T18:00",
+      "location": null,
+      "sourceUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=22017"
+    },
+    {
+      "title": "Director's Report",
+      "summary": "The director gives the October report to the commission.",
+      "docket": "",
+      "action": "other",
+      "deadline": "2026-11-05",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Informational staff report; not open to public input.",
+      "id": "primegov:cambridgema:2942#3",
+      "meetingId": "primegov:cambridgema:2942",
+      "city": "Cambridge",
+      "body": "Regular Meeting of the Cambridge Historical Commission",
+      "meetingTitle": "Regular Meeting of the Cambridge Historical Commission",
+      "meetingStart": "2026-11-05T18:00",
+      "location": null,
+      "sourceUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=22017"
+    },
+    {
+      "title": "Boynton Yards zoning text amendment (Section 8.4.12.e.ii)",
+      "summary": "Public hearing on a zoning text change requested by Boynton Yards LandCo LLC and Windsor Place Owner LLC. Residents can attend the virtual joint Land Use Committee and Planning Board hearing to testify.",
+      "docket": "26-1480",
+      "action": "attend_and_testify",
+      "deadline": "2026-11-05",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": true,
+      "skip_reason": "",
+      "id": "legistar:somervillema:4091#0",
+      "meetingId": "legistar:somervillema:4091",
+      "city": "Somerville",
+      "body": "Land Use Committee",
+      "meetingTitle": "Land Use Committee",
+      "meetingStart": "2026-11-05T18:30",
+      "location": "Virtual",
+      "sourceUrl": "https://somervillema.legistar.com/MeetingDetail.aspx?LEGID=4091&GID=910&G=2A86634D-1000-44A7-991A-A4C8C0762B41"
+    },
+    {
+      "title": "Zoning amendment on affordable dwelling units (Section 12.1.2)",
+      "summary": "Public hearing on a resident-petitioned zoning change to the city's affordable housing unit rules. Residents can attend the virtual hearing to testify.",
+      "docket": "26-1512",
+      "action": "attend_and_testify",
+      "deadline": "2026-11-05",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": true,
+      "skip_reason": "",
+      "id": "legistar:somervillema:4091#1",
+      "meetingId": "legistar:somervillema:4091",
+      "city": "Somerville",
+      "body": "Land Use Committee",
+      "meetingTitle": "Land Use Committee",
+      "meetingStart": "2026-11-05T18:30",
+      "location": "Virtual",
+      "sourceUrl": "https://somervillema.legistar.com/MeetingDetail.aspx?LEGID=4091&GID=910&G=2A86634D-1000-44A7-991A-A4C8C0762B41"
+    },
+    {
+      "title": "Zoning amendment on Zoning Board of Appeals rules (Section 15.7.2.d)",
+      "summary": "Public hearing on a resident-petitioned zoning change to the Zoning Board of Appeals board rules. Residents can attend the virtual hearing to testify.",
+      "docket": "26-1511",
+      "action": "attend_and_testify",
+      "deadline": "2026-11-05",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": true,
+      "skip_reason": "",
+      "id": "legistar:somervillema:4091#2",
+      "meetingId": "legistar:somervillema:4091",
+      "city": "Somerville",
+      "body": "Land Use Committee",
+      "meetingTitle": "Land Use Committee",
+      "meetingStart": "2026-11-05T18:30",
+      "location": "Virtual",
+      "sourceUrl": "https://somervillema.legistar.com/MeetingDetail.aspx?LEGID=4091&GID=910&G=2A86634D-1000-44A7-991A-A4C8C0762B41"
+    },
+    {
+      "title": "Zoning amendment on backyard cottages (Section 3.1.12)",
+      "summary": "Public hearing on a resident-petitioned zoning change to the rules for backyard cottages. Residents can attend the virtual hearing to testify.",
+      "docket": "26-1510",
+      "action": "attend_and_testify",
+      "deadline": "2026-11-05",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": true,
+      "skip_reason": "",
+      "id": "legistar:somervillema:4091#3",
+      "meetingId": "legistar:somervillema:4091",
+      "city": "Somerville",
+      "body": "Land Use Committee",
+      "meetingTitle": "Land Use Committee",
+      "meetingStart": "2026-11-05T18:30",
+      "location": "Virtual",
+      "sourceUrl": "https://somervillema.legistar.com/MeetingDetail.aspx?LEGID=4091&GID=910&G=2A86634D-1000-44A7-991A-A4C8C0762B41"
+    },
+    {
+      "title": "Second zoning amendment on backyard cottages (Section 3.1.12)",
+      "summary": "Public hearing on a second resident-petitioned zoning change to the backyard cottage rules. Residents can attend the virtual hearing to testify.",
+      "docket": "26-1509",
+      "action": "attend_and_testify",
+      "deadline": "2026-11-05",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": true,
+      "skip_reason": "",
+      "id": "legistar:somervillema:4091#4",
+      "meetingId": "legistar:somervillema:4091",
+      "city": "Somerville",
+      "body": "Land Use Committee",
+      "meetingTitle": "Land Use Committee",
+      "meetingStart": "2026-11-05T18:30",
+      "location": "Virtual",
+      "sourceUrl": "https://somervillema.legistar.com/MeetingDetail.aspx?LEGID=4091&GID=910&G=2A86634D-1000-44A7-991A-A4C8C0762B41"
+    },
+    {
+      "title": "Public hearing on Police Review & Advisory Board Quarterly Report (Fall 2025 – Q1 2026)",
+      "summary": "The Public Safety Committee will hold a public hearing on the Police Review and Advisory Board's quarterly report on police complaints and oversight from Fall 2025 through early 2026. Residents can attend and share their views on police oversight in Cambridge.",
+      "docket": "CMA 2026-85",
+      "action": "attend_and_testify",
+      "deadline": "2026-11-10",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Yi-An Huang",
+          "office": "City Manager"
+        },
+        {
+          "office": "Public Safety Committee"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "primegov:cambridgema:2872#0",
+      "meetingId": "primegov:cambridgema:2872",
+      "city": "Cambridge",
+      "body": "The Public Safety Committee",
+      "meetingTitle": "The Public Safety Committee",
+      "meetingStart": "2026-11-10T12:00",
+      "location": null,
+      "sourceUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=20911"
+    },
+    {
+      "title": "Support for Alcoholics Anonymous meeting spaces",
+      "summary": "Councilors are discussing a resolution supporting meeting spaces for Alcoholics Anonymous in Somerville.",
+      "docket": "26-1500",
+      "action": "attend_and_testify",
+      "deadline": "2026-11-10",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Councilor Link",
+          "office": "Somerville City Council"
+        },
+        {
+          "name": "Councilor McLaughlin",
+          "office": "Somerville City Council"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "legistar:somervillema:4099#0",
+      "meetingId": "legistar:somervillema:4099",
+      "city": "Somerville",
+      "body": "Public Health and Public Safety Committee",
+      "meetingTitle": "Public Health and Public Safety Committee",
+      "meetingStart": "2026-11-10T18:30",
+      "location": "Virtual",
+      "sourceUrl": "https://somervillema.legistar.com/MeetingDetail.aspx?LEGID=4099&GID=910&G=2A86634D-1000-44A7-991A-A4C8C0762B41"
+    },
+    {
+      "title": "Resident comments on the Warming Center",
+      "summary": "The committee will discuss a resident's written comments about the city's Warming Center.",
+      "docket": "26-1478",
+      "action": "attend_and_testify",
+      "deadline": "2026-11-10",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": true,
+      "skip_reason": "",
+      "id": "legistar:somervillema:4099#1",
+      "meetingId": "legistar:somervillema:4099",
+      "city": "Somerville",
+      "body": "Public Health and Public Safety Committee",
+      "meetingTitle": "Public Health and Public Safety Committee",
+      "meetingStart": "2026-11-10T18:30",
+      "location": "Virtual",
+      "sourceUrl": "https://somervillema.legistar.com/MeetingDetail.aspx?LEGID=4099&GID=910&G=2A86634D-1000-44A7-991A-A4C8C0762B41"
+    },
+    {
+      "title": "Rats and dumpster licensing enforcement update",
+      "summary": "The Director of Public Health will update the council on dumpster licensing, inspections and efforts to keep rats out of dumpsters citywide.",
+      "docket": "26-1421",
+      "action": "attend_and_testify",
+      "deadline": "2026-11-10",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Councilor Wheeler",
+          "office": "Somerville City Council"
+        },
+        {
+          "name": "Councilor Hardt",
+          "office": "Somerville City Council"
+        },
+        {
+          "name": "Councilor Sait",
+          "office": "Somerville City Council"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "legistar:somervillema:4099#2",
+      "meetingId": "legistar:somervillema:4099",
+      "city": "Somerville",
+      "body": "Public Health and Public Safety Committee",
+      "meetingTitle": "Public Health and Public Safety Committee",
+      "meetingStart": "2026-11-10T18:30",
+      "location": "Virtual",
+      "sourceUrl": "https://somervillema.legistar.com/MeetingDetail.aspx?LEGID=4099&GID=910&G=2A86634D-1000-44A7-991A-A4C8C0762B41"
+    },
+    {
+      "title": "Winter Warming Center after-action report",
+      "summary": "The Director of Emergency Management presents the review and improvement plan for last winter's Cummings School Warming Center.",
+      "docket": "26-1339",
+      "action": "attend_and_testify",
+      "deadline": "2026-11-10",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "office": "Director of Emergency Management"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "legistar:somervillema:4099#3",
+      "meetingId": "legistar:somervillema:4099",
+      "city": "Somerville",
+      "body": "Public Health and Public Safety Committee",
+      "meetingTitle": "Public Health and Public Safety Committee",
+      "meetingStart": "2026-11-10T18:30",
+      "location": "Virtual",
+      "sourceUrl": "https://somervillema.legistar.com/MeetingDetail.aspx?LEGID=4099&GID=910&G=2A86634D-1000-44A7-991A-A4C8C0762B41"
+    },
+    {
+      "title": "Street harassment near Prescott Street, School Street and Warming Center",
+      "summary": "Health and Human Services will discuss reported street harassment near Prescott Street, School Street and the Warming Center and steps to address it.",
+      "docket": "26-1305",
+      "action": "attend_and_testify",
+      "deadline": "2026-11-10",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [
+        {
+          "name": "Councilor Strezo",
+          "office": "Somerville City Council"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "legistar:somervillema:4099#4",
+      "meetingId": "legistar:somervillema:4099",
+      "city": "Somerville",
+      "body": "Public Health and Public Safety Committee",
+      "meetingTitle": "Public Health and Public Safety Committee",
+      "meetingStart": "2026-11-10T18:30",
+      "location": "Virtual",
+      "sourceUrl": "https://somervillema.legistar.com/MeetingDetail.aspx?LEGID=4099&GID=910&G=2A86634D-1000-44A7-991A-A4C8C0762B41"
+    },
+    {
+      "title": "Gilman Square Neighborhood Council comments on McGrath Boulevard",
+      "summary": "The committee will consider neighborhood comments about the McGrath Boulevard project.",
+      "docket": "26-0493",
+      "action": "attend_and_testify",
+      "deadline": "2026-11-10",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": true,
+      "skip_reason": "",
+      "id": "legistar:somervillema:4099#5",
+      "meetingId": "legistar:somervillema:4099",
+      "city": "Somerville",
+      "body": "Public Health and Public Safety Committee",
+      "meetingTitle": "Public Health and Public Safety Committee",
+      "meetingStart": "2026-11-10T18:30",
+      "location": "Virtual",
+      "sourceUrl": "https://somervillema.legistar.com/MeetingDetail.aspx?LEGID=4099&GID=910&G=2A86634D-1000-44A7-991A-A4C8C0762B41"
+    },
+    {
+      "title": "Monthly updates on addressing homelessness",
+      "summary": "The administration will update the committee on progress toward addressing homelessness in Somerville.",
+      "docket": "26-0106",
+      "action": "attend_and_testify",
+      "deadline": "2026-11-10",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Councilor McLaughlin",
+          "office": "Somerville City Council"
+        },
+        {
+          "name": "Councilor Davis",
+          "office": "Somerville City Council"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "legistar:somervillema:4099#6",
+      "meetingId": "legistar:somervillema:4099",
+      "city": "Somerville",
+      "body": "Public Health and Public Safety Committee",
+      "meetingTitle": "Public Health and Public Safety Committee",
+      "meetingStart": "2026-11-10T18:30",
+      "location": "Virtual",
+      "sourceUrl": "https://somervillema.legistar.com/MeetingDetail.aspx?LEGID=4099&GID=910&G=2A86634D-1000-44A7-991A-A4C8C0762B41"
+    },
+    {
+      "title": "Zoning petition public hearing",
+      "summary": "The Planning Board will hold a remote public hearing on a zoning petition, where residents can attend and give testimony. Details of the petition are not listed in the agenda.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-11-10",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "office": "Cambridge Planning Board"
+        }
+      ],
+      "include": true,
+      "skip_reason": "",
+      "id": "primegov:cambridgema:2880#0",
+      "meetingId": "primegov:cambridgema:2880",
+      "city": "Cambridge",
+      "body": "Planning Board Meeting",
+      "meetingTitle": "Planning Board Meeting",
+      "meetingStart": "2026-11-10T18:30",
+      "location": null,
+      "sourceUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=21078"
+    },
+    {
+      "title": "Special permit public hearing",
+      "summary": "A public hearing on a special permit application.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-11-10",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Single-project special permit; too narrow and details not given.",
+      "id": "primegov:cambridgema:2880#1",
+      "meetingId": "primegov:cambridgema:2880",
+      "city": "Cambridge",
+      "body": "Planning Board Meeting",
+      "meetingTitle": "Planning Board Meeting",
+      "meetingStart": "2026-11-10T18:30",
+      "location": null,
+      "sourceUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=21078"
+    },
+    {
+      "title": "Board of Zoning Appeal case",
+      "summary": "Planning Board review of a BZA case.",
+      "docket": "",
+      "action": "other",
+      "deadline": "2026-11-10",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Single-address zoning case; too narrow.",
+      "id": "primegov:cambridgema:2880#2",
+      "meetingId": "primegov:cambridgema:2880",
+      "city": "Cambridge",
+      "body": "Planning Board Meeting",
+      "meetingTitle": "Planning Board Meeting",
+      "meetingStart": "2026-11-10T18:30",
+      "location": null,
+      "sourceUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=21078"
+    },
+    {
+      "title": "General business: special permit and AHO review",
+      "summary": "Board deliberation on a special permit and an Affordable Housing Overlay review.",
+      "docket": "",
+      "action": "other",
+      "deadline": "",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "General business items are not open to public testimony.",
+      "id": "primegov:cambridgema:2880#3",
+      "meetingId": "primegov:cambridgema:2880",
+      "city": "Cambridge",
+      "body": "Planning Board Meeting",
+      "meetingTitle": "Planning Board Meeting",
+      "meetingStart": "2026-11-10T18:30",
+      "location": null,
+      "sourceUrl": "https://cambridgema.primegov.com/Portal/MeetingPreview?compiledMeetingDocumentFileId=21078"
+    }
+  ]
+}

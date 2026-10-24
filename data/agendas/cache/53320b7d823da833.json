@@ -1,0 +1,23 @@
+{
+  "items": [
+    {
+      "title": "FY28 Budget Planning Under Continued Economic Pressures",
+      "summary": "The City Council and School Committee will hear a city presentation on economic trends and FY28 budget targets, then discuss it together.",
+      "docket": "COF 2026-132",
+      "action": "budget_input",
+      "deadline": "2026-10-26",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [
+        {
+          "name": "Leo Kamilius",
+          "office": "Strategy Manager, City of Cambridge",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "include": false,
+      "skip_reason": "Roundtable/working meeting with no public comment period listed; not open to public input."
+    }
+  ]
+}

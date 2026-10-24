@@ -1,0 +1,72 @@
+{
+  "items": [
+    {
+      "title": "Garage permit: 22 High Street, Dorchester",
+      "summary": "The Crown on High LLC is applying for a 15-vehicle parking garage permit, with 300 gallons of gas held in vehicle tanks.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-28",
+      "neighborhoods": [
+        "Dorchester"
+      ],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Single-address license application"
+    },
+    {
+      "title": "Garage permit: 7 Dana Ave",
+      "summary": "HHC One Arnold LLC is applying for a 16-vehicle parking garage permit, with 240 gallons of gas held in vehicle tanks.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-28",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Single-address license application"
+    },
+    {
+      "title": "Garage permit: 185 E Street",
+      "summary": "Garrison Equity LLC is applying for a 6-vehicle garage permit, with 120 gallons of gas held in vehicle tanks.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-28",
+      "neighborhoods": [
+        "South Boston"
+      ],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Single-address license application"
+    },
+    {
+      "title": "Garage permit: 212 Old Colony Ave",
+      "summary": "212 Old Colony LLC is applying for an 8-vehicle parking garage permit, with 160 gallons of gas held in vehicle tanks.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-28",
+      "neighborhoods": [
+        "South Boston"
+      ],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Single-address license application"
+    },
+    {
+      "title": "Flammable storage license: 201 Brookline Ave lab",
+      "summary": "ARE-MA No 87 LLC is seeking added flammable and combustible storage for a new lab, including diesel tanks, flammable liquids, solids and gases.",
+      "docket": "",
+      "action": "attend_and_testify",
+      "deadline": "2026-10-28",
+      "neighborhoods": [
+        "Longwood"
+      ],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Single-address license application"
+    }
+  ]
+}

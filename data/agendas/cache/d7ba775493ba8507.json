@@ -1,0 +1,52 @@
+{
+  "items": [
+    {
+      "title": "Case 5468: 14 Elmwood Ave. roofing and gutters",
+      "summary": "Hearing on installing new cedar roof shingles and copper gutters at a designated historic property.",
+      "docket": "Case 5468",
+      "action": "attend_and_testify",
+      "deadline": "2026-11-05",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Single-address historic alteration case; too narrow."
+    },
+    {
+      "title": "Case 5469: 17 South St. exterior renovation",
+      "summary": "Hearing on Harvard's plan to renovate the building exterior, including new and replacement windows and stair railings.",
+      "docket": "Case 5469",
+      "action": "attend_and_testify",
+      "deadline": "2026-11-05",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Single-address historic alteration case; too narrow."
+    },
+    {
+      "title": "Case 5470: 26 Brattle St. new stairs and elevator",
+      "summary": "Hearing on building two new stairs and an elevator with rooftop headhouses at a designated property.",
+      "docket": "Case 5470",
+      "action": "attend_and_testify",
+      "deadline": "2026-11-05",
+      "neighborhoods": [],
+      "citywide": false,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Single-address historic alteration case; too narrow."
+    },
+    {
+      "title": "Director's Report",
+      "summary": "The director gives the October report to the commission.",
+      "docket": "",
+      "action": "other",
+      "deadline": "2026-11-05",
+      "neighborhoods": [],
+      "citywide": true,
+      "contacts": [],
+      "include": false,
+      "skip_reason": "Informational staff report; not open to public input."
+    }
+  ]
+}
