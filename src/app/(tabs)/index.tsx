@@ -53,7 +53,6 @@ export default function ChallengesScreen() {
   const k = width / MAP_W;
 
   // Only animate the bands of the map near the viewport, and nothing while another tab is up.
-  const [viewportHeight, setViewportHeight] = useState(0);
   const bandsKey = useRef('');
   const [activeBands, setActiveBands] = useState<boolean[]>(() => Array.from({ length: BAND_COUNT }, (_, i) => i === 0));
 
@@ -78,7 +77,6 @@ export default function ChallengesScreen() {
 
   const onLayout = (e: LayoutChangeEvent) => {
     const { height } = e.nativeEvent.layout;
-    setViewportHeight(height);
     updateBands(0, height);
   };
 
@@ -101,9 +99,11 @@ export default function ChallengesScreen() {
             bounces={false}
             overScrollMode="never"
             showsVerticalScrollIndicator={false}>
-            <TrailMap k={k} challenges={challenges} progress={progress} focused={focused} />
+            <View>
+              <TrailMap k={k} challenges={challenges} progress={progress} focused={focused} />
+              <DriftingLeaves width={width} k={k} reduced={reduced} />
+            </View>
           </ScrollView>
-          <DriftingLeaves width={width} height={viewportHeight} reduced={reduced} />
         </View>
       </TrailMotionContext.Provider>
     </View>
