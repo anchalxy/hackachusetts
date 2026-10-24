@@ -8,7 +8,8 @@ const KEY = 'profile';
 
 export async function getProfile(): Promise<Profile> {
   const raw = await Storage.getItem(KEY);
-  return raw ? JSON.parse(raw) : SEED_PROFILE;
+  // Merge so profiles saved before a field existed still get its default.
+  return raw ? { ...SEED_PROFILE, ...JSON.parse(raw) } : SEED_PROFILE;
 }
 
 export async function saveProfile(profile: Profile): Promise<void> {

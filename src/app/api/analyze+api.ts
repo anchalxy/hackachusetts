@@ -1,31 +1,80 @@
 import Anthropic from '@anthropic-ai/sdk';
 
 import { REPORTABLE_TOPICS } from '@/constants/311-topics';
-import type { AnalyzeResult } from '@/lib/report-check';
+import type { AnalyzeResult, MatchResult } from '@/lib/report-check';
 
 // Server-only: reads ANTHROPIC_API_KEY from .env.local. Never imported by the app bundle.
 let client: Anthropic | null = null;
 
-const SYSTEM = `You screen photos that Boston residents want to report to 311, the city's non-emergency service line.
+const ANALYZE_SYSTEM = `You screen photos that Boston residents want to report to 311, the city's non-emergency service line, and draft the report.
 
-Decide whether the photo shows a real, visible problem that a city department could act on (for example a pothole, graffiti, a broken streetlight, illegal dumping, an overflowing public trash can, a fallen branch). Selfies, screenshots, memes, indoor scenes, private-property disputes, and photos where no problem is visible are not valid.
+Pick a verdict:
+- "ok": a real, visible problem in a public space that a city department could act on (pothole, faded crosswalk, graffiti, broken streetlight, illegal dumping, overflowing public trash can, fallen branch, blocked sidewalk…).
+- "unclear": the photo might show a fixable problem but it's too dark, blurry, far away or cropped to tell, or no problem is visible. The resident should retake it.
+- "not_city_issue": the photo is clear but isn't something 311 handles: private property (private lots, inside buildings, someone's yard), people or behavior, noise, emergencies, screenshots, selfies, memes.
 
-If it is valid, pick the single best matching topic and write a short, factual description (one or two sentences, under 200 characters) that a city crew could act on. Describe only what is visible; don't guess street names. If it is not valid, explain why in one short, friendly sentence addressed to the resident.`;
+For "ok": pick the single best matching topic; write a short title a resident would say (2–4 words, sentence case, e.g. "Faded crosswalk", "Overflowing bin"); write a factual description a crew could act on (1–2 sentences, under 220 characters, only what's visible, no street names); and rate urgency (High = safety risk now, Medium = should be fixed soon, Low = cosmetic).
+For "unclear" and "not_city_issue": write reason as one specific, friendly sentence to the resident ("This looks like a private parking lot. 311 can only fix things on public streets, sidewalks and parks."), and tip as one short suggestion ("Try getting a little closer, in good light."). Use "Other", "", "Low" for the unused fields.`;
 
-const SCHEMA = {
+const ANALYZE_SCHEMA = {
   type: 'object',
   properties: {
-    is_valid: { type: 'boolean' },
+    verdict: { type: 'string', enum: ['ok', 'unclear', 'not_city_issue'] },
     topic: { type: 'string', enum: [...REPORTABLE_TOPICS] },
+    title: { type: 'string' },
     description: { type: 'string' },
+    urgency: { type: 'string', enum: ['Low', 'Medium', 'High'] },
     reason: { type: 'string' },
+    tip: { type: 'string' },
   },
-  required: ['is_valid', 'topic', 'description', 'reason'],
+  required: ['verdict', 'topic', 'title', 'description', 'urgency', 'reason', 'tip'],
   additionalProperties: false,
 };
 
+// Deliberately loose (DESIGN.md 6d, 3b): only catch text that has nothing to do with the photo.
+const MATCH_SYSTEM = `A resident is sending a 311 report with this photo and description. Decide if the description is plausibly about the problem in the photo. Be generous: short, vague, misspelled or partial descriptions still match. Only answer false for text clearly unrelated to the photo (jokes, spam, a different problem entirely).`;
+
+const MATCH_SCHEMA = {
+  type: 'object',
+  properties: { matches: { type: 'boolean' } },
+  required: ['matches'],
+  additionalProperties: false,
+};
+
+async function ask<T>(system: string, schema: object, image: string, text: string): Promise<T | Response> {
+  const response = await client!.beta.messages.create({
+    model: 'claude-opus-5-5',
+    max_tokens: 4096,
+    betas: ['server-side-fallback-2026-07-01'],
+    fallbacks: 'default',
+    system,
+    output_config: { effort: 'low', format: { type: 'json_schema', schema: schema as Record<string, unknown> } },
+    messages: [
+      {
+        role: 'user',
+        content: [
+          { type: 'image', source: { type: 'base64', media_type: 'image/jpeg', data: image } },
+          { type: 'text', text },
+        ],
+      },
+    ],
+  });
+  if (response.stop_reason === 'refusal') {
+    return Response.json({ error: "We couldn't check this photo. Try another one." }, { status: 422 });
+  }
+  const block = response.content.find((b) => b.type === 'text');
+  if (!block || block.type !== 'text') {
+    return Response.json({ error: 'No result from the photo check' }, { status: 502 });
+  }
+  return JSON.parse(block.text) as T;
+}
+
+/**
+ * POST /api/analyze { image }                 → AnalyzeResult (verdict + AI draft)
+ * POST /api/analyze { image, description }    → MatchResult (loose "does the text fit the photo")
+ */
 export async function POST(request: Request) {
-  const { image } = (await request.json()) as { image?: string };
+  const { image, description } = (await request.json()) as { image?: string; description?: string };
   if (!image) return Response.json({ error: 'Missing image' }, { status: 400 });
 
   const apiKey = process.env.ANTHROPIC_API_KEY;
@@ -38,32 +87,11 @@ export async function POST(request: Request) {
   client ??= new Anthropic({ apiKey });
 
   try {
-    const response = await client.beta.messages.create({
-      model: 'claude-opus-5-5',
-      max_tokens: 4096,
-      betas: ['server-side-fallback-2026-07-01'],
-      fallbacks: 'default',
-      system: SYSTEM,
-      output_config: { effort: 'low', format: { type: 'json_schema', schema: SCHEMA } },
-      messages: [
-        {
-          role: 'user',
-          content: [
-            { type: 'image', source: { type: 'base64', media_type: 'image/jpeg', data: image } },
-            { type: 'text', text: 'Screen this photo for a 311 report.' },
-          ],
-        },
-      ],
-    });
-
-    if (response.stop_reason === 'refusal') {
-      return Response.json({ error: "We couldn't check this photo. Try another one." }, { status: 422 });
-    }
-    const text = response.content.find((block) => block.type === 'text');
-    if (!text || text.type !== 'text') {
-      return Response.json({ error: 'No result from the photo check' }, { status: 502 });
-    }
-    return Response.json(JSON.parse(text.text) as AnalyzeResult);
+    const result =
+      description === undefined
+        ? await ask<AnalyzeResult>(ANALYZE_SYSTEM, ANALYZE_SCHEMA, image, 'Screen this photo and draft the 311 report.')
+        : await ask<MatchResult>(MATCH_SYSTEM, MATCH_SCHEMA, image, `Description: """${description.slice(0, 600)}"""`);
+    return result instanceof Response ? result : Response.json(result);
   } catch (error) {
     if (error instanceof Anthropic.AuthenticationError) {
       return Response.json({ error: 'Server is missing a valid ANTHROPIC_API_KEY' }, { status: 500 });

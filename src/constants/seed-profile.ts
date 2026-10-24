@@ -9,15 +9,23 @@ export type Profile = {
   neighborhood: BostonNeighborhood | null;
   /** Used for dynamic rewards (Plan.md: boosts by neighborhood and age). */
   age: number;
+  /** Tea leaves (the in-app currency). Mocked until points are built. */
+  leaves: number;
+  /** Lifetime counts for the profile header. Mocked until reports and challenges are tracked. */
+  reportCount: number;
+  challengeCount: number;
 };
 
-/** The demo user until we have sign-up. */
+/** The demo user until we have sign-up: Ishaan from the design handoff (design/DESIGN.md §6). */
 export const SEED_PROFILE: Profile = {
-  name: 'Alex Rivera',
-  username: '@alexr',
-  city: 'Boston',
-  neighborhood: 'Allston',
-  age: 25,
+  name: 'Ishaan Tewari',
+  username: 'ishaan.t',
+  city: 'Cambridge',
+  neighborhood: null,
+  age: 20,
+  leaves: 1240,
+  reportCount: 12,
+  challengeCount: 9,
 };
 
 /** "Allston, Boston" or just "Cambridge". */
