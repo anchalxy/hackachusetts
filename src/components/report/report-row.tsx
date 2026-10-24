@@ -12,8 +12,7 @@ import { color, space } from '@/ui/theme';
  * (or the reason, when not approved), status badge on the right, divider inset to the text.
  */
 export function ReportRow({ report, onPress, divider }: { report: MyReport; onPress: () => void; divider: boolean }) {
-  const subtitle =
-    report.status === 'notApproved' && report.reason ? report.reason : `${report.address} · ${ago(report.createdAt)}`;
+  const reason = report.status === 'notApproved' ? report.reason : undefined;
   return (
     <Pressable onPress={onPress} style={({ pressed }) => [styles.row, pressed && styles.pressed]}>
       <IconTile icon={topicInfo(report.topic).icon} />
@@ -22,10 +21,20 @@ export function ReportRow({ report, onPress, divider }: { report: MyReport; onPr
           {report.title}
         </Txt>
         <Txt variant="secondary" numberOfLines={1}>
-          {subtitle}
+          {reason ?? (
+            <>
+              {report.address}
+              <Txt variant="secondary" style={styles.age}>
+                {' '}
+                · {ago(report.createdAt)}
+              </Txt>
+            </>
+          )}
         </Txt>
       </View>
-      <StatusBadge status={report.status} />
+      <View style={styles.badge}>
+        <StatusBadge status={report.status} />
+      </View>
       {divider && <View style={styles.divider} />}
     </Pressable>
   );
@@ -44,6 +53,12 @@ const styles = StyleSheet.create({
   text: {
     flex: 1,
     gap: 2,
+  },
+  badge: {
+    justifyContent: 'center',
+  },
+  age: {
+    color: color.mute,
   },
   divider: {
     position: 'absolute',

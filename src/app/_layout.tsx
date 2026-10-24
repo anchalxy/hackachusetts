@@ -42,6 +42,9 @@ export default function RootLayout() {
               contentStyle: { backgroundColor: color.surface },
             }}
           />
+          {/* Rewards: the crate toss plays full screen; each deal's QR is pushed like a page. */}
+          <Stack.Screen name="crate" options={{ presentation: 'fullScreenModal', animation: 'fade', gestureEnabled: false }} />
+          <Stack.Screen name="deal/[id]" options={{ contentStyle: { backgroundColor: color.bg } }} />
           {/* Each challenge flow is its own native stack, presented as a page sheet. */}
           {FLOWS.map((flow) => (
             <Stack.Screen key={flow} name={`flow/${flow}`} options={{ presentation: 'modal' }} />

@@ -10,6 +10,7 @@ import Colonist from '../../../design/assets/avatars/colonist.svg';
 import { dayNumber, stamp, timelineDates } from '@/components/report/format';
 import { topicInfo } from '@/constants/report-topics';
 import { getMyReport, type MyReport } from '@/lib/my-reports';
+import { photoSource } from '@/lib/report-photo';
 import { Badge, StatusGlyph, Timeline } from '@/ui/components';
 import { Icon } from '@/ui/icon';
 import { Txt } from '@/ui/text';
@@ -62,6 +63,7 @@ export default function ReportPage() {
   if (!report) return <View style={styles.container} />;
 
   const info = topicInfo(report.topic);
+  const photo = photoSource(report.photoUri);
   const card = STATUS_CARD[report.status];
   const final = report.status === 'fixed' || report.status === 'notApproved';
   const nextStep = final ? null : LIFECYCLE[LIFECYCLE.indexOf(report.status) + 1];
@@ -72,8 +74,8 @@ export default function ReportPage() {
       <StatusBar style="light" />
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: insets.bottom + 40 }}>
         <View style={styles.photo}>
-          {report.photoUri ? (
-            <Image source={{ uri: report.photoUri }} style={StyleSheet.absoluteFill} contentFit="cover" />
+          {photo ? (
+            <Image source={{ uri: photo }} style={StyleSheet.absoluteFill} contentFit="cover" />
           ) : (
             <View style={styles.photoFallback}>
               <Icon name={info.icon} size={120} />

@@ -108,7 +108,6 @@ export function PaulDelivers({ height = 190 }: { height?: number }) {
           <Rider width={riderWidth} height={riderHeight} />
         </Animated.View>
       )}
-      <View style={styles.groundLine} />
     </View>
   );
 }
@@ -139,14 +138,5 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: 0,
     top: 10,
-  },
-  groundLine: {
-    position: 'absolute',
-    left: '18%',
-    right: '18%',
-    bottom: 12,
-    height: 8,
-    borderRadius: 4,
-    backgroundColor: 'rgba(30,42,58,0.06)',
   },
 });

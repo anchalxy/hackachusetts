@@ -42,19 +42,27 @@ const RADIUS_LON = 0.0006;
 
 const quote = (value: string) => `'${value.replace(/'/g, "''")}'`;
 
-async function runSql<T>(sql: string): Promise<T[]> {
-  const response = await fetch(
-    `https://data.boston.gov/api/3/action/datastore_search_sql?sql=${encodeURIComponent(sql)}`,
-  );
-  if (!response.ok) throw new Error(`311 search failed: ${response.status}`);
-  const json = await response.json();
-  if (!json.success) throw new Error('311 search was not successful');
-  return json.result.records;
+async function runSql<T>(sql: string, timeoutMs = 10_000): Promise<T[]> {
+  // The city's API is usually quick but sometimes hangs; never let it hold a screen hostage.
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const response = await fetch(
+      `https://data.boston.gov/api/3/action/datastore_search_sql?sql=${encodeURIComponent(sql)}`,
+      { signal: controller.signal },
+    );
+    if (!response.ok) throw new Error(`311 search failed: ${response.status}`);
+    const json = await response.json();
+    if (!json.success) throw new Error('311 search was not successful');
+    return json.result.records;
+  } finally {
+    clearTimeout(timer);
+  }
 }
 
 /**
  * Open 311 cases near a point with the same or a related topic, exact-topic matches first.
- * Used to catch duplicates.
+ * Used to catch duplicates while the user waits, so it gives up quickly.
  */
 export async function findNearbyOpenCases(
   latitude: number,
@@ -70,7 +78,7 @@ export async function findNearbyOpenCases(
       AND latitude::float BETWEEN ${latitude - RADIUS_LAT} AND ${latitude + RADIUS_LAT}
       AND longitude::float BETWEEN ${longitude - RADIUS_LON} AND ${longitude + RADIUS_LON}
     ORDER BY (case_topic = ${quote(topic)}) DESC, open_date DESC
-    LIMIT 5`);
+    LIMIT 5`, 4000);
 }
 
 /** Newest in-progress cases that have coordinates. */

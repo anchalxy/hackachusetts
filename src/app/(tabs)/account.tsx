@@ -6,8 +6,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import Svg, { Path } from 'react-native-svg';
 
 import { BottomTabInset } from '@/constants/theme';
-import { leafBalance, useChallengeProgress } from '@/lib/challenge-progress';
 import { areaLabel, getProfile, SEED_PROFILE, type Profile } from '@/lib/profile';
+import { useLeafBalance } from '@/lib/rewards';
 import { Badge, Button, Card, IconTile, Timeline } from '@/ui/components';
 import { Icon, type IconName } from '@/ui/icon';
 import { Txt } from '@/ui/text';
@@ -93,7 +93,7 @@ const EARLIER: Notification[] = [
 export default function ProfileScreen() {
   const [profile, setProfile] = useState<Profile>(SEED_PROFILE);
   const [thanked, setThanked] = useState(false);
-  const progress = useChallengeProgress();
+  const balance = useLeafBalance();
 
   // Reload on focus: Edit profile and Neighborhood in the menu sheet change it.
   useFocusEffect(
@@ -127,7 +127,7 @@ export default function ProfileScreen() {
             <Pressable onPress={() => router.navigate('/rewards')} style={styles.leafPill}>
               <Icon name="leafy" size={22} />
               <Txt variant="rowLead" style={styles.leafAmount}>
-                {leafBalance(progress, profile.leaves).toLocaleString()}
+                {balance.toLocaleString()}
               </Txt>
             </Pressable>
             <Pressable

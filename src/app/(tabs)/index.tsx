@@ -18,9 +18,10 @@ import { TrailMotionContext, type TrailMotion } from '@/components/trail/motion'
 import { TrailHeader } from '@/components/trail/trail-header';
 import { TrailMap } from '@/components/trail/trail-map';
 import { BottomTabInset } from '@/constants/theme';
-import { leafBalance, streak, useChallengeProgress } from '@/lib/challenge-progress';
+import { streak, useChallengeProgress } from '@/lib/challenge-progress';
 import { getCurrentWeek, loadCurrentWeek, trailOrder } from '@/lib/challenge-week';
-import { areaSlug, getProfile, SEED_PROFILE } from '@/lib/profile';
+import { areaSlug, getProfile } from '@/lib/profile';
+import { useLeafBalance } from '@/lib/rewards';
 
 /** Ground color of the map, so overscroll and the tab-bar padding blend in. */
 const GROUND = '#F2F0E2';
@@ -29,7 +30,7 @@ const MOTION_MARGIN = 300;
 
 export default function ChallengesScreen() {
   const [week, setWeek] = useState(getCurrentWeek);
-  const [baseLeaves, setBaseLeaves] = useState(SEED_PROFILE.leaves);
+  const balance = useLeafBalance();
   const progress = useChallengeProgress();
   const insets = useSafeAreaInsets();
   const { width } = useWindowDimensions();
@@ -40,10 +41,7 @@ export default function ChallengesScreen() {
   useEffect(() => {
     let active = true;
     getProfile()
-      .then((profile) => {
-        if (active) setBaseLeaves(profile.leaves);
-        return loadCurrentWeek(areaSlug(profile));
-      })
+      .then((profile) => loadCurrentWeek(areaSlug(profile)))
       .then((loaded) => active && setWeek(loaded))
       .catch(() => {}); // keep showing what we have
     return () => {
@@ -89,7 +87,7 @@ export default function ChallengesScreen() {
 
   return (
     <View style={styles.screen}>
-      <TrailHeader balance={leafBalance(progress, baseLeaves)} streak={streak(progress)} />
+      <TrailHeader balance={balance} streak={streak(progress)} />
       <TrailMotionContext.Provider value={motion}>
         <View style={styles.body} onLayout={onLayout}>
           <ScrollView

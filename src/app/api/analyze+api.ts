@@ -69,6 +69,11 @@ async function ask<T>(system: string, schema: object, image: string, text: strin
   return JSON.parse(block.text) as T;
 }
 
+/** GET /api/analyze → { ok }. The app calls it when the camera opens so the route is warm by the shot. */
+export function GET() {
+  return Response.json({ ok: Boolean(process.env.ANTHROPIC_API_KEY) });
+}
+
 /**
  * POST /api/analyze { image }                 → AnalyzeResult (verdict + AI draft)
  * POST /api/analyze { image, description }    → MatchResult (loose "does the text fit the photo")
@@ -84,7 +89,8 @@ export async function POST(request: Request) {
       { status: 500 },
     );
   }
-  client ??= new Anthropic({ apiKey });
+  // The app gives up at 20s, so don't keep retrying long after it has.
+  client ??= new Anthropic({ apiKey, timeout: 18_000, maxRetries: 1 });
 
   try {
     const result =
@@ -93,6 +99,7 @@ export async function POST(request: Request) {
         : await ask<MatchResult>(MATCH_SYSTEM, MATCH_SCHEMA, image, `Description: """${description.slice(0, 600)}"""`);
     return result instanceof Response ? result : Response.json(result);
   } catch (error) {
+    console.error('[analyze]', error instanceof Error ? error.message : error);
     if (error instanceof Anthropic.AuthenticationError) {
       return Response.json({ error: 'Server is missing a valid ANTHROPIC_API_KEY' }, { status: 500 });
     }
@@ -102,7 +109,6 @@ export async function POST(request: Request) {
     if (error instanceof Anthropic.APIError) {
       return Response.json({ error: `Photo check failed (${error.status})` }, { status: 502 });
     }
-    console.error('[analyze]', error);
     return Response.json({ error: 'Photo check failed on the server' }, { status: 500 });
   }
 }
