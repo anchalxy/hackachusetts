@@ -284,20 +284,28 @@ export const RiverBridge = memo(function RiverBridge({ bridge, k }: { bridge: Br
 
 // ---------- Drifting leaves (fixed over the viewport, not the map) ----------
 
-type Drift = { kind: keyof typeof LAYOUT.leaves; top: number; dur: number; delay: number; spin: boolean; rtl: boolean };
+type Drift = { kind: keyof typeof LAYOUT.leaves; y: number; dur: number; delay: number; spin: boolean; rtl: boolean };
 
+// Leaves drifting across the map, at fixed map heights (map units) so they scroll with the trail.
 const DRIFTS: Drift[] = [
-  { kind: 'leaf-maple', top: 0.18, dur: 19, delay: -2, spin: true, rtl: false },
-  { kind: 'leaf-oak', top: 0.42, dur: 23, delay: -13, spin: false, rtl: true },
-  { kind: 'leaf-ginkgo', top: 0.63, dur: 17, delay: -7, spin: true, rtl: true },
-  { kind: 'leaf-maple', top: 0.8, dur: 21, delay: -17, spin: false, rtl: false },
+  { kind: 'leaf-maple', y: 160, dur: 19, delay: -2, spin: true, rtl: false },
+  { kind: 'leaf-oak', y: 520, dur: 23, delay: -13, spin: false, rtl: true },
+  { kind: 'leaf-ginkgo', y: 860, dur: 17, delay: -7, spin: true, rtl: true },
+  { kind: 'leaf-maple', y: 1240, dur: 21, delay: -17, spin: false, rtl: false },
+  { kind: 'leaf-oak', y: 1600, dur: 20, delay: -5, spin: true, rtl: true },
+  { kind: 'leaf-ginkgo', y: 1980, dur: 22, delay: -11, spin: false, rtl: false },
+  { kind: 'leaf-maple', y: 2380, dur: 18, delay: -15, spin: true, rtl: true },
+  { kind: 'leaf-oak', y: 2760, dur: 23, delay: -3, spin: false, rtl: false },
 ];
 
-function driftKeyframes(width: number, height: number, drift: Drift) {
+/** How far a leaf sinks while crossing, in map units. */
+const DRIFT_FALL = 90;
+
+function driftKeyframes(width: number, k: number, drift: Drift) {
   const from = drift.rtl ? width + 30 : -30;
   const to = drift.rtl ? -30 : width + 30;
   const at = (t: number) => from + (to - from) * t;
-  const fall = height * 0.12;
+  const fall = DRIFT_FALL * k;
   const turn = (t: number) => (drift.spin ? { rotate: `${Math.round(t * 540)}deg` } : { rotateY: `${Math.round(t * 720)}deg` });
   return css.keyframes({
     '0%': { transform: [{ translateX: at(0) }, { translateY: 0 }, turn(0)] },
@@ -308,27 +316,31 @@ function driftKeyframes(width: number, height: number, drift: Drift) {
   });
 }
 
-function DriftingLeaf({ drift, width, height }: { drift: Drift; width: number; height: number }) {
-  const keyframes = useMemo(() => driftKeyframes(width, height, drift), [width, height, drift]);
-  const anim = useLoop(-1, keyframes, {
+function DriftingLeaf({ drift, width, k }: { drift: Drift; width: number; k: number }) {
+  const keyframes = useMemo(() => driftKeyframes(width, k, drift), [width, k, drift]);
+  // Tied to its map band, so it only animates near the viewport like the rest of the scenery.
+  const anim = useLoop(bandOf(drift.y), keyframes, {
     animationDuration: `${drift.dur}s`,
     animationTimingFunction: 'linear',
     animationDelay: `${drift.delay}s`,
   });
   return (
-    <Animated.View style={[styles.abs, styles.drift, { top: height * drift.top }, anim]}>
+    <Animated.View style={[styles.abs, styles.drift, { top: drift.y * k }, anim]}>
       <SvgXml xml={box(LAYOUT.leaves[drift.kind])} width={18} height={18} />
     </Animated.View>
   );
 }
 
-/** Four leaves crossing the screen in 17–23 s. Hidden entirely under Reduce Motion. */
-export function DriftingLeaves({ width, height, reduced }: { width: number; height: number; reduced: boolean }) {
-  if (reduced || width === 0 || height === 0) return null;
+/**
+ * Leaves crossing the map in 17–23 s. Rendered inside the scroll content (map coordinates), so
+ * they move with the trail instead of hovering over the screen. Hidden under Reduce Motion.
+ */
+export function DriftingLeaves({ width, k, reduced }: { width: number; k: number; reduced: boolean }) {
+  if (reduced || width === 0) return null;
   return (
     <View pointerEvents="none" style={StyleSheet.absoluteFill}>
       {DRIFTS.map((drift, i) => (
-        <DriftingLeaf key={i} drift={drift} width={width} height={height} />
+        <DriftingLeaf key={i} drift={drift} width={width} k={k} />
       ))}
     </View>
   );
