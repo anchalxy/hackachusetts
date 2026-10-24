@@ -1,6 +1,18 @@
+import { Asset } from 'expo-asset';
 import { Directory, File, Paths } from 'expo-file-system';
 import { ImageManipulator, SaveFormat } from 'expo-image-manipulator';
 import { Platform } from 'react-native';
+
+/** Bundled photos for the dev-seeded example reports, saved as `example:<name>`. */
+const EXAMPLES = {
+  streetlight: require('@/assets/images/report-examples/streetlight.jpg'),
+  trash: require('@/assets/images/report-examples/trash.jpg'),
+  crosswalk: require('@/assets/images/report-examples/crosswalk.jpg'),
+  graffiti: require('@/assets/images/report-examples/graffiti.jpg'),
+  pothole: require('@/assets/images/report-examples/pothole.jpg'),
+  sidewalk: require('@/assets/images/report-examples/sidewalk.jpg'),
+};
+export type ExamplePhoto = keyof typeof EXAMPLES;
 
 /** Long edge of the photo we check and keep. Plenty for a crew to see the problem, quick to upload. */
 const MAX_EDGE = 1280;
@@ -41,6 +53,10 @@ export async function preparePhoto(shot: { uri: string; width: number; height: n
  */
 export function photoSource(stored: string | undefined): string | undefined {
   if (!stored) return undefined;
+  if (stored.startsWith('example:')) {
+    const asset = EXAMPLES[stored.slice('example:'.length) as ExamplePhoto];
+    return asset ? Asset.fromModule(asset).uri : undefined;
+  }
   if (Platform.OS === 'web' || /^(data|https?|blob):/.test(stored)) return stored;
   // Reports from before this kept an absolute file:// URI to a file at the documents root.
   const relative = stored.startsWith('file:') ? stored.split('/').pop()! : stored;

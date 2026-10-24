@@ -1,17 +1,18 @@
 import { type ReactNode } from 'react';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Button } from '@/ui/components';
 import { Icon } from '@/ui/icon';
 import { Txt } from '@/ui/text';
-import { color, radius, space } from '@/ui/theme';
+import { makeStyles, radius, space } from '@/ui/theme';
 
 import Pumpkin from '../../../../design/assets/trail/scenery/pumpkin.svg';
 import type { Project } from './ballot';
 
 /** Icon tile for a project row (the mockup uses the trail pumpkin for fresh food). */
 export function ProjectIcon({ icon, size = 40 }: { icon: Project['icon']; size?: number }) {
+  const styles = useStyles();
   const glyph = Math.round(size * 0.66);
   return (
     <View style={[styles.tile, { width: size, height: size }]}>
@@ -38,9 +39,10 @@ export function BallotScreen({
   scrollEnabled?: boolean;
 }) {
   const insets = useSafeAreaInsets();
+  const styles = useStyles();
   return (
     <View style={styles.screen}>
-      <ScrollView
+      <ScrollView alwaysBounceVertical={false}
         contentInsetAdjustmentBehavior="automatic"
         automaticallyAdjustKeyboardInsets
         keyboardDismissMode="interactive"
@@ -61,7 +63,7 @@ export function BallotScreen({
   );
 }
 
-const styles = StyleSheet.create({
+const useStyles = makeStyles((color) => ({
   tile: {
     borderRadius: radius.tile,
     backgroundColor: color.tile,
@@ -87,4 +89,4 @@ const styles = StyleSheet.create({
   footnote: {
     textAlign: 'center',
   },
-});
+}));

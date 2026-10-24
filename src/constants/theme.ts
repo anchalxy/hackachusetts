@@ -61,5 +61,6 @@ export const Spacing = {
   six: 64,
 } as const;
 
-export const BottomTabInset = Platform.select({ ios: 50, android: 80 }) ?? 0;
+/** Height of the floating tab bar (design tokens tabBar.height); it sits on the bottom safe-area inset. */
+export const BottomTabInset = 64;
 export const MaxContentWidth = 800;

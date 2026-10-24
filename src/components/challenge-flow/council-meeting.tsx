@@ -1,10 +1,10 @@
 import { Host, Picker, Text } from '@expo/ui/swift-ui';
 import { controlSize, pickerStyle, tag } from '@expo/ui/swift-ui/modifiers';
-import { StyleSheet, TextInput, type TextInputProps } from 'react-native';
+import { TextInput, type TextInputProps } from 'react-native';
 
 import { selectionHaptic } from '@/components/challenge-flow/flow';
 import type { IconName } from '@/ui/icon';
-import { color, font } from '@/ui/theme';
+import { font, makeStyles, useColors, useScheme } from '@/ui/theme';
 
 /** Council meeting flow: the Oct 28 meeting, its featured dockets and the shared controls. */
 
@@ -80,8 +80,10 @@ export function SegmentedPicker<T extends string>({
   onChange: (value: T) => void;
   label: string;
 }) {
+  const styles = useStyles();
+  const scheme = useScheme();
   return (
-    <Host matchContents={{ vertical: true }} colorScheme="light" style={styles.host}>
+    <Host matchContents={{ vertical: true }} colorScheme={scheme} style={styles.host}>
       <Picker
         label={label}
         selection={selection}
@@ -103,6 +105,8 @@ export function SegmentedPicker<T extends string>({
 
 /** Multiline white card for notes. */
 export function NotesInput(props: TextInputProps) {
+  const styles = useStyles();
+  const color = useColors();
   return (
     <TextInput
       multiline
@@ -116,7 +120,7 @@ export function NotesInput(props: TextInputProps) {
   );
 }
 
-const styles = StyleSheet.create({
+const useStyles = makeStyles((color) => ({
   host: {
     alignSelf: 'stretch',
   },
@@ -134,4 +138,4 @@ const styles = StyleSheet.create({
     lineHeight: 21,
     color: color.ink,
   },
-});
+}));

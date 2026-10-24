@@ -18,7 +18,7 @@ import { CheckDot, OptionRow, selectionHaptic } from '@/components/challenge-flo
 import { formatSeconds, OBSTACLES, type Obstacle } from '@/components/cummins-walk-audit/audit';
 import { Icon, type IconName } from '@/ui/icon';
 import { Txt } from '@/ui/text';
-import { color, font, radius } from '@/ui/theme';
+import { font, makeStyles, radius, useColors } from '@/ui/theme';
 
 // ─── Walk signal stopwatch ──────────────────────────────────────────────────────────────
 
@@ -29,6 +29,7 @@ type Phase = 'idle' | 'running' | 'done';
  * sign comes on, stop when it starts flashing. Reports the final time in seconds.
  */
 export function WalkSignalTimer({ onTimed }: { onTimed: (seconds: number | null) => void }) {
+  const styles = useStyles();
   const [phase, setPhase] = useState<Phase>('idle');
   const [elapsed, setElapsed] = useState(0);
   const startedAt = useRef(0);
@@ -77,6 +78,7 @@ export function WalkSignalTimer({ onTimed }: { onTimed: (seconds: number | null)
 }
 
 function TimerButton({ label, running, onPress }: { label: string; running: boolean; onPress: () => void }) {
+  const styles = useStyles();
   const reduceMotion = useReducedMotion();
   const pulse = useSharedValue(1);
 
@@ -111,6 +113,7 @@ function TimerButton({ label, running, onPress }: { label: string; running: bool
 
 /** 2×2 leading-radio grid. Multi-select, except "Nothing" clears the rest. */
 export function ObstacleGrid({ value, onChange }: { value: Obstacle[]; onChange: (next: Obstacle[]) => void }) {
+  const styles = useStyles();
   const toggle = (id: Obstacle) => {
     if (id === 'nothing') return onChange(value.includes('nothing') ? [] : ['nothing']);
     const rest = value.filter((o) => o !== 'nothing');
@@ -155,6 +158,7 @@ export function RatingRow({
   onChange: (value: number) => void;
   last?: boolean;
 }) {
+  const styles = useStyles();
   return (
     <View style={[styles.ratingRow, !last && styles.ratingDivider]}>
       <View style={styles.ratingIcon}>
@@ -215,6 +219,8 @@ export function PhotoSlot({
   uri: string | null;
   onChange: (uri: string | null) => void;
 }) {
+  const styles = useStyles();
+  const color = useColors();
   const pick = async (source: 'camera' | 'library') => {
     try {
       const next = source === 'camera' ? await takePhoto() : await fromLibrary();
@@ -280,6 +286,8 @@ export function PhotoSlot({
 
 /** Approved badge: "✓ Both photos are on Cummins Hwy". */
 export function CheckedBadge({ label }: { label: string }) {
+  const styles = useStyles();
+  const color = useColors();
   return (
     <View style={styles.badge}>
       <SymbolView name="checkmark" size={11} weight="bold" tintColor={color.badge.approved.fg} />
@@ -290,7 +298,7 @@ export function CheckedBadge({ label }: { label: string }) {
   );
 }
 
-const styles = StyleSheet.create({
+const useStyles = makeStyles((color, dark) => ({
   card: {
     padding: 16,
     gap: 6,
@@ -392,7 +400,7 @@ const styles = StyleSheet.create({
   },
   dotOff: {
     borderWidth: 1,
-    borderColor: '#DCD5C8',
+    borderColor: dark ? '#3A434F' : '#DCD5C8',
     backgroundColor: color.surface,
   },
   dotText: {
@@ -401,7 +409,7 @@ const styles = StyleSheet.create({
     fontVariant: ['tabular-nums'],
   },
   dotTextOn: {
-    color: color.surface,
+    color: color.onPrimary,
   },
   dotTextOff: {
     fontFamily: font.bodyMedium,
@@ -422,7 +430,7 @@ const styles = StyleSheet.create({
   photoEmpty: {
     borderStyle: 'dashed',
     borderWidth: 1.5,
-    borderColor: '#D9D1C1',
+    borderColor: dark ? '#3A434F' : '#D9D1C1',
   },
   photoPrompt: {
     flex: 1,
@@ -454,4 +462,4 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     backgroundColor: color.badge.approved.bg,
   },
-});
+}));

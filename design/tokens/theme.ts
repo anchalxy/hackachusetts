@@ -10,6 +10,7 @@ export const theme = {
     "slate": "#5B6573",
     "mute": "#8A919B",
     "primary": "#2F6F73",
+    "onPrimary": "#FFFFFF",
     "brick": "#C2533F",
     "gold": "#B8892E",
     "leaf": {
@@ -31,6 +32,10 @@ export const theme = {
       "urgent": {
         "bg": "#F8E4DE",
         "fg": "#9C3F2F"
+      },
+      "ai": {
+        "bg": "#F3EFE6",
+        "fg": "#5B6573"
       },
       "reward": {
         "bg": "#EEF6EF",

@@ -1,6 +1,7 @@
 import { router, Stack, useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
 
+import { CalendarRow, ratCheckInEvent } from '@/components/challenge-flow/calendar';
 import { SentScreen } from '@/components/challenge-flow/flow';
 import { FALLBACK_SPOT, RAT_PATROL_ID } from '@/components/challenge-flow/rat-patrol';
 
@@ -40,6 +41,7 @@ export default function RatPatrolSent() {
         pendingCheckIn
         data={data}
         leavesSubtitle="+10 more at your 7-day check-in"
+        extraRows={<CalendarRow title="Put the check-in on your calendar" event={ratCheckInEvent(data)} last />}
         link={{
           label: 'Preview the day-7 check-in',
           onPress: () => router.push({ pathname: '/flow/rat-patrol/check-in', params: { from: 'sent' } }),

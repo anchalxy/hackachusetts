@@ -22,11 +22,12 @@ import {
 import { completeStop, useChallengeProgress } from '@/lib/challenge-progress';
 import { Icon } from '@/ui/icon';
 import { Txt } from '@/ui/text';
-import { color, font } from '@/ui/theme';
+import { font, makeStyles } from '@/ui/theme';
 
 type CheckIn = { outcome: string; photo?: string };
 
 export default function RatPatrolCheckIn() {
+  const styles = useStyles();
   // Pushed from Sent ("Preview the day-7 check-in") it gets a back chevron; opened from the
   // challenge sheet it's the first screen, so it closes instead.
   const { from } = useLocalSearchParams<{ from?: string }>();
@@ -118,7 +119,7 @@ export default function RatPatrolCheckIn() {
   );
 }
 
-const styles = StyleSheet.create({
+const useStyles = makeStyles((color, dark) => ({
   options: {
     gap: 10,
   },
@@ -144,7 +145,7 @@ const styles = StyleSheet.create({
   },
   photoEmpty: {
     borderStyle: 'dashed',
-    borderColor: '#D9D1C2',
+    borderColor: dark ? '#3A434F' : '#D9D1C2',
     backgroundColor: color.surface,
   },
   addPhoto: {
@@ -167,4 +168,4 @@ const styles = StyleSheet.create({
   pressed: {
     opacity: 0.8,
   },
-});
+}));

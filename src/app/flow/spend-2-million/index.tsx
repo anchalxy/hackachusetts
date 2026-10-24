@@ -1,6 +1,6 @@
 import { router } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
-import { Pressable, StyleSheet, View, type LayoutChangeEvent } from 'react-native';
+import { Pressable, View, type LayoutChangeEvent } from 'react-native';
 import ReanimatedSwipeable, {
   type SwipeableMethods,
 } from 'react-native-gesture-handler/ReanimatedSwipeable';
@@ -22,10 +22,11 @@ import {
 import { BallotScreen, ProjectIcon } from '@/components/challenge-flow/spend-2-million/parts';
 import { Badge, Button, StatusGlyph } from '@/ui/components';
 import { Txt } from '@/ui/text';
-import { color, font, radius, space } from '@/ui/theme';
+import { font, makeStyles, radius, space, useColors, useScheme } from '@/ui/theme';
 
 /** Step 1 of 2: build a ballot from real projects under the four rules. */
 export default function BuildBallot() {
+  const styles = useStyles();
   // Ids in the order they were added. Nothing is pre-selected.
   const [selected, setSelected] = useState<string[]>([]);
   // Every removal, in order: what the city wants to learn is what people cut first.
@@ -78,6 +79,8 @@ export default function BuildBallot() {
 }
 
 function SummaryCard({ total, rules }: { total: number; rules: Rule[] }) {
+  const styles = useStyles();
+  const color = useColors();
   const over = total > BUDGET;
   const [trackWidth, setTrackWidth] = useState(0);
   const fill = useSharedValue(0);
@@ -119,6 +122,9 @@ function SummaryCard({ total, rules }: { total: number; rules: Rule[] }) {
 }
 
 function RuleItem({ rule }: { rule: Rule }) {
+  const styles = useStyles();
+  const color = useColors();
+  const dark = useScheme() === 'dark';
   const tone = rule.met ? color.badge.approved.fg : rule.broken ? color.brick : color.slate;
   return (
     <View
@@ -128,7 +134,7 @@ function RuleItem({ rule }: { rule: Rule }) {
       {rule.met ? (
         <CheckDot size={20} />
       ) : (
-        <View style={[styles.ruleX, { backgroundColor: rule.broken ? color.brick : '#C9CED6' }]}>
+        <View style={[styles.ruleX, { backgroundColor: rule.broken ? color.brick : dark ? '#4A5360' : '#C9CED6' }]}>
           <StatusGlyph status="notApproved" size={10} />
         </View>
       )}
@@ -156,6 +162,8 @@ function ProjectRow({
   onAdd: () => void;
   onRemove: () => void;
 }) {
+  const styles = useStyles();
+  const color = useColors();
   const swipeable = useRef<SwipeableMethods>(null);
   return (
     <ReanimatedSwipeable
@@ -203,7 +211,7 @@ function ProjectRow({
   );
 }
 
-const styles = StyleSheet.create({
+const useStyles = makeStyles((color, dark) => ({
   sticky: {
     backgroundColor: color.bg,
     paddingBottom: 6,
@@ -300,14 +308,17 @@ const styles = StyleSheet.create({
   },
   removeAction: {
     width: 96,
-    backgroundColor: color.brick,
+    // Dark mode's brick is lightened for text; the swipe fill keeps the deeper one so white reads.
+    backgroundColor: dark ? '#C2533F' : color.brick,
     alignItems: 'center',
     justifyContent: 'center',
   },
   removeText: {
     fontSize: 14,
+    // White on the brick swipe action in both schemes (the button variant's onPrimary is for teal).
+    color: '#FFFFFF',
   },
   pressed: {
     opacity: 0.8,
   },
-});
+}));

@@ -16,6 +16,12 @@ Pick a verdict:
 For "ok": pick the single best matching topic; write a short title a resident would say (2–4 words, sentence case, e.g. "Faded crosswalk", "Overflowing bin"); write a factual description a crew could act on (1–2 sentences, under 220 characters, only what's visible, no street names); and rate urgency (High = safety risk now, Medium = should be fixed soon, Low = cosmetic).
 For "unclear" and "not_city_issue": write reason as one specific, friendly sentence to the resident ("This looks like a private parking lot. 311 can only fix things on public streets, sidewalks and parks."), and tip as one short suggestion ("Try getting a little closer, in good light."). Use "Other", "", "Low" for the unused fields.`;
 
+// Testing only (REPORT_TEST_DRINKS=1 in .env): a photo of any drink counts as a valid report,
+// so the full flow can be tried indoors.
+const TEST_DRINKS = `
+
+TESTING MODE: treat any photo that shows a drink (a can, bottle, cup, glass, mug or carton) as "ok", even indoors or on private property. Use the topic "Litter & Debris", title it after the drink (e.g. "Abandoned soda can"), describe what's visible as if it were left in a public space, and rate urgency Low.`;
+
 const ANALYZE_SCHEMA = {
   type: 'object',
   properties: {
@@ -95,7 +101,12 @@ export async function POST(request: Request) {
   try {
     const result =
       description === undefined
-        ? await ask<AnalyzeResult>(ANALYZE_SYSTEM, ANALYZE_SCHEMA, image, 'Screen this photo and draft the 311 report.')
+        ? await ask<AnalyzeResult>(
+            process.env.REPORT_TEST_DRINKS === '1' ? ANALYZE_SYSTEM + TEST_DRINKS : ANALYZE_SYSTEM,
+            ANALYZE_SCHEMA,
+            image,
+            'Screen this photo and draft the 311 report.',
+          )
         : await ask<MatchResult>(MATCH_SYSTEM, MATCH_SCHEMA, image, `Description: """${description.slice(0, 600)}"""`);
     return result instanceof Response ? result : Response.json(result);
   } catch (error) {

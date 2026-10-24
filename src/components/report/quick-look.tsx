@@ -1,5 +1,5 @@
 import { Image } from 'expo-image';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 
 import { clock, day, sentLabel, timelineDates } from '@/components/report/format';
@@ -9,7 +9,7 @@ import { photoSource } from '@/lib/report-photo';
 import { Button, IconTile, Timeline } from '@/ui/components';
 import { Icon } from '@/ui/icon';
 import { Txt } from '@/ui/text';
-import { color, font, radius } from '@/ui/theme';
+import { font, makeStyles, radius, useColors } from '@/ui/theme';
 
 /** Tap a pin → this replaces the peek content (DESIGN.md 6c "Quick look"). */
 export function QuickLook({
@@ -21,6 +21,7 @@ export function QuickLook({
   onClose: () => void;
   onViewReport: () => void;
 }) {
+  const styles = useStyles();
   const latest = [...report.updates].reverse().find((u) => u.kind === 'city');
   const photo = photoSource(report.photoUri);
   return (
@@ -77,6 +78,8 @@ export function QuickLook({
 }
 
 export function CloseButton({ onPress, light, size = 32 }: { onPress: () => void; light?: boolean; size?: number }) {
+  const styles = useStyles();
+  const color = useColors();
   return (
     <Pressable
       onPress={onPress}
@@ -89,7 +92,7 @@ export function CloseButton({ onPress, light, size = 32 }: { onPress: () => void
   );
 }
 
-const styles = StyleSheet.create({
+const useStyles = makeStyles((color) => ({
   header: {
     flexDirection: 'row',
     gap: 16,
@@ -152,4 +155,4 @@ const styles = StyleSheet.create({
   closeLight: {
     backgroundColor: 'rgba(255,255,255,0.18)',
   },
-});
+}));

@@ -14,11 +14,13 @@ import {
 import { locateSpot, SIGN_TYPES, takeSpotPhoto } from '@/components/challenge-flow/rat-patrol';
 import { Icon } from '@/ui/icon';
 import { Txt } from '@/ui/text';
-import { color } from '@/ui/theme';
+import { makeStyles, useColors } from '@/ui/theme';
 
 type Spot = { street: string; neighborhood: string };
 
 export default function RatPatrolSpot() {
+  const styles = useStyles();
+  const color = useColors();
   const [type, setType] = useState<string | null>(null);
   const [photo, setPhoto] = useState<string | null>(null);
   const [spot, setSpot] = useState<Spot | null>(null);
@@ -115,7 +117,7 @@ export default function RatPatrolSpot() {
   );
 }
 
-const styles = StyleSheet.create({
+const useStyles = makeStyles((color, dark) => ({
   photoRow: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -137,7 +139,7 @@ const styles = StyleSheet.create({
   },
   photoEmpty: {
     borderStyle: 'dashed',
-    borderColor: '#D9D1C2',
+    borderColor: dark ? '#3A434F' : '#D9D1C2',
     backgroundColor: color.surface,
   },
   addPhoto: {
@@ -164,4 +166,4 @@ const styles = StyleSheet.create({
   pressed: {
     opacity: 0.8,
   },
-});
+}));

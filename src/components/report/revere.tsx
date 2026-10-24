@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { StyleSheet, useWindowDimensions, View } from 'react-native';
+import { useWindowDimensions, View } from 'react-native';
 import Animated, {
   Easing,
   useAnimatedStyle,
@@ -15,7 +15,7 @@ import FlagB from '../../../design/assets/mascots/flag-311-planted-b.svg';
 import GallopA from '../../../design/assets/mascots/revere-flag-gallop-a.svg';
 import GallopB from '../../../design/assets/mascots/revere-flag-gallop-b.svg';
 import Inspect from '../../../design/assets/mascots/revere-inspect.svg';
-import { t } from '@/ui/theme';
+import { makeStyles, t } from '@/ui/theme';
 
 const { revereCrossMs, gallopLegSwapMs, flagHoldMs, flagLowerMs, flagPop } = t.motion;
 
@@ -32,6 +32,7 @@ function useFrame(ms: number, running = true) {
 
 /** Paul standing still, peering through his magnifying glass, with a gentle 1s bob (DESIGN.md 6d, step 2). */
 export function PaulInspecting({ width = 200 }: { width?: number }) {
+  const styles = useStyles();
   const bob = useSharedValue(0);
   useEffect(() => {
     bob.value = withRepeat(withTiming(-3, { duration: 500, easing: Easing.inOut(Easing.quad) }), -1, true);
@@ -48,17 +49,38 @@ export function PaulInspecting({ width = 200 }: { width?: number }) {
   );
 }
 
+/** One ride plus the flag lowering, then a short pause before Paul rides again. */
+const LOOP_MS = Math.max(revereCrossMs, revereCrossMs / 2 + 360 + flagHoldMs + flagLowerMs) + 700;
+
 /**
- * "On its way to 311!" (DESIGN.md 6d, step 4): Paul gallops left→right across the top in ~3.3s,
- * legs alternating every 120ms with a ±3px bob. As he passes the middle, a big planted 311 flag
- * pops up (0 → 1.15 → 1 at 1.7×), waves for ~1s, then lowers into the ground over ~0.8s.
+ * "On its way to 311!" (DESIGN.md 6d, step 4), looping: each pass remounts the ride so it
+ * replays from the start. The stage runs edge to edge, so pass `gutter` to undo the screen's padding.
  */
-export function PaulDelivers({ height = 190 }: { height?: number }) {
+export function PaulDelivers({ height = 210, gutter = 0 }: { height?: number; gutter?: number }) {
+  const [pass, setPass] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setPass((n) => n + 1), LOOP_MS);
+    return () => clearInterval(id);
+  }, []);
+  return (
+    <View style={{ marginHorizontal: -gutter }}>
+      <PaulRide key={pass} height={height} />
+    </View>
+  );
+}
+
+/**
+ * One pass: Paul gallops left→right in ~3.3s, legs alternating every 120ms with a ±3px bob. As he
+ * passes the middle, a big planted 311 flag pops up (0 → 1.15 → 1 at 1.7×), waves for ~1s, then
+ * lowers into the ground over ~0.8s.
+ */
+function PaulRide({ height }: { height: number }) {
+  const styles = useStyles();
   const { width: screenWidth } = useWindowDimensions();
   const riderWidth = 150;
-  const riderHeight = (riderWidth * 170) / 220;
+  const riderHeight = (riderWidth * 202) / 220;
   const flagWidth = 60 * flagPop.size;
-  const flagHeight = (flagWidth * 130) / 140;
+  const flagHeight = (flagWidth * 158) / 140;
 
   const [riding, setRiding] = useState(true);
   const [flagUp, setFlagUp] = useState(false);
@@ -98,8 +120,8 @@ export function PaulDelivers({ height = 190 }: { height?: number }) {
   return (
     <View style={[styles.stage, { height }]}>
       {/* The flag sinks behind the ground line, so clip it there. */}
-      <View style={[styles.flagClip, { height: height - 18 }]}>
-        <Animated.View style={[styles.flag, { width: flagWidth, height: flagHeight, bottom: 0 }, flagStyle]}>
+      <View style={[styles.flagClip, { height: height - 12 }]}>
+        <Animated.View style={[styles.flag, { width: flagWidth, height: flagHeight, bottom: 10 }, flagStyle]}>
           <Flag width={flagWidth} height={flagHeight} />
         </Animated.View>
       </View>
@@ -112,11 +134,11 @@ export function PaulDelivers({ height = 190 }: { height?: number }) {
   );
 }
 
-const styles = StyleSheet.create({
+const useStyles = makeStyles((_color, dark) => ({
   ground: {
     height: 10,
     borderRadius: 5,
-    backgroundColor: 'rgba(30,42,58,0.07)',
+    backgroundColor: dark ? 'rgba(0,0,0,0.3)' : 'rgba(30,42,58,0.07)',
     marginTop: -8,
   },
   stage: {
@@ -137,6 +159,6 @@ const styles = StyleSheet.create({
   rider: {
     position: 'absolute',
     left: 0,
-    top: 10,
+    bottom: 22,
   },
-});
+}));

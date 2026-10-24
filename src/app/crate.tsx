@@ -16,12 +16,11 @@ import Animated, {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Circle, Defs, Path, RadialGradient, Stop } from 'react-native-svg';
 
-import { getChallengeProgress } from '@/lib/challenge-progress';
-import { getRewards, leafCounter, crateState, openCrate, partner, type Deal } from '@/lib/rewards';
+import { currentCrate, openCrate, partner, type Deal } from '@/lib/rewards';
 import { Button } from '@/ui/components';
 import { Icon } from '@/ui/icon';
 import { Txt } from '@/ui/text';
-import { color, font, t } from '@/ui/theme';
+import { font, makeStyles, t, useColors } from '@/ui/theme';
 
 import CrateClosed from '../../design/assets/rewards/crate-closed.svg';
 import CrateFull from '../../design/assets/rewards/crate-fill-100.svg';
@@ -36,6 +35,13 @@ import Ship from '../../design/assets/rewards/ship-beaver.svg';
 import World from '@/components/rewards/art/world.svg';
 
 const { crateToss: toss, crateOpen: open } = t.motion;
+/** Opening timeline in ms from the tap (see tapCrate). */
+const FAST_OPEN = { rise: 520, lidAt: 480, lidMs: 380, cardAt: 700, cardMs: 520, buttonAt: 1050 };
+
+const haptic = {
+  impact: (style: keyof typeof Haptics.ImpactFeedbackStyle) => Haptics.impactAsync(Haptics.ImpactFeedbackStyle[style]).catch(() => {}),
+  success: () => Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success).catch(() => {}),
+};
 const WORLD_H = 1874;
 const cubic = Easing.inOut(Easing.cubic);
 const outCubic = Easing.out(Easing.cubic);
@@ -50,6 +56,8 @@ type Phase = 'lift' | 'throw' | 'dive' | 'landed' | 'opening' | 'revealed';
 export default function CrateScreen() {
   const { width: W, height: H } = useWindowDimensions();
   const insets = useSafeAreaInsets();
+  const styles = useStyles();
+  const color = useColors();
   const k = W / 402;
   const cameraEnd = -(WORLD_H * k - H);
   // Where things sit on the sea floor and at the reveal, in screen px.
@@ -78,6 +86,8 @@ export default function CrateScreen() {
   const sparkles = useSharedValue(0);
   const title = useSharedValue(0);
   const squash = useSharedValue(1);
+  const pop = useSharedValue(1);
+  const flash = useSharedValue(0);
   const lift = useSharedValue(0);
   const bloom = useSharedValue(0);
   const burst = useSharedValue(0);
@@ -90,58 +100,57 @@ export default function CrateScreen() {
 
   // A deep link with no full crate has nothing to toss.
   useEffect(() => {
-    const crate = crateState(leafCounter(getChallengeProgress(), getRewards()), getRewards().cratesOpened);
-    if (!crate.full) router.back();
+    if (!currentCrate().full) router.back();
   }, []);
 
   useEffect(() => {
     caption.value = withTiming(1, { duration: 400 });
-    // Heave ho: a little lift-and-hold on the crate before the throw.
-    crateY.value = withSequence(withTiming(360, { duration: toss.liftMs, easing: cubic }), withTiming(364, { duration: 500 }));
-    later(toss.liftMs + 500, startThrow);
+    // Heave ho: Paul lifts the crate, then holds it up (a gentle strain) until you tap to throw.
+    crateY.value = withSequence(
+      withTiming(360, { duration: toss.liftMs, easing: cubic }),
+      withRepeat(withTiming(365, { duration: 650, easing: Easing.inOut(Easing.sin) }), -1, true),
+    );
     const list = timers.current;
     return () => list.forEach(clearTimeout);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function startThrow() {
+    if (phase !== 'lift') return;
     setPhase('throw');
+    haptic.impact('Medium');
     // Arc up and right off the bow, then down into the water just past it.
-    crateX.value = withTiming(320, { duration: toss.arcMs, easing: Easing.linear });
-    crateY.value = withSequence(
+    crateX.set(withTiming(320, { duration: toss.arcMs, easing: Easing.linear }));
+    crateY.set(withSequence(
       withTiming(280, { duration: toss.arcMs * 0.45, easing: Easing.out(Easing.quad) }),
       withTiming(590, { duration: toss.arcMs * 0.55, easing: Easing.in(Easing.quad) }),
-    );
-    crateRot.value = withTiming(200, { duration: toss.arcMs, easing: Easing.linear });
-    crateScale.value = withTiming(0.42, { duration: toss.arcMs });
+    ));
+    crateRot.set(withTiming(200, { duration: toss.arcMs, easing: Easing.linear }));
+    crateScale.set(withTiming(0.42, { duration: toss.arcMs }));
     later(toss.arcMs, startDive);
   }
 
   function startDive() {
     setPhase('dive');
-    splash.value = withTiming(1, { duration: toss.splashMs, easing: outCubic });
-    caption.value = withTiming(0, { duration: 300 });
-    under.value = withDelay(toss.splashMs, withTiming(1, { duration: 600 }));
+    haptic.impact('Rigid');
+    splash.set(withTiming(1, { duration: toss.splashMs, easing: outCubic }));
+    caption.set(withTiming(0, { duration: 300 }));
+    under.set(withDelay(toss.splashMs, withTiming(1, { duration: 600 })));
     // The camera eases down with the crate; it tilts as it sinks and comes to rest at the bottom.
     const sink = { duration: toss.diveMs, easing: cubic };
-    camera.value = withDelay(toss.splashMs * 0.5, withTiming(cameraEnd, sink));
-    crateX.value = withDelay(toss.splashMs * 0.5, withTiming(201, sink));
-    crateY.value = withDelay(toss.splashMs * 0.5, withTiming(1620, sink));
-    crateRot.value = withDelay(toss.splashMs * 0.5, withSequence(withTiming(348, { duration: toss.diveMs * 0.6 }), withTiming(358, { duration: toss.diveMs * 0.4 })));
-    crateScale.value = withDelay(toss.splashMs * 0.5, withTiming(0.66, sink));
-    later(toss.splashMs * 0.5 + toss.diveMs, () => land(true));
+    camera.set(withDelay(toss.splashMs * 0.5, withTiming(cameraEnd, sink)));
+    crateX.set(withDelay(toss.splashMs * 0.5, withTiming(201, sink)));
+    crateY.set(withDelay(toss.splashMs * 0.5, withTiming(1620, sink)));
+    crateRot.set(withDelay(toss.splashMs * 0.5, withSequence(withTiming(348, { duration: toss.diveMs * 0.6 }), withTiming(358, { duration: toss.diveMs * 0.4 }))));
+    crateScale.set(withDelay(toss.splashMs * 0.5, withTiming(0.66, sink)));
+    later(toss.splashMs * 0.5 + toss.diveMs, land);
   }
 
-  /** Settles on the sand; `fromDive` false when skipping straight here. */
-  function land(fromDive: boolean) {
-    timers.current.forEach(clearTimeout);
+  /** Settles on the sand at the end of the dive. */
+  function land() {
     timers.current = [];
-    if (!fromDive) {
-      camera.value = cameraEnd;
-      under.value = 1;
-      caption.value = 0;
-    }
     setPhase('landed');
+    haptic.impact('Soft');
     landed.value = 1;
     // Nothing pops in: bob, glow and sparkles ease in after it settles, then the title.
     bob.value = withRepeat(withTiming(1, { duration: toss.hoverBobMs / 2, easing: Easing.inOut(Easing.sin) }), -1, true);
@@ -153,34 +162,40 @@ export default function CrateScreen() {
 
   function tapCrate() {
     if (phase !== 'landed') return;
-    const opened = openCrate(getChallengeProgress());
+    const opened = openCrate();
     if (!opened) return router.back();
     setDeal(opened);
     setPhase('opening');
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light).catch(() => {});
+    haptic.impact('Heavy');
 
-    squash.value = withSequence(withTiming(open.tapSquash, { duration: open.tapSquashMs }), withSpring(1, { duration: open.springBackMs, dampingRatio: 0.45 }));
-    bloom.value = withSequence(withTiming(1, { duration: open.bloomMs * 0.4 }), withTiming(0.55, { duration: open.bloomMs * 0.6 }));
-    burst.value = withTiming(1, { duration: open.sparkleBurstMs, easing: outCubic });
-    title.value = withTiming(0, { duration: open.titleFadeOutMs });
-    sparkles.value = withTiming(0, { duration: 400 });
-    bobAmp.value = withTiming(0, { duration: 600 });
-    dim.value = withTiming(1, { duration: open.dimMs });
-    lift.value = withDelay(300, withTiming(1, { duration: open.riseToCenterMs, easing: cubic }));
-    lid.value = withDelay(300 + open.riseToCenterMs * 0.8, withTiming(1, { duration: open.lidLiftMs, easing: outCubic }));
-    const raysAt = 300 + open.riseToCenterMs * 0.8;
-    rays.value = withDelay(raysAt, withTiming(1, { duration: open.raysFadeInMs }));
+    // Faster than the handoff's crateOpen timings (~1.3s to the card instead of ~3s) so the tap
+    // pays off right away. A haptic beat rides each step: thud, rising ticks, the pop, the card.
+    const { rise, lidAt, lidMs, cardAt, cardMs, buttonAt } = FAST_OPEN;
+    squash.value = withSequence(withTiming(open.tapSquash, { duration: 90 }), withSpring(1, { duration: 320, dampingRatio: 0.4 }));
+    flash.value = withSequence(withTiming(0.55, { duration: 70 }), withTiming(0, { duration: 380 }));
+    bloom.value = withSequence(withTiming(1, { duration: 160 }), withTiming(0.55, { duration: 400 }));
+    burst.value = withTiming(1, { duration: 900, easing: outCubic });
+    title.value = withTiming(0, { duration: 200 });
+    sparkles.value = withTiming(0, { duration: 200 });
+    bobAmp.value = withTiming(0, { duration: 250 });
+    dim.value = withTiming(1, { duration: 600 });
+    lift.value = withDelay(80, withTiming(1, { duration: rise, easing: outCubic }));
+    lid.value = withDelay(lidAt, withTiming(1, { duration: lidMs, easing: outCubic }));
+    pop.value = withDelay(lidAt, withSequence(withTiming(1.12, { duration: 110, easing: outCubic }), withSpring(1, { duration: 380, dampingRatio: 0.45 })));
+    rays.value = withDelay(lidAt, withTiming(1, { duration: 500 }));
     spin.value = withRepeat(withTiming(360, { duration: (360 / open.raysRotateDegPerSec) * 1000, easing: Easing.linear }), -1, false);
-    const cardAt = raysAt + 500;
-    card.value = withDelay(cardAt, withTiming(1, { duration: open.cardRiseMs, easing: outCubic }));
-    button.value = withDelay(cardAt + open.buttonDelayMs, withTiming(1, { duration: open.buttonFadeMs, easing: outCubic }));
-    later(cardAt, () => {
-      setPhase('revealed');
-      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success).catch(() => {});
+    card.value = withDelay(cardAt, withSpring(1, { duration: cardMs, dampingRatio: 0.75 }));
+    button.value = withDelay(buttonAt, withTiming(1, { duration: 350, easing: outCubic }));
+
+    [160, 280, 380].forEach((at) => later(at, () => haptic.impact('Rigid')));
+    later(lidAt, () => {
+      haptic.impact('Heavy');
+      haptic.success();
     });
+    later(cardAt + 120, () => haptic.impact('Soft'));
+    later(buttonAt, () => setPhase('revealed'));
   }
 
-  const skip = () => (phase === 'lift' || phase === 'throw' || phase === 'dive') && land(false);
   const p = deal ? partner(deal.partnerId) : null;
   const preOpen = phase === 'lift' || phase === 'throw' || phase === 'dive';
 
@@ -200,7 +215,7 @@ export default function CrateScreen() {
   const hoverCrateW = 132 * k;
   const landedStyle = useAnimatedStyle(() => {
     const y = floorY - 14 * k + (revealY - floorY + 14 * k) * lift.value;
-    const scale = (1 + (150 / 132 - 1) * lift.value) * squash.value;
+    const scale = (1 + (150 / 132 - 1) * lift.value) * squash.value * pop.value;
     return {
       opacity: landed.value,
       transform: [
@@ -226,13 +241,14 @@ export default function CrateScreen() {
   const closedStyle = useAnimatedStyle(() => ({ opacity: lid.value > 0.05 ? 0 : 1 }));
   const fullStyle = useAnimatedStyle(() => ({ opacity: lid.value > 0.05 ? 1 : 0 }));
   const dimStyle = useAnimatedStyle(() => ({ opacity: dim.value * 0.45 }));
+  const flashStyle = useAnimatedStyle(() => ({ opacity: flash.value }));
   const captionStyle = useAnimatedStyle(() => ({ opacity: caption.value }));
   const titleStyle = useAnimatedStyle(() => ({ opacity: title.value, transform: [{ translateY: 8 * (1 - title.value) }] }));
   const cardStyle = useAnimatedStyle(() => ({ opacity: card.value, transform: [{ translateY: 40 * (1 - card.value) }, { scale: 0.96 + 0.04 * card.value }] }));
   const buttonStyle = useAnimatedStyle(() => ({ opacity: button.value, transform: [{ translateY: open.buttonRisePx * (1 - button.value) }] }));
 
   return (
-    <Pressable style={styles.root} onPress={skip} disabled={!preOpen} accessibilityLabel="Tap to skip">
+    <Pressable style={styles.root} onPress={startThrow} disabled={phase !== 'lift'} accessibilityLabel="Throw the crate into the harbor">
       <Animated.View style={[{ width: W, height: WORLD_H * k }, worldStyle]}>
         <World width={W} height={WORLD_H * k} />
         <ShipAndPaul k={k} throwing={phase !== 'lift'} />
@@ -246,6 +262,9 @@ export default function CrateScreen() {
 
       {/* World dims for the reveal. */}
       <Animated.View pointerEvents="none" style={[StyleSheet.absoluteFill, styles.dim, dimStyle]} />
+
+      {/* A quick white flash on the tap. */}
+      <Animated.View pointerEvents="none" style={[StyleSheet.absoluteFill, styles.flash, flashStyle]} />
 
       {/* Rays from the open crate. */}
       <Animated.View pointerEvents="none" style={[styles.abs, { left: W / 2 - 600, top: revealY - 600 }, raysStyle]}>
@@ -285,9 +304,8 @@ export default function CrateScreen() {
       <Animated.View pointerEvents="none" style={[styles.caption, { bottom: Math.max(insets.bottom, 20) + 52 * k }, captionStyle]}>
         <Txt style={styles.captionTitle}>Heave ho!</Txt>
         <Txt variant="secondary" style={styles.center}>
-          Paul’s tossing your crate into the harbor
+          Tap to throw it into the harbor
         </Txt>
-        <Txt style={styles.skip}>Tap to skip</Txt>
       </Animated.View>
 
       {/* Step 5 title. */}
@@ -318,7 +336,13 @@ export default function CrateScreen() {
           <Animated.View
             pointerEvents={phase === 'revealed' ? 'auto' : 'none'}
             style={[styles.save, { bottom: Math.max(insets.bottom, 20) + 24 }, buttonStyle]}>
-            <Button label="Save to My Deals" onPress={() => router.back()} />
+            <Button
+              label="Save to My Deals"
+              onPress={() => {
+                haptic.impact('Light');
+                router.back();
+              }}
+            />
           </Animated.View>
         </>
       )}
@@ -343,13 +367,15 @@ export default function CrateScreen() {
 /** The Beaver at the waterline with Paul on deck (3-heave-ho.svg positions). */
 function ShipAndPaul({ k, throwing }: { k: number; throwing: boolean }) {
   const Paul = throwing ? PaulThrow : PaulLift;
+  const styles = useStyles();
   return (
     <>
-      <View style={[styles.abs, { left: 92.24 * k, top: 381.04 * k }]}>
-        <Paul width={120 * 0.817 * k} height={200 * 0.817 * k} />
-      </View>
+      {/* Paul stands on deck in front of the sails, so he's drawn after the ship. */}
       <View style={[styles.abs, { left: 20 * k, top: 408 * k }]}>
         <Ship width={400 * 0.86 * k} height={240 * 0.86 * k} />
+      </View>
+      <View style={[styles.abs, { left: 92.24 * k, top: 381.04 * k }]}>
+        <Paul width={120 * 0.817 * k} height={200 * 0.817 * k} />
       </View>
     </>
   );
@@ -374,6 +400,7 @@ function Fish({ k }: { k: number }) {
 }
 
 function OneFish({ Art, y, w, dur, delay, right, k }: (typeof FISH)[number] & { k: number }) {
+  const styles = useStyles();
   const x = useSharedValue(0);
   const wag = useSharedValue(0);
   useEffect(() => {
@@ -418,6 +445,7 @@ function Bubbles({ visible, W, H }: { visible: SharedValue<number>; W: number; H
 }
 
 function Bubble({ x, r, dur, delay, W, H }: (typeof BUBBLES)[number] & { W: number; H: number }) {
+  const styles = useStyles();
   const rise = useSharedValue(0);
   useEffect(() => {
     rise.value = withDelay(delay, withRepeat(withTiming(1, { duration: dur, easing: Easing.linear }), -1, false));
@@ -437,6 +465,7 @@ function Bubble({ x, r, dur, delay, W, H }: (typeof BUBBLES)[number] & { W: numb
 }
 
 function Splash({ progress, x, y, k, camera }: { progress: SharedValue<number>; x: number; y: number; k: number; camera: SharedValue<number> }) {
+  const styles = useStyles();
   const style = useAnimatedStyle(() => ({
     opacity: progress.value > 0 ? 1 - progress.value : 0,
     transform: [{ translateY: camera.value }, { scale: 0.6 + progress.value * 0.8 }],
@@ -513,6 +542,7 @@ function Sparkles({ visible, cx, cy, k }: { visible: SharedValue<number>; cx: nu
 }
 
 function Twinkle({ dx, dy, s, fill, dur, visible, cx, cy, k }: (typeof SPARKLES)[number] & { visible: SharedValue<number>; cx: number; cy: number; k: number }) {
+  const styles = useStyles();
   const tw = useSharedValue(0);
   useEffect(() => {
     tw.value = withRepeat(withTiming(1, { duration: dur, easing: Easing.inOut(Easing.sin) }), -1, true);
@@ -539,6 +569,7 @@ function Burst({ progress, cx, cy, k }: { progress: SharedValue<number>; cx: num
 }
 
 function BurstSpark({ angle, gold, size, progress, cx, cy, k }: (typeof BURST)[number] & { progress: SharedValue<number>; cx: number; cy: number; k: number }) {
+  const styles = useStyles();
   const style = useAnimatedStyle(() => {
     const d = 120 * k * progress.value;
     return {
@@ -553,7 +584,7 @@ function BurstSpark({ angle, gold, size, progress, cx, cy, k }: (typeof BURST)[n
   );
 }
 
-const styles = StyleSheet.create({
+const useStyles = makeStyles((color, dark) => ({
   root: {
     flex: 1,
     backgroundColor: '#163C46',
@@ -566,6 +597,9 @@ const styles = StyleSheet.create({
   },
   dim: {
     backgroundColor: '#0E2A32',
+  },
+  flash: {
+    backgroundColor: '#FFF6D6',
   },
   shadow: {
     position: 'absolute',
@@ -585,7 +619,7 @@ const styles = StyleSheet.create({
     left: 20,
     right: 20,
     borderRadius: 24,
-    backgroundColor: 'rgba(255,255,255,0.95)',
+    backgroundColor: dark ? 'rgba(27,33,41,0.95)' : 'rgba(255,255,255,0.95)',
     paddingVertical: 20,
     paddingHorizontal: 16,
     alignItems: 'center',
@@ -597,12 +631,6 @@ const styles = StyleSheet.create({
     lineHeight: 30,
     letterSpacing: -0.3,
     color: color.ink,
-  },
-  skip: {
-    fontFamily: font.bodySemibold,
-    fontSize: 12.5,
-    color: color.mute,
-    marginTop: 4,
   },
   center: {
     textAlign: 'center',
@@ -641,7 +669,7 @@ const styles = StyleSheet.create({
     paddingBottom: 22,
     paddingHorizontal: 16,
     shadowColor: '#000',
-    shadowOpacity: 0.2,
+    shadowOpacity: dark ? 0.4 : 0.2,
     shadowRadius: 12,
     shadowOffset: { width: 0, height: 6 },
   },
@@ -695,11 +723,11 @@ const styles = StyleSheet.create({
     width: 36,
     height: 36,
     borderRadius: 18,
-    backgroundColor: 'rgba(243,239,230,0.9)',
+    backgroundColor: dark ? 'rgba(37,44,54,0.9)' : 'rgba(243,239,230,0.9)',
     alignItems: 'center',
     justifyContent: 'center',
   },
   closeDark: {
     backgroundColor: 'rgba(255,255,255,0.18)',
   },
-});
+}));

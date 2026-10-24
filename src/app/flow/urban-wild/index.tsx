@@ -1,16 +1,17 @@
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 
 import { FlowHeader, FlowHeading, FlowScreen, OptionRow } from '@/components/challenge-flow/flow';
 import { getUrbanWild, startDesign, WILDS, type WildId } from '@/components/urban-wild/store';
 import { Txt } from '@/ui/text';
-import { color, font, radius } from '@/ui/theme';
+import { font, makeStyles, radius } from '@/ui/theme';
 
 const STEPS = ['Visit and take 3 photos', 'Place up to 5 changes on a map', 'Say why you’d make each change'];
 
 /** Urban wild 1 of 3: pick one of the three closest wilds. */
 export default function PickWild() {
+  const styles = useStyles();
   const [picked, setPicked] = useState<WildId>(() => getUrbanWild().wild);
   const wild = WILDS.find((w) => w.id === picked)!;
 
@@ -57,7 +58,7 @@ export default function PickWild() {
   );
 }
 
-const styles = StyleSheet.create({
+const useStyles = makeStyles((color) => ({
   panel: {
     marginTop: 4,
     padding: 16,
@@ -86,4 +87,4 @@ const styles = StyleSheet.create({
   numberText: {
     color: color.slate,
   },
-});
+}));

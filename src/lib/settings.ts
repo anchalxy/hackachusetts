@@ -5,13 +5,11 @@ import Storage from 'expo-sqlite/kv-store';
 import { useCallback, useEffect, useState } from 'react';
 import { AppState } from 'react-native';
 
-// Notification preferences (DESIGN.md 6b). Saved locally only.
-// TODO: wire to expo-notifications once push is built; nothing is sent yet.
+// Notification preferences (DESIGN.md 6b). Delivered by src/lib/device-notifications.ts.
 export type NotificationPrefs = {
   reportUpdates: boolean;
   streakReminder: boolean;
   weeklyChallenges: boolean;
-  citySurveys: boolean;
 };
 
 const PREFS_KEY = 'notificationPrefs';
@@ -20,7 +18,6 @@ export const DEFAULT_NOTIFICATION_PREFS: NotificationPrefs = {
   reportUpdates: true,
   streakReminder: true,
   weeklyChallenges: true,
-  citySurveys: true,
 };
 
 export async function getNotificationPrefs(): Promise<NotificationPrefs> {

@@ -2,7 +2,7 @@ import * as Haptics from 'expo-haptics';
 import { router, Stack } from 'expo-router';
 import { SymbolView } from 'expo-symbols';
 import { useEffect, type ReactNode } from 'react';
-import { KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet, View } from 'react-native';
+import { KeyboardAvoidingView, Platform, Pressable, ScrollView, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Piece } from '@/components/trail/piece';
@@ -17,13 +17,14 @@ import { useLeafBalance } from '@/lib/rewards';
 import { Button, StatusGlyph } from '@/ui/components';
 import { Icon, type IconName } from '@/ui/icon';
 import { Txt } from '@/ui/text';
-import { color, font, radius, space } from '@/ui/theme';
+import { font, makeStyles, radius, space, useColors } from '@/ui/theme';
 
 /**
  * Native stack for one challenge flow (presented as a modal from the root layout).
  * Every flow's `_layout.tsx` is just `export default FlowStack`.
  */
 export function FlowStack() {
+  const color = useColors();
   return (
     <Stack
       screenOptions={{
@@ -70,6 +71,8 @@ export function FlowHeader({
 
 /** Round xmark. By default it closes the flow modal and lands back on the trail. */
 export function CloseButton({ onPress = backToTrail }: { onPress?: () => void }) {
+  const styles = useStyles();
+  const color = useColors();
   return (
     <Pressable onPress={onPress} hitSlop={8} accessibilityLabel="Close" style={styles.close}>
       <SymbolView name="xmark" size={14} weight="semibold" tintColor={color.slate} />
@@ -93,10 +96,11 @@ export function FlowScreen({
   footnote?: string;
 }) {
   const insets = useSafeAreaInsets();
+  const styles = useStyles();
   // Keeps the bottom button above the keyboard on steps with text fields.
   return (
     <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined} style={styles.screen}>
-      <ScrollView
+      <ScrollView alwaysBounceVertical={false}
         contentInsetAdjustmentBehavior="automatic"
         keyboardDismissMode="interactive"
         contentContainerStyle={styles.content}>
@@ -118,6 +122,7 @@ export function FlowScreen({
 
 /** "What did you find?" + one or two lines of slate under it. */
 export function FlowHeading({ title, subtitle }: { title: string; subtitle?: string }) {
+  const styles = useStyles();
   return (
     <View style={styles.heading}>
       <Txt variant="hero" style={styles.headingTitle}>
@@ -130,6 +135,7 @@ export function FlowHeading({ title, subtitle }: { title: string; subtitle?: str
 
 /** Small caps label above a group ("ANYTHING IN THE WAY?"). */
 export function SectionLabel({ children, right }: { children: string; right?: ReactNode }) {
+  const styles = useStyles();
   return (
     <View style={styles.sectionLabelRow}>
       <Txt variant="meta" style={styles.sectionLabel}>
@@ -146,19 +152,23 @@ export function selectionHaptic() {
 
 /** Teal check in a circle: the selected mark on tiles and radio rows. */
 export function CheckDot({ size = 22 }: { size?: number }) {
+  const styles = useStyles();
+  const color = useColors();
   return (
     <View style={[styles.checkDot, { width: size, height: size, borderRadius: size / 2 }]}>
-      <StatusGlyph status="fixed" size={size * 0.55} />
+      <StatusGlyph status="fixed" size={size * 0.55} tint={color.onPrimary} />
     </View>
   );
 }
 
 export function RadioMark({ selected }: { selected: boolean }) {
+  const styles = useStyles();
   return selected ? <CheckDot /> : <View style={styles.radioOpen} />;
 }
 
 /** 2-column grid of ChoiceTiles. */
 export function TileGrid({ children }: { children: ReactNode }) {
+  const styles = useStyles();
   return <View style={styles.grid}>{children}</View>;
 }
 
@@ -174,6 +184,7 @@ export function ChoiceTile({
   selected: boolean;
   onPress: () => void;
 }) {
+  const styles = useStyles();
   return (
     <Pressable
       onPress={() => {
@@ -219,6 +230,7 @@ export function OptionRow({
   control?: 'radio' | 'leading' | 'none';
   trailing?: ReactNode;
 }) {
+  const styles = useStyles();
   return (
     <Pressable
       onPress={
@@ -250,6 +262,7 @@ export function OptionRow({
 
 /** Soft panel with an icon: "We'll time the city's response", "Photos stay in your design"… */
 export function InfoPanel({ icon, title, body }: { icon: IconName; title: string; body: string }) {
+  const styles = useStyles();
   return (
     <View style={styles.infoPanel}>
       <View style={styles.infoIcon}>
@@ -270,6 +283,8 @@ export function InfoPanel({ icon, title, body }: { icon: IconName; title: string
  * `current` gets an open ring, the rest are empty.
  */
 export function StepTimeline({ steps, current }: { steps: { label: string; date: string }[]; current: number }) {
+  const styles = useStyles();
+  const color = useColors();
   return (
     <View style={styles.timelineCard}>
       <View style={styles.timelineTrack}>
@@ -320,6 +335,7 @@ export function ResultRow({
   trailing?: ReactNode;
   last?: boolean;
 }) {
+  const styles = useStyles();
   return (
     <View style={styles.resultRow}>
       <View style={styles.resultIcon}>
@@ -372,6 +388,8 @@ export function SentScreen({
   /** Teal text link under the rows ("Preview the day-7 check-in"). */
   link?: { label: string; onPress: () => void };
 }) {
+  const styles = useStyles();
+  const color = useColors();
   const stop = TRAIL_STOPS[challengeId];
   const earned = leaves ?? stop?.leaves ?? 0;
 
@@ -387,7 +405,7 @@ export function SentScreen({
 
   const progress = useChallengeProgress();
   const balance = useLeafBalance();
-  const summary = { balance, weeks: streak(progress).weeks };
+  const summary = { balance, weeks: streak(progress).weeks, streakBonus: progress.stops[challengeId]?.streakBonus };
 
   return (
     <FlowScreen action={{ label: 'Back to the trail', onPress: backToTrail }}>
@@ -397,7 +415,7 @@ export function SentScreen({
         {stop ? <Piece file={stop.landmark} width={150} /> : null}
         <View style={styles.sentCheck}>
           <View style={styles.sentCheckInner}>
-            <StatusGlyph status="fixed" size={26} />
+            <StatusGlyph status="fixed" size={26} tint={color.onPrimary} />
           </View>
         </View>
       </View>
@@ -418,7 +436,11 @@ export function SentScreen({
         <ResultRow
           icon="flame"
           title={`Streak safe: ${summary.weeks} weeks`}
-          subtitle={`Your next stop is due by ${NEXT_STOP_DUE}`}
+          subtitle={
+            summary.streakBonus
+              ? `+${summary.streakBonus} streak bonus · next stop due by ${NEXT_STOP_DUE}`
+              : `Your next stop is due by ${NEXT_STOP_DUE}`
+          }
           last={!extraRows}
         />
         {extraRows}
@@ -434,7 +456,7 @@ export function SentScreen({
   );
 }
 
-const styles = StyleSheet.create({
+const useStyles = makeStyles((color, dark) => ({
   screen: {
     flex: 1,
     backgroundColor: color.bg,
@@ -491,7 +513,7 @@ const styles = StyleSheet.create({
     height: 22,
     borderRadius: 11,
     borderWidth: 1.5,
-    borderColor: '#C9CED6',
+    borderColor: dark ? '#4A5360' : '#C9CED6',
   },
   grid: {
     flexDirection: 'row',
@@ -603,7 +625,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 10,
     height: 2,
-    backgroundColor: '#E7DCC6',
+    backgroundColor: dark ? color.border : '#E7DCC6',
   },
   lineLeft: {
     left: 0,
@@ -621,7 +643,7 @@ const styles = StyleSheet.create({
     height: 20,
     borderRadius: 10,
     borderWidth: 2,
-    borderColor: '#D5DADF',
+    borderColor: dark ? '#3A4350' : '#D5DADF',
     backgroundColor: color.surface,
   },
   dotCurrent: {
@@ -629,7 +651,7 @@ const styles = StyleSheet.create({
     height: 22,
     borderRadius: 11,
     borderColor: color.primary,
-    boxShadow: '0 0 0 4px #E3EFEC',
+    boxShadow: `0 0 0 4px ${dark ? color.badge.approved.bg : '#E3EFEC'}`,
   },
   timelineLabels: {
     flexDirection: 'row',
@@ -691,7 +713,7 @@ const styles = StyleSheet.create({
     width: 200,
     height: 200,
     borderRadius: 100,
-    backgroundColor: '#FBEFD2',
+    backgroundColor: dark ? '#3A3220' : '#FBEFD2',
     opacity: 0.7,
     filter: 'blur(24px)',
   },
@@ -729,4 +751,4 @@ const styles = StyleSheet.create({
     color: color.primary,
     fontSize: 14,
   },
-});
+}));

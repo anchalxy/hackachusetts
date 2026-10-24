@@ -10,14 +10,12 @@ import {
   type NativeSyntheticEvent,
 } from 'react-native';
 import { useReducedMotion } from 'react-native-reanimated';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { DriftingLeaves } from '@/components/trail/ambient';
 import { BAND_COUNT, BAND_H, MAP_W } from '@/components/trail/layout';
 import { TrailMotionContext, type TrailMotion } from '@/components/trail/motion';
 import { TrailHeader } from '@/components/trail/trail-header';
 import { TrailMap } from '@/components/trail/trail-map';
-import { BottomTabInset } from '@/constants/theme';
 import { streak, useChallengeProgress } from '@/lib/challenge-progress';
 import { getCurrentWeek, loadCurrentWeek, trailOrder } from '@/lib/challenge-week';
 import { areaSlug, getProfile } from '@/lib/profile';
@@ -32,7 +30,6 @@ export default function ChallengesScreen() {
   const [week, setWeek] = useState(getCurrentWeek);
   const balance = useLeafBalance();
   const progress = useChallengeProgress();
-  const insets = useSafeAreaInsets();
   const { width } = useWindowDimensions();
   const focused = useIsFocused();
   const reduced = useReducedMotion();
@@ -87,12 +84,11 @@ export default function ChallengesScreen() {
 
   return (
     <View style={styles.screen}>
-      <TrailHeader balance={balance} streak={streak(progress)} />
       <TrailMotionContext.Provider value={motion}>
         <View style={styles.body} onLayout={onLayout}>
           <ScrollView
             style={styles.scroll}
-            contentContainerStyle={{ paddingBottom: BottomTabInset + insets.bottom + 24 }}
+            // No bottom padding: the scroll ends on the woods, whose last rows sit behind the tab bar.
             onScroll={onScroll}
             scrollEventThrottle={100}
             // The map starts at the forest; nothing is drawn above it, so don't rubber-band past it.
@@ -106,6 +102,8 @@ export default function ChallengesScreen() {
           </ScrollView>
         </View>
       </TrailMotionContext.Provider>
+      {/* No header bar: the map runs under the status bar and these float on top. */}
+      <TrailHeader balance={balance} streakWeeks={streak(progress).weeks} />
     </View>
   );
 }

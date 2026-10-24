@@ -1,12 +1,14 @@
 import Storage from 'expo-sqlite/kv-store';
 import { useSyncExternalStore } from 'react';
 
-import { leafBalance as trailLeaves, useChallengeProgress, type ChallengeProgress } from '@/lib/challenge-progress';
 import type { IconName } from '@/ui/icon';
 import { t } from '@/ui/theme';
 
 // Rewards tab v2 (DESIGN.md 6e): leaves fill a crate at 50, 100, 150, then every 150. Each crate
 // resets the counter, overflow carries over, and you open one crate at a time.
+//
+// This is the one leaf ledger. Everything that pays (trail stops, votes, the streak bonus, approved
+// reports, the dev menu) calls creditLeaves; opening a crate is the only spend.
 
 const DAY = 24 * 60 * 60 * 1000;
 export const DEAL_DAYS = 7;
@@ -47,10 +49,10 @@ export type Deal = {
 export type RewardsState = {
   /** Crates opened so far (picks the next crate's size). */
   cratesOpened: number;
+  /** Every leaf ever credited, seed included. */
+  earned: number;
   /** Leaves that went into opened crates. */
   spent: number;
-  /** Dev-menu leaves, so the toss can be demoed without finishing challenges. */
-  bonus: number;
   /** Newest first. */
   deals: Deal[];
 };
@@ -65,8 +67,8 @@ function newCode() {
 function seed(now = Date.now()): RewardsState {
   return {
     cratesOpened: 3,
+    earned: SEED_LEAVES,
     spent: 0,
-    bonus: 0,
     deals: [
       { id: 'seed-flour', partnerId: 'flour', code: newCode(), issuedAt: now - 2 * DAY },
       { id: 'seed-tatte', partnerId: 'tatte', code: newCode(), issuedAt: now - 5 * DAY },
@@ -78,18 +80,37 @@ function seed(now = Date.now()): RewardsState {
 let state: RewardsState = load();
 const listeners = new Set<() => void>();
 
+/** Leaves already on this week's trail, read straight from its store (no import cycle). */
+function trailLeavesSaved(): number {
+  try {
+    const raw = Storage.getItemSync('challengeProgress');
+    if (!raw) return 0;
+    const p = JSON.parse(raw) as { stops?: Record<string, { leaves?: number }>; votes?: number };
+    const stops = Object.values(p.stops ?? {}).reduce((sum, stop) => sum + (stop.leaves ?? 0), 0);
+    return stops + (p.votes ?? 0) * 2;
+  } catch {
+    return 0;
+  }
+}
+
 function load(): RewardsState {
   try {
     const raw = Storage.getItemSync(KEY);
     const parsed = raw ? JSON.parse(raw) : null;
     // Valid JSON with a missing/wrong field would crash the Rewards tab on `deals.filter`.
     if (parsed && Array.isArray(parsed.deals)) {
-      return {
+      const saved: RewardsState = {
         cratesOpened: Number(parsed.cratesOpened) || 0,
+        earned: Number(parsed.earned) || 0,
         spent: Number(parsed.spent) || 0,
-        bonus: Number(parsed.bonus) || 0,
         deals: parsed.deals,
       };
+      // Before the ledger, the balance was derived from the trail plus a dev bonus: fold both in once.
+      if (typeof parsed.earned !== 'number') {
+        saved.earned = SEED_LEAVES + (Number(parsed.bonus) || 0) + trailLeavesSaved();
+        Storage.setItemSync(KEY, JSON.stringify(saved));
+      }
+      return saved;
     }
   } catch {}
   const fresh = seed();
@@ -124,13 +145,18 @@ export function crateSize(index: number): number {
 }
 
 /** The counter every leaf pill shows: earned minus what went into crates, never below 0. */
-export function leafCounter(progress: ChallengeProgress, rewards: RewardsState): number {
-  const earned = trailLeaves(progress, SEED_LEAVES) + rewards.bonus;
-  return Math.max(0, earned - rewards.spent);
+export function leafCounter(rewards: RewardsState = state): number {
+  return Math.max(0, rewards.earned - rewards.spent);
 }
 
 export function useLeafBalance(): number {
-  return leafCounter(useChallengeProgress(), useRewards());
+  return leafCounter(useRewards());
+}
+
+/** Adds leaves to the ledger. Ignores anything that isn't a positive number. */
+export function creditLeaves(amount: number) {
+  if (!Number.isFinite(amount) || amount <= 0) return;
+  set({ ...state, earned: state.earned + Math.round(amount) });
 }
 
 export type CrateState = {
@@ -156,9 +182,12 @@ export function crateState(balance: number, cratesOpened: number): CrateState {
 }
 
 export function useCrate(): CrateState {
-  const progress = useChallengeProgress();
   const rewards = useRewards();
-  return crateState(leafCounter(progress, rewards), rewards.cratesOpened);
+  return crateState(leafCounter(rewards), rewards.cratesOpened);
+}
+
+export function currentCrate(): CrateState {
+  return crateState(leafCounter(state), state.cratesOpened);
 }
 
 export function partner(id: string): Partner {
@@ -177,8 +206,8 @@ function pickPartner(deals: Deal[], now: number): Partner {
  * Opens the full crate: spends its size and saves the deal right away (redemption is mandatory,
  * so closing the reveal can't lose it). Returns null if the crate isn't full.
  */
-export function openCrate(progress: ChallengeProgress, now = Date.now()): Deal | null {
-  const crate = crateState(leafCounter(progress, state), state.cratesOpened);
+export function openCrate(now = Date.now()): Deal | null {
+  const crate = currentCrate();
   if (!crate.full) return null;
   const deal: Deal = { id: String(now), partnerId: pickPartner(state.deals, now).id, code: newCode(), issuedAt: now };
   set({ ...state, cratesOpened: state.cratesOpened + 1, spent: state.spent + crate.size, deals: [deal, ...state.deals] });
@@ -189,9 +218,8 @@ export function markDealUsed(id: string, now = Date.now()) {
   set({ ...state, deals: state.deals.map((d) => (d.id === id && !d.usedAt ? { ...d, usedAt: now } : d)) });
 }
 
-export function addBonusLeaves(amount: number) {
-  set({ ...state, bonus: state.bonus + amount });
-}
+/** Kept for callers from before the ledger (report-leaves, the dev menu). */
+export const addBonusLeaves = creditLeaves;
 
 export function resetRewards() {
   set(seed());

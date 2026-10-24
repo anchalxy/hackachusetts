@@ -1,6 +1,7 @@
 import { router, useNavigation } from 'expo-router';
 import { useEffect, useState } from 'react';
 
+import { CalendarRow, CIVIC_EVENTS } from '@/components/challenge-flow/calendar';
 import { ResultRow, SentScreen } from '@/components/challenge-flow/flow';
 import { getUrbanWild, getWild } from '@/components/urban-wild/store';
 import { Button } from '@/ui/components';
@@ -40,13 +41,15 @@ export default function Sent() {
       steps={STEPS}
       data={design}
       extraRows={
-        <ResultRow
-          icon="ballot"
-          title="Vote on other designs"
-          subtitle={`+${VOTE_LEAVES} tea leaves a vote`}
-          last
-          trailing={<Button size="sm" label="Vote" onPress={() => router.push('/flow/urban-wild/vote')} />}
-        />
+        <>
+          <ResultRow
+            icon="ballot"
+            title="Vote on other designs"
+            subtitle={`+${VOTE_LEAVES} tea leaves a vote`}
+            trailing={<Button size="sm" label="Vote" onPress={() => router.push('/flow/urban-wild/vote')} />}
+          />
+          <CalendarRow title="Come to the open house" event={CIVIC_EVENTS.urbanWildsOpenHouse} last />
+        </>
       }
     />
   );

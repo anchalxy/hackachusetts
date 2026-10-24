@@ -8,7 +8,7 @@ import { scheduleOnRN } from 'react-native-worklets';
 
 import { Icon } from '@/ui/icon';
 import { Txt } from '@/ui/text';
-import { color, font } from '@/ui/theme';
+import { font, makeStyles, useColors, useScheme, type Palette } from '@/ui/theme';
 
 import Rocks from '../../../design/assets/trail/scenery/rocks.svg';
 import TreeBirch from '../../../design/assets/trail/scenery/tree-birch.svg';
@@ -21,15 +21,31 @@ import { changeInfo, type ChangeKind, type Placement, type Point, type Wild } fr
 const VB_W = 360;
 const VB_H = 186;
 
-const map = {
-  ground: '#EEF1E4',
-  park: '#DEE7CB',
-  parkEdge: '#9DB57E',
-  water: '#A8D2EA',
-  waterEdge: '#2E6E9E',
-  trail: '#D3B08A',
-  entrance: '#8A5A2B',
-};
+// Map colors per appearance. Dark leans on the color.map.* tokens, with lighter edges and labels
+// so they still read on the dark ground.
+function mapColors(color: Palette, dark: boolean) {
+  return dark
+    ? {
+        ground: color.map.land,
+        park: color.map.park,
+        parkEdge: '#4F6B45',
+        water: color.map.water,
+        waterEdge: '#6FA8D0',
+        ripple: 'rgba(255,255,255,0.35)',
+        trail: '#8F7356',
+        entrance: '#D3A574',
+      }
+    : {
+        ground: '#EEF1E4',
+        park: '#DEE7CB',
+        parkEdge: '#9DB57E',
+        water: '#A8D2EA',
+        waterEdge: '#2E6E9E',
+        ripple: '#FFFFFF',
+        trail: '#D3B08A',
+        entrance: '#8A5A2B',
+      };
+}
 
 // Trees around the edge, in viewBox units (x, y is the tree's base center).
 const TREES = [
@@ -74,6 +90,8 @@ export function ParkMap({
   onMove?: (kind: ChangeKind, at: Point) => void;
   pinSize?: number;
 }) {
+  const styles = useStyles();
+  const map = mapColors(useColors(), useScheme() === 'dark');
   const [size, setSize] = useState({ w: 0, h: 0 });
   const onLayout = (e: LayoutChangeEvent) => {
     const { width, height } = e.nativeEvent.layout;
@@ -104,8 +122,8 @@ export function ParkMap({
             ) : null}
             {wild.feature.kind === 'pond' ? (
               <>
-                <Path d="M212 92 q6 -4 12 0" stroke="#FFFFFF" strokeWidth={1.8} fill="none" strokeLinecap="round" />
-                <Path d="M236 104 q6 -4 12 0" stroke="#FFFFFF" strokeWidth={1.8} fill="none" strokeLinecap="round" />
+                <Path d="M212 92 q6 -4 12 0" stroke={map.ripple} strokeWidth={1.8} fill="none" strokeLinecap="round" />
+                <Path d="M236 104 q6 -4 12 0" stroke={map.ripple} strokeWidth={1.8} fill="none" strokeLinecap="round" />
               </>
             ) : null}
           </Svg>
@@ -157,8 +175,9 @@ function MapPin({
   size: number;
   onMove?: (kind: ChangeKind, at: Point) => void;
 }) {
+  const styles = useStyles();
   const { kind, at } = placement;
-  const x = useSharedValue(at.x * area.w);
+  const x =useSharedValue(at.x * area.w);
   const y = useSharedValue(at.y * area.h);
   const startX = useSharedValue(0);
   const startY = useSharedValue(0);
@@ -218,14 +237,14 @@ function MapPin({
   );
 }
 
-const styles = StyleSheet.create({
+const useStyles = makeStyles((color, dark) => ({
   card: {
     width: '100%',
     aspectRatio: VB_W / VB_H,
     borderRadius: 18,
     borderWidth: 1,
     borderColor: color.border,
-    backgroundColor: map.ground,
+    backgroundColor: mapColors(color, dark).ground,
     overflow: 'hidden',
   },
   abs: {
@@ -236,13 +255,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: font.bodyBold,
     fontSize: 11,
-    color: map.waterEdge,
+    color: mapColors(color, dark).waterEdge,
   },
   entranceLabel: {
     position: 'absolute',
     fontFamily: font.bodyBold,
     fontSize: 10.5,
-    color: map.entrance,
+    color: mapColors(color, dark).entrance,
   },
   pin: {
     position: 'absolute',
@@ -253,7 +272,7 @@ const styles = StyleSheet.create({
     backgroundColor: color.surface,
     borderWidth: 2.5,
     borderColor: color.primary,
-    boxShadow: '0 3px 0 #22545A',
+    boxShadow: dark ? '0 3px 0 rgba(0,0,0,0.55)' : '0 3px 0 #22545A',
   },
   pinNumber: {
     position: 'absolute',
@@ -279,10 +298,10 @@ const styles = StyleSheet.create({
     fontFamily: font.bodyBold,
     fontSize: 11,
     lineHeight: 14,
-    color: color.surface,
+    color: color.onPrimary,
   },
   pinNumberTextSm: {
     fontSize: 10,
     lineHeight: 12,
   },
-});
+}));

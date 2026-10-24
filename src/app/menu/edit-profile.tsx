@@ -1,17 +1,18 @@
 import { Image } from 'expo-image';
 import { router, useFocusEffect } from 'expo-router';
 import { useCallback, useState } from 'react';
-import { KeyboardAvoidingView, Platform, StyleSheet, TextInput, View } from 'react-native';
+import { KeyboardAvoidingView, Platform, TextInput, View } from 'react-native';
 
 import { Group, InnerPage } from '@/components/menu/menu-ui';
 import { getProfile, saveProfile, SEED_PROFILE, validateProfile, type Profile } from '@/lib/profile';
 import { Button } from '@/ui/components';
 import { Txt } from '@/ui/text';
-import { color, font } from '@/ui/theme';
+import { font, makeStyles, useColors } from '@/ui/theme';
 
 const PHOTO = require('../../../design/assets/avatars/ishaan-photo.jpg');
 
 export default function EditProfilePage() {
+  const styles = useStyles();
   const [profile, setProfile] = useState<Profile>(SEED_PROFILE);
   const [name, setName] = useState(SEED_PROFILE.name);
   const [username, setUsername] = useState(SEED_PROFILE.username);
@@ -36,9 +37,13 @@ export default function EditProfilePage() {
     if (errors || !changed || saving) return;
     setSaving(true);
     // Re-read so we don't overwrite a change made elsewhere (e.g. neighborhood) since this page opened.
-    const latest = await getProfile();
-    await saveProfile({ ...latest, name: name.trim(), username });
-    router.back();
+    try {
+      const latest = await getProfile();
+      await saveProfile({ ...latest, name: name.trim(), username });
+      router.back();
+    } finally {
+      setSaving(false);
+    }
   };
 
   return (
@@ -91,6 +96,8 @@ function Field({
   error?: string;
   last?: boolean;
 } & React.ComponentProps<typeof TextInput>) {
+  const styles = useStyles();
+  const color = useColors();
   const [focused, setFocused] = useState(false);
   return (
     <View style={[styles.field, !last && styles.fieldDivider]}>
@@ -115,7 +122,7 @@ function Field({
 
 const PHOTO_SIZE = 64;
 
-const styles = StyleSheet.create({
+const useStyles = makeStyles((color, dark) => ({
   flex: {
     flex: 1,
     backgroundColor: color.bg,
@@ -127,7 +134,7 @@ const styles = StyleSheet.create({
     marginTop: 23,
     padding: 4 - 1.2,
     borderWidth: 1.2,
-    borderColor: '#E3DBCB',
+    borderColor: dark ? color.border : '#E3DBCB',
     backgroundColor: color.surface,
   },
   photo: {
@@ -180,4 +187,4 @@ const styles = StyleSheet.create({
     color: color.brick,
     marginTop: 2,
   },
-});
+}));

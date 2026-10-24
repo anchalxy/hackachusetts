@@ -1,26 +1,45 @@
 import { useFonts } from 'expo-font';
-import { DarkTheme, DefaultTheme, Stack, ThemeProvider } from 'expo-router';
+import { DefaultTheme, Stack, ThemeProvider, type Theme } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
-import { StyleSheet, useColorScheme } from 'react-native';
+import { Appearance, StyleSheet } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
-import { AnimatedSplashOverlay } from '@/components/animated-icon';
-import { color, fontFiles } from '@/ui/theme';
+import { LaunchOverlay } from '@/components/launch/launch-overlay';
+import { NotificationScheduler } from '@/components/notification-scheduler';
+import { fontFiles, t as theme, useColors } from '@/ui/theme';
 
 SplashScreen.preventAutoHideAsync();
+
+// Light-only, everywhere: native UI (tab bar, sheets, alerts, keyboard, maps) follows this too.
+// (Not on web: react-native-web has no setColorScheme.)
+Appearance.setColorScheme?.('light');
+
+// One navigation theme on the app background: no navigator ever paints its default white (or
+// black) behind a screen or an overscroll.
+const NAV_THEME: Theme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    background: theme.color.bg,
+    card: theme.color.surface,
+    text: theme.color.ink,
+    border: theme.color.border,
+    primary: theme.color.primary,
+  },
+};
 
 const FLOWS = ['urban-wild', 'spend-2-million', 'cummins-walk-audit', 'rat-patrol', 'council-meeting'];
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
   // Bricolage Grotesque + DM Sans (design/assets/fonts). Hold the splash until they're in.
   const [fontsLoaded, fontError] = useFonts(fontFiles);
+  const color = useColors();
   if (!fontsLoaded && !fontError) return null;
 
   return (
     <GestureHandlerRootView style={styles.root}>
-      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-        <AnimatedSplashOverlay />
+      <ThemeProvider value={NAV_THEME}>
+        <NotificationScheduler />
         <Stack screenOptions={{ headerShown: false }}>
           <Stack.Screen name="(tabs)" />
           {/* Transparent so the first-time intro can sit over the map as a sheet. */}
@@ -50,6 +69,8 @@ export default function RootLayout() {
             <Stack.Screen key={flow} name={`flow/${flow}`} options={{ presentation: 'modal' }} />
           ))}
         </Stack>
+        {/* Cold-start welcome (design/screens/launch): sits above everything, then lifts away to the trail. */}
+        <LaunchOverlay />
       </ThemeProvider>
     </GestureHandlerRootView>
   );

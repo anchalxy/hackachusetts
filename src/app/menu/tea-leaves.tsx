@@ -1,15 +1,16 @@
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 
 import { Group, InfoRow, InnerPage, SectionLabel } from '@/components/menu/menu-ui';
 import { Icon } from '@/ui/icon';
 import { Txt } from '@/ui/text';
-import { color, font, t } from '@/ui/theme';
+import { font, makeStyles, t } from '@/ui/theme';
 
 // design/screens/menu/how-tea-leaves-work.png. Crate sizes come from tokens.points.
 const { crateThresholds, thenEvery, leavesPerPoint } = t.points;
 const STREAK_EXAMPLE_WEEK = 5;
 
 export default function TeaLeavesPage() {
+  const styles = useStyles();
   return (
     <InnerPage
       icon="leafy"
@@ -49,6 +50,7 @@ export default function TeaLeavesPage() {
 
 /** 50 → 100 → 150 → +150 each after. The fixed steps are teal; the repeating one is neutral. */
 function RewardTrack() {
+  const styles = useStyles();
   const steps = [
     ...crateThresholds.map((n) => ({ label: String(n), repeat: false })),
     { label: `+${thenEvery}`, repeat: true },
@@ -77,7 +79,7 @@ function RewardTrack() {
 const DOT = 34;
 const TRACK_INSET = 11; // dot centers sit 28px in from the card's inner edges
 
-const styles = StyleSheet.create({
+const useStyles = makeStyles((color) => ({
   trackCard: {
     paddingHorizontal: 16,
     paddingTop: 16,
@@ -124,7 +126,7 @@ const styles = StyleSheet.create({
     width: DOT,
     height: DOT,
     borderRadius: DOT / 2,
-    backgroundColor: '#E6F0EE',
+    backgroundColor: color.tealTint,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -166,4 +168,4 @@ const styles = StyleSheet.create({
     lineHeight: 16,
     color: color.slate,
   },
-});
+}));

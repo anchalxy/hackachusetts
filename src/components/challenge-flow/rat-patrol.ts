@@ -19,6 +19,9 @@ export const CHECK_IN_OPTIONS = [
   { id: 'closed-no-action', label: 'Closed with no visible action' },
 ] as const;
 
+/** Demo week: reported Oct 26, so the day-7 check-in is Mon, Nov 2. */
+export const CHECK_IN_DATE = '2026-11-02';
+
 export const FALLBACK_SPOT = { street: 'Centre St', neighborhood: 'Jamaica Plain' };
 export const FALLBACK_TICKET = '101005741219';
 

@@ -1,62 +1,78 @@
 import { Camera } from 'expo-camera';
 import * as Location from 'expo-location';
-import { Linking, Platform, StyleSheet, View } from 'react-native';
+import { Linking, Platform, Switch, View } from 'react-native';
 
 import { Caption, Group, InfoRow, InnerPage, SectionLabel } from '@/components/menu/menu-ui';
-import { useDevicePermissions, type Permission } from '@/lib/settings';
-import { Button } from '@/ui/components';
+import { useDevicePermissions, type DevicePermissions } from '@/lib/settings';
+import { makeStyles, useColors, useScheme } from '@/ui/theme';
 
-function statusLine(status: Permission | undefined, on: string): string {
-  if (status === 'granted') return on;
-  if (status === 'denied') return 'Off. Turn it on in Settings.';
-  return 'We’ll ask the first time you report.';
+type Kind = 'camera' | 'location';
+
+const ROWS: { kind: Kind; icon: 'camera' | 'route'; title: string; body: string }[] = [
+  { kind: 'camera', icon: 'camera', title: 'Camera', body: 'Only used for report photos.' },
+  { kind: 'location', icon: 'route', title: 'Location', body: 'Only while you use the app.' },
+];
+
+/** What to say under the row when the toggle alone doesn't explain it. */
+function hint(p: DevicePermissions | null, kind: Kind): string | null {
+  if (!p) return null;
+  const canAsk = kind === 'camera' ? p.canAskCamera : p.canAskLocation;
+  if (p[kind] === 'denied' && !canAsk) return 'Blocked. Switch it on in iOS Settings.';
+  return null;
 }
 
 export default function PermissionsPage() {
+  const styles = useStyles();
+  const color = useColors();
+  const dark = useScheme() === 'dark';
+  // Off track: warm cream in light, a lifted slate in dark so it reads on the card.
+  const trackOff = dark ? '#3A424D' : '#E7E1D5';
   const { permissions, refresh } = useDevicePermissions();
 
-  // Ask while iOS still shows the prompt; after a "Don't allow" the only fix is Settings.
-  const fix = async (kind: 'camera' | 'location') => {
+  // The switch shows the real iOS permission. Apps can ask once; after a "Don't allow", and to
+  // turn a permission off, iOS only allows it in Settings. We re-read it when you come back.
+  const toggle = async (kind: Kind, on: boolean) => {
     const canAsk = kind === 'camera' ? permissions?.canAskCamera : permissions?.canAskLocation;
-    if (canAsk) {
+    if (on && canAsk) {
       if (kind === 'camera') await Camera.requestCameraPermissionsAsync();
       else await Location.requestForegroundPermissionsAsync();
       refresh();
-    } else {
-      Linking.openSettings();
+      return;
     }
-  };
-
-  const action = (kind: 'camera' | 'location') => {
-    const status = permissions?.[kind];
-    const canAsk = kind === 'camera' ? permissions?.canAskCamera : permissions?.canAskLocation;
-    if (!permissions || status === 'granted') return undefined;
-    // There's no app Settings page to send people to on web.
-    if (!canAsk && Platform.OS === 'web') return undefined;
-    return (
-      <View style={styles.action}>
-        <Button size="sm" label={canAsk ? 'Allow' : 'Open Settings'} onPress={() => fix(kind)} />
-      </View>
-    );
+    if (Platform.OS !== 'web') Linking.openSettings();
   };
 
   return (
     <InnerPage icon="camera" title="Location & camera" intro={'Reports use a live photo and where\nyou’re standing when you take it.'}>
       <SectionLabel first>Access</SectionLabel>
       <Group padBottom>
-        <InfoRow
-          icon="camera"
-          title="Camera"
-          body={statusLine(permissions?.camera, 'On. Only used for report photos.')}
-          trailing={action('camera')}
-        />
-        <InfoRow
-          icon="route"
-          title="Location"
-          body={statusLine(permissions?.location, 'On. Only while you use the app.')}
-          trailing={action('location')}
-          last
-        />
+        {ROWS.map((row, i) => {
+          const granted = permissions?.[row.kind] === 'granted';
+          const extra = hint(permissions, row.kind);
+          return (
+            <InfoRow
+              key={row.kind}
+              icon={row.icon}
+              title={row.title}
+              body={extra ? `${row.body}\n${extra}` : row.body}
+              last={i === ROWS.length - 1}
+              trailing={
+                <View style={styles.switch}>
+                  <Switch
+                    value={granted}
+                    disabled={!permissions || (Platform.OS === 'web' && !granted && permissions[row.kind] === 'denied')}
+                    onValueChange={(on) => toggle(row.kind, on)}
+                    trackColor={{ false: trackOff, true: color.primary }}
+                    ios_backgroundColor={trackOff}
+                    thumbColor={dark ? '#FFFFFF' : color.surface}
+                    accessibilityLabel={`${row.title} access`}
+                    testID={`perm-${row.kind}`}
+                  />
+                </View>
+              }
+            />
+          );
+        })}
       </Group>
       <View style={styles.footnote}>
         <Caption>{'We read your location at the moment you take a\nreport photo. Never in the background.'}</Caption>
@@ -65,11 +81,12 @@ export default function PermissionsPage() {
   );
 }
 
-const styles = StyleSheet.create({
-  action: {
-    marginTop: 6,
+const useStyles = makeStyles(() => ({
+  switch: {
+    alignSelf: 'flex-start',
+    marginTop: 4,
   },
   footnote: {
     marginTop: 7,
   },
-});
+}));

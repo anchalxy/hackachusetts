@@ -1,13 +1,11 @@
 import fc from 'fast-check';
 
 import {
-  leafBalance,
-  streak,
-  isStopDone,
-  VOTE_LEAVES,
-  MAX_VOTES,
-  type ChallengeProgress,
-  type StopProgress,
+    isStopDone,
+    MAX_VOTES,
+    streak,
+    type ChallengeProgress,
+    type StopProgress
 } from '@/lib/challenge-progress';
 
 // Arbitraries -----------------------------------------------------------------
@@ -25,36 +23,6 @@ const progress = (): fc.Arbitrary<ChallengeProgress> =>
     stops: fc.dictionary(fc.string({ minLength: 1, maxLength: 12 }), stopProgress()),
     votes: fc.integer({ min: 0, max: MAX_VOTES }),
   });
-
-// leafBalance -----------------------------------------------------------------
-
-describe('leafBalance (property-based)', () => {
-  it('equals base + earned stop leaves + vote leaves', () => {
-    fc.assert(
-      fc.property(progress(), fc.integer({ min: 0, max: 10000 }), (p, base) => {
-        const earned = Object.values(p.stops).reduce((s, x) => s + x.leaves, 0);
-        expect(leafBalance(p, base)).toBe(base + earned + p.votes * VOTE_LEAVES);
-      }),
-    );
-  });
-
-  it('is never below the base (leaves and votes only add)', () => {
-    fc.assert(
-      fc.property(progress(), fc.integer({ min: 0, max: 10000 }), (p, base) => {
-        expect(leafBalance(p, base)).toBeGreaterThanOrEqual(base);
-      }),
-    );
-  });
-
-  it('is monotonic in the base offset', () => {
-    fc.assert(
-      fc.property(progress(), fc.nat(5000), fc.nat(5000), (p, a, b) => {
-        const [lo, hi] = a <= b ? [a, b] : [b, a];
-        expect(leafBalance(p, lo)).toBeLessThanOrEqual(leafBalance(p, hi));
-      }),
-    );
-  });
-});
 
 // streak ----------------------------------------------------------------------
 

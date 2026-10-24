@@ -2,103 +2,48 @@ import { Image } from 'expo-image';
 import { router, useFocusEffect } from 'expo-router';
 import * as WebBrowser from 'expo-web-browser';
 import { useCallback, useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { Pressable, ScrollView, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Path } from 'react-native-svg';
 
+import { timelineDates } from '@/components/report/format';
+import { openLeafDevMenu } from '@/components/rewards/leaf-dev-menu';
+import { topicInfo } from '@/constants/report-topics';
 import { BottomTabInset } from '@/constants/theme';
 import { useChallengeProgress } from '@/lib/challenge-progress';
 import { challengeUpdateFeed, updateAgo, type ChallengeUpdateItem } from '@/lib/challenge-update-feed';
+import { getCurrentWeek } from '@/lib/challenge-week';
+import { getMyReports, refreshMyReportsFrom311, type MyReport } from '@/lib/my-reports';
+import { buildInbox, getSeenAt, markSeen, type AppNotification, type FixedHero, type Trailing } from '@/lib/notifications';
 import { areaLabel, getProfile, SEED_PROFILE, type Profile } from '@/lib/profile';
+import { creditApprovedReports } from '@/lib/report-leaves';
+import { photoSource } from '@/lib/report-photo';
 import { useLeafBalance } from '@/lib/rewards';
-import { Badge, Button, Card, IconTile, Timeline } from '@/ui/components';
-import { Icon, type IconName } from '@/ui/icon';
+import { seedFrom311Once } from '@/lib/seed-311';
+import { Badge, Button, IconTile, StatusBadge, Timeline } from '@/ui/components';
+import { Icon } from '@/ui/icon';
 import { Txt } from '@/ui/text';
-import { color, font, radius, space } from '@/ui/theme';
+import { font, makeStyles, radius, space, useColors } from '@/ui/theme';
 
-import Dana from '../../../design/assets/avatars/dana.svg';
 
 const PHOTO = require('../../../design/assets/avatars/ishaan-photo.jpg');
 
-type Trailing =
-  | { kind: 'badge'; label: string; tone: 'urgent' | 'inReview' | 'approved' }
-  | { kind: 'leaves'; amount: number }
-  | { kind: 'button'; label: string; onPress: () => void };
-
-type Notification = {
-  id: string;
-  icon: IconName;
-  /** Bold subject, then the rest of the sentence (DESIGN.md §4 copy style). */
-  lead: string;
-  rest?: string;
-  detail: string;
-  ago?: string;
-  trailing: Trailing;
-};
-
-// Mocked until notifications are built; copy is from design/screens/profile/profile.png.
-// Start, RSVP and Take survey go to Challenges, where meetings and surveys live for now.
-const toChallenges = () => router.navigate('/');
-
-const EARLIER: Notification[] = [
-  {
-    id: 'streak',
-    icon: 'flame',
-    lead: 'Your 5-week streak',
-    detail: 'Do a challenge to keep it',
-    trailing: { kind: 'badge', label: '1 day left', tone: 'urgent' },
-  },
-  {
-    id: 'challenge',
-    icon: 'flag',
-    lead: 'New challenge:',
-    rest: 'redesign',
-    detail: 'Starlight Square',
-    ago: '1d',
-    trailing: { kind: 'button', label: 'Start', onPress: toChallenges },
-  },
-  {
-    id: 'crosswalk',
-    icon: 'crosswalk',
-    lead: 'The city is reviewing',
-    detail: 'your Inman Sq crosswalk',
-    ago: '1d',
-    trailing: { kind: 'badge', label: 'In review', tone: 'inReview' },
-  },
-  {
-    id: 'council',
-    icon: 'calendar',
-    lead: 'City Council',
-    rest: 'meets Mon 5:30',
-    detail: 'Take notes for 3x leaves',
-    trailing: { kind: 'button', label: 'RSVP', onPress: toChallenges },
-  },
-  {
-    id: 'graffiti',
-    icon: 'graffiti',
-    lead: 'DPW approved',
-    rest: 'your graffiti',
-    detail: 'report on Broadway',
-    ago: '2d',
-    trailing: { kind: 'badge', label: 'Approved', tone: 'approved' },
-  },
-  {
-    id: 'votes',
-    icon: 'ballot',
-    lead: 'Your park design',
-    rest: 'got 48 votes',
-    detail: 'Starlight Square',
-    ago: '3d',
-    trailing: { kind: 'leaves', amount: 30 },
-  },
-];
-
 export default function ProfileScreen() {
+  const styles = useStyles();
+  const color = useColors();
+  const insets = useSafeAreaInsets();
   const [profile, setProfile] = useState<Profile>(SEED_PROFILE);
-  const [thanked, setThanked] = useState(false);
+  const [synced, setSynced] = useState<{ reports: MyReport[]; seenAt: number } | null>(null);
+  // Live, so finishing a challenge updates the streak and challenge rows right away.
+  const progress = useChallengeProgress();
+  const inbox = synced ? buildInbox({ ...synced, week: getCurrentWeek(), progress }) : null;
+  // Real counts, so they match where they link: every report you filed or followed, and every
+  // trail stop finished (earlier weeks from the profile, plus this week's).
+  const reportCount = synced?.reports.length ?? profile.reportCount;
+  const challengeCount = profile.challengeCount + Object.keys(progress.stops).length;
   const balance = useLeafBalance();
   // What the city did after challenges you finished (data/challenges/updates.json, checked weekly).
-  const updates = challengeUpdateFeed(useChallengeProgress());
+  const updates = challengeUpdateFeed(progress);
   const [now] = useState(() => Date.now());
 
   // Reload on focus: Edit profile and Neighborhood in the menu sheet change it.
@@ -108,9 +53,34 @@ export default function ProfileScreen() {
     }, []),
   );
 
+  // The inbox: seed real 311 cases once, sync every report with 311, pay leaves for new
+  // approvals, then rank what's worth telling the user. Leaving the screen marks it all seen.
+  useFocusEffect(
+    useCallback(() => {
+      let active = true;
+      const build = async (reports: MyReport[]) => {
+        const seenAt = await getSeenAt();
+        if (active) setSynced({ reports, seenAt });
+      };
+      (async () => {
+        await build(await getMyReports());
+        const reports = (await seedFrom311Once().catch(() => null)) ?? (await refreshMyReportsFrom311().catch(getMyReports));
+        await creditApprovedReports(reports);
+        await build(reports);
+      })();
+      return () => {
+        active = false;
+        markSeen();
+      };
+    }, []),
+  );
+
   return (
-    <SafeAreaView style={styles.screen} edges={['top']}>
-      <ScrollView contentContainerStyle={styles.content}>
+    <View style={styles.screen}>
+      {/* Fixed bar lined up with the Challenges tab's floating pills (insets.top + 8, 36 tall,
+          20 from the right). Same color as the page, so there's no box; it only keeps the
+          scrolling inbox from running under the pills. */}
+      <View style={[styles.bar, { paddingTop: insets.top }]}>
         <View style={styles.topBar}>
           {/* Username ⌄ opens Edit profile (DESIGN.md 6b: it no longer switches accounts). */}
           <View style={styles.usernameSlot} pointerEvents="box-none">
@@ -124,20 +94,26 @@ export default function ProfileScreen() {
               <Txt variant="rowLead" style={styles.username} numberOfLines={1}>
                 {profile.username}
               </Txt>
-              <Svg width={15} height={15} viewBox="0 0 24 24">
+              <Svg width={17} height={17} viewBox="0 0 24 24">
                 <Path d="M7 10l5 5 5-5" fill="none" stroke={color.ink} strokeWidth={2.8} strokeLinecap="round" strokeLinejoin="round" />
               </Svg>
             </Pressable>
           </View>
           <View style={styles.topBarRight}>
-            <Pressable onPress={() => router.navigate('/rewards')} style={styles.leafPill}>
+            <Pressable
+              onPress={() => router.navigate('/rewards')}
+              onLongPress={openLeafDevMenu}
+              delayLongPress={600}
+              accessibilityRole="button"
+              accessibilityLabel={`${balance.toLocaleString()} tea leaves`}
+              style={({ pressed }) => [styles.leafPill, pressed && styles.pressed]}>
               <Icon name="leafy" size={22} />
               <Txt variant="rowLead" style={styles.leafAmount}>
                 {balance.toLocaleString()}
               </Txt>
             </Pressable>
             <Pressable
-              onPress={() => router.push('/menu')}
+              onPress={() => router.navigate('/menu')}
               hitSlop={10}
               accessibilityRole="button"
               accessibilityLabel="Open settings"
@@ -149,7 +125,10 @@ export default function ProfileScreen() {
             </Pressable>
           </View>
         </View>
-
+      </View>
+      <ScrollView
+        alwaysBounceVertical={false}
+        contentContainerStyle={[styles.content, { paddingBottom: BottomTabInset + insets.bottom + 32 }]}>
         <View style={styles.header}>
           <View style={styles.photoFrame}>
             <Image source={PHOTO} style={styles.photo} contentFit="cover" />
@@ -161,101 +140,98 @@ export default function ProfileScreen() {
             </Txt>
             <Txt variant="secondary" style={styles.counts}>
               <Txt variant="secondary" style={styles.count} onPress={() => router.navigate('/report')}>
-                {profile.reportCount}
+                {reportCount}
               </Txt>
-              {' reports · '}
+              {reportCount === 1 ? ' report · ' : ' reports · '}
               <Txt variant="secondary" style={styles.count} onPress={() => router.navigate('/')}>
-                {profile.challengeCount}
+                {challengeCount}
               </Txt>
-              {' challenges'}
+              {challengeCount === 1 ? ' challenge' : ' challenges'}
             </Txt>
           </View>
         </View>
 
-        <View style={styles.sectionHeader}>
-          <Txt variant="section">New</Txt>
-          <Txt variant="secondary">3 unread</Txt>
+        {inbox?.hero ? (
+          <>
+            <View style={styles.sectionHeader}>
+              <Txt variant="section">New</Txt>
+              {inbox.unread > 0 ? <Txt variant="secondary">{inbox.unread} unread</Txt> : null}
+            </View>
+            <FixedCard hero={inbox.hero} />
+          </>
+        ) : null}
+
+        <View style={[styles.sectionHeader, styles.earlier]}>
+          <Txt variant="section">{inbox?.hero ? 'Earlier' : 'Notifications'}</Txt>
+          {!inbox?.hero && inbox && inbox.unread > 0 ? <Txt variant="secondary">{inbox.unread} unread</Txt> : null}
         </View>
-
-        <Card style={styles.fixedCard}>
-          <View style={styles.fixedHead}>
-            <IconTile icon="pothole" size={64} />
-            <View style={styles.fixedTitle}>
-              <Txt variant="hero">Your pothole got fixed!</Txt>
-              <Txt variant="secondary">Mass Ave & Prospect St</Txt>
-            </View>
-            <View style={styles.unreadDot} />
-          </View>
-          <Timeline status="fixed" dates={['Oct 12', 'Oct 15', 'Oct 16', 'Today']} />
-          <View style={styles.crew}>
-            <View style={styles.crewAvatar}>
-              <Dana width={40} height={40} />
-            </View>
-            <View style={styles.crewText}>
-              <Txt variant="rowLead" style={styles.crewName}>
-                Fixed by Dana R., DPW
-              </Txt>
-              <View style={styles.leafLine}>
-                <Icon name="leafySmall" size={16} />
-                <Txt variant="badge" style={styles.leafText}>
-                  +50 tea leaves
-                </Txt>
-              </View>
-            </View>
-            {thanked ? (
-              <Badge label="Thanked" bg={color.badge.approved.bg} fg={color.badge.approved.fg} />
-            ) : (
-              <Button size="sm" label="Say thanks" onPress={() => setThanked(true)} />
-            )}
-          </View>
-        </Card>
-
-        <View style={styles.bounty}>
-          <Waves />
-          <Txt variant="hero" style={styles.bountyTitle}>
-            How do you get to Central Sq?
-          </Txt>
-          <Txt variant="secondary" style={styles.bountyBody}>
-            The city is redrawing the bike lanes and wants to hear from renters like you.
-          </Txt>
-          <View style={styles.bountyFooter}>
-            <View style={styles.bountyLeafy}>
-              <Icon name="leafy" size={22} />
-            </View>
-            <View style={styles.bountyBoost}>
-              <Txt variant="rowLead" style={styles.bountyBoostTitle}>
-                Double tea leaves
-              </Txt>
-              <Txt variant="meta" style={styles.bountyMeta}>
-                Ends Friday
-              </Txt>
-            </View>
-            <Pressable onPress={toChallenges} style={({ pressed }) => [styles.bountyButton, pressed && styles.pressed]}>
-              <Txt variant="button" style={styles.bountyButtonText}>
-                Take survey
-              </Txt>
-            </Pressable>
-          </View>
-        </View>
-
-        <Txt variant="section" style={styles.earlier}>
-          Earlier
-        </Txt>
-        {updates.map((u) => (
-          <ChallengeUpdateRow key={u.id} update={u} now={now} />
+        {updates.map((u, i) => (
+          <ChallengeUpdateRow key={u.id} update={u} now={now} last={i === updates.length - 1 && !inbox?.rows.length} />
         ))}
-        {EARLIER.map((n, i) => (
-          <NotificationRow key={n.id} notification={n} last={i === EARLIER.length - 1} />
+        {inbox?.rows.map((n, i) => (
+          <NotificationRow key={n.id} notification={n} last={i === inbox.rows.length - 1} />
         ))}
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 }
 
-function NotificationRow({ notification: n, last }: { notification: Notification; last: boolean }) {
+/** "Your pothole got fixed!": the newest real fix, with the report's photo and who fixed it. */
+function FixedCard({ hero }: { hero: FixedHero }) {
+  const styles = useStyles();
+  const { report } = hero;
+  const photo = photoSource(report.photoUri);
   return (
-    <View style={styles.row}>
-      <IconTile icon={n.icon} />
+    <Pressable
+      onPress={() => router.push(`/report/${report.id}`)}
+      accessibilityRole="button"
+      accessibilityLabel={`${hero.headline} ${report.address}. Fixed by ${hero.fixedBy}.`}
+      testID="profile-fixed-card"
+      style={({ pressed }) => [styles.fixedCard, pressed && styles.cardPressed]}>
+      <View style={styles.fixedHead}>
+        {photo ? (
+          <Image source={{ uri: photo }} style={styles.fixedPhoto} contentFit="cover" />
+        ) : (
+          <IconTile icon={topicInfo(report.topic).icon} size={64} />
+        )}
+        <View style={styles.fixedTitle}>
+          <Txt variant="hero">{hero.headline}</Txt>
+          <Txt variant="secondary" numberOfLines={1}>
+            {report.address}
+          </Txt>
+        </View>
+        {hero.unread ? <View style={styles.unreadDot} /> : null}
+      </View>
+      <Timeline status="fixed" dates={timelineDates(report)} />
+      <View style={styles.crew}>
+        <View style={styles.crewIcon}>
+          <Icon name="cityhall" size={26} />
+        </View>
+        <View style={styles.crewText}>
+          <Txt variant="rowLead" style={styles.crewName} numberOfLines={1}>
+            Fixed by {hero.fixedBy}
+          </Txt>
+          <View style={styles.leafLine}>
+            <Icon name="leafySmall" size={16} />
+            <Txt variant="badge" style={styles.leafText}>
+              +{hero.leaves} tea leaves
+            </Txt>
+          </View>
+        </View>
+      </View>
+    </Pressable>
+  );
+}
+
+function NotificationRow({ notification: n, last }: { notification: AppNotification; last: boolean }) {
+  const styles = useStyles();
+  return (
+    <Pressable
+      onPress={() => router.push(n.href)}
+      accessibilityRole="button"
+      testID={`notif-${n.id}`}
+      style={({ pressed }) => [styles.row, pressed && styles.pressed]}>
+      <RowLead icon={n.icon} photo={n.photo} />
       <View style={[styles.rowBody, !last && styles.rowDivider]}>
         <View style={styles.rowText}>
           <Txt variant="row" numberOfLines={1}>
@@ -269,18 +245,22 @@ function NotificationRow({ notification: n, last }: { notification: Notification
             {n.ago ? <Txt variant="meta">{` · ${n.ago}`}</Txt> : null}
           </Txt>
         </View>
-        <RowTrailing trailing={n.trailing} />
+        {/* Badges hug the top by default; every trailing element sits on the row's center line. */}
+        <View style={styles.trailing}>
+          <RowTrailing trailing={n.trailing} />
+        </View>
       </View>
-    </View>
+    </Pressable>
   );
 }
 
 /** "Update on Rat patrol: Docket #1804 was referred…" with where it came from, so users can check it. */
-function ChallengeUpdateRow({ update: u, now }: { update: ChallengeUpdateItem; now: number }) {
+function ChallengeUpdateRow({ update: u, now, last }: { update: ChallengeUpdateItem; now: number; last: boolean }) {
+  const styles = useStyles();
   return (
     <View style={styles.row}>
       <IconTile icon={u.icon} />
-      <View style={[styles.rowBody, styles.rowDivider]}>
+      <View style={[styles.rowBody, !last && styles.rowDivider]}>
         <View style={styles.rowText}>
           <Txt variant="row" numberOfLines={2}>
             <Txt variant="row" style={styles.rowLead}>
@@ -298,12 +278,22 @@ function ChallengeUpdateRow({ update: u, now }: { update: ChallengeUpdateItem; n
   );
 }
 
+/** The report's own photo when there is one (the actual broken light), else the topic icon. */
+function RowLead({ icon, photo }: { icon: AppNotification['icon']; photo?: string }) {
+  const styles = useStyles();
+  const uri = photoSource(photo);
+  if (!uri) return <IconTile icon={icon} />;
+  return <Image source={{ uri }} style={styles.rowPhoto} contentFit="cover" accessibilityIgnoresInvertColors />;
+}
+
 function RowTrailing({ trailing }: { trailing: Trailing }) {
+  const styles = useStyles();
+  const color = useColors();
   switch (trailing.kind) {
-    case 'badge': {
-      const { bg, fg } = color.badge[trailing.tone];
-      return <Badge label={trailing.label} bg={bg} fg={fg} />;
-    }
+    case 'status':
+      return <StatusBadge status={trailing.status} />;
+    case 'urgent':
+      return <Badge label={trailing.label} bg={color.badge.urgent.bg} fg={color.badge.urgent.fg} />;
     case 'leaves':
       return (
         <View style={styles.leafBadge}>
@@ -314,25 +304,14 @@ function RowTrailing({ trailing }: { trailing: Trailing }) {
         </View>
       );
     case 'button':
-      return <Button size="sm" label={trailing.label} onPress={trailing.onPress} />;
+      return <Button size="sm" label={trailing.label} onPress={() => router.push(trailing.href)} />;
   }
-}
-
-/** Faint harbor waves along the bounty card's bottom edge (DESIGN.md §3). */
-function Waves() {
-  const wave = 'M0 6c12 0 12-6 24-6s12 6 24 6 12-6 24-6 12 6 24 6 12-6 24-6 12 6 24 6 12-6 24-6 12 6 24 6';
-  return (
-    <Svg width={192} height={30} viewBox="0 0 192 30" style={styles.waves} pointerEvents="none">
-      <Path d={wave} stroke="#FFFFFF" strokeWidth={2} fill="none" transform="translate(0 6)" />
-      <Path d={wave} stroke="#FFFFFF" strokeWidth={2} fill="none" transform="translate(12 18)" />
-    </Svg>
-  );
 }
 
 const PHOTO_SIZE = 104;
 const FRAME = 5;
 
-const styles = StyleSheet.create({
+const useStyles = makeStyles((color, dark) => ({
   screen: {
     flex: 1,
     backgroundColor: color.bg,
@@ -341,49 +320,60 @@ const styles = StyleSheet.create({
     paddingHorizontal: space.gutter,
     paddingBottom: BottomTabInset + 32,
   },
+  bar: {
+    backgroundColor: color.bg,
+    paddingHorizontal: space.gutter,
+    paddingBottom: 8,
+    zIndex: 1,
+  },
   topBar: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-end',
-    paddingVertical: 12,
+    paddingTop: 8,
+    height: 44,
   },
+  // Centered on the screen, kept clear of the pill + menu on the right.
   usernameSlot: {
     position: 'absolute',
-    left: 0,
-    right: 0,
+    left: 110,
+    right: 110,
+    top: 8,
+    height: 36,
     alignItems: 'center',
+    justifyContent: 'center',
   },
   usernameButton: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 2,
-    maxWidth: 150,
+    gap: 3,
+    maxWidth: '100%',
   },
   username: {
-    fontSize: 17,
-    lineHeight: 22,
+    fontFamily: font.bodyBold,
+    fontSize: 20,
+    lineHeight: 25,
     flexShrink: 1,
   },
   topBarRight: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 15,
+    gap: 14,
   },
-  // Top bar measurements from design/screens/profile/profile.svg.
   leafPill: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 4,
-    height: 30,
-    paddingLeft: 6,
-    paddingRight: 11,
-    borderRadius: 15,
+    gap: 6,
+    height: 36,
+    paddingLeft: 8,
+    paddingRight: 12,
+    borderRadius: 999,
     backgroundColor: color.leaf.tint,
   },
   leafAmount: {
     color: color.leaf.dark,
-    fontSize: 13.5,
-    lineHeight: 18,
+    fontSize: 15,
+    fontVariant: ['tabular-nums'],
   },
   menuButton: {
     marginRight: -3,
@@ -392,7 +382,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 18,
-    marginTop: 12,
+    marginTop: 20,
     marginBottom: space.sectionGap,
   },
   photoFrame: {
@@ -402,7 +392,7 @@ const styles = StyleSheet.create({
     padding: FRAME - 1.2,
     backgroundColor: color.surface,
     borderWidth: 1.2,
-    borderColor: '#E3DBCB',
+    borderColor: dark ? color.border : '#E3DBCB',
   },
   photo: {
     width: PHOTO_SIZE,
@@ -434,6 +424,40 @@ const styles = StyleSheet.create({
   fixedCard: {
     gap: 22,
     marginBottom: space.cardGap,
+    padding: space.cardPadding,
+    borderRadius: radius.card,
+    borderWidth: 1,
+    borderColor: color.border,
+    backgroundColor: color.surface,
+  },
+  cardPressed: {
+    backgroundColor: dark ? color.panel : '#FBFAF7',
+  },
+  fixedPhoto: {
+    width: 64,
+    height: 64,
+    borderRadius: radius.heroTile,
+    backgroundColor: color.tile,
+  },
+  crewIcon: {
+    width: 46,
+    height: 46,
+    borderRadius: 23,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: color.surface,
+    borderWidth: 1.2,
+    borderColor: dark ? color.border : '#E3DBCB',
+  },
+  rowPhoto: {
+    width: 44,
+    height: 44,
+    borderRadius: radius.tile,
+    backgroundColor: color.tile,
+  },
+  trailing: {
+    alignSelf: 'center',
+    alignItems: 'flex-end',
   },
   fixedHead: {
     flexDirection: 'row',
@@ -460,16 +484,6 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     backgroundColor: color.panel,
   },
-  crewAvatar: {
-    width: 46,
-    height: 46,
-    borderRadius: 23,
-    padding: 3,
-    backgroundColor: color.surface,
-    borderWidth: 1.2,
-    borderColor: '#E3DBCB',
-    overflow: 'hidden',
-  },
   crewText: {
     flex: 1,
     gap: 2,
@@ -484,61 +498,6 @@ const styles = StyleSheet.create({
   },
   leafText: {
     color: color.leaf.dark,
-  },
-  bounty: {
-    overflow: 'hidden',
-    padding: 20,
-    paddingBottom: 18,
-    borderRadius: radius.card,
-    backgroundColor: color.highlightCard.bg,
-    gap: 6,
-  },
-  waves: {
-    position: 'absolute',
-    right: 0,
-    bottom: 0,
-    opacity: color.highlightCard.waveOpacity,
-  },
-  bountyTitle: {
-    color: color.highlightCard.title,
-  },
-  bountyBody: {
-    color: color.highlightCard.body,
-  },
-  bountyFooter: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 10,
-    marginTop: 12,
-  },
-  bountyLeafy: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: color.leaf.tint,
-  },
-  bountyBoost: {
-    flex: 1,
-  },
-  bountyBoostTitle: {
-    color: color.highlightCard.title,
-    fontSize: 14,
-  },
-  bountyMeta: {
-    color: color.highlightCard.meta,
-  },
-  bountyButton: {
-    height: 36,
-    paddingHorizontal: 16,
-    borderRadius: 999,
-    justifyContent: 'center',
-    backgroundColor: color.surface,
-  },
-  bountyButtonText: {
-    color: color.primary,
-    fontSize: 14,
   },
   pressed: {
     opacity: 0.75,
@@ -583,4 +542,4 @@ const styles = StyleSheet.create({
     borderRadius: radius.badge,
     backgroundColor: color.badge.reward.bg,
   },
-});
+}));

@@ -1,6 +1,6 @@
 import { router, useFocusEffect } from 'expo-router';
 import { useCallback, useState } from 'react';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 
 import { Caption, Group, InnerPage, SectionLabel } from '@/components/menu/menu-ui';
@@ -8,7 +8,7 @@ import { BOSTON_NEIGHBORHOODS, CITIES, type BostonNeighborhood, type City } from
 import { getProfile, NEIGHBORHOOD_LOCK_DAYS, neighborhoodLockedUntil, saveProfile, SEED_PROFILE, type Profile } from '@/lib/profile';
 import { Button } from '@/ui/components';
 import { Txt } from '@/ui/text';
-import { color, font } from '@/ui/theme';
+import { font, makeStyles, useColors } from '@/ui/theme';
 
 type Area = { city: City; neighborhood: BostonNeighborhood | null };
 
@@ -22,6 +22,7 @@ const BOSTON = BOSTON_NEIGHBORHOODS.map((neighborhood): Area => ({ city: 'Boston
 const formatDay = (d: Date) => d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
 
 export default function NeighborhoodPage() {
+  const styles = useStyles();
   const [profile, setProfile] = useState<Profile>(SEED_PROFILE);
   const [picked, setPicked] = useState<Area | null>(null);
   const [saving, setSaving] = useState(false);
@@ -35,21 +36,25 @@ export default function NeighborhoodPage() {
   const lockedUntil = neighborhoodLockedUntil(profile);
   const current: Area = { city: profile.city, neighborhood: profile.neighborhood };
   const selected = picked ?? current;
-  const pending = picked && !sameArea(picked, current) ? picked : null;
+  const pending = picked && !lockedUntil && !sameArea(picked, current) ? picked : null;
 
   const save = async () => {
     if (!pending || lockedUntil || saving) return;
     setSaving(true);
-    const latest = await getProfile();
-    await saveProfile({
-      ...latest,
-      city: pending.city,
-      neighborhood: pending.neighborhood,
-      // Wards are only known for the area you signed up in.
-      ward: null,
-      neighborhoodChangedAt: Date.now(),
-    });
-    router.back();
+    try {
+      const latest = await getProfile();
+      await saveProfile({
+        ...latest,
+        city: pending.city,
+        neighborhood: pending.neighborhood,
+        // Wards are only known for the area you signed up in.
+        ward: null,
+        neighborhoodChangedAt: Date.now(),
+      });
+      router.back();
+    } finally {
+      setSaving(false);
+    }
   };
 
   const renderRows = (areas: Area[]) =>
@@ -105,6 +110,8 @@ function AreaRow({
   last: boolean;
   onPress: () => void;
 }) {
+  const styles = useStyles();
+  const color = useColors();
   return (
     <Pressable
       onPress={onPress}
@@ -125,7 +132,7 @@ function AreaRow({
   );
 }
 
-const styles = StyleSheet.create({
+const useStyles = makeStyles((color, dark) => ({
   note: {
     marginTop: 20,
     borderRadius: 12,
@@ -149,7 +156,7 @@ const styles = StyleSheet.create({
     paddingLeft: 16,
   },
   rowPressed: {
-    backgroundColor: '#F7F4EE',
+    backgroundColor: dark ? color.tile : '#F7F4EE',
   },
   rowBody: {
     height: 50,
@@ -170,4 +177,4 @@ const styles = StyleSheet.create({
   rowLabelDisabled: {
     color: color.mute,
   },
-});
+}));

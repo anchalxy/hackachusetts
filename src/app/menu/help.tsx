@@ -1,17 +1,15 @@
-import { router } from 'expo-router';
-
-import { Group, InfoRow, InnerPage, MenuRow, SectionLabel } from '@/components/menu/menu-ui';
+import { Group, InfoRow, InnerPage, MenuRow, openPage, SectionLabel } from '@/components/menu/menu-ui';
 
 export default function HelpPage() {
   return (
     <InnerPage icon="help" title="Help" intro={'Quick answers to the things\npeople ask most.'}>
       <SectionLabel first>Guides</SectionLabel>
       <Group>
-        <MenuRow icon="leafy" title="How tea leaves work" onPress={() => router.push('/menu/tea-leaves')} testID="help-tea-leaves" />
+        <MenuRow icon="leafy" title="How tea leaves work" onPress={() => openPage('/menu/tea-leaves', 'Help')} testID="help-tea-leaves" />
         <MenuRow
           icon="shield"
           title="Reporting guidelines"
-          onPress={() => router.push('/menu/reporting-guidelines')}
+          onPress={() => openPage('/menu/reporting-guidelines', 'Help')}
           last
           testID="help-guidelines"
         />
