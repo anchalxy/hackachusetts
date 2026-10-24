@@ -1,107 +1,98 @@
-import { useState } from 'react';
-import { FlatList, Pressable, StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { StyleSheet, View } from 'react-native';
 
+import { Card, Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
-import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
+import { Spacing } from '@/constants/theme';
 
-type Item = { id: string; title: string; subtitle: string };
+type Challenge = {
+  id: string;
+  monument: string;
+  title: string;
+  points: number;
+  done: boolean;
+};
 
-const MOCK_ITEMS: Item[] = [
-  { id: '1', title: 'Team kickoff', subtitle: 'Saturday · 10:00 AM' },
-  { id: '2', title: 'Pick a project idea', subtitle: 'Brainstorm with the team' },
-  { id: '3', title: 'Build the MVP', subtitle: 'Ship something that works' },
-  { id: '4', title: 'Demo prep', subtitle: 'Sunday · 2:00 PM' },
-  { id: '5', title: 'Submit to judges', subtitle: 'Sunday · 4:00 PM' },
+// Mocked until agenda scraping is seeded.
+const MOCK_CHALLENGES: Challenge[] = [
+  { id: '1', monument: 'Boston Common', title: 'Redesign Peters Park', points: 8, done: true },
+  { id: '2', monument: 'State House', title: 'Cut 5% without closing a library', points: 10, done: false },
+  { id: '3', monument: 'Old South Meeting House', title: 'Attend the Council hearing on bike lanes', points: 12, done: false },
+  { id: '4', monument: 'Faneuil Hall', title: 'Time a 311 pothole response', points: 6, done: false },
+  { id: '5', monument: 'Paul Revere House', title: 'Navigate Downtown with a stroller', points: 7, done: false },
 ];
 
-export default function HomeScreen() {
-  const [done, setDone] = useState<Set<string>>(new Set());
-
-  function toggle(id: string) {
-    setDone((prev) => {
-      const next = new Set(prev);
-      if (next.has(id)) next.delete(id);
-      else next.add(id);
-      return next;
-    });
-  }
+export default function ChallengesScreen() {
+  const completed = MOCK_CHALLENGES.filter((c) => c.done).length;
 
   return (
-    <ThemedView style={styles.container}>
-      <SafeAreaView style={styles.safeArea} edges={['top']}>
-        <FlatList
-          data={MOCK_ITEMS}
-          keyExtractor={(item) => item.id}
-          contentContainerStyle={styles.list}
-          ListHeaderComponent={
-            <ThemedView style={styles.header}>
-              <ThemedText type="subtitle">Hackachusetts</ThemedText>
-              <ThemedText themeColor="textSecondary">
-                {done.size} of {MOCK_ITEMS.length} done
+    <Screen title="This Week" subtitle="Walk the Freedom Trail, one challenge at a time">
+      <Card style={styles.streakCard}>
+        <View>
+          <ThemedText type="smallBold">🔥 3-week streak</ThemedText>
+          <ThemedText type="small" themeColor="textSecondary">
+            Finish 1 challenge this week to keep it
+          </ThemedText>
+        </View>
+        <ThemedText type="smallBold">
+          {completed}/{MOCK_CHALLENGES.length}
+        </ThemedText>
+      </Card>
+
+      <View>
+        {MOCK_CHALLENGES.map((challenge, index) => (
+          <View key={challenge.id} style={styles.stop}>
+            <View style={styles.trail}>
+              <ThemedView
+                type={challenge.done ? 'text' : 'backgroundSelected'}
+                style={styles.marker}
+              />
+              {index < MOCK_CHALLENGES.length - 1 && (
+                <ThemedView type="backgroundSelected" style={styles.line} />
+              )}
+            </View>
+            <Card style={styles.stopCard}>
+              <ThemedText type="small" themeColor="textSecondary">
+                {challenge.monument}
               </ThemedText>
-            </ThemedView>
-          }
-          renderItem={({ item }) => {
-            const isDone = done.has(item.id);
-            return (
-              <Pressable onPress={() => toggle(item.id)}>
-                {({ pressed }) => (
-                  <ThemedView
-                    type={pressed ? 'backgroundSelected' : 'backgroundElement'}
-                    style={styles.card}>
-                    <ThemedView
-                      type={isDone ? 'text' : 'backgroundSelected'}
-                      style={styles.check}
-                    />
-                    <ThemedView type={pressed ? 'backgroundSelected' : 'backgroundElement'}>
-                      <ThemedText style={isDone && styles.doneText}>{item.title}</ThemedText>
-                      <ThemedText type="small" themeColor="textSecondary">
-                        {item.subtitle}
-                      </ThemedText>
-                    </ThemedView>
-                  </ThemedView>
-                )}
-              </Pressable>
-            );
-          }}
-        />
-      </SafeAreaView>
-    </ThemedView>
+              <ThemedText style={challenge.done && styles.doneText}>{challenge.title}</ThemedText>
+              <ThemedText type="smallBold">+{challenge.points} pts</ThemedText>
+            </Card>
+          </View>
+        ))}
+      </View>
+    </Screen>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  streakCard: {
     flexDirection: 'row',
-    justifyContent: 'center',
-  },
-  safeArea: {
-    flex: 1,
-    maxWidth: MaxContentWidth,
-  },
-  list: {
-    paddingHorizontal: Spacing.four,
-    paddingBottom: BottomTabInset + Spacing.three,
-    gap: Spacing.two,
-  },
-  header: {
-    paddingVertical: Spacing.four,
-    gap: Spacing.one,
-  },
-  card: {
-    flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    gap: Spacing.three,
-    padding: Spacing.three,
-    borderRadius: Spacing.three,
   },
-  check: {
-    width: 22,
-    height: 22,
-    borderRadius: 11,
+  stop: {
+    flexDirection: 'row',
+    gap: Spacing.three,
+  },
+  trail: {
+    alignItems: 'center',
+    width: 20,
+  },
+  marker: {
+    width: 20,
+    height: 20,
+    borderRadius: 10,
+    marginTop: Spacing.three,
+  },
+  line: {
+    flex: 1,
+    width: 3,
+  },
+  stopCard: {
+    flex: 1,
+    gap: Spacing.half,
+    marginBottom: Spacing.three,
   },
   doneText: {
     textDecorationLine: 'line-through',
