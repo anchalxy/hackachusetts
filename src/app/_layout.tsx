@@ -29,6 +29,8 @@ export default function RootLayout() {
             options={{ presentation: 'transparentModal', animation: 'slide_from_bottom' }}
           />
           <Stack.Screen name="report/[id]" options={{ contentStyle: { backgroundColor: color.bg } }} />
+          {/* Settings sheet from the profile's hamburger (DESIGN.md 6b). iOS page sheet: the profile peeks out, dimmed. */}
+          <Stack.Screen name="menu" options={{ presentation: 'modal', contentStyle: { backgroundColor: color.bg } }} />
           {/* Tapping a trail stop: native form sheet sized to its content. */}
           <Stack.Screen
             name="challenge/[id]"

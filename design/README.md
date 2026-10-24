@@ -13,12 +13,13 @@ design/
     icons/               ← 24-unit SVG icons (Leafy style), e.g. flag.svg, camera.svg, pothole.svg
     icons-muted/         ← inactive-tab versions (flag, camera, flame, calendar, ballot, teacup)
     mascots/             ← leafy.svg (currency), revere-*.svg (report flow), flag-311-planted-*.svg
+    rewards/             ← crate-fill-0/25/50/75/100.svg, crate-closed.svg, paul-standing-lift/throw/cheer.svg, ship-beaver.svg, fish-*.svg, sun.svg, cloud.svg
     avatars/             ← ishaan-photo.jpg (real photo, preferred), illustrated fallbacks (dana, ishaan, colonist)
     fonts/               ← Bricolage Grotesque 700/800 + DM Sans 400–700 (.ttf, SIL Open Font License)
   screens/               ← full-screen mockups: .svg (drag into Figma, layers named) + .png (reference)
-    profile/  menu/  report/  submit/
-  flows/                 ← submit-flow.png (all submit states + branches), report-navigation.png
-  animations/            ← sent-revere-gallop.gif (reference), revere-gallop-loop.svg (looping SMIL demo)
+    profile/  menu/  report/  submit/  rewards/
+  flows/                 ← submit-flow.png, report-navigation.png, rewards-flow.png
+  animations/            ← sent-revere-gallop.gif, crate-reward.gif (reference), revere-gallop-loop.svg
   sheets/                ← icon-library and paul-revere overview sheets
 ```
 

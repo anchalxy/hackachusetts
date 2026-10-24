@@ -7,6 +7,10 @@ export type Profile = {
   city: City;
   /** Boston only; the other cities are treated as one area each for now. */
   neighborhood: BostonNeighborhood | null;
+  /** Cambridge and Somerville voting ward, when we know it. */
+  ward: number | null;
+  /** Neighborhood can change once every 30 days (DESIGN.md 6b), so bounties can't be gamed. */
+  neighborhoodChangedAt: number | null;
   /** Used for dynamic rewards (Plan.md: boosts by neighborhood and age). */
   age: number;
   /** Tea leaves (the in-app currency). Mocked until points are built. */
@@ -22,6 +26,8 @@ export const SEED_PROFILE: Profile = {
   username: 'ishaan.t',
   city: 'Cambridge',
   neighborhood: null,
+  ward: 4,
+  neighborhoodChangedAt: null,
   age: 20,
   leaves: 1240,
   reportCount: 12,
@@ -31,6 +37,12 @@ export const SEED_PROFILE: Profile = {
 /** "Allston, Boston" or just "Cambridge". */
 export function areaLabel(profile: Pick<Profile, 'city' | 'neighborhood'>): string {
   return profile.neighborhood ? `${profile.neighborhood}, ${profile.city}` : profile.city;
+}
+
+/** Settings row value: "Cambridge · Ward 4", "Allston · Boston" or just "Brookline". */
+export function neighborhoodLabel(profile: Pick<Profile, 'city' | 'neighborhood' | 'ward'>): string {
+  if (profile.neighborhood) return `${profile.neighborhood} · ${profile.city}`;
+  return profile.ward ? `${profile.city} · Ward ${profile.ward}` : profile.city;
 }
 
 /** "boston-allston" / "cambridge": file names and API keys for an area. */

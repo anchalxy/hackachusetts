@@ -1,6 +1,6 @@
 import { Image } from 'expo-image';
-import { router } from 'expo-router';
-import { useEffect, useState } from 'react';
+import { router, useFocusEffect } from 'expo-router';
+import { useCallback, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Svg, { Path } from 'react-native-svg';
@@ -95,23 +95,53 @@ export default function ProfileScreen() {
   const [thanked, setThanked] = useState(false);
   const progress = useChallengeProgress();
 
-  useEffect(() => {
-    getProfile().then(setProfile);
-  }, []);
+  // Reload on focus: Edit profile and Neighborhood in the menu sheet change it.
+  useFocusEffect(
+    useCallback(() => {
+      getProfile().then(setProfile);
+    }, []),
+  );
 
   return (
     <SafeAreaView style={styles.screen} edges={['top']}>
       <ScrollView contentContainerStyle={styles.content}>
         <View style={styles.topBar}>
-          <Txt variant="rowLead" style={styles.username}>
-            {profile.username}
-          </Txt>
-          <Pressable onPress={() => router.navigate('/rewards')} style={styles.leafPill}>
-            <Icon name="leafy" size={22} />
-            <Txt variant="rowLead" style={styles.leafAmount}>
-              {leafBalance(progress, profile.leaves).toLocaleString()}
-            </Txt>
-          </Pressable>
+          {/* Username ⌄ opens Edit profile (DESIGN.md 6b: it no longer switches accounts). */}
+          <View style={styles.usernameSlot} pointerEvents="box-none">
+            <Pressable
+              onPress={() => router.push('/menu/edit-profile')}
+              hitSlop={8}
+              accessibilityRole="button"
+              accessibilityLabel={`${profile.username}. Edit profile`}
+              testID="profile-username"
+              style={({ pressed }) => [styles.usernameButton, pressed && styles.pressed]}>
+              <Txt variant="rowLead" style={styles.username} numberOfLines={1}>
+                {profile.username}
+              </Txt>
+              <Svg width={15} height={15} viewBox="0 0 24 24">
+                <Path d="M7 10l5 5 5-5" fill="none" stroke={color.ink} strokeWidth={2.8} strokeLinecap="round" strokeLinejoin="round" />
+              </Svg>
+            </Pressable>
+          </View>
+          <View style={styles.topBarRight}>
+            <Pressable onPress={() => router.navigate('/rewards')} style={styles.leafPill}>
+              <Icon name="leafy" size={22} />
+              <Txt variant="rowLead" style={styles.leafAmount}>
+                {leafBalance(progress, profile.leaves).toLocaleString()}
+              </Txt>
+            </Pressable>
+            <Pressable
+              onPress={() => router.push('/menu')}
+              hitSlop={10}
+              accessibilityRole="button"
+              accessibilityLabel="Open settings"
+              testID="profile-menu"
+              style={({ pressed }) => [styles.menuButton, pressed && styles.pressed]}>
+              <Svg width={24} height={24} viewBox="0 0 24 24">
+                <Path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke={color.ink} strokeWidth={2} strokeLinecap="round" />
+              </Svg>
+            </Pressable>
+          </View>
         </View>
 
         <View style={styles.header}>
@@ -285,26 +315,46 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     paddingVertical: 12,
   },
-  username: {
+  usernameSlot: {
     position: 'absolute',
     left: 0,
     right: 0,
-    textAlign: 'center',
-    fontSize: 17,
+    alignItems: 'center',
   },
+  usernameButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 2,
+    maxWidth: 150,
+  },
+  username: {
+    fontSize: 17,
+    lineHeight: 22,
+    flexShrink: 1,
+  },
+  topBarRight: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 15,
+  },
+  // Top bar measurements from design/screens/profile/profile.svg.
   leafPill: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 6,
-    height: 36,
-    paddingLeft: 8,
-    paddingRight: 12,
-    borderRadius: 999,
+    gap: 4,
+    height: 30,
+    paddingLeft: 6,
+    paddingRight: 11,
+    borderRadius: 15,
     backgroundColor: color.leaf.tint,
   },
   leafAmount: {
     color: color.leaf.dark,
-    fontSize: 15,
+    fontSize: 13.5,
+    lineHeight: 18,
+  },
+  menuButton: {
+    marginRight: -3,
   },
   header: {
     flexDirection: 'row',
