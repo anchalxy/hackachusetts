@@ -1,10 +1,10 @@
-import { Image } from 'expo-image';
 import { useEffect, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 import { Marker } from 'react-native-maps';
 
 import { topicInfo } from '@/constants/report-topics';
 import type { MyReport } from '@/lib/my-reports';
+import { photoSource } from '@/lib/report-photo';
 import { StatusGlyph } from '@/ui/components';
 import { Icon } from '@/ui/icon';
 import { color } from '@/ui/theme';
@@ -15,6 +15,8 @@ const SIZE = 62;
  * Your report on the map (DESIGN.md 6c): the photo inside a white gap and a status-colored
  * ring, a short tail, a soft ground shadow, and a status dot with a white glyph at 1–2 o'clock.
  * Reports without a photo (seeded / followed cases) show their category icon instead.
+ * The photo is a plain RN Image: map annotations snapshot their view, and RN Image reliably
+ * reports when it has drawn so we can stop tracking.
  */
 export function ReportPin({
   report,
@@ -28,14 +30,22 @@ export function ReportPin({
   onPress: () => void;
 }) {
   const ring = color.status[report.status].ring;
-  // Custom marker views are snapshotted; keep tracking until the photo/SVG for this look has drawn.
-  const look = `${report.status}|${report.photoUri}|${selected}|${dimmed}`;
+  const photo = photoSource(report.photoUri);
+  const [photoFailed, setPhotoFailed] = useState(false);
+  const showPhoto = Boolean(photo) && !photoFailed;
+
+  // Custom marker views are snapshotted: keep tracking until this look (and its photo) has drawn.
+  const look = `${report.status}|${photo}|${selected}|${dimmed}|${photoFailed}`;
   const [drawnLook, setDrawnLook] = useState<string | null>(null);
+  const [loadedPhoto, setLoadedPhoto] = useState<string | null>(null);
+  const ready = !showPhoto || loadedPhoto === photo;
   const tracks = drawnLook !== look;
   useEffect(() => {
-    const timer = setTimeout(() => setDrawnLook(look), 800);
+    if (!ready) return;
+    // A beat after the last change so the redraw lands in the snapshot.
+    const timer = setTimeout(() => setDrawnLook(look), 300);
     return () => clearTimeout(timer);
-  }, [look]);
+  }, [look, ready]);
 
   const scale = selected ? 1.25 : 1;
   return (
@@ -51,8 +61,14 @@ export function ReportPin({
       <View style={[styles.wrap, { transform: [{ scale }] }, dimmed && styles.dimmed]}>
         <View style={[styles.ring, { borderColor: ring }]}>
           <View style={styles.inner}>
-            {report.photoUri ? (
-              <Image source={{ uri: report.photoUri }} style={styles.photo} contentFit="cover" />
+            {showPhoto ? (
+              <Image
+                source={{ uri: photo }}
+                style={styles.photo}
+                resizeMode="cover"
+                onLoad={() => setLoadedPhoto(photo ?? null)}
+                onError={() => setPhotoFailed(true)}
+              />
             ) : (
               <View style={styles.iconFill}>
                 <Icon name={topicInfo(report.topic).icon} size={34} />

@@ -30,7 +30,7 @@ export type MyReport = {
   address: string;
   latitude: number;
   longitude: number;
-  /** Persistent local copy of the photo, when the user took one. */
+  /** The user's photo, when they took one. Pass it through `photoSource` before showing it. */
   photoUri?: string;
   createdAt: number;
   status: ReportStatus;

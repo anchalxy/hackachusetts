@@ -10,10 +10,10 @@ import { NEXT_STOP_DUE, TRAIL_STOPS } from '@/constants/trail';
 import {
   completeStop,
   getChallengeProgress,
-  leafBalance,
   streak,
   useChallengeProgress,
 } from '@/lib/challenge-progress';
+import { useLeafBalance } from '@/lib/rewards';
 import { Button, StatusGlyph } from '@/ui/components';
 import { Icon, type IconName } from '@/ui/icon';
 import { Txt } from '@/ui/text';
@@ -386,7 +386,8 @@ export function SentScreen({
   }, []);
 
   const progress = useChallengeProgress();
-  const summary = { balance: leafBalance(progress), weeks: streak(progress).weeks };
+  const balance = useLeafBalance();
+  const summary = { balance, weeks: streak(progress).weeks };
 
   return (
     <FlowScreen action={{ label: 'Back to the trail', onPress: backToTrail }}>
