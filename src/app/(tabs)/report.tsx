@@ -10,7 +10,13 @@ import { ThemedView } from '@/components/themed-view';
 import { BottomTabInset, Spacing } from '@/constants/theme';
 import { useBoston311 } from '@/hooks/use-boston-311';
 import type { Case311 } from '@/lib/boston-311';
-import { getMyReports, type MyReport, type ReportStatus } from '@/lib/my-reports';
+import { seedInProgressCases } from '@/lib/dev-seed';
+import {
+  getMyReports,
+  refreshMyReportsFrom311,
+  type MyReport,
+  type ReportStatus,
+} from '@/lib/my-reports';
 
 const BOSTON: Region = {
   latitude: 42.3601,
@@ -19,14 +25,16 @@ const BOSTON: Region = {
   longitudeDelta: 0.08,
 };
 
-const STATUS_COLORS: Record<ReportStatus, string> = {
+type PinStatus = Exclude<ReportStatus, 'resolved'>;
+
+const STATUS_COLORS: Record<PinStatus, string> = {
   submitted: '#E5484D',
   inReview: '#F5C518',
   inProgress: '#30A46C',
   rejected: '#8B8D98',
 };
 
-const LEGEND: { status: ReportStatus; label: string }[] = [
+const LEGEND: { status: PinStatus; label: string }[] = [
   { status: 'submitted', label: 'Not reviewed' },
   { status: 'inReview', label: 'In review' },
   { status: 'inProgress', label: 'In progress' },
@@ -48,13 +56,46 @@ export default function ReportScreen() {
   const [permission, requestPermission] = Location.useForegroundPermissions();
   const granted = permission?.granted ?? false;
   const [reports, setReports] = useState<MyReport[]>([]);
+  const [sync, setSync] = useState<'syncing' | 'synced' | 'failed' | null>(null);
+  const pins = reports.filter(
+    (r): r is MyReport & { status: PinStatus } => r.status !== 'resolved',
+  );
 
-  // Reload when coming back from the new-report flow.
+  // Every time the tab opens: show saved reports right away, then pull fresh statuses from 311.
   useFocusEffect(
     useCallback(() => {
-      getMyReports().then(setReports);
+      let active = true;
+      getMyReports().then((saved) => active && setReports(saved));
+      setSync('syncing');
+      refreshMyReportsFrom311()
+        .then((fresh) => {
+          if (!active) return;
+          setReports(fresh);
+          setSync('synced');
+        })
+        .catch(() => active && setSync('failed'));
+      return () => {
+        active = false;
+      };
     }, []),
   );
+
+  async function seedFrom311() {
+    try {
+      setSync('syncing');
+      const seeded = await seedInProgressCases();
+      setReports(await getMyReports()); // red first, straight from storage
+      mapRef.current?.fitToCoordinates(seeded, {
+        edgePadding: { top: 160, right: 60, bottom: 220, left: 60 },
+        animated: true,
+      });
+      await new Promise((resolve) => setTimeout(resolve, 1500)); // long enough to see them red
+      setReports(await refreshMyReportsFrom311()); // then 311 should turn them green
+      setSync('synced');
+    } catch {
+      setSync('failed');
+    }
+  }
 
   // Ask once on first visit; after that the user can retry from the banner.
   useEffect(() => {
@@ -92,7 +133,7 @@ export default function ReportScreen() {
         initialRegion={BOSTON}
         showsUserLocation={granted}
         showsMyLocationButton={false}>
-        {reports.map((report) => (
+        {pins.map((report) => (
           <Marker
             key={report.id}
             coordinate={{ latitude: report.latitude, longitude: report.longitude }}
@@ -113,12 +154,29 @@ export default function ReportScreen() {
               </View>
             ))}
           </View>
+          {sync && (
+            <ThemedText type="small" themeColor="textSecondary" style={styles.cityStat}>
+              {sync === 'syncing'
+                ? 'Checking 311 for updates on your reports…'
+                : sync === 'synced'
+                  ? 'Your reports are up to date with 311'
+                  : 'Couldn’t reach 311. Showing last known statuses.'}
+            </ThemedText>
+          )}
           {cityStat && (
             <ThemedText type="small" themeColor="textSecondary" style={styles.cityStat}>
               {cityStat}
             </ThemedText>
           )}
         </ThemedView>
+
+        {__DEV__ && (
+          <Pressable onPress={seedFrom311} style={styles.devButton}>
+            <ThemedText type="small" style={styles.devButtonText}>
+              DEV · Seed 3 in-progress 311 cases
+            </ThemedText>
+          </Pressable>
+        )}
 
         {permission && !granted && (
           <Pressable onPress={onLocatePress}>
@@ -185,6 +243,16 @@ const styles = StyleSheet.create({
     width: 10,
     height: 10,
     borderRadius: 5,
+  },
+  devButton: {
+    alignSelf: 'center',
+    backgroundColor: '#6E56CF',
+    paddingVertical: Spacing.one,
+    paddingHorizontal: Spacing.three,
+    borderRadius: Spacing.three,
+  },
+  devButtonText: {
+    color: '#ffffff',
   },
   banner: {
     padding: Spacing.three,
