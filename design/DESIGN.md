@@ -201,6 +201,30 @@ Order: **snap → AI checks the photo (seconds) → AI drafts the report → you
 4. **On its way to 311!:** an **animation** (see `submit-sent-animation.gif`): Paul gallops in from the left along the top of the screen, waving a red **311** flag, with dust puffs behind him. He crosses slowly, in ~3.3s (ease in-out, legs alternating every ~120ms, ±3px bob), and exits right. As he passes the middle, a **big** planted 311 flag pops up where he rode (scale 0 → 1.15 → 1, at 1.7× size) and waves for ~1s, then lowers into the ground (eases down behind the ground line while fading, ~0.8s), leaving the title. "Back to map" sits 38px below the View report button. Then "Routed to Traffic, Parking & Transportation", a card with what was sent (thumb, title, report #, description), a green "Tea leaves are on the way" note, **View report**, and a "Back to map" link.
 - The 4-step lifecycle starts at **Submitted** (= sent to 311). Everything before that happens on-screen in seconds, so there's no "Checking" pin on the map any more.
 
+## 6e. Rewards tab v2 (see `flows/rewards-flow.png`, `animations/crate-reward.gif`)
+**Points → leaves:** the backend keeps the 1–10 point rules from `exampleChallenges.md`; the app shows **points × 10 as tea leaves** (a 6-point challenge = 60 leaves). Crates fill at **50, 100, 150, then every 150** (= 5/10/15/15 points). Streak bonus = 10 × the week number. The leaf pill shows progress toward the next crate, e.g. 120.
+
+**More than one crate's worth: one at a time.** Leaves never get lost; overflow carries over. Even with enough for 2+ crates (e.g. 320 when the crate is 150), you only ever toss and open **one crate at a time**. The hero shows the single full crate with a teal "1 more ready" chip, the panel says "Your crate is full! You have enough for 2. Open them one at a time.", and the button is the usual **Toss it in the harbor!** After saving the deal you're back on Rewards and the crate is full again (170 → toss → 20 of 150).
+
+1. **Rewards home:** "Rewards" title (Bricolage 30) and the leaf pill. One **hero card**: a harbor scene (sky with a flat sun (same-hue outline, shine, two flat halo rings, no gradients so it never bands in video/GIF), puffy clouds, faint skyline, waves) with the *Beaver* and Paul cheering on deck, a dock in front holding the **tea crate** (slatted, leaves visible up to the fill level), and faded opened crates floating from past rewards. A **white progress panel sits inside the bottom of the card**: "120 of 150 leaves", "30 to go", bar, one line of explanation. Then **My Deals**: each row is fully tappable (chevron) and opens that deal's QR page. Badges: teal "5 days left", red at ≤2 days, gray "Used Oct 18".
+2. **Crate full:** leaves heap over the rim with Leafy on top. The panel turns into "Your crate is full! A surprise deal is waiting inside" + teal **Toss it in the harbor!**
+3. **Heave ho!** Paul holds the closed, roped crate above his head on deck (he has a neck now, so the head sits on the collar). Caption card: "Heave ho! Paul's tossing your crate into the harbor. Tap to skip".
+4. **The dive:** Paul throws, the crate arcs and splashes, and the camera eases down with it (ease-in-out, ~1.7s). The water darkens, bubbles trail the crate, fish swim past.
+5. **It landed!** (white Bricolage 32 with a soft shadow, plus "Tap the crate to open it"). The crate **hovers just above the sand, gently bobbing and tilting** with a soft radial glow, a shadow on the sand that shrinks/grows with the bob, and a few twinkling sparkles. No rings or ovals. **Nothing pops in:** after it settles, the bob amplitude, glow (~1.3s) and sparkles (start ~0.5s later) all ease in, then the title fades and drifts up 8px.
+6. **The tap = the golden moment.** It's one continuous animation (`crate-reward.gif`) with exactly one tap; everything else plays by itself. The hovering crate is the only tappable thing on screen (the whole crate area, generous 160pt hit box; light haptic on press). On tap:
+   - the crate squashes ~7% and springs back (touch feedback, plus a white ripple where the finger was),
+   - a **golden bloom** flashes from the crate and settles into a steady warm glow, and 10 gold/white sparkles burst outward once,
+   - the title fades out, the world dims, and the crate floats up to the center,
+   - the lid lifts on a soft arc and fades, a glow swells from inside, light rays fade in slowly and keep rotating (~14°/s, radial gradient so they never end on a hard circle),
+   - the deal card eases up and in ("You found a deal!", place, deal in teal, area · "Use within 7 days"), then the **teal Save to My Deals** button fades in while drifting up 14px.
+   - No leaves spraying, no second wiggle, no other taps until the button.
+7. **Deal (QR):** back arrow to Rewards. Card top: place name, the address directly below it, and a teal "Open in Google Maps" link (pin + arrow; opens `https://www.google.com/maps/search/?api=1&query=<place+address>`). Divider, the deal in teal, a big single-use QR with Leafy in the middle, "Show this at the counter / They'll scan it. Works once.", a "5 days left" badge. No separate location row.
+
+**Underwater scene rules:** light rays fade out with a vertical gradient (no hard edge); the sand is a gradient with no outline stroke; seaweed sways; fish (gold, coral, mint, blue: round body, wagging tail, fin, belly tint, eye with shine, no mouth) swim slowly across with a tail wag, **always head-first** (the asset faces left; mirror it when it swims right); bubbles rise.
+- Is "Beaver" right? Yes: the *Beaver* was one of the three Tea Party ships (with the *Dartmouth* and *Eleanor*).
+- Partners are real local spots (Flour Bakery + Café, Tatte, Pavement Coffeehouse). **The offers are placeholders; confirm them with each business before showing them as real.**
+- Timings: `tokens.json → motion.crateToss` and `motion.crateOpen`. Build from `assets/rewards/` (crate fill states, closed crate, Paul lift/throw/cheer, the ship, fish, sun, cloud) plus tweens (Reanimated).
+
 ## 7. Icon style: the "Leafy" recipe
 All icons share one construction:
 1. **Flat fill** in the object's main color.
