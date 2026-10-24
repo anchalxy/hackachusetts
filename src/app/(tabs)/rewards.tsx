@@ -6,7 +6,6 @@ import Svg, { Path } from 'react-native-svg';
 
 import { HarborHero } from '@/components/rewards/harbor-hero';
 import { openLeafDevMenu } from '@/components/rewards/leaf-dev-menu';
-import { BottomTabInset } from '@/constants/theme';
 import {
   dealBadge,
   dealStatus,
@@ -19,7 +18,7 @@ import {
 import { Badge, Button } from '@/ui/components';
 import { Icon } from '@/ui/icon';
 import { Txt } from '@/ui/text';
-import { font, makeStyles, radius, space, useColors, useScheme, type Palette } from '@/ui/theme';
+import { BottomTabInset, font, makeStyles, radius, space, useColors, useScheme, type Palette } from '@/ui/theme';
 
 function badgeColors(color: Palette, dark: boolean) {
   return {

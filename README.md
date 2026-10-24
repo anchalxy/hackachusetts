@@ -1,47 +1,47 @@
 # Tea Party
 
-A civic app for Boston-area neighbors: weekly challenges built from real city meeting agendas, 311 reports you can track, and tea leaves you earn and trade for local deals.
+An iPhone app that gets young people in Greater Boston involved in local government a few minutes at a time: weekly challenges pulled from real city agendas, photo reports that follow Boston's real 311 system, and tea leaves that unlock deals at local spots.
 
-## Try it on your phone with Expo Go
+Built for Hackachusetts (October 2026). The full write-up is in [PROJECT.md](PROJECT.md).
 
-You need [Node.js](https://nodejs.org) (LTS) on your computer and the **Expo Go** app on your phone ([iOS](https://apps.apple.com/app/expo-go/id982107779) / [Android](https://play.google.com/store/apps/details?id=host.exp.exponent)). Expo Go must support SDK 58; update it from the app store if it says the project is incompatible.
+## Run it in 3 steps
 
-1. Clone and install:
-
-   ```bash
-   git clone https://github.com/anchalxy/hackachusetts.git
-   cd hackachusetts
-   npm install
-   ```
-
-2. Start the dev server:
-
-   ```bash
-   npx expo start
-   ```
-
-3. Open it on your phone:
-   - **iPhone:** scan the QR code in the terminal with the Camera app.
-   - **Android:** open Expo Go and tap **Scan QR code**.
-
-Your phone and computer need to be on the same Wi-Fi network. If the app won't connect (campus or public Wi-Fi often blocks this), run `npx expo start --tunnel` instead.
-
-You don't need an `.env` file to run the app. Without one, it starts in demo mode with a built-in set of example challenges.
-
-## Good to know
-
-- Allow location and camera when asked. Reporting issues and checking in on challenges use them.
-- Expo Go has limited notification support (no remote push on Android). The rest of the app works normally there.
-- Live mode (`EXPO_PUBLIC_CHALLENGES_MODE=live` in `.env`) loads the latest generated week from `/api/challenges`. It's only needed if you're running the challenge pipeline.
-
-## Developer commands
+You need [Node.js](https://nodejs.org) 20+ and a Mac with Xcode (for the iOS Simulator), or an iPhone.
 
 ```bash
-npx expo start          # dev server (press i / a for iOS simulator / Android emulator)
-npx expo lint           # lint
-npx tsc --noEmit        # typecheck
-npm test                # property-based tests (Jest + fast-check)
-npm run challenges:weekly   # fetch agendas → generate challenges → track updates → send digests
+# 1. Install
+npm install
+
+# 2. Add your Anthropic key (only needed for the AI photo check)
+echo "ANTHROPIC_API_KEY=sk-ant-..." > .env.local
+
+# 3. Start
+npx expo start
 ```
 
-Routes live in `src/app/` ([Expo Router](https://docs.expo.dev/router/introduction)). The weekly challenge pipeline lives in `scripts/agendas/` and needs `ANTHROPIC_API_KEY` in `.env`.
+Then press `i` to open the iOS Simulator, or scan the QR code with your iPhone camera.
+
+That's it. The app runs in demo mode by default with a seeded user and this week's real challenges, so there's no account to set up.
+
+## Optional
+
+```bash
+npx expo run:ios            # native dev build, for the camera and maps on a real device
+npm test                    # property-based tests (fast-check)
+npm run challenges:weekly   # regenerate challenges from live agendas (needs ANTHROPIC_API_KEY)
+```
+
+Set `EXPO_PUBLIC_CHALLENGES_MODE=live` in `.env` to load the latest generated week instead of the demo week.
+
+## Where things live
+
+```
+src/app/          screens (Expo Router: each file is a route)
+src/components/   UI by feature: trail, report, rewards, challenge flows
+src/lib/          app logic and tests
+scripts/agendas/  weekly pipeline: scrape agendas → Claude → challenges
+data/             generated challenges, digests, agenda cache, 311 snapshot
+design/           design system, tokens, assets, mockups
+docs/             original brief and the hand-written demo week
+.kiro/            Kiro specs, hooks, and custom agents
+```

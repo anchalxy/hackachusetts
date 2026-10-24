@@ -65,3 +65,6 @@ export const STATUS_LABEL: Record<ReportStatus, string> = {
 };
 
 export const LIFECYCLE: ReportStatus[] = ['submitted', 'inReview', 'approved', 'fixed'];
+
+/** Height of the floating tab bar; it sits on the bottom safe-area inset. */
+export const BottomTabInset = 64;

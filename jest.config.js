@@ -14,7 +14,7 @@ module.exports = {
   moduleNameMapper: {
     // expo-sqlite kv-store -> in-memory stub
     '^expo-sqlite/kv-store$': '<rootDir>/test/mocks/kv-store.ts',
-    // theme pulls in global.css + RN Platform; only t.points is needed by rewards
+    // theme pulls in RN StyleSheet; only t.points is needed by rewards
     '^@/ui/theme$': '<rootDir>/test/mocks/theme.ts',
     // expo-notifications is native-only (ESM build); report-events only needs alertReportChange
     '^@/lib/device-notifications$': '<rootDir>/test/mocks/device-notifications.ts',

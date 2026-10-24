@@ -3,7 +3,7 @@ import Storage from 'expo-sqlite/kv-store';
 import { relatedTopics } from '@/constants/311-topics';
 
 // Boston 311 open data (new 311 system). No coordinates or case IDs in this slice.
-// See boston-311/README.md for the saved snapshot and field notes.
+// See data/boston-311/README.md for the saved snapshot and field notes.
 const URL =
   'https://data.boston.gov/api/3/action/datastore_search?resource_id=254adca6-64ab-4c5c-9fc0-a6da622be185&fields=open_date,case_topic,service_name,assigned_department,case_status,neighborhood,zip_code,on_time,city_council_district,ward&sort=open_date%20desc&limit=100';
 

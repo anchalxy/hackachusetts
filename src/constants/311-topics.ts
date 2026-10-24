@@ -1,6 +1,6 @@
 /**
  * 311 case topics a resident could photograph, taken from the city's own
- * `case_topic` values (boston-311/data.csv). Requests that aren't a visible
+ * `case_topic` values (data/boston-311/data.csv). Requests that aren't a visible
  * problem (permits, stickers, lost pets, suggestions) are left out.
  */
 export const REPORTABLE_TOPICS = [

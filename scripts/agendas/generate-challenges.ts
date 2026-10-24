@@ -337,7 +337,7 @@ async function main() {
   if (pool.length < 4) throw new Error(`Only ${pool.length} usable agenda items for ${areaLabel(profile)}; need at least 4.`);
   console.log(`Generating challenges for ${areaLabel(profile)}, age ${profile.age}, week of ${week} from ${pool.length} candidate items…`);
 
-  const examples = await readFile(path.join(ROOT, 'exampleChallenges.md'), 'utf8');
+  const examples = await readFile(path.join(ROOT, 'docs', 'exampleChallenges.md'), 'utf8');
   const candidateList = pool.map((i) => ({
     id: i.id,
     relevance: i.relevance,

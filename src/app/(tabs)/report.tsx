@@ -20,7 +20,6 @@ import Svg, { Path } from 'react-native-svg';
 import { QuickLook } from '@/components/report/quick-look';
 import { ReportPin } from '@/components/report/report-pin';
 import { ReportRow } from '@/components/report/report-row';
-import { BottomTabInset } from '@/constants/theme';
 import { exampleCenter, resetReports, seedExampleReports, seedExamplesOnce, seedInProgressCases } from '@/lib/dev-seed';
 import {
   getMyReports,
@@ -34,7 +33,7 @@ import { useLeafBalance } from '@/lib/rewards';
 import { LeafPill } from '@/ui/components';
 import { Icon } from '@/ui/icon';
 import { Txt } from '@/ui/text';
-import { font, makeStyles, space, useColors } from '@/ui/theme';
+import { BottomTabInset, font, makeStyles, space, useColors } from '@/ui/theme';
 
 const BOSTON: Region = { latitude: 42.3601, longitude: -71.0589, latitudeDelta: 0.08, longitudeDelta: 0.08 };
 const NEARBY = { latitudeDelta: 0.02, longitudeDelta: 0.02 };

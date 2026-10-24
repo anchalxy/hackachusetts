@@ -4,7 +4,7 @@
 
 Tea Party is a civic-engagement mobile application for Greater Boston (Boston by neighborhood, Cambridge, Somerville, and Brookline) that turns participation in local government into a game. Young residents complete weekly challenges derived from real government agenda items, report neighborhood issues through a photo-first flow backed by the live Boston 311 dataset, and earn an in-app currency ("tea leaves") that converts into real partner-business rewards. An offline data pipeline scrapes agendas, extracts resident-actionable items with Claude, generates challenges, and sends mocked email digests to the named government contacts, so officials learn what residents want without residents having to attend meetings.
 
-This document describes the system as built, reverse-engineered from the existing TypeScript codebase (Expo SDK 58 / React Native / Expo Router), the offline pipeline in `scripts/agendas/`, the generated data in `data/`, and the product decisions recorded in `Plan.md` and `exampleChallenges.md`. Requirements describe what the system does and should do, anchored to real behavior. Where `Plan.md` prose and the shipped code disagree on the rewards economy, the code is authoritative (thresholds 50/100/150 then every 150; overflow carried over; seed counter 120/150).
+This document describes the system as built, reverse-engineered from the existing TypeScript codebase (Expo SDK 58 / React Native / Expo Router), the offline pipeline in `scripts/agendas/`, the generated data in `data/`, and the product decisions recorded in `docs/Plan.md` and `docs/exampleChallenges.md`. Requirements describe what the system does and should do, anchored to real behavior. Where `docs/Plan.md` prose and the shipped code disagree on the rewards economy, the code is authoritative (thresholds 50/100/150 then every 150; overflow carried over; seed counter 120/150).
 
 The product is built for a hackathon demo, so the four consumer tabs (Challenges, Report, Rewards, Account) and the government-facing offline pipeline are all co-equal in scope, and each area supports both a mocked demo mode and a live mode.
 
@@ -93,7 +93,7 @@ The product is built for a hackathon demo, so the four consumer tabs (Challenges
 
 #### Acceptance Criteria
 
-1. WHERE Challenges_Mode is unset or any value other than `live`, THE Tea_Party_App SHALL display the pre-seeded demo week from `exampleChallenges.md` content without a network call.
+1. WHERE Challenges_Mode is unset or any value other than `live`, THE Tea_Party_App SHALL display the pre-seeded demo week from `docs/exampleChallenges.md` content without a network call.
 2. WHERE Challenges_Mode equals `live`, THE Tea_Party_App SHALL load the latest generated week for the Seed_User's area.
 
 ### Requirement 6: Personal reports map
@@ -244,7 +244,7 @@ The product is built for a hackathon demo, so the four consumer tabs (Challenges
 
 #### Acceptance Criteria
 
-1. WHEN `challenges:generate` runs, THE Agenda_Pipeline SHALL have Claude write 4 to 5 Challenges for the Seed_User's area calibrated on `exampleChallenges.md`.
+1. WHEN `challenges:generate` runs, THE Agenda_Pipeline SHALL have Claude write 4 to 5 Challenges for the Seed_User's area calibrated on `docs/exampleChallenges.md`.
 2. WHEN a Challenge is generated, THE Agenda_Pipeline SHALL take the Challenge's source link and government contact from the originating agenda item.
 3. WHEN a Challenge is generated, THE Agenda_Pipeline SHALL compute the point value in code from estimated time (under 15 min = 1, 15 to 30 min = 2, 30 to 45 min = 3, 45 to 60 min = 4, over 60 min = 5), plus 2 for in-person attendance, plus 1 when a city office asked for the input, plus 1 when proof is required.
 

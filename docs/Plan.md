@@ -36,7 +36,7 @@ Consumer
 
 Government
 
-- 311 data source: data.boston.gov “311 Service Requests - NEW SYSTEM” (resource 254adca6-64ab-4c5c-9fc0-a6da622be185). It has case_id, lat/long, case_status, assigned_department, assigned_team, closure_reason, closure_comments, close_date, and target_close_date. It supports SQL queries, so it can do radius searches for duplicates. It updates through the day; median time to close is about 4.6 hours. submitted_photo and closed_photo are always empty, so duplicates are matched on location + category, not photos. A saved snapshot and notes are in boston-311/.  
+- 311 data source: data.boston.gov “311 Service Requests - NEW SYSTEM” (resource 254adca6-64ab-4c5c-9fc0-a6da622be185). It has case_id, lat/long, case_status, assigned_department, assigned_team, closure_reason, closure_comments, close_date, and target_close_date. It supports SQL queries, so it can do radius searches for duplicates. It updates through the day; median time to close is about 4.6 hours. submitted_photo and closed_photo are always empty, so duplicates are matched on location + category, not photos. A saved snapshot and notes are in data/boston-311/.  
 - Use 311 API to actively pull issues that are already reported/resolved to update user map   
 - Use 311 API to submit new issues \+ see what has already been reported so we don’t double report.   
 - Email reports to officials that are listed on government agendas before the deadline based on the user input.   

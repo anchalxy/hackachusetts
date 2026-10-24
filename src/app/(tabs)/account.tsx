@@ -9,7 +9,6 @@ import Svg, { Path } from 'react-native-svg';
 import { timelineDates } from '@/components/report/format';
 import { openLeafDevMenu } from '@/components/rewards/leaf-dev-menu';
 import { topicInfo } from '@/constants/report-topics';
-import { BottomTabInset } from '@/constants/theme';
 import { useChallengeProgress } from '@/lib/challenge-progress';
 import { challengeUpdateFeed, updateAgo, type ChallengeUpdateItem } from '@/lib/challenge-update-feed';
 import { getCurrentWeek } from '@/lib/challenge-week';
@@ -23,7 +22,7 @@ import { seedFrom311Once } from '@/lib/seed-311';
 import { Badge, Button, IconTile, StatusBadge, Timeline } from '@/ui/components';
 import { Icon } from '@/ui/icon';
 import { Txt } from '@/ui/text';
-import { font, makeStyles, radius, space, useColors } from '@/ui/theme';
+import { BottomTabInset, font, makeStyles, radius, space, useColors } from '@/ui/theme';
 
 
 const PHOTO = require('../../../design/assets/avatars/ishaan-photo.jpg');

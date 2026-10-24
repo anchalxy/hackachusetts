@@ -200,7 +200,7 @@ Five stages, each a Node entry point, chained through `data/` files. The `Weekly
 | --- | --- | --- | --- | --- |
 | 1 fetch | `fetch-meetings.ts` | Legistar (Boston, Somerville), boston.gov notices, PrimeGov (Cambridge), CivicClerk (Brookline) | `data/agendas/meetings.json` | no |
 | 2 extract | `extract-items.ts` | `meetings.json` + agenda docs | `data/agendas/items.json` (+ per-agenda cache) | yes |
-| 3 generate | `generate-challenges.ts` | `items.json`, `exampleChallenges.md` | `data/challenges/<week>/<area>.{json,md}`, `index.json` | yes |
+| 3 generate | `generate-challenges.ts` | `items.json`, `docs/exampleChallenges.md` | `data/challenges/<week>/<area>.{json,md}`, `index.json` | yes |
 | 4 track | `track-updates.ts` | published weeks + city records | `data/challenges/updates.json` | mixed |
 | 5 digest | `send-digests.ts` | published weeks, `submissions.ts` cohort | emails via `mailer.ts`, `data/digests/sent.json` | optional |
 
