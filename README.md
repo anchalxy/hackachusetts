@@ -1,56 +1,47 @@
-# Welcome to your Expo app 👋
+# Tea Party
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A civic app for Boston-area neighbors: weekly challenges built from real city meeting agendas, 311 reports you can track, and tea leaves you earn and trade for local deals.
 
-## Get started
+## Try it on your phone with Expo Go
 
-1. Install dependencies
+You need [Node.js](https://nodejs.org) (LTS) on your computer and the **Expo Go** app on your phone ([iOS](https://apps.apple.com/app/expo-go/id982107779) / [Android](https://play.google.com/store/apps/details?id=host.exp.exponent)). Expo Go must support SDK 58; update it from the app store if it says the project is incompatible.
+
+1. Clone and install:
 
    ```bash
+   git clone https://github.com/anchalxy/hackachusetts.git
+   cd hackachusetts
    npm install
    ```
 
-2. Start the app
+2. Start the dev server:
 
    ```bash
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+3. Open it on your phone:
+   - **iPhone:** scan the QR code in the terminal with the Camera app.
+   - **Android:** open Expo Go and tap **Scan QR code**.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Your phone and computer need to be on the same Wi-Fi network. If the app won't connect (campus or public Wi-Fi often blocks this), run `npx expo start --tunnel` instead.
 
-You can start developing by editing the files inside the **src/app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+You don't need an `.env` file to run the app. Without one, it starts in demo mode with a built-in set of example challenges.
 
-## Get a fresh project
+## Good to know
 
-When you're ready, run:
+- Allow location and camera when asked. Reporting issues and checking in on challenges use them.
+- Expo Go has limited notification support (no remote push on Android). The rest of the app works normally there.
+- Live mode (`EXPO_PUBLIC_CHALLENGES_MODE=live` in `.env`) loads the latest generated week from `/api/challenges`. It's only needed if you're running the challenge pipeline.
+
+## Developer commands
 
 ```bash
-npm run reset-project
+npx expo start          # dev server (press i / a for iOS simulator / Android emulator)
+npx expo lint           # lint
+npx tsc --noEmit        # typecheck
+npm test                # property-based tests (Jest + fast-check)
+npm run challenges:weekly   # fetch agendas → generate challenges → track updates → send digests
 ```
 
-This command will move the starter code to the **example** directory and create a blank **src/app** directory where you can start developing.
-
-### Other setup steps
-
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Routes live in `src/app/` ([Expo Router](https://docs.expo.dev/router/introduction)). The weekly challenge pipeline lives in `scripts/agendas/` and needs `ANTHROPIC_API_KEY` in `.env`.
