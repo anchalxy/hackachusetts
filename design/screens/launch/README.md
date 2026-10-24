@@ -24,8 +24,9 @@ Use `design/assets/launch/splash-icon.png` (teacup, transparent, 1024²). App ic
 | 1.22 | A white ring ripples on the tea (0.5 s) |
 
 ## 3 · Hand-off (1.5 – 2.3 s)
+There's no teacup in the header anymore, so the cup doesn't fly anywhere: it lifts away.
 - 1.50: wordmark and greeting fade out (0.25 s).
-- 1.60: the cup flies to the header's teacup: translate to (36, 72) and scale to 32/120, 0.5 s `cubic-bezier(.5,0,.3,1)`, then fades as it meets the real header cup.
+- 1.60: the cup rises 36 px and shrinks to 0.86 while fading out, 0.5 s `cubic-bezier(.5,0,.3,1)`.
 - 1.75: the cream overlay fades out (0.5 s), revealing the Challenges tab underneath, already laid out at the top of the trail.
 - 2.30: overlay removed. Taps anywhere during the animation skip straight to the end.
 
