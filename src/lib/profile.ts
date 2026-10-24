@@ -9,7 +9,18 @@ const KEY = 'profile';
 export async function getProfile(): Promise<Profile> {
   const raw = await Storage.getItem(KEY);
   // Merge so profiles saved before a field existed still get its default.
-  return raw ? { ...SEED_PROFILE, ...JSON.parse(raw) } : SEED_PROFILE;
+  return { ...SEED_PROFILE, ...(parseObject(raw) as Partial<Profile>) };
+}
+
+/** Stored JSON object, or {} when missing or corrupt (so a bad value can't break every profile read). */
+function parseObject(raw: string | null): Record<string, unknown> {
+  if (!raw) return {};
+  try {
+    const parsed: unknown = JSON.parse(raw);
+    return typeof parsed === 'object' && parsed !== null && !Array.isArray(parsed) ? (parsed as Record<string, unknown>) : {};
+  } catch {
+    return {};
+  }
 }
 
 export async function saveProfile(profile: Profile): Promise<void> {

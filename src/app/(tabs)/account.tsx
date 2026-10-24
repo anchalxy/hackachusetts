@@ -1,11 +1,14 @@
 import { Image } from 'expo-image';
 import { router, useFocusEffect } from 'expo-router';
+import * as WebBrowser from 'expo-web-browser';
 import { useCallback, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Svg, { Path } from 'react-native-svg';
 
 import { BottomTabInset } from '@/constants/theme';
+import { useChallengeProgress } from '@/lib/challenge-progress';
+import { challengeUpdateFeed, updateAgo, type ChallengeUpdateItem } from '@/lib/challenge-update-feed';
 import { areaLabel, getProfile, SEED_PROFILE, type Profile } from '@/lib/profile';
 import { useLeafBalance } from '@/lib/rewards';
 import { Badge, Button, Card, IconTile, Timeline } from '@/ui/components';
@@ -94,6 +97,9 @@ export default function ProfileScreen() {
   const [profile, setProfile] = useState<Profile>(SEED_PROFILE);
   const [thanked, setThanked] = useState(false);
   const balance = useLeafBalance();
+  // What the city did after challenges you finished (data/challenges/updates.json, checked weekly).
+  const updates = challengeUpdateFeed(useChallengeProgress());
+  const [now] = useState(() => Date.now());
 
   // Reload on focus: Edit profile and Neighborhood in the menu sheet change it.
   useFocusEffect(
@@ -235,6 +241,9 @@ export default function ProfileScreen() {
         <Txt variant="section" style={styles.earlier}>
           Earlier
         </Txt>
+        {updates.map((u) => (
+          <ChallengeUpdateRow key={u.id} update={u} now={now} />
+        ))}
         {EARLIER.map((n, i) => (
           <NotificationRow key={n.id} notification={n} last={i === EARLIER.length - 1} />
         ))}
@@ -261,6 +270,29 @@ function NotificationRow({ notification: n, last }: { notification: Notification
           </Txt>
         </View>
         <RowTrailing trailing={n.trailing} />
+      </View>
+    </View>
+  );
+}
+
+/** "Update on Rat patrol: Docket #1804 was referred…" with where it came from, so users can check it. */
+function ChallengeUpdateRow({ update: u, now }: { update: ChallengeUpdateItem; now: number }) {
+  return (
+    <View style={styles.row}>
+      <IconTile icon={u.icon} />
+      <View style={[styles.rowBody, styles.rowDivider]}>
+        <View style={styles.rowText}>
+          <Txt variant="row" numberOfLines={2}>
+            <Txt variant="row" style={styles.rowLead}>
+              {u.lead}
+            </Txt>
+            {u.text ? ` ${u.text}` : ''}
+          </Txt>
+          <Txt variant="meta" numberOfLines={1}>
+            {`${u.detail} · ${updateAgo(u.date, now)}`}
+          </Txt>
+        </View>
+        {u.url ? <Button size="sm" label="View" onPress={() => WebBrowser.openBrowserAsync(u.url)} /> : null}
       </View>
     </View>
   );
@@ -523,6 +555,7 @@ const styles = StyleSheet.create({
   rowBody: {
     flex: 1,
     minHeight: 68,
+    paddingVertical: 10,
     flexDirection: 'row',
     alignItems: 'center',
     gap: 10,

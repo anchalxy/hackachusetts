@@ -112,7 +112,11 @@ export async function getCasesById(caseIds: string[]): Promise<CaseUpdate[]> {
 /** Latest 311 cases, refreshed from the city at most once a day. */
 export async function getRecent311Cases(): Promise<Recent311> {
   const raw = await Storage.getItem(CACHE_KEY);
-  const cached: Recent311 | null = raw ? JSON.parse(raw) : null;
+  let cached: Recent311 | null = null;
+  try {
+    const parsed = raw ? JSON.parse(raw) : null;
+    if (parsed && Array.isArray(parsed.cases) && typeof parsed.fetchedAt === 'number') cached = parsed;
+  } catch {} // corrupt cache: refetch
   if (cached && Date.now() - cached.fetchedAt < MAX_AGE_MS) return cached;
 
   try {

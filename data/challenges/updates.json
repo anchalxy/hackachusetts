@@ -1,0 +1,218 @@
+{
+  "checkedAt": "2026-10-24T21:10:07.683Z",
+  "challenges": {
+    "demo-urban-wild": {
+      "challengeId": "demo-urban-wild",
+      "title": "Redesign Your Urban Wild",
+      "weekOf": "2026-10-26",
+      "watching": [
+        {
+          "label": "Challenge source",
+          "url": "https://www.boston.gov/departments/parks-and-recreation/urban-wilds-strategic-plan"
+        }
+      ],
+      "status": "open",
+      "weeksChecked": 1,
+      "lastCheckedWeek": "2026-10-19",
+      "updates": []
+    },
+    "demo-pb-2-million": {
+      "challengeId": "demo-pb-2-million",
+      "title": "Spend Boston's $2 Million",
+      "weekOf": "2026-10-26",
+      "watching": [
+        {
+          "label": "Challenge source",
+          "url": "https://www.boston.gov/departments/participatory-budgeting/proposal-development"
+        },
+        {
+          "label": "Participatory Budgeting (draft ballot)",
+          "url": "https://www.boston.gov/departments/participatory-budgeting"
+        }
+      ],
+      "status": "open",
+      "weeksChecked": 1,
+      "lastCheckedWeek": "2026-10-19",
+      "updates": []
+    },
+    "demo-cummins-walk-audit": {
+      "challengeId": "demo-cummins-walk-audit",
+      "title": "Cummins Highway Walk Audit",
+      "weekOf": "2026-10-26",
+      "watching": [
+        {
+          "label": "Challenge source",
+          "url": "https://www.boston.gov/calendar/cummins-highway-community-walkthrough"
+        },
+        {
+          "label": "Cummins Highway project page",
+          "url": "https://www.boston.gov/departments/public-works/project/cummins-highway"
+        }
+      ],
+      "status": "open",
+      "weeksChecked": 1,
+      "lastCheckedWeek": "2026-10-19",
+      "updates": []
+    },
+    "demo-council-oct-28": {
+      "challengeId": "demo-council-oct-28",
+      "title": "Cover the Oct 28 City Council Meeting",
+      "weekOf": "2026-10-26",
+      "watching": [
+        {
+          "label": "Docket #1958",
+          "url": "https://boston.legistar.com/LegislationDetail.aspx?ID=43677&GUID=AA2276BF-038A-419A-9A51-9809A8B1DE64"
+        },
+        {
+          "label": "Docket #1968",
+          "url": "https://boston.legistar.com/LegislationDetail.aspx?ID=43670&GUID=0D1262A1-9EF1-4698-B5EC-DFE58C681EE9"
+        },
+        {
+          "label": "Challenge source",
+          "url": "https://www.boston.gov/departments/city-council"
+        }
+      ],
+      "status": "open",
+      "weeksChecked": 1,
+      "lastCheckedWeek": "2026-10-19",
+      "updates": [
+        {
+          "id": "docket:2026-1958:75228",
+          "text": "Docket #1958 was referred to the Committee on Government Operations.",
+          "source": "cityRecords",
+          "publisher": "Boston City Council",
+          "url": "https://boston.legistar.com/LegislationDetail.aspx?ID=43677&GUID=AA2276BF-038A-419A-9A51-9809A8B1DE64",
+          "date": "2026-10-21",
+          "foundAt": "2026-10-24T21:10:06.817Z"
+        },
+        {
+          "id": "docket:2026-1968:75240",
+          "text": "Docket #1968 passed the City Council.",
+          "source": "cityRecords",
+          "publisher": "Boston City Council",
+          "url": "https://boston.legistar.com/LegislationDetail.aspx?ID=43670&GUID=0D1262A1-9EF1-4698-B5EC-DFE58C681EE9",
+          "date": "2026-10-21",
+          "foundAt": "2026-10-24T21:10:07.090Z"
+        }
+      ]
+    },
+    "demo-rat-patrol": {
+      "challengeId": "demo-rat-patrol",
+      "title": "Rat Patrol 311 Response Test",
+      "weekOf": "2026-10-26",
+      "watching": [
+        {
+          "label": "Docket #1804",
+          "url": "https://boston.legistar.com/LegislationDetail.aspx?ID=43463&GUID=040802FB-39A8-4FC7-8C9C-C83AF1F56922"
+        },
+        {
+          "label": "Challenge source",
+          "url": "https://www.boston.gov/public-notices/16632881"
+        }
+      ],
+      "status": "open",
+      "weeksChecked": 1,
+      "lastCheckedWeek": "2026-10-19",
+      "updates": [
+        {
+          "id": "docket:2026-1804:74928",
+          "text": "Docket #1804 was referred to the Committee on City Services.",
+          "source": "cityRecords",
+          "publisher": "Boston City Council",
+          "url": "https://boston.legistar.com/LegislationDetail.aspx?ID=43463&GUID=040802FB-39A8-4FC7-8C9C-C83AF1F56922",
+          "date": "2026-09-23",
+          "foundAt": "2026-10-24T21:10:07.391Z"
+        }
+      ]
+    },
+    "2026-10-26-program-290-north-beacon": {
+      "challengeId": "2026-10-26-program-290-north-beacon",
+      "title": "Program 290 North Beacon",
+      "weekOf": "2026-10-26",
+      "watching": [
+        {
+          "label": "Challenge source",
+          "url": "https://www.boston.gov/public-notices/16634016"
+        }
+      ],
+      "status": "open",
+      "weeksChecked": 1,
+      "lastCheckedWeek": "2026-10-19",
+      "updates": []
+    },
+    "2026-10-26-test-drive-the-mckim-building": {
+      "challengeId": "2026-10-26-test-drive-the-mckim-building",
+      "title": "Test-Drive the McKim Building",
+      "weekOf": "2026-10-26",
+      "watching": [
+        {
+          "label": "Challenge source",
+          "url": "https://www.boston.gov/public-notices/16634086"
+        }
+      ],
+      "status": "open",
+      "weeksChecked": 1,
+      "lastCheckedWeek": "2026-10-19",
+      "updates": []
+    },
+    "2026-10-26-did-the-development-deliver": {
+      "challengeId": "2026-10-26-did-the-development-deliver",
+      "title": "Did the Development Deliver?",
+      "weekOf": "2026-10-26",
+      "watching": [
+        {
+          "label": "Docket #1337",
+          "url": "https://boston.legistar.com/LegislationDetail.aspx?ID=42973&GUID=9AD7AEC1-A471-4739-ADE8-6EF36347DE4A"
+        },
+        {
+          "label": "Challenge source",
+          "url": "https://www.boston.gov/public-notices/16627506"
+        }
+      ],
+      "status": "open",
+      "weeksChecked": 1,
+      "lastCheckedWeek": "2026-10-19",
+      "updates": [
+        {
+          "id": "agenda:2026-1337:boston-notices:16627506",
+          "text": "Docket #1337 is on the City Council agenda for Thu, Oct 29.",
+          "source": "cityRecords",
+          "publisher": "City Council",
+          "url": "https://www.boston.gov/public-notices/16627506",
+          "date": "2026-10-24",
+          "foundAt": "2026-10-24T21:10:07.676Z"
+        }
+      ]
+    },
+    "2026-10-26-watch-early-ballots-get-counted": {
+      "challengeId": "2026-10-26-watch-early-ballots-get-counted",
+      "title": "Watch Early Ballots Get Counted",
+      "weekOf": "2026-10-26",
+      "watching": [
+        {
+          "label": "Challenge source",
+          "url": "https://www.boston.gov/public-notices/16634306"
+        }
+      ],
+      "status": "open",
+      "weeksChecked": 1,
+      "lastCheckedWeek": "2026-10-19",
+      "updates": []
+    },
+    "2026-10-26-cover-the-reparations-task-force-meeting": {
+      "challengeId": "2026-10-26-cover-the-reparations-task-force-meeting",
+      "title": "Cover the Reparations Task Force Meeting",
+      "weekOf": "2026-10-26",
+      "watching": [
+        {
+          "label": "Challenge source",
+          "url": "https://www.boston.gov/public-notices/16629971"
+        }
+      ],
+      "status": "open",
+      "weeksChecked": 1,
+      "lastCheckedWeek": "2026-10-19",
+      "updates": []
+    }
+  }
+}

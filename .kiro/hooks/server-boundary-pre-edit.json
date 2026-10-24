@@ -1,0 +1,16 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Server boundary: block leaking edits",
+      "trigger": "PreToolUse",
+      "description": "Blocks agent edits to client code in src/ (outside API routes) that import @anthropic-ai/sdk or scripts/agendas, or read process.env.ANTHROPIC_*.",
+      "matcher": "^(fs_write|fs_append|str_replace)$",
+      "action": {
+        "type": "command",
+        "command": "node .kiro/hook-scripts/check-server-boundary.mjs pre",
+        "timeout": 10
+      }
+    }
+  ]
+}

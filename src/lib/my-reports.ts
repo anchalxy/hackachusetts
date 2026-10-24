@@ -97,7 +97,18 @@ function normalize(raw: Partial<MyReport> & { status: string }): MyReport {
 
 export async function getMyReports(): Promise<MyReport[]> {
   const raw = await Storage.getItem(KEY);
-  return raw ? (JSON.parse(raw) as MyReport[]).map(normalize) : [];
+  if (!raw) return [];
+  // One corrupt value must not brick the Report tab and every future save.
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(raw);
+  } catch {
+    return [];
+  }
+  if (!Array.isArray(parsed)) return [];
+  return parsed
+    .filter((r): r is Partial<MyReport> & { status: string } => typeof r === 'object' && r !== null)
+    .map(normalize);
 }
 
 export async function getMyReport(id: string): Promise<MyReport | undefined> {

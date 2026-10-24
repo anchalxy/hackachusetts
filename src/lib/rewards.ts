@@ -1,9 +1,9 @@
 import Storage from 'expo-sqlite/kv-store';
 import { useSyncExternalStore } from 'react';
 
+import { leafBalance as trailLeaves, useChallengeProgress, type ChallengeProgress } from '@/lib/challenge-progress';
 import type { IconName } from '@/ui/icon';
 import { t } from '@/ui/theme';
-import { leafBalance as trailLeaves, useChallengeProgress, type ChallengeProgress } from '@/lib/challenge-progress';
 
 // Rewards tab v2 (DESIGN.md 6e): leaves fill a crate at 50, 100, 150, then every 150. Each crate
 // resets the counter, overflow carries over, and you open one crate at a time.
@@ -81,7 +81,16 @@ const listeners = new Set<() => void>();
 function load(): RewardsState {
   try {
     const raw = Storage.getItemSync(KEY);
-    if (raw) return JSON.parse(raw);
+    const parsed = raw ? JSON.parse(raw) : null;
+    // Valid JSON with a missing/wrong field would crash the Rewards tab on `deals.filter`.
+    if (parsed && Array.isArray(parsed.deals)) {
+      return {
+        cratesOpened: Number(parsed.cratesOpened) || 0,
+        spent: Number(parsed.spent) || 0,
+        bonus: Number(parsed.bonus) || 0,
+        deals: parsed.deals,
+      };
+    }
   } catch {}
   const fresh = seed();
   try {
@@ -198,7 +207,8 @@ export function dealStatus(deal: Deal, now = Date.now()): DealStatus {
   if (deal.usedAt) return { kind: 'used', at: deal.usedAt };
   const expiresAt = deal.issuedAt + DEAL_DAYS * DAY;
   if (now >= expiresAt) return { kind: 'expired', at: expiresAt };
-  return { kind: 'active', daysLeft: Math.ceil((expiresAt - now) / DAY) };
+  // Clamp: a clock set backwards would otherwise show more days than a code can ever have.
+  return { kind: 'active', daysLeft: Math.min(DEAL_DAYS, Math.ceil((expiresAt - now) / DAY)) };
 }
 
 const monthDay = (at: number) => new Date(at).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });

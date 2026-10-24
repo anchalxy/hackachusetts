@@ -1,5 +1,7 @@
 # Every Monday: pull Greater Boston meeting agendas, extract what residents can act on,
-# generate the week's challenges for the seed user, and commit the results to data/.
+# generate the week's challenges for the seed user, check past challenges for city updates
+# (dockets, agendas, project pages), send the citizen-input digests due that day, and commit
+# the results to data/.
 # Needs the ANTHROPIC_API_KEY repository secret. Run it by hand from the Actions tab too.
 name: Weekly challenges
 
@@ -29,7 +31,7 @@ jobs:
 
       - run: npm ci
 
-      - name: Fetch meetings, extract agenda items, generate challenges
+      - name: Fetch meetings, extract agenda items, generate challenges, track updates
         run: npm run challenges:weekly
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}

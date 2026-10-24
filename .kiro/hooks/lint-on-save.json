@@ -1,0 +1,15 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Lint on Save",
+      "trigger": "PostFileSave",
+      "description": "Runs the Expo linter whenever a JS/TS source file is saved.",
+      "matcher": "\\.(ts|tsx|js|jsx)$",
+      "action": {
+        "type": "command",
+        "command": "npx expo lint"
+      }
+    }
+  ]
+}

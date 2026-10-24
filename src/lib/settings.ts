@@ -25,7 +25,12 @@ export const DEFAULT_NOTIFICATION_PREFS: NotificationPrefs = {
 
 export async function getNotificationPrefs(): Promise<NotificationPrefs> {
   const raw = await Storage.getItem(PREFS_KEY);
-  return raw ? { ...DEFAULT_NOTIFICATION_PREFS, ...JSON.parse(raw) } : DEFAULT_NOTIFICATION_PREFS;
+  if (!raw) return DEFAULT_NOTIFICATION_PREFS;
+  try {
+    const parsed: unknown = JSON.parse(raw);
+    if (typeof parsed === 'object' && parsed !== null) return { ...DEFAULT_NOTIFICATION_PREFS, ...parsed };
+  } catch {}
+  return DEFAULT_NOTIFICATION_PREFS;
 }
 
 export async function saveNotificationPrefs(prefs: NotificationPrefs): Promise<void> {

@@ -1,0 +1,16 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Server boundary: scan on save",
+      "trigger": "PostFileSave",
+      "description": "Scans src/ on save and reports any client file that pulls in server-only code (Anthropic SDK, scripts/agendas, ANTHROPIC_* env vars).",
+      "matcher": "src/.*\\.(ts|tsx|js|jsx)$",
+      "action": {
+        "type": "command",
+        "command": "node .kiro/hook-scripts/check-server-boundary.mjs scan",
+        "timeout": 20
+      }
+    }
+  ]
+}
